@@ -138,10 +138,7 @@ add_action( 'widgets_init', 'st_philip_widgets_init' );
  * Enqueue scripts and styles.
  */
 function st_philip_scripts() {
-	
-	wp_enqueue_style( 'tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css' );
-	wp_enqueue_style( 'st_philip-style', get_template_directory_uri() . "/css/style.css", array(), null, 'all' );
-
+	wp_enqueue_style( 'st_philip-style', get_stylesheet_uri(), "/css/style.css", null, 'all' );
 	wp_style_add_data( 'st_philip-style', 'rtl', 'replace' );
 
 
