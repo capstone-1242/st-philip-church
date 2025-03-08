@@ -142,10 +142,6 @@ header {
         background-color: white;
         list-style: none;
         padding: 10px;
-
-        li:not(last-of-type){
-          border-bottom: 1px solid black;
-        }
       }
 
      
@@ -153,7 +149,6 @@ header {
       &:focus-within > ul.sub-menu {
         display: block;
         width: max-content;
-        flex-wrap: nowrap;
       }
     }
   }

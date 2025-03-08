@@ -187,3 +187,25 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+
+function filter_committee_chair_choices($args, $field, $post_id) {
+	// Check if the current post is a Parish Committee post
+	if ($field['name'] == 'committee_chair' && get_post_type($post_id) == 'parish_committee') {
+			// Get the selected committee members
+			$committee_members = get_field('committee_members', $post_id); // The field name for committee members
+			
+			// If there are selected committee members, filter the choices
+			if ($committee_members) {
+					$member_ids = array();
+					foreach ($committee_members as $member) {
+							$member_ids[] = $member->ID; // Get the IDs of the selected members
+					}
+
+					// Modify the query to only show the selected members as options
+					$args['post__in'] = $member_ids; // Only show selected members
+			}
+	}
+
+	return $args;
+}
+add_filter('acf/fields/relationship/query', 'filter_committee_chair_choices', 10, 3);

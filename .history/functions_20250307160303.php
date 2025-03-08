@@ -187,3 +187,34 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+
+function my_acf_load_chair_choices($field) {
+	// Get the current post ID (the Parish Committee post)
+	$post_id = get_the_ID();
+
+	// Get the selected members in the Relationship field (committee_members)
+	$committee_members = get_field('committee_members', $post_id);
+
+	// Check if there are any members selected
+	if ($committee_members) {
+			// Initialize an empty array to store choices
+			$choices = [];
+
+			// Loop through each member
+			foreach ($committee_members as $member) {
+					// Get the member's name (or another field if desired)
+					$member_name = get_the_title($member); // This gets the post title (name of the member)
+
+					// Add each member's name to the choices array
+					$choices[$member_name] = $member_name;
+			}
+
+			// Update the Select field's choices with the new choices
+			$field['choices'] = $choices;
+	}
+
+	return $field;
+}
+
+// Apply the filter to the 'committee_chair' field
+add_filter('acf/load_field/name=committee_chair', 'my_acf_load_chair_choices');

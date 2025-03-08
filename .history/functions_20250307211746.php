@@ -187,3 +187,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+function register_past_livestreams() {
+	register_post_type('past_livestream', [
+			'labels' => [
+					'name' => 'Past Livestreams',
+					'singular_name' => 'Past Livestream',
+			],
+			'public' => true,
+			'menu_position' => 5,
+			'supports' => ['title', 'thumbnail'],
+	]);
+}
+add_action('init', 'register_past_livestreams');

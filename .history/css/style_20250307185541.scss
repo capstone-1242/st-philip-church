@@ -14,13 +14,6 @@
   overflow: hidden;
 }
 
-a.fake-button{
-  display: inline-block;
-  background-color: blue!important;
-  padding: 1rem 2rem!important;
-  color: white;
-  cursor: pointer;
-}
 
 // end of utility classes
 
@@ -64,16 +57,10 @@ a:hover{
 // end of typography
 
 
-
-
 // header
 header {
   display: flex;
   justify-content: space-between;
-
-  &.page-header{
-    display: block;
-  }
 
   .menu-toggle {
     width: 50px;
@@ -100,11 +87,6 @@ header {
     display: inline-block;
     max-width: 100%;
     height: auto;
-    flex: 1 1 33.33%;
-
-    &:first-child{
-      flex: 1 1 100%;
-    }
 
     @include forScreenSizesMin(desktop)  {
       flex: 1 1 25%;
@@ -112,15 +94,12 @@ header {
   }
 }
 
-.comment-list{
-  display: flex;
-  flex-flow: row wrap;
 
-  .committee-member{
-    flex: auto;
-  }
+.fake-button{
+  background-color: blue;
+  padding: 1rem 2rem;
+  color: white;
 }
-
 
 #primary-menu {
   display: none;
@@ -142,18 +121,12 @@ header {
         background-color: white;
         list-style: none;
         padding: 10px;
-
-        li:not(last-of-type){
-          border-bottom: 1px solid black;
-        }
       }
 
      
       &:hover > ul.sub-menu,
       &:focus-within > ul.sub-menu {
         display: block;
-        width: max-content;
-        flex-wrap: nowrap;
       }
     }
   }

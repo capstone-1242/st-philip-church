@@ -186,4 +186,16 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// ____________________________ADDED FUNCTIONALITY________________________________//
+
+function remove_title_and_editor() {
+	$screen = get_current_screen();
+	
+	// Replace 'your_post_type' with the actual post type (e.g., 'post', 'page')
+	if ($screen->post_type === 'parish_committee') {
+			remove_post_type_support('parish_committee', 'title');  // Hide Title
+			remove_post_type_support('parish_committee', 'editor'); // Hide Content Editor
+	}
+}
+add_action('admin_head', 'remove_title_and_editor');
+
+

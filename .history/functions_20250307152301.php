@@ -187,3 +187,55 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+
+// Disable Gutenberg for 'committee_member' post type
+function disable_gutenberg_for_committee_members($current_status, $post_type) {
+	if ($post_type === 'committee_member') return false; // Disable for this post type
+	return $current_status;
+}
+add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_committee_members', 10, 2);
+
+
+// Auto-generate post title from ACF fields
+add_action('acf/save_post', 'my_save_post', 20);
+function my_save_post($post_id) {
+
+	// Validate post and prevent infinite loop
+	if( $post_id === 'options' || strpos($post_id, 'acf') !== false || wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
+			return;
+	}
+
+	// Ensure we're updating a 'committee_member' post type
+	if (get_post_type($post_id) !== 'committee_member') {
+			return;
+	}
+
+	// Get the ACF fields
+	$first_name = get_field('first_name', $post_id);
+	$last_name  = get_field('last_name', $post_id);
+
+	// Avoid empty titles
+	if (empty($first_name) || empty($last_name)) {
+			return;
+	}
+
+	// Create the new title
+	$new_title = trim($first_name . ' ' . $last_name);
+
+	// Avoid updating if the title is already correct
+	if (get_the_title($post_id) === $new_title) {
+			return;
+	}
+
+	// Temporarily remove the hook to prevent recursion
+	remove_action('acf/save_post', 'my_save_post', 20);
+
+	// Update the post title
+	wp_update_post([
+			'ID'         => $post_id,
+			'post_title' => $new_title,
+	]);
+
+	// Restore the hook
+	add_action('acf/save_post', 'my_save_post', 20);
+}

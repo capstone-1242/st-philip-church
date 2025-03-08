@@ -7,14 +7,6 @@
   overflow: hidden;
 }
 
-a.fake-button {
-  display: inline-block;
-  background-color: blue !important;
-  padding: 1rem 2rem !important;
-  color: white;
-  cursor: pointer;
-}
-
 body {
   background-color: white;
   font-family: "Open Sans";
@@ -48,9 +40,6 @@ a:hover {
 header {
   display: flex;
   justify-content: space-between;
-}
-header.page-header {
-  display: block;
 }
 header .menu-toggle {
   width: 50px;
@@ -87,20 +76,13 @@ header .menu-toggle {
   flex: 1 1 33.33%;
 }
 .acf-gallery img:first-child {
-  flex: 1 1 100%;
+  border: 1px solid red;
+  background-color: red;
 }
 @media only screen and (min-width: 1280px) {
   .acf-gallery img {
     flex: 1 1 25%;
   }
-}
-
-.comment-list {
-  display: flex;
-  flex-flow: row wrap;
-}
-.comment-list .committee-member {
-  flex: auto;
 }
 
 #primary-menu {
@@ -124,13 +106,8 @@ header .menu-toggle {
     list-style: none;
     padding: 10px;
   }
-  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
-    border-bottom: 1px solid black;
-  }
   #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
     display: block;
-    width: max-content;
-    flex-wrap: nowrap;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -151,13 +128,8 @@ header .menu-toggle {
     list-style: none;
     padding: 10px;
   }
-  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
-    border-bottom: 1px solid black;
-  }
   #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
     display: block;
-    width: max-content;
-    flex-wrap: nowrap;
   }
 }
 

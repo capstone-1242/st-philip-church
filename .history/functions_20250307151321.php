@@ -187,3 +187,32 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+
+add_action('acf/save_post', 'my_save_post', 20);
+function my_save_post($post_id){
+
+    // Check if this is a valid post (avoid doing it on autosave or WP default posts)
+    if( $post_id === 'options' || strpos($post_id, 'acf') !== false ) return;
+
+    // Get the data from the first name and last name fields
+    $first_name = get_field('first_name', $post_id);
+    $last_name = get_field('last_name', $post_id);
+  
+    // Concatenate first name and last name
+    $new_title = $first_name . ' ' . $last_name;
+
+    // Set the post data
+    $new_post = array(
+        'ID'           => $post_id,
+        'post_title'   => $new_title,
+    );
+
+    // Remove the hook to avoid infinite loop
+    remove_action('acf/save_post', 'my_save_post', 20);
+
+    // Update the post
+    wp_update_post($new_post);
+
+    // Add the hook back
+    add_action('acf/save_post', 'my_save_post', 20);
+}

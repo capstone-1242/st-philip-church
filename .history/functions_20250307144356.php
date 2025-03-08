@@ -186,4 +186,30 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// ____________________________ADDED FUNCTIONALITY________________________________//
+
+add_filter('use_block_editor_for_post_type', function($use_block_editor, $post_type) {
+	return $post_type === 'committee_member' ? false : $use_block_editor;
+}, 10, 2);
+
+
+add_action('acf/save_post', function($post_id) {
+	// Ensure this only runs on 'committee_member' post type
+	if (get_post_type($post_id) !== 'committee_member') return;
+
+	// Get first and last name from ACF fields
+	$first_name = get_field('first_name', $post_id);
+	$last_name = get_field('last_name', $post_id);
+
+	// Combine names for the title
+	$new_title = trim("$first_name $last_name");
+
+	// Update the post title if names are provided
+	if ($new_title) {
+			wp_update_post([
+					'ID'         => $post_id,
+					'post_title' => $new_title,
+					'post_name'  => sanitize_title($new_title), // For the post slug
+			]);
+	}
+}, 20);
+

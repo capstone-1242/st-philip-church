@@ -2,8 +2,8 @@
 
 
 $mobile-res-min-width: 320px;
-$tablet-res-min-width: 768px;
-$desktop-res-min-width: 1280px;
+$tablet-res-min-width: 500px;
+$desktop-res-min-width: 1024px;
 
 @mixin forScreenSizesMin($deviceTypes...) {
   @each $deviceType in $deviceTypes {

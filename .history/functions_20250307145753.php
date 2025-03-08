@@ -186,4 +186,46 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// ____________________________ADDED FUNCTIONALITY________________________________//
+
+function remove_title_and_editor() {
+	$screen = get_current_screen();
+	
+	// Replace 'your_post_type' with the actual post type (e.g., 'post', 'page')
+	if ($screen->post_type === 'committee_member') {
+			remove_post_type_support('committee_member', 'title');  // Hide Title
+			remove_post_type_support('committee_member', 'editor'); // Hide Content Editor
+	}
+}
+add_action('admin_head', 'remove_title_and_editor');
+
+
+function set_post_title_from_acf($post_id) {
+	// Avoid auto-save or revisions
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+	if (wp_is_post_revision($post_id)) return;
+
+	// Only for 'parish_committee' custom post type
+	if (get_post_type($post_id) !== 'committee_member') return;
+
+	// Get ACF fields (replace 'first_name' and 'last_name' with your actual ACF field names)
+	$first_name = get_field('first_name', $post_id);
+	$last_name  = get_field('last_name', $post_id);
+
+	// Combine the first and last name to form the full name
+	$full_name = trim("$first_name $last_name");
+
+	if (!empty($full_name)) {
+			// Remove hook temporarily to prevent infinite loop
+			remove_action('acf/save_post', 'set_post_title_from_acf');
+			
+			// Update post title
+			wp_update_post([
+					'ID'         => $post_id,
+					'post_title' => $full_name,  // Set the post title to full name
+			]);
+
+			// Restore hook to listen for future saves
+			add_action('acf/save_post', 'set_post_title_from_acf');
+	}
+}
+add_action('acf/save_post', 'set_post_title_from_acf');

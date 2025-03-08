@@ -16,6 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+		<h2>Hello Im here</h2>
 
 	<?php get_template_part( 'template-parts/content-page', 'page' );
 ?>

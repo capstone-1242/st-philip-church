@@ -187,3 +187,53 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+
+// Disable Gutenberg for 'committee_member' post type
+function disable_gutenberg_for_committee_members($current_status, $post_type) {
+	if ($post_type === 'committee_member') return false; // Disable for this post type
+	return $current_status;
+}
+add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_committee_members', 10, 2);
+
+
+// Auto-generate post title from ACF fields
+add_action('acf/save_post', 'my_save_post', 20);
+function my_save_post($post_id) {
+
+	if( $post_id === 'options' || strpos($post_id, 'acf') !== false || wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
+			return;
+	}
+
+
+	if (get_post_type($post_id) !== 'committee_member') {
+			return;
+	}
+
+
+	$first_name = get_field('first_name', $post_id);
+	$last_name  = get_field('last_name', $post_id);
+
+
+	if (empty($first_name) || empty($last_name)) {
+			return;
+	}
+
+
+	$new_title = trim($first_name . ' ' . $last_name);
+
+	if (get_the_title($post_id) === $new_title) {
+			return;
+	}
+
+
+	remove_action('acf/save_post', 'my_save_post', 20);
+
+
+	wp_update_post([
+			'ID'         => $post_id,
+			'post_title' => $new_title,
+	]);
+
+
+	add_action('acf/save_post', 'my_save_post', 20);
+}
