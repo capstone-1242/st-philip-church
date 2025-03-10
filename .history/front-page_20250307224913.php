@@ -18,12 +18,6 @@ get_header();
 <?php
 $welcome_message =  wp_kses_post(get_field('welcome_message'));
 $church_location =  wp_kses_post(get_field('church_location'));
-$explore_our_church_group_description =  wp_kses_post(get_field('explore_our_church_group_description'));
-$support_the_church_description =  wp_kses_post(get_field('support_the_church_description'));
-$become_a_member_description =  wp_kses_post(get_field('become_a_member_description'));
-
-
-
 ?>
 
 	<!-- Hero Banner section -->
@@ -57,7 +51,7 @@ $become_a_member_description =  wp_kses_post(get_field('become_a_member_descript
 	<!-- Parish Organizations -->
 	<section>
 		<h3>Explore Our Church Groups</h3>
-		<p><?php echo $explore_our_church_group_description?></p>
+		<p>Our organizations focus on growing community, connections, and skills making them the foundation of our church.</p>
 		<?php
 		$args = array(
 			'post_type' => 'parish-organization',
@@ -98,15 +92,15 @@ $become_a_member_description =  wp_kses_post(get_field('become_a_member_descript
 	<!-- Donation -->
 	 <section>
 		<h2>Support the Church</h2>
-		<p><?php echo $support_the_church_description?></p>
-		<a href="#" class="fake-button">Make a Donation</a>
+		<p>PLACEHOLDER: donation</p>
+		<a href="#">Make a Donation</a>
 		<p>PLACEHOLDER: IMAGE</p>
 	 </section>
 
 	 <!-- Become a Member -->
 		<section>
 			<h2>Become a Member</h2>
-			<p><?php echo $become_a_member_description?></p>
+			<p>PLACEHOLDER: member spiel</p>
 			<ul>
 				<li><a href="#">Non-Voting member</a></li>
 				<li><a href="#">Voting member</a></li>

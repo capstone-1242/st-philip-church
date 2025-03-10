@@ -23,7 +23,6 @@ $support_the_church_description =  wp_kses_post(get_field('support_the_church_de
 $become_a_member_description =  wp_kses_post(get_field('become_a_member_description'));
 
 
-
 ?>
 
 	<!-- Hero Banner section -->
@@ -99,7 +98,7 @@ $become_a_member_description =  wp_kses_post(get_field('become_a_member_descript
 	 <section>
 		<h2>Support the Church</h2>
 		<p><?php echo $support_the_church_description?></p>
-		<a href="#" class="fake-button">Make a Donation</a>
+		<a href="#">Make a Donation</a>
 		<p>PLACEHOLDER: IMAGE</p>
 	 </section>
 

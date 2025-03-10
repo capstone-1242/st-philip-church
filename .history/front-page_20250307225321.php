@@ -23,7 +23,6 @@ $support_the_church_description =  wp_kses_post(get_field('support_the_church_de
 $become_a_member_description =  wp_kses_post(get_field('become_a_member_description'));
 
 
-
 ?>
 
 	<!-- Hero Banner section -->
