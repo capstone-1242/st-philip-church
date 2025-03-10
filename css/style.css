@@ -7,6 +7,14 @@
   overflow: hidden;
 }
 
+a.fake-button {
+  display: inline-block;
+  background-color: blue !important;
+  padding: 1rem 2rem !important;
+  color: white;
+  cursor: pointer;
+}
+
 body {
   background-color: white;
   font-family: "Open Sans";
@@ -41,12 +49,15 @@ header {
   display: flex;
   justify-content: space-between;
 }
+header.page-header {
+  display: block;
+}
 header .menu-toggle {
   width: 50px;
   height: 50px;
   background: pink;
 }
-@media only screen and (min-width: 500px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
   header {
     flex-flow: column wrap;
     align-items: center;
@@ -55,7 +66,7 @@ header .menu-toggle {
     display: none;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   header {
     flex-flow: column wrap;
     align-items: center;
@@ -65,10 +76,37 @@ header .menu-toggle {
   }
 }
 
+.acf-gallery {
+  display: flex;
+  flex-flow: row wrap;
+}
+.acf-gallery img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  flex: 1 1 33.33%;
+}
+.acf-gallery img:first-child {
+  flex: 1 1 100%;
+}
+@media only screen and (min-width: 1280px) {
+  .acf-gallery img {
+    flex: 1 1 25%;
+  }
+}
+
+.comment-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+.comment-list .committee-member {
+  flex: auto;
+}
+
 #primary-menu {
   display: none;
 }
-@media only screen and (min-width: 500px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
   #primary-menu {
     display: flex;
     flex-flow: row wrap;
@@ -82,15 +120,20 @@ header .menu-toggle {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #30526f;
+    background-color: white;
     list-style: none;
     padding: 10px;
   }
+  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
+    border-bottom: 1px solid black;
+  }
   #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
     display: block;
+    width: max-content;
+    flex-wrap: nowrap;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   #primary-menu {
     display: flex;
     flex-flow: row wrap;
@@ -104,12 +147,17 @@ header .menu-toggle {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #30526f;
+    background-color: white;
     list-style: none;
     padding: 10px;
   }
+  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
+    border-bottom: 1px solid black;
+  }
   #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
     display: block;
+    width: max-content;
+    flex-wrap: nowrap;
   }
 }
 
@@ -127,12 +175,12 @@ footer #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-@media only screen and (min-width: 500px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
   footer #footer-menu {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   footer #footer-menu {
     grid-template-columns: repeat(4, 1fr);
   }
