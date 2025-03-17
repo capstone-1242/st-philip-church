@@ -46,7 +46,7 @@ get_header();
 				<div class="entry-content">
 					<p><?php echo wp_kses_post(get_field('introduction')); ?></p>
 
-					<a href="#" class="fake-button">View Events</a>
+					<a href="#">View Events</a>
 					<div class="acf-gallery">
 
 						<?php echo wp_kses_post(get_field('gallery'));	?>

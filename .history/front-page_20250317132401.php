@@ -113,8 +113,7 @@ $announcement_content = wp_kses_post(get_field('content'));
 	 <!-- Become a Member -->
 		<section>
 			<h2>Become a Member</h2>
-			<p>Ready to take the next steps in your spiritual journey? Sign up to become a member and discover the fulfilling and fruitful life of an Antiochian Christian.</p>
-			<p>There are 3 memberships to choose from, whether you’re new, ready to commit, or bringing your whole family.</p>
+			<p><?php echo $become_a_member_description?></p>
 			<ul>
 				<li><a href="#">Non-Voting member</a></li>
 				<li><a href="#">Voting member</a></li>

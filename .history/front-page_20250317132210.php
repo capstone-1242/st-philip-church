@@ -64,7 +64,7 @@ $announcement_content = wp_kses_post(get_field('content'));
 	<!-- Parish Organizations -->
 	<section>
 		<h3>Explore Our Church Groups</h3>
-		<p>Our organizations focus on growing community, connections, and skills making them the foundation of our church.</p>
+		<p><?php echo $explore_our_church_group_description?></p>
 		<?php
 		$args = array(
 			'post_type' => 'parish-organization',
@@ -113,8 +113,7 @@ $announcement_content = wp_kses_post(get_field('content'));
 	 <!-- Become a Member -->
 		<section>
 			<h2>Become a Member</h2>
-			<p>Ready to take the next steps in your spiritual journey? Sign up to become a member and discover the fulfilling and fruitful life of an Antiochian Christian.</p>
-			<p>There are 3 memberships to choose from, whether you’re new, ready to commit, or bringing your whole family.</p>
+			<p><?php echo $become_a_member_description?></p>
 			<ul>
 				<li><a href="#">Non-Voting member</a></li>
 				<li><a href="#">Voting member</a></li>

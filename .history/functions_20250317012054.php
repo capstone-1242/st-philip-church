@@ -143,7 +143,7 @@ add_action( 'widgets_init', 'st_philip_widgets_init' );
 function st_philip_scripts() {
 	
 	wp_enqueue_style( 'tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css' ,  array(), null, 'all');
-	wp_enqueue_style( 'st_philip-style', get_template_directory_uri() . "/css/style.css", array(), null, 'all' ); /* this is the css file */
+	// wp_enqueue_style( 'st_philip-style', get_template_directory_uri() . "/css/style.css", array(), null, 'all' );
 	wp_enqueue_style( 'st_philip-style', get_template_directory_uri() . "/css/style.css", array(), filemtime(get_template_directory() . '/css/style.css'), 'all' ); /* SAM: this prevents caching issues so everytime we update the site: it uploads the latest version */
 
 	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), null);

@@ -21,8 +21,7 @@ get_header();
 // $explore_our_church_group_description =  wp_kses_post(get_field('explore_our_church_group_description'));
 // $support_the_church_description =  wp_kses_post(get_field('support_the_church_description'));
 // $become_a_member_description =  wp_kses_post(get_field('become_a_member_description'));
-$announcement_title =  wp_kses_post(get_field('title'));
-$announcement_content = wp_kses_post(get_field('content'));
+
 ?>
 
 	<!-- Hero Banner section -->
@@ -37,10 +36,9 @@ $announcement_content = wp_kses_post(get_field('content'));
 	<!-- Weekly Highlights section -->
 	<section>
 		<h2>Weekly Highlights</h2>
-			<div>
-				<h3><?php echo $announcement_title?></h3>
-				<p><?php echo $announcement_content?></p>
-			</div>
+		<div>
+			<p>IN PROGRESS</p>
+		</div>
 	</section>
 
 	<!-- Welcome to our Church -->
@@ -48,13 +46,10 @@ $announcement_content = wp_kses_post(get_field('content'));
 		<h2>Welcome to our Church</h2>
 		<p>The Orthodox Church, with its rich history and spiritual practices, invites believers and seekers alike to explore its ancient traditions and vibrant faith. If you’re feeling lost and looking for guidance through a spiritual journey, Fr. Micheal and many of the clergy would be excited to welcome you and support you on your spiritual journey.</p>
 		<h3>Come In-Person</h3>
+		<div><img src="" alt=""></div>
 		<div>
-			<i class="fa-solid fa-location-dot"></i>
-			<p>15804 98 Ave NW, Edmonton AB T5P 4R9, Canada</p>
-		</div>
-		<div>
-			<div><span>9:20 AM</span>Orthros (Matins)</div>
-			<div><span>10:20 AM</span>Divine Liturgy</div>
+			<div>PLACEHOLDER: Service time morning</div>
+			<div>PLACEHOLDER: Service time morning 2</div>
 		</div>
 		<h3>Join Online</h3>
 		<p>LIVESTREAM PLACEHOLDER</p>
@@ -64,7 +59,7 @@ $announcement_content = wp_kses_post(get_field('content'));
 	<!-- Parish Organizations -->
 	<section>
 		<h3>Explore Our Church Groups</h3>
-		<p>Our organizations focus on growing community, connections, and skills making them the foundation of our church.</p>
+		<p><?php echo $explore_our_church_group_description?></p>
 		<?php
 		$args = array(
 			'post_type' => 'parish-organization',
@@ -113,8 +108,7 @@ $announcement_content = wp_kses_post(get_field('content'));
 	 <!-- Become a Member -->
 		<section>
 			<h2>Become a Member</h2>
-			<p>Ready to take the next steps in your spiritual journey? Sign up to become a member and discover the fulfilling and fruitful life of an Antiochian Christian.</p>
-			<p>There are 3 memberships to choose from, whether you’re new, ready to commit, or bringing your whole family.</p>
+			<p><?php echo $become_a_member_description?></p>
 			<ul>
 				<li><a href="#">Non-Voting member</a></li>
 				<li><a href="#">Voting member</a></li>
