@@ -1,0 +1,25 @@
+// this file will contain reusable pieces of code 
+// you can include, height, width
+
+@mixin widthHeight($width, $height){
+  width: $width;
+  height: $height;
+}
+
+@mixin margin($y, $x){
+  margin: $y $x;
+}
+
+@mixin padding($y, $x){
+  margin: $y $x;
+}
+
+@mixin maxWidthCentered($x){
+  max-width: $x;
+  margin: 0 auto;
+}
+
+@mixin logoDimensions($width, $height){
+  width: $width;
+  height: $height;
+}

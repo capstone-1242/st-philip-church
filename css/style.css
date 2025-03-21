@@ -1,75 +1,13 @@
-/*===========================RESET STYLES=================================*/
-*,
-*::after,
-* b::before {
-  margin: 0;
-  padding: 0;
-}
-
-/*===========================UTILITIY CLASSES=================================*/
 /*
-the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
-
-		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+This is where we style our header navigation
 */
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-/*
-This is the universal style for the buttons
-*/
-a.fake-button {
-  display: inline-block;
-  background-color: blue !important;
-  padding: 1rem 2rem !important;
-  color: white;
-  cursor: pointer;
-}
-
-/*===========================TYPOGRAPHY=================================*/
-h1,
-.site-title {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 30px;
-  font-weight: 600;
-}
-
-a:hover {
-  color: pink;
-}
-
-/*===========================UNIVERSAL STYLE=================================*/
-body {
-  background-color: white;
-  font-family: "Open Sans";
-  font-size: 16px;
-  max-width: 1248px;
-  margin: 0 auto;
-}
-body main {
-  background-color: rgb(184, 238, 223);
-}
-
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 1rem 0.5rem;
+    max-width: 1248px;
+    margin: 0 auto;
   }
   div.header-nav-container ul#primary-menu {
     display: flex;
@@ -99,6 +37,8 @@ body main {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 1rem 0.5rem;
+    max-width: 1248px;
+    margin: 0 auto;
   }
   div.header-nav-container ul#primary-menu {
     display: flex;
@@ -274,24 +214,144 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 }
 
 /*===========================END OF NAVIGATION=================================*/
-/*===========================FOOTER=================================*/
-footer .site-branding {
+/**
+This is where we styles hero banner for the homepage
+*/
+/*
+This is where we style our footer
+*/
+.site-footer {
+  background-color: black;
+  color: white;
+}
+.site-footer > div {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 112px 48px;
+  /* 
+  Footer Section Styling
+  */
+  /*
+  Footer Navigation Styling 
+  */
+}
+.site-footer > div .site-branding {
   text-align: center;
 }
-footer .site-branding a {
+.site-footer > div .site-branding a {
   display: inline-block;
 }
-footer #footer-menu {
+.site-footer > div .site-branding .site-logo {
+  width: 50px;
+  height: 50px;
+}
+.site-footer > div .site-branding .footer-church-info h3 {
+  text-align: center;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  background-color: rgba(170, 165, 165, 0.4);
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div {
+  flex: 1;
+  border: 1px solid white;
+  padding: 1rem 1.5rem;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div small {
+  display: block;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours .church-location {
+  color: darkgray;
+  text-align: center;
+}
+.site-footer > div .footer-navigation #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-  footer #footer-menu {
-    grid-template-columns: repeat(3, 1fr);
+  .site-footer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
   }
 }
 @media only screen and (min-width: 1280px) {
-  footer #footer-menu {
-    grid-template-columns: repeat(4, 1fr);
+  .site-footer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
   }
+}
+
+/*===========================RESET STYLES=================================*/
+*,
+*::after,
+* b::before {
+  margin: 0;
+  padding: 0;
+}
+
+/*===========================UTILITY CLASSES=================================*/
+/*
+the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
+
+		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*
+This is the universal style for the buttons
+*/
+a.fake-button {
+  display: inline-block;
+  background-color: blue !important;
+  padding: 1rem 2rem !important;
+  color: white;
+  cursor: pointer;
+}
+
+/*===========================TYPOGRAPHY=================================*/
+h1,
+.site-title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+a:hover {
+  color: pink;
+}
+
+/*===========================UNIVERSAL STYLE=================================*/
+body {
+  background-color: white;
+  font-family: "Open Sans";
+  font-size: 16px;
+}
+body main {
+  background-color: rgb(184, 238, 223);
 }/*# sourceMappingURL=style.css.map */
