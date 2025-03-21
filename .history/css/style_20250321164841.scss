@@ -1,0 +1,58 @@
+@use "partials/header" as *;
+@use "partials/hero-banner" as *;
+@use "partials/footer" as *;
+@use "partials/colors" as *;
+@use "partials/fonts" as *;
+@use "partials/variables" as *;
+@use "partials/mixins" as *;
+@use "partials/media-queries" as *;
+
+/*===========================RESET STYLES=================================*/
+*,
+*::after,
+*b::before {
+  margin: 0;
+  padding: 0;
+}
+
+/*===========================UTILITY CLASSES=================================*/
+
+/*
+the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
+
+		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*
+This is the universal style for the buttons
+*/
+a.fake-button {
+  display: inline-block;
+  background-color: blue !important;
+  padding: 1rem 2rem !important;
+  color: white;
+  cursor: pointer;
+}
+
+
+/*===========================UNIVERSAL STYLE=================================*/
+
+body {
+  background-color: $text-primary-color;
+  font-family: $font-family;
+  font-size: $p-font-size;
+  // max-width: 1248px;
+  // @include margin(0, auto);
+
+  main {
+    background-color: rgb(184, 238, 223);
+  }
+}

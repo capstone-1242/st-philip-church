@@ -1,0 +1,147 @@
+@use "./partials/colors" as *;
+@use "./partials/fonts" as *;
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/media-queries" as *;
+
+// utility classes
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+// end of utility classes
+
+
+body {
+  background-color: $text-primary-color;
+  font-family: $font-family;
+  font-size: $p-font-size;
+  max-width: 1248px;
+  @include margin(0, auto);
+
+  main{
+    background-color: rgb(184, 238, 223);
+  }
+ 
+}
+
+
+
+// typography
+
+
+h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+a:hover{
+  color: pink;
+} 
+// end of typography
+
+
+// header
+header {
+  display: flex;
+  justify-content: space-between;
+
+  .menu-toggle {
+    width: 50px;
+    height: 50px;
+    background: pink;
+  }
+
+  @include forScreenSizesMin(tablet, desktop) {
+    flex-flow: column wrap;
+    align-items: center;
+
+    .menu-toggle{
+      display:none;
+    }
+  }
+}
+
+// 
+
+
+
+#primary-menu {
+  display: none;
+
+  @include forScreenSizesMin(tablet, desktop)  {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+
+    li.menu-item {
+      position: relative;
+
+     
+      > ul.sub-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #30526f;
+        list-style: none;
+        padding: 10px;
+      }
+
+     
+      &:hover > ul.sub-menu,
+      &:focus-within > ul.sub-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+#site-navigation.toggled #primary-menu {
+  display: block;
+}
+
+
+#footer-menu{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+ 
+  .site-branding{
+    @include margin(0, auto);
+  }
+
+  @include forScreenSizesMin(tablet, desktop)  {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// this is how we call mixins
+// @include widthHeight(300px, 300px);
+
+// this is how we include the media queries::after
+
+// @include forScreenSizesMin(phone){
+//   // insert properties
+// }
+// @include forScreenSizesMin(tablet){
+//   // insert properties
+// }
+// @include forScreenSizesMin(desktop){
+//   // insert properties
+// }
