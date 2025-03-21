@@ -1,0 +1,11 @@
+// this file will contain reusable pieces of code 
+// you can include, height, width
+
+@mixin widthHeight($width, $height){
+  width: $width;
+  height: $height;
+}
+
+@mixin margin($y, $x){
+  margin: $y $x;
+}

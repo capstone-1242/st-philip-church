@@ -1,0 +1,365 @@
+@use "partials/colors" as *;
+@use "partials/fonts" as *;
+@use "partials/variables" as *;
+@use "partials/mixins" as *;
+@use "partials/media-queries" as *;
+
+/*===========================RESET STYLES=================================*/
+*,
+*::after,
+*b::before {
+  margin: 0;
+  padding: 0;
+}
+
+/*===========================UTILITIY CLASSES=================================*/
+
+/*
+the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
+
+		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/*
+This is the universal style for the buttons
+*/
+a.fake-button {
+  display: inline-block;
+  background-color: blue !important;
+  padding: 1rem 2rem !important;
+  color: white;
+  cursor: pointer;
+}
+
+/*===========================TYPOGRAPHY=================================*/
+
+h1,
+.site-title {
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+a:hover {
+  color: pink;
+}
+// end of typography
+
+/*===========================UNIVERSAL STYLE=================================*/
+
+body {
+  background-color: $text-primary-color;
+  font-family: $font-family;
+  font-size: $p-font-size;
+  max-width: 1248px;
+  @include margin(0, auto);
+
+  main {
+    background-color: rgb(184, 238, 223);
+  }
+}
+
+@include forScreenSizesMin(tablet, desktop){
+  div.header-nav-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+    header{
+      width: 70px;
+    }
+  }
+}
+
+/*===========================HEADER=================================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.page-header {
+    display: block;
+  }
+
+  .woo-shop-button,
+  .menu-toggle {
+    display: block;
+  }
+
+  .site-logo {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  @include forScreenSizesMin(tablet, desktop) {
+    &{
+      display: block;
+    }
+
+    .menu-toggle,
+    .woo-shop-button {
+      display: none;
+    }
+
+    .site-title {
+      visibility: hidden;
+      height: 0;
+    }
+
+    .site-logo {
+      visibility: visible;
+      height: auto;
+      width: 50px;
+      object-fit: cover;
+    }
+  }
+}
+
+/*===========================ACF FILED GROUP=================================*/
+/*
+The .acf-gallery is for the gallery section of the parish organization and committee acf post types
+*/
+.acf-gallery {
+  display: flex;
+  flex-flow: row wrap;
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 33.33%;
+
+    &:first-child {
+      flex: 1 1 100%;
+    }
+
+    @include forScreenSizesMin(desktop) {
+      flex: 1 1 25%;
+    }
+  }
+}
+
+.comment-list {
+  display: flex;
+  flex-flow: row wrap;
+
+  .committee-member {
+    flex: auto;
+  }
+}
+
+/*===========================NAVIGATION=================================*/
+// based on the "Solved with CSS! Dropdown Menus Article --focus-within--
+ul#primary-menu {
+  background: white;
+  display: none;
+
+  // start of li
+  > li.menu-item {
+    color: black;
+    background: white;
+    display: block;
+    float: left;
+    padding: 8px 16px;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    z-index: 900;
+
+    &:hover,
+    &:focus-within {
+      cursor: pointer;
+    }
+
+    &:focus-within a {
+      outline: none;
+    }
+
+    &:hover > ul.sub-menu,
+    &:focus-within > ul.submenu {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      z-index: inherit;
+    }
+
+    // sub-menu:dropdown
+    > ul.sub-menu {
+      background: white;
+      visibility: hidden;
+      opacity: 0;
+      min-width: 5rem;
+      transition: all 0.5s ease;
+      margin-top: 1rem;
+      padding: 8px 16px;
+      left: 0;
+      display: none;
+
+      &:hover > li,
+      &:focus > li {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        width: 100%;
+        z-index: inherit;
+      }
+
+      > li {
+        clear: both;
+        width: 100%;
+        padding: 8px 16px;
+      }
+    }
+    // end of sub-menu: dropdown
+  }
+  // end of end of li
+
+  #site-navigation.toggled & {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+
+    ul.sub-menu > li.menu-item {
+      padding-left: 24px;
+    }
+  }
+
+  // style for bigger screen sizes
+  @include forScreenSizesMin(tablet, desktop) {
+    & {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    & > li.menu-item:nth-last-of-type(2){
+      margin-left: auto;
+      justify-self: end;
+    }
+
+  }
+}
+/*===========================END OF NAVIGATION=================================*/
+
+// #primary-menu {
+//   display: none;
+
+//   li.menu-item {
+//     position: relative;
+//     z-index: 999;
+
+//     > ul.sub-menu {
+//       display: none;
+//       position: absolute;
+//       z-index: inherit;
+//       top: 100%;
+//       left: 0;
+//       background-color: yellow;
+//       list-style: none;
+//       padding: 10px;
+
+//       li:not(last-of-type) {
+//         border-bottom: 1px solid black;
+//       }
+//     }
+
+//     &:hover > ul.sub-menu,
+//     &:focus-within > ul.sub-menu {
+//       display: block;
+//       width: max-content;
+//       flex-wrap: nowrap;
+//     }
+//   }
+
+//   @include forScreenSizesMin(tablet, desktop) {
+//     display: flex;
+//     flex-flow: row wrap;
+//     gap: 1rem;
+
+//     li.menu-item {
+//       position: relative;
+
+//       > ul.sub-menu {
+//         display: none;
+//         position: absolute;
+//         top: 100%;
+//         left: 0;
+//         background-color: white;
+//         list-style: none;
+//         padding: 10px;
+
+//         li:not(last-of-type) {
+//           border-bottom: 1px solid black;
+//         }
+//       }
+
+//       &:hover > ul.sub-menu,
+//       &:focus-within > ul.sub-menu {
+//         display: block;
+//         width: max-content;
+//         flex-wrap: nowrap;
+//       }
+//     }
+//   }
+// }
+
+// #site-navigation.toggled #primary-menu {
+//   display: block;
+// }
+
+/*===========================FOOTER=================================*/
+footer {
+  .site-branding {
+    text-align: center;
+    a {
+      display: inline-block;
+    }
+  }
+
+  #footer-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include forScreenSizesMin(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include forScreenSizesMin(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+// this is how we call mixins
+// @include widthHeight(300px, 300px);
+
+// this is how we include the media queries::after
+
+// @include forScreenSizesMin(phone){
+//   // insert properties
+// }
+// @include forScreenSizesMin(tablet){
+//   // insert properties
+// }
+// @include forScreenSizesMin(desktop){
+//   // insert properties
+// }

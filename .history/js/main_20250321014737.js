@@ -1,0 +1,1 @@
+// this is where we put javascript code for the main/footer
