@@ -13,7 +13,7 @@
 ?>
 
 <footer id="colophon" class="site-footer">
-<section class = "site-branding">
+<p class = "site-branding">
 		<a href="<?php echo get_home_url(); ?>" class="navbar-brand text-end front-page-anchor">
 			<?php if (has_custom_logo()) : ?>
 				<div class="site-logo">
@@ -26,15 +26,9 @@
 		<h2><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">St. Philip Antiochian Orthodox Church</a></h2>
 		<section>
 			<h3>Join us every Sunday</h3>
-			<div>
-				<div><span>9:20 AM</span>Orthros (Matins)</div>
-				<div><span>10:20 AM</span>Divine Liturgy</div>
-			</div>
-			<div>
-				<p>15804 98 Ave NW, Edmonton AB T5P 4R9, Canada</p>
-			</div>
+			
 		</section>
-</section>
+</p>
 
 	<nav id="site-navigation" class="footer-navigation">
 		<?php
