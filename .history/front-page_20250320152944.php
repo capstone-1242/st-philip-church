@@ -78,11 +78,11 @@ get_header();
 			<!--test-->
 			<?php
 $args = array(
-    'post_type'      => 'event_listing', 
+    'post_type'      => 'events', 
     'posts_per_page' => 2, 
-    'orderby'        => 'meta_value', 
-    'meta_key'       => '_event_start_date', 
-    'order'          => 'ASC',
+    // 'orderby'        => 'meta_value', 
+    // 'meta_key'       => '_event_start_date', 
+    // 'order'          => 'ASC',
 );
 
 $events = new WP_Query($args);
@@ -91,28 +91,10 @@ $events = new WP_Query($args);
 if ($events->have_posts()) :
     while ($events->have_posts()) : $events->the_post(); ?>
         <div class="event-item">
-            <div>
-						<?php
-                $event_banner = get_post_meta(get_the_ID(), '_event_banner', true);
-                if ($event_banner) :
-                    ?>
-                    <img src="<?php echo esc_url($event_banner); ?>" alt="Event Banner">
-                <?php else : ?>
-                    <p>No event banner available</p>
-                <?php endif; ?>
-						</div>
-						<span><?php 
-						$event_start_date= get_post_meta(get_the_ID(), '_event_start_date', true); 
-						
-						if($event_start_date){
-							$date = new DateTime($event_start_date);
-							echo $date->format('F j'); 
-						}
-						?>
-						</span>
-            <h3><a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), '_event_title', true); ?></a></h3>
-            <p><?php echo get_post_meta(get_the_ID(), '_event_start_time', true); ?></p>
-            <p><?php echo get_post_meta(get_the_ID(), '_event_description', true); ?></p>
+            
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <p>Date: <?php echo get_post_meta(get_the_ID(), '_event_start_date', true); ?></p>
+            <p>Location: <?php echo get_post_meta(get_the_ID(), '_event_location', true); ?></p>
         </div>
     <?php endwhile;
     wp_reset_postdata();
@@ -120,10 +102,11 @@ else :
     echo '<p>No upcoming events found.</p>';
 endif;
 ?>
+
+
 <!-- end of test -->
 		</div>
-		<?php  $total_events = wp_count_posts('event_listing')->publish;?>
-		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events (<?php echo $total_events?>)</a>
+		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events</a>
 	</section>
 
 

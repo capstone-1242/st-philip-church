@@ -23,37 +23,33 @@ get_header();
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
 
+		<!-- featured image -->
+		<?php st_philip_post_thumbnail(); ?>
+		<!-- end of featured image -->
+
 		<!-- entry content -->
 		<div class="entry-content">
-			<div>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-			</div>
-			<section>
-				<h2>Our Service Times</h2>
-				<div>
-					<div><span>9:20 AM</span>Orthros (Matins)</div>
-					<div><span>10:20 AM</span>Divine Liturgy</div>
-				</div>
-			</section>
-			<section>
-				<h2>Past Streams</h2>
-				<div>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<p>Welcome to St. Philip’s Antiochian Church—a community where faith, tradition, and family come together. We invite you to join us through one of three membership options:</p>
 
-				</div>
+			<section>
+				<h2>Non-Voting Member</h2>
+				<p>Stay connected with our church family, receive community updates, and participate in our spiritual and social gatherings.</p>
 			</section>
-			<div>
-				<div>
-					<h2>Follow on Facebook</h2>
-					<a href="#">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-				<div>
-					<h2>Subscribe on YouTube</h2>
-					<a href="#">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
+
+			<section>
+				<h2>Voting Member - Single ($250/yr)*</h2>
+				<p>Take an active role in the life of St. Philip by supporting our mission and gaining the right to vote on important church matters.</p>
+			</section>
+
+			<section>
+				<h2>Voting Member - Family 
+				($400/yr)</h2>
+				<p>Strengthen your family’s involvement in our parish with voting privileges for your household and deeper engagement in our church’s future.</p>
+			</section>
+
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeF1_uPaD4fO-iOUnSI6cD3LkwhQ27oSOXUJxKqUwY0WbPVzA/viewform" class="fake-button">Continue to Sign Up</a>
+
 
 			<?php
 			wp_link_pages(

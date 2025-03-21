@@ -120,10 +120,11 @@ else :
     echo '<p>No upcoming events found.</p>';
 endif;
 ?>
+
+
 <!-- end of test -->
 		</div>
-		<?php  $total_events = wp_count_posts('event_listing')->publish;?>
-		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events (<?php echo $total_events?>)</a>
+		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events</a>
 	</section>
 
 

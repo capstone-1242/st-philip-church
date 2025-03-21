@@ -78,7 +78,7 @@ get_header();
 			<!--test-->
 			<?php
 $args = array(
-    'post_type'      => 'event_listing', 
+    'post_type'      => 'events', 
     'posts_per_page' => 2, 
     'orderby'        => 'meta_value', 
     'meta_key'       => '_event_start_date', 
@@ -101,15 +101,7 @@ if ($events->have_posts()) :
                     <p>No event banner available</p>
                 <?php endif; ?>
 						</div>
-						<span><?php 
-						$event_start_date= get_post_meta(get_the_ID(), '_event_start_date', true); 
-						
-						if($event_start_date){
-							$date = new DateTime($event_start_date);
-							echo $date->format('F j'); 
-						}
-						?>
-						</span>
+						<span><?php echo get_post_meta(get_the_ID(), '_event_start_date', true); ?></span>
             <h3><a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), '_event_title', true); ?></a></h3>
             <p><?php echo get_post_meta(get_the_ID(), '_event_start_time', true); ?></p>
             <p><?php echo get_post_meta(get_the_ID(), '_event_description', true); ?></p>
@@ -120,10 +112,11 @@ else :
     echo '<p>No upcoming events found.</p>';
 endif;
 ?>
+
+
 <!-- end of test -->
 		</div>
-		<?php  $total_events = wp_count_posts('event_listing')->publish;?>
-		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events (<?php echo $total_events?>)</a>
+		<a href="<?php echo esc_url(get_permalink(253)); ?>" class="fake-button">View All Events</a>
 	</section>
 
 
