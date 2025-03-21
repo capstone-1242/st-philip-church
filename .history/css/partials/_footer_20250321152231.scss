@@ -17,36 +17,25 @@ This is where we style our footer
     align-items: center;
     gap: 3rem;
     @include maxWidthCentered(1248px);
-    @include padding(112px, 0);
-  
+    @include padding(112px, 48px);
 
     /* 
   Footer Section Styling
   */
     .site-branding {
       text-align: center;
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
       a {
         display: inline-block;
       }
 
-      .footer-title{
-        display: block
-      }
-
       .site-logo {
         @include logoDimensions(50px, 50px);
+        text-align: center;
       }
 
       // footer church info div
       .footer-church-info {
         background-color: $church-info-background-color;
-        padding: 2rem;
-        width: 100%;
-
         h3 {
           text-align: center;
         }
@@ -55,7 +44,8 @@ This is where we style our footer
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap: 2rem;
+          padding: 2rem;
+          gap: 1rem;
          
 
           div {
@@ -70,7 +60,6 @@ This is where we style our footer
 
           .church-location {
             color: $church-location-text-color;
-            font-size: 24px;
             text-align: center;
           }
         }
@@ -82,11 +71,10 @@ This is where we style our footer
   */
     .footer-navigation {
       width: 100%;
-      @include padding(0, 16px);
       #footer-menu {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
+        row-gap: 2rem;
       }
     }
 
@@ -94,16 +82,6 @@ This is where we style our footer
       display: grid;
       grid-template-columns: 1fr  1fr;
       gap: 4vw;
-      @include padding(112px, 48px);
-
-      .site-branding{
-        justify-content: center;
-        align-items: start;
-      }
-
-      .footer-navigation{
-        @include padding(0,0)
-      }
     }
   }
 }
