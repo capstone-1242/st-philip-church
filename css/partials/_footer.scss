@@ -1,0 +1,82 @@
+/*
+This is where we style our footer
+*/
+
+@use "colors" as *;
+@use "media-queries" as *;
+@use "mixins" as *;
+
+.site-footer {
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+
+  >div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    @include maxWidthCentered(1248px);
+    @include padding(112px, 48px);
+
+    /* 
+  Footer Section Styling
+  */
+    .site-branding {
+      text-align: center;
+      a {
+        display: inline-block;
+      }
+
+      .site-logo {
+        @include logoDimensions(50px, 50px);
+      }
+
+      // footer church info div
+      .footer-church-info {
+        h3 {
+          text-align: center;
+        }
+
+        .church-hours {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 2rem;
+          gap: 1rem;
+          background-color: $church-info-background-color;
+
+          div {
+            flex: 1;
+            border: 1px solid $footer-text-color;
+            padding: 1rem 1.5rem;
+
+            small {
+              display: block;
+            }
+          }
+
+          .church-location {
+            color: $church-location-text-color;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    /*
+  Footer Navigation Styling 
+  */
+    .footer-navigation {
+      #footer-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @include forScreenSizesMin(tablet, desktop) {
+      display: grid;
+      grid-template-columns: 1fr  1fr;
+      gap: 4vw;
+    }
+  }
+}
