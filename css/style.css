@@ -1,3 +1,17 @@
+/*===========================RESET STYLES=================================*/
+*,
+*::after,
+* b::before {
+  margin: 0;
+  padding: 0;
+}
+
+/*===========================UTILITIY CLASSES=================================*/
+/*
+the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
+
+		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+*/
 .sr-only {
   position: absolute;
   left: -10000px;
@@ -7,6 +21,9 @@
   overflow: hidden;
 }
 
+/*
+This is the universal style for the buttons
+*/
 a.fake-button {
   display: inline-block;
   background-color: blue !important;
@@ -15,18 +32,9 @@ a.fake-button {
   cursor: pointer;
 }
 
-body {
-  background-color: white;
-  font-family: "Open Sans";
-  font-size: 16px;
-  max-width: 1248px;
-  margin: 0 auto;
-}
-body main {
-  background-color: rgb(184, 238, 223);
-}
-
-h1, .site-title {
+/*===========================TYPOGRAPHY=================================*/
+h1,
+.site-title {
   font-size: 40px;
   font-weight: 700;
 }
@@ -45,37 +53,108 @@ a:hover {
   color: pink;
 }
 
+/*===========================UNIVERSAL STYLE=================================*/
+body {
+  background-color: white;
+  font-family: "Open Sans";
+  font-size: 16px;
+  max-width: 1248px;
+  margin: 0 auto;
+}
+body main {
+  background-color: rgb(184, 238, 223);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  div.header-nav-container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  }
+  div.header-nav-container ul#primary-menu {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
+    margin-left: auto;
+    justify-self: end;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  div.header-nav-container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  }
+  div.header-nav-container ul#primary-menu {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
+    margin-left: auto;
+    justify-self: end;
+  }
+}
+/*===========================HEADER=================================*/
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 header.page-header {
   display: block;
 }
+header .woo-shop-button,
 header .menu-toggle {
-  width: 50px;
-  height: 50px;
-  background: pink;
+  display: block;
+}
+header .site-logo {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   header {
-    flex-flow: column wrap;
-    align-items: center;
+    display: block;
   }
-  header .menu-toggle {
+  header .menu-toggle,
+  header .woo-shop-button {
     display: none;
+  }
+  header .site-title {
+    visibility: hidden;
+    height: 0;
+  }
+  header .site-logo {
+    visibility: visible;
+    height: auto;
+    width: 50px;
+    object-fit: cover;
   }
 }
 @media only screen and (min-width: 1280px) {
   header {
-    flex-flow: column wrap;
-    align-items: center;
+    display: block;
   }
-  header .menu-toggle {
+  header .menu-toggle,
+  header .woo-shop-button {
     display: none;
+  }
+  header .site-title {
+    visibility: hidden;
+    height: 0;
+  }
+  header .site-logo {
+    visibility: visible;
+    height: auto;
+    width: 50px;
+    object-fit: cover;
   }
 }
 
+/*===========================ACF FILED GROUP=================================*/
+/*
+The .acf-gallery is for the gallery section of the parish organization and committee acf post types
+*/
 .acf-gallery {
   display: flex;
   flex-flow: row wrap;
@@ -103,68 +182,68 @@ header .menu-toggle {
   flex: auto;
 }
 
-#primary-menu {
+/*===========================NAVIGATION=================================*/
+ul#primary-menu {
+  background: white;
   display: none;
 }
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  #primary-menu {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
-  }
-  #primary-menu li.menu-item {
-    position: relative;
-  }
-  #primary-menu li.menu-item > ul.sub-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 10px;
-  }
-  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
-    border-bottom: 1px solid black;
-  }
-  #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
-    display: block;
-    width: max-content;
-    flex-wrap: nowrap;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  #primary-menu {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
-  }
-  #primary-menu li.menu-item {
-    position: relative;
-  }
-  #primary-menu li.menu-item > ul.sub-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 10px;
-  }
-  #primary-menu li.menu-item > ul.sub-menu li:not(last-of-type) {
-    border-bottom: 1px solid black;
-  }
-  #primary-menu li.menu-item:hover > ul.sub-menu, #primary-menu li.menu-item:focus-within > ul.sub-menu {
-    display: block;
-    width: max-content;
-    flex-wrap: nowrap;
-  }
-}
-
-#site-navigation.toggled #primary-menu {
+ul#primary-menu > li.menu-item {
+  color: black;
+  background: white;
   display: block;
+  float: left;
+  padding: 8px 16px;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+  z-index: 900;
+}
+ul#primary-menu > li.menu-item:hover, ul#primary-menu > li.menu-item:focus-within {
+  cursor: pointer;
+}
+ul#primary-menu > li.menu-item:focus-within a {
+  outline: none;
+}
+ul#primary-menu > li.menu-item:hover > ul.sub-menu, ul#primary-menu > li.menu-item:focus-within > ul.submenu {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: inherit;
+}
+ul#primary-menu > li.menu-item > ul.sub-menu {
+  background: white;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  padding: 8px 16px;
+  left: 0;
+  display: none;
+}
+ul#primary-menu > li.menu-item > ul.sub-menu:hover > li, ul#primary-menu > li.menu-item > ul.sub-menu:focus > li {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  z-index: inherit;
+}
+ul#primary-menu > li.menu-item > ul.sub-menu > li {
+  clear: both;
+  width: 100%;
+  padding: 8px 16px;
+}
+#site-navigation.toggled ul#primary-menu {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+#site-navigation.toggled ul#primary-menu ul.sub-menu > li.menu-item {
+  padding-left: 24px;
 }
 
+/*===========================END OF NAVIGATION=================================*/
+/*===========================FOOTER=================================*/
 footer .site-branding {
   text-align: center;
 }
@@ -184,6 +263,4 @@ footer #footer-menu {
   footer #footer-menu {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */*/
