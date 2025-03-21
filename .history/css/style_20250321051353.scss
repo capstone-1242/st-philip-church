@@ -93,14 +93,17 @@ body {
         > ul.sub-menu{
           position: absolute;
           top: 20px;
-          left: -8px;
+          left: 0;
           z-index: 1000;
           min-width: 200px;
 
-          li.menu-item a{
-            flex-wrap: nowrap;
-            min-width: auto;
-          }
+          li.menu-item{
+            padding: 8px 16px 8px 0;
+            a{
+              flex-wrap: nowrap;
+              min-width: auto;
+            }
+          } 
         }
       }
       // new change

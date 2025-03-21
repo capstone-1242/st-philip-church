@@ -80,7 +80,6 @@ body {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
-    padding: 1rem 0.5rem;
 
     ul#primary-menu {
       display: flex;
@@ -93,14 +92,8 @@ body {
         > ul.sub-menu{
           position: absolute;
           top: 20px;
-          left: -8px;
+          left: 0;
           z-index: 1000;
-          min-width: 200px;
-
-          li.menu-item a{
-            flex-wrap: nowrap;
-            min-width: auto;
-          }
         }
       }
       // new change
@@ -265,7 +258,6 @@ ul#primary-menu {
 
     ul.sub-menu > li.menu-item {
       padding-left: 24px;
-      margin-top: 4px;
     }
   }
 }
