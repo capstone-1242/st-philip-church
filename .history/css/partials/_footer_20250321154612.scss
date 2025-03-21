@@ -45,8 +45,6 @@ This is where we style our footer
       .footer-church-info {
         background-color: $church-info-background-color;
         padding: 2rem;
-        width: 100%;
-
         h3 {
           text-align: center;
         }
@@ -55,7 +53,6 @@ This is where we style our footer
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap: 2rem;
          
 
           div {

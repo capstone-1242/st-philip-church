@@ -229,9 +229,10 @@ This is where we style our footer
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  gap: 3rem;
   max-width: 1248px;
   margin: 0 auto;
-  padding: 112px 48px;
+  padding: 112px 0;
   /* 
   Footer Section Styling
   */
@@ -241,13 +242,25 @@ This is where we style our footer
 }
 .site-footer > div .site-branding {
   text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 .site-footer > div .site-branding a {
   display: inline-block;
 }
+.site-footer > div .site-branding .footer-title {
+  display: block;
+}
 .site-footer > div .site-branding .site-logo {
   width: 50px;
   height: 50px;
+}
+.site-footer > div .site-branding .footer-church-info {
+  background-color: rgba(170, 165, 165, 0.4);
+  padding: 2rem;
+  width: 100%;
 }
 .site-footer > div .site-branding .footer-church-info h3 {
   text-align: center;
@@ -256,9 +269,7 @@ This is where we style our footer
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  gap: 1rem;
-  background-color: rgba(170, 165, 165, 0.4);
+  gap: 2rem;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours div {
   flex: 1;
@@ -270,17 +281,31 @@ This is where we style our footer
 }
 .site-footer > div .site-branding .footer-church-info .church-hours .church-location {
   color: darkgray;
+  font-size: 24px;
   text-align: center;
+}
+.site-footer > div .footer-navigation {
+  width: 100%;
+  padding: 0 16px;
 }
 .site-footer > div .footer-navigation #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .site-footer > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4vw;
+    padding: 112px 48px;
+  }
+  .site-footer > div .site-branding {
+    justify-content: center;
+    align-items: start;
+  }
+  .site-footer > div .footer-navigation {
+    padding: 0 0;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -288,6 +313,14 @@ This is where we style our footer
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4vw;
+    padding: 112px 48px;
+  }
+  .site-footer > div .site-branding {
+    justify-content: center;
+    align-items: start;
+  }
+  .site-footer > div .footer-navigation {
+    padding: 0 0;
   }
 }
 

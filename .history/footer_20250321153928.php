@@ -24,7 +24,7 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.webp" alt="Site Logo" class="site-logo-img" />
 				<?php endif; ?>
 			</a>
-			<h2><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><span class="footer-title">St. Philip Antiochian</span>Orthodox Church</a></h2>
+			<h2><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><span>St. Philip Antiochian</span> Orthodox Church</a></h2>
 			<section class="footer-church-info">
 				<h3>Join us every Sunday</h3>
 				<div class="church-hours">
