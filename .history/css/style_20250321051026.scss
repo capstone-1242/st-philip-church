@@ -93,13 +93,13 @@ body {
         > ul.sub-menu{
           position: absolute;
           top: 20px;
-          left: -8px;
+          left: 0;
           z-index: 1000;
-          min-width: 200px;
+          width: 100%;
 
           li.menu-item a{
             flex-wrap: nowrap;
-            min-width: auto;
+            width: 100%;
           }
         }
       }

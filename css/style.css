@@ -69,10 +69,25 @@ body main {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
+    padding: 1rem 0.5rem;
   }
   div.header-nav-container ul#primary-menu {
     display: flex;
     flex-flow: row nowrap;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item {
+    position: relative;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu {
+    position: absolute;
+    top: 20px;
+    left: -8px;
+    z-index: 1000;
+    min-width: 200px;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu li.menu-item a {
+    flex-wrap: nowrap;
+    min-width: auto;
   }
   div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
     margin-left: auto;
@@ -83,10 +98,25 @@ body main {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
+    padding: 1rem 0.5rem;
   }
   div.header-nav-container ul#primary-menu {
     display: flex;
     flex-flow: row nowrap;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item {
+    position: relative;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu {
+    position: absolute;
+    top: 20px;
+    left: -8px;
+    z-index: 1000;
+    min-width: 200px;
+  }
+  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu li.menu-item a {
+    flex-wrap: nowrap;
+    min-width: auto;
   }
   div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
     margin-left: auto;
@@ -240,6 +270,7 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 }
 #site-navigation.toggled ul#primary-menu ul.sub-menu > li.menu-item {
   padding-left: 24px;
+  margin-top: 4px;
 }
 
 /*===========================END OF NAVIGATION=================================*/
@@ -263,4 +294,4 @@ footer #footer-menu {
   footer #footer-menu {
     grid-template-columns: repeat(4, 1fr);
   }
-}/*# sourceMappingURL=style.css.map */*/
+}/*# sourceMappingURL=style.css.map */
