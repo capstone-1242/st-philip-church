@@ -31,6 +31,7 @@ This is where we style our footer
       justify-content: center;
       align-items: center;
       width: 100%;
+     
       a {
         display: inline-block;
       }
@@ -92,8 +93,7 @@ This is where we style our footer
   Footer Navigation Styling 
   */
     .footer-navigation {
-      width: 100%;
-      @include padding(0, 16px);
+      // width: 100%;
       #footer-menu {
         display: grid;
         grid-template-columns: 1fr 1fr;

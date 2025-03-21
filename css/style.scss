@@ -1,3 +1,4 @@
+@use "partials/reset" as *;
 @use "partials/header" as *;
 @use "partials/hero-banner" as *;
 @use "partials/footer" as *;
@@ -7,15 +8,6 @@
 @use "partials/mixins" as *;
 @use "partials/media-queries" as *;
 
-/*===========================RESET STYLES=================================*/
-*,
-*::after,
-*b::before {
-  margin: 0;
-  padding: 0;
-}
-
-/*===========================UTILITY CLASSES=================================*/
 
 /*
 the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
