@@ -229,7 +229,7 @@ This is where we style our footer
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   max-width: 1248px;
   margin: 0 auto;
   padding: 112px 0;
@@ -246,6 +246,7 @@ This is where we style our footer
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .site-footer > div .site-branding a {
   display: inline-block;
@@ -258,30 +259,39 @@ This is where we style our footer
   height: 50px;
 }
 .site-footer > div .site-branding .footer-church-info {
-  background-color: rgba(170, 165, 165, 0.4);
+  background-color: #3D4149;
+  margin: 32px 0 0;
   padding: 2rem;
   width: 100%;
+  font-size: 20px;
 }
 .site-footer > div .site-branding .footer-church-info h3 {
   text-align: center;
+  font-weight: 700;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0 28px;
   gap: 2rem;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours div {
   flex: 1;
   border: 1px solid white;
   padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div span {
+  font-weight: 600;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours div small {
   display: block;
+  font-size: 14px;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours .church-location {
-  color: darkgray;
-  font-size: 24px;
+  color: #E9EDF6;
+  font-weight: 600;
   text-align: center;
 }
 .site-footer > div .footer-navigation {
@@ -293,6 +303,9 @@ This is where we style our footer
   grid-template-columns: 1fr 1fr;
   column-gap: 2rem;
 }
+.site-footer > div .footer-navigation #footer-menu li.menu-item {
+  padding: 8px;
+}
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .site-footer > div {
     display: grid;
@@ -303,6 +316,9 @@ This is where we style our footer
   .site-footer > div .site-branding {
     justify-content: center;
     align-items: start;
+  }
+  .site-footer > div .site-branding .orthodox {
+    margin-left: -2ch;
   }
   .site-footer > div .footer-navigation {
     padding: 0 0;
@@ -318,6 +334,9 @@ This is where we style our footer
   .site-footer > div .site-branding {
     justify-content: center;
     align-items: start;
+  }
+  .site-footer > div .site-branding .orthodox {
+    margin-left: -2ch;
   }
   .site-footer > div .footer-navigation {
     padding: 0 0;
@@ -382,9 +401,11 @@ a:hover {
 /*===========================UNIVERSAL STYLE=================================*/
 body {
   background-color: white;
-  font-family: "Open Sans";
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
 }
 body main {
   background-color: rgb(184, 238, 223);
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,24 @@
+/*
+This is where we style our typography
+*/
+
+h1,
+.site-title {
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
+a:hover {
+  color: pink;
+}
+// end of typography

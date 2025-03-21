@@ -1,0 +1,5 @@
+@use "./partials/colors" as colors;
+
+body{
+  background-color: $text-primary-color;
+}

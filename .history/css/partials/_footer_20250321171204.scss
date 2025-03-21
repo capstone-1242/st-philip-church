@@ -1,0 +1,126 @@
+/*
+This is where we style our footer
+*/
+
+@use "colors" as *;
+@use "media-queries" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "typography" as *;
+
+
+.site-footer {
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+
+  >div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    @include maxWidthCentered(1248px);
+    @include padding(112px, 0);
+  
+
+    /* 
+  Footer Section Styling
+  */
+    .site-branding {
+      text-align: center;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      a {
+        display: inline-block;
+      }
+
+      .footer-title{
+        display: block
+      }
+
+      .site-logo {
+        @include logoDimensions(50px, 50px);
+      }
+
+      // footer church info div
+      .footer-church-info {
+        background-color: $church-info-background-color;
+        margin: 32px 0 0;
+        padding: 2rem;
+        width: 100%;
+        font-size: $footer-church-info-font-size;
+
+        h3 {
+          text-align: center;
+        }
+
+        .church-hours {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 0 28px;
+          gap: 2rem;
+         
+
+          div {
+            flex: 1;
+            border: 1px solid $footer-text-color;
+            padding: 1rem 1.5rem;
+            border-radius: $footer-div-border-radius;
+
+            span{
+              font-weight: $font-weight-semi-bold;
+            }
+
+            small {
+              display: block;
+              font-size: $footer-hour-small-text;
+            }
+          }
+
+          .church-location {
+            color: $church-location-text-color;
+            font-weight: $font-weight-medium-bold;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    /*
+  Footer Navigation Styling 
+  */
+    .footer-navigation {
+      width: 100%;
+      @include padding(0, 16px);
+      #footer-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+
+        li.menu-item{
+          padding: 8px;
+        }
+      }
+    }
+
+    @include forScreenSizesMin(tablet, desktop) {
+      display: grid;
+      grid-template-columns: 1fr  1fr;
+      gap: 4vw;
+      @include padding(112px, 48px);
+
+      .site-branding{
+        justify-content: center;
+        align-items: start;
+      }
+
+      .footer-navigation{
+        @include padding(0,0)
+      }
+    }
+  }
+}
