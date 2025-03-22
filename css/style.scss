@@ -9,6 +9,7 @@
 @use "partials/media-queries" as *;
 
 
+
 /*
 the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
 
@@ -26,12 +27,19 @@ the class .sr-only has been added here just in case, but the starter theme has a
 /*
 This is the universal style for the buttons
 */
+a{
+  font-size: $p-tagline-font-size;
+  font-weight: $font-weight-medium-bold;
+}
+
 a.fake-button {
-  display: inline-block;
-  background-color: blue !important;
-  padding: 1rem 2rem !important;
   color: white;
   cursor: pointer;
+  display: inline-block;
+  background-color: blue !important;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 12px 26.5px!important;
 }
 
 /*===========================TYPOGRAPHY=================================*/
@@ -70,3 +78,4 @@ body {
     background-color: rgb(184, 238, 223);
   }
 }
+

@@ -29,15 +29,17 @@ get_header();
 	?>
 
 	<!-- Hero Banner section -->
-	<div class="hero-banner" style="background-image: url('<?php
+	<section class="hero-banner" style="background-image: url('<?php
 																													// Check if the post has a featured image, otherwise fallback to the theme default image
 																													echo esc_url($featured_image_url ? $featured_image_url : $theme_banner_image_url);
 																													?>');">
-		<h2>St. Philip Antiochian Church</h2>
-		<p>Orthodoxy with Middle Eastern Flavour!</p>
-		<p>Our store shop just opened, check it out!</p>
-		<a href="<?php echo esc_url(get_permalink(77)); ?>" class="fake-button">View Shop</a>
-	</div>
+		<div>
+			<h2>St. Philip Antiochian Church</h2>
+			<p>Orthodoxy with Middle Eastern Flavour!</p>
+			<p>Our store shop just opened, check it out!</p>
+			<a href="<?php echo esc_url(get_permalink(77)); ?>" class="fake-button">View Shop</a>
+		</div>
+	</section>
 
 	<!-- Weekly Highlights section -->
 	<section>
