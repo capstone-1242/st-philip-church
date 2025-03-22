@@ -4,6 +4,7 @@ $font-family: 'Inter', sans-serif;
 
 // font-sizes
 $p-font-size: 24px;
+$p-tagline-font-size: 16px;
 $h1-font-size: 40px;
 $h2-font-size: 32px;
 $h3-font-size: 30px;
@@ -20,7 +21,7 @@ $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-medium-bold: 600;
-$font-weight-semi-bold: 600;
+$font-weight-semi-bold: 600; /* this i have to research on why it is stored and giving error */
 $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
 $font-weight-black: 900;

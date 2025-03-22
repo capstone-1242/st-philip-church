@@ -49,7 +49,7 @@ This is where we style our footer
         background-color: $church-info-background-color;
         margin: 32px 0 0;
         padding: 2rem;
-        width: 100%;
+        min-width: 320px;
         font-size: $footer-church-info-font-size;
 
         h3 {

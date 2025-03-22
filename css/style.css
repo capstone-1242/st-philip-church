@@ -59,37 +59,6 @@ table {
 /*
 This is where we style our header navigation
 */
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  div.header-nav-container {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    padding: 1rem 0.5rem;
-    max-width: 1248px;
-    margin: 0 auto;
-  }
-  div.header-nav-container ul#primary-menu {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item {
-    position: relative;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu {
-    position: absolute;
-    top: 20px;
-    left: -8px;
-    z-index: 1000;
-    min-width: 200px;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu li.menu-item a {
-    flex-wrap: nowrap;
-    min-width: auto;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
-    margin-left: auto;
-    justify-self: end;
-  }
-}
 @media only screen and (min-width: 1280px) {
   div.header-nav-container {
     display: grid;
@@ -107,7 +76,7 @@ This is where we style our header navigation
   }
   div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu {
     position: absolute;
-    top: 20px;
+    top: 50px;
     left: -8px;
     z-index: 1000;
     min-width: 200px;
@@ -126,6 +95,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 29px 0 16px;
 }
 header.page-header {
   display: block;
@@ -140,28 +110,10 @@ header .site-logo {
   width: 0;
   overflow: hidden;
 }
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  header {
-    display: block;
-  }
-  header .menu-toggle,
-  header .woo-shop-button {
-    display: none;
-  }
-  header .site-title {
-    visibility: hidden;
-    height: 0;
-  }
-  header .site-logo {
-    visibility: visible;
-    height: auto;
-    width: 50px;
-    object-fit: cover;
-  }
-}
 @media only screen and (min-width: 1280px) {
   header {
     display: block;
+    padding: 0;
   }
   header .menu-toggle,
   header .woo-shop-button {
@@ -275,6 +227,50 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 /**
 This is where we styles hero banner for the homepage
 */
+/* this i have to research on why it is stored and giving error */
+.hero-banner {
+  max-width: 1248px;
+  margin: 0 auto;
+  display: flex;
+}
+.hero-banner > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: calc(100vh - 90px);
+  padding: 120px 16px 30px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  flex-grow: 1;
+}
+.hero-banner > div h2 {
+  font-size: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem);
+  font-weight: 600;
+}
+.hero-banner > div p:first-of-type {
+  font-size: clamp(1rem, 0.6552rem + 1.7241vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+}
+.hero-banner > div p:last-of-type {
+  font-size: clamp(0.875rem, 0.6595rem + 1.0776vw, 1.5rem);
+  font-weight: 500;
+}
+.hero-banner > div a {
+  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+}
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero-banner > div {
+    height: calc(100vh - 90px);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-banner > div {
+    height: calc(100vh - 90px);
+  }
+}
+
 /*
 This is where we style our footer
 */
@@ -320,7 +316,7 @@ This is where we style our footer
   background-color: #3D4149;
   margin: 32px 0 0;
   padding: 2rem;
-  width: 100%;
+  min-width: 320px;
   font-size: 20px;
 }
 .site-footer > div .site-branding .footer-church-info h3 {
@@ -414,12 +410,19 @@ the class .sr-only has been added here just in case, but the starter theme has a
 /*
 This is the universal style for the buttons
 */
+a {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 a.fake-button {
-  display: inline-block;
-  background-color: blue !important;
-  padding: 1rem 2rem !important;
   color: white;
   cursor: pointer;
+  display: inline-block;
+  background-color: blue !important;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 12px 26.5px !important;
 }
 
 /*===========================TYPOGRAPHY=================================*/

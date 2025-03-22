@@ -8,7 +8,7 @@ This is where we style our header navigation
 
 
 
-@include forScreenSizesMin(tablet, desktop) {
+@include forScreenSizesMin( desktop) {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -25,7 +25,7 @@ This is where we style our header navigation
 
         > ul.sub-menu{
           position: absolute;
-          top: 20px;
+          top: 50px;
           left: -8px;
           z-index: 1000;
           min-width: 200px;
@@ -51,6 +51,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 29px 0 16px;
+
+  // i forgot that header should be sticky and I have no brain cells left to figure this out, maybe next week 
+  // this is an attempt
+  // position: sticky;
+  // top: 0;
+  // z-index: 1100;
+  // background-color: white;
+
 
   &.page-header {
     display: block;
@@ -68,9 +77,10 @@ header {
     overflow: hidden;
   }
 
-  @include forScreenSizesMin(tablet, desktop) {
+  @include forScreenSizesMin(desktop) {
     & {
       display: block;
+      padding: 0;
     }
 
     .menu-toggle,
@@ -173,7 +183,7 @@ ul#primary-menu {
       display: none;
 
       &:hover > li,
-      &:focus > li {
+      &:focus > li { 
         visibility: visible;
         opacity: 1;
         display: block;
