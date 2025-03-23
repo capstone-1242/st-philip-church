@@ -24,6 +24,17 @@ the class .sr-only has been added here just in case, but the starter theme has a
   overflow: hidden;
 }
 
+
+/*
+make the iframe or embedded video responsive
+*/
+
+.responsive-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  border: none;
+}
+
 /*
 This is the universal style for the buttons
 */
@@ -42,22 +53,31 @@ a.fake-button {
   padding: 12px 26.5px!important;
 }
 
-/*===========================TYPOGRAPHY=================================*/
+.full-width-button{
+  text-align: center;
+  width: 100%;
+}
 
+
+/*===========================TYPOGRAPHY=================================*/
 h1,
 .site-title {
   font-size: $h1-font-size;
   font-weight: $font-weight-bold;
 }
 
-h2 {
-  font-size: $h2-font-size;
+h2{
+  font-size: $font20-to-font32;
   font-weight: $font-weight-medium-bold;
 }
 
-h3 {
-  font-size: $h3-font-size;
+h3{
+  font-size: $font16-to-font24;
   font-weight: $font-weight-medium-bold;
+}
+
+p{
+  margin: 1rem auto;
 }
 
 a:hover {
@@ -70,12 +90,193 @@ a:hover {
 body {
   background-color: $text-primary-color;
   font-family: $font-family;
-  font-size: $p-font-size;
+  font-size: $font16-to-font24;
+  line-height: $line-height-base;
   // max-width: 1248px;
   // @include margin(0, auto);
 
   main {
     background-color: rgb(184, 238, 223);
   }
+
+  #primary{
+    >section:not(.hero-banner){
+      @include maxWidthCentered(1248px);
+      padding: 32px 16px;
+    } 
+  }
+
 }
+
+
+
+
+
+
+/*===========================FRONT PAGE=================================*/
+
+/*--------------------------Weekly Highlights Section------------------------------*/
+// -------------------------------------------------------------//
+// <section class="weekly-highlights">
+
+// <h2>Weekly Highlights</h2>
+// <div>
+//   <?php if ($announcement_title && $announcement_content) : ?>
+//     <h3><?php echo $announcement_title ?></h3>
+//     <p><?php echo $announcement_content ?></p>
+//   <?php else: ?>
+//     <p>No announcements at this time.</p>
+//   <?php endif; ?>
+
+// </div>
+// </section>
+// ---------------------------------------------------------------//
+
+.weekly-highlights{
+  @include maxWidthCentered(1248px);
+  padding: 32px 16px;
+
+  >div{
+    @include card(black, 1px, 4px, 1rem);
+
+    p{
+      font-size: $font14-to-font20;
+    }
+    
+  }
+}
+
+
+/*--------------------------Welcome to our Church Section------------------------------*/
+
+.welcome{
+  @include maxWidthCentered(1248px);
+  padding: 32px 16px;
+  background-color: beige;
+
+  // CHERRY: in the figma the body of this section in desktop is 20px instead of 24px (just like other sections) not sure if it is a typo but i just did 20px anyway
+  >p{
+    font-size: $font16-to-font20;
+  }
+
+  >section{
+    *{
+      margin-bottom: 1rem;
+    }
+
+    // church location
+    >div:first-of-type{
+      @include card(black, 1px, 4px, 0.5rem);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: $font14-to-font20;
+    } /* end of church location */
+
+    // church hours
+    >div:last-of-type{
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 1rem;
+      div{
+
+        @include card(black, 1px, 4px, 10px 14px, $church-hours-card-bg-color);
+        color: $church-hours-card-text-color;
+        text-align: center;
+        flex: 1 1 50%;
+
+        span{
+          display: block;
+          font-size: $font20-to-font24;
+          font-weight: $font-weight-medium-bold;
+        }
+        small{
+          font-size: $font14-to-font16;
+          vertical-align: top;
+        }
+      }
+      
+    }/* end of church hours section */
+
+    a{
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+}
+
+
+/*--------------------------Upcoming Events Section------------------------------*/
+
+.upcoming-events{
+  @include maxWidthCentered(1248px);
+  padding: 32px 16px;
+  .events-list{
+    .event-item{
+      @include card(black, 1px, 0 4px, 0px);
+
+      // content not the image
+      & > *:not(div:first-of-type){
+        padding: 1rem;
+      }
+    }
+  }
+
+  // adding margin-bottom to elements
+  & > *{
+    margin-bottom: 1rem;
+  } 
+
+}
+
+
+/*--------------------------Explore Our Church Group Section------------------------------*/
+.upcoming-events + section{
+  background-color: beige;
+  
+  a{
+    display: block;
+    margin: 16px auto;
+
+    p.org-title{
+      padding: 132px;
+    }
+
+  }
+}
+
+/*--------------------------Support our Church Section------------------------------*/
+// .donation{
+//   // @include maxWidthCentered(1248px);
+//   // padding: 32px 16px;
+// }
+
+/*---------------------------Membership Section------------------------------*/
+.membership{
+  >*:not(p){
+    margin: 16px auto;
+  }
+
+  section{
+    @include card(black, 1px, 4px, 1rem);
+  }
+
+}
+
+// desktop version
+@include forScreenSizesMin(desktop) {
+.weekly-highlights{
+ background-color: yellow;
+}
+
+}
+
+
+
+/*===========================END OF FRONT PAGE=================================*/
+
+
+
 

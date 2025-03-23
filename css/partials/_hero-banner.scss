@@ -53,7 +53,7 @@ This is where we styles hero banner for the homepage
     }
 
     a{
-      font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+      font-size: $font16-to-font24;
     }
 
     @include forScreenSizesMin(tablet, desktop){

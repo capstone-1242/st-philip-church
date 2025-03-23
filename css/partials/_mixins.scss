@@ -23,3 +23,36 @@
   width: $width;
   height: $height;
 }
+
+@mixin card(
+  $border-color: black,
+  $border-size: 1px,
+  $radius: 12px,
+  $padding: 20px,
+  $background-color: white
+) {
+  border: $border-size solid $border-color;
+  background-color: $background-color;
+
+
+  @if length($radius) == 1 {
+    border-radius: $radius;
+  } @else if length($radius) == 2 {
+    border-radius: nth($radius, 1) nth($radius, 2);
+  } @else if length($radius) == 3 {
+    border-radius: nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 1);
+  } @else {
+    border-radius: $radius; 
+  }
+
+
+  @if length($padding) == 1 {
+    padding: $padding;
+  } @else if length($padding) == 2 {
+    padding: nth($padding, 1) nth($padding, 2);
+  } @else if length($padding) == 3 {
+    padding: nth($padding, 1) nth($padding, 2) nth($padding, 3) nth($padding, 1);
+  } @else {
+    padding: $padding;
+  }
+}
