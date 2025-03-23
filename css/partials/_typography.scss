@@ -29,3 +29,11 @@ $font-weight-black: 900;
 // footer church info
 $footer-church-info-font-size: 20px;
 $footer-hour-small-text: 14px;
+
+// responsive typography
+$font20-to-font32: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+$font20-to-font24: clamp(1.25rem, 1.1638rem + 0.431vw, 1.5rem);
+$font16-to-font24: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+$font16-to-font20: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+$font14-to-font20: clamp(0.875rem, 0.7457rem + 0.6466vw, 1.25rem);
+$font14-to-font16: clamp(0.875rem, 0.8319rem + 0.2155vw, 1rem);
