@@ -100,7 +100,7 @@ main.front-page {
     position: relative;
     padding: 0 16px;
     color: $accent-white !important;
-    background-color: $accent-white;
+    background-color: rgba(41, 73, 30, 0.70) !important;
     margin-bottom: 0;
     @include maxWidthCentered(1248px);
     @include grid;
@@ -164,17 +164,6 @@ main.front-page {
         }
       }
     }
-  }
-
-  div.welcome-overlay {
-    position: absolute;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background-color: rgba(41, 73, 30, 0.7);
   }
 
   /*--------------------------Upcoming Events Section------------------------------*/
@@ -292,22 +281,24 @@ main.front-page {
   .membership {
     position: relative;
     color: $primary-blue;
-    background-color: $main-yellow;
-    background-color: rgba(239, 194, 117, 0.45);
+    background-color: $white;
     @include grid;
+   
 
     > *{
       grid-column:  1 / -1;
+      z-index: 2;
     }
+
     .membership-options {
       section {
-        @include card;
+        @include card($color: $primary-blue);
       }
     }
 
     @include forScreenSizes(tablet, desktop) {
       & {
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr auto;
 
         > div:first-child {
           grid-column: 1 / span 4;
@@ -329,15 +320,19 @@ main.front-page {
     }
   }
 
-  div.membership-overlay {
+  div.membership-overlay{
     position: absolute;
+    background-color: rgba(239, 194, 117, 0.45)!important;
     top: 0;
-    width: 100vw;
-    background-color: rgba(239, 194, 117, 0.45);
-    z-index: 2;
+    left: -1rem;
+    right: -2rem;
+    bottom: 0;
+    z-index: 1;
 
-    @include forScreenSizes(tablet, desktop) {
-      width: 50vw;
+    @include forScreenSizes(tablet, desktop){
+      grid-column: 1 / span 8;
+      left: -2.25rem;
+      right:  -2.25rem;
     }
   }
 
@@ -351,7 +346,6 @@ main.front-page {
     hr {
       border: 3px solid $accent-yellow;
       grid-column: span 2;
-      justify-self: start;
     }
 
     @include forScreenSizes(tablet, desktop) {
