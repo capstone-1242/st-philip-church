@@ -8,6 +8,7 @@ This is where we style our header navigation
 
 div.header-nav-container {
   background-color: $white;
+  z-index: 1000;
 }
 
 @include forScreenSizes( desktop) {

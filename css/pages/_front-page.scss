@@ -15,27 +15,36 @@ delete any unused styles after
 @use "../components/card" as *;
 
 // this is the front page wrapper id
-section#post-170 {
-  background-color: #fff;
+main.front-page {
+  * {
+    margin-bottom: 1.5rem;
+  }
 
   > section:not(.hero-banner) {
     @include maxWidthCentered(1248px);
     background-color: $white;
-    padding: $section-padding;
+    padding: 1.5rem 1rem;
+
+    @include forScreenSizes(tablet, desktop) {
+      padding: 1.5rem 2.25rem;
+    }
   }
 
   /* Hero Banner Section*/
   .hero-banner {
-    padding: $section-padding;
+    @include maxWidthCentered(1248px);
+    padding: 0 1rem;
+    background-color: transparent;
+    height: calc(100vh - 100px);
+    color: $accent-white;
     @include grid;
-  
+
     > * {
-      color: $accent-white;
       grid-column: 1 / -1;
-      justify-self: start;
     }
 
     h2 {
+      // padding-top: 194px 0 16px;
       font-size: $font24-to-font64;
       font-weight: $font-weight-medium-bold;
       line-height: $line-height-base;
@@ -47,18 +56,23 @@ section#post-170 {
     }
 
     p:last-of-type {
+      // padding-top: 100px;
       font-size: $font14-to-font32;
       font-weight: $font-weight-medium;
     }
 
-    a{
-      grid-column: span 3;
-    }
+    // a {
+    //   margin: 11px 0 70px;
+    // }
 
     @include forScreenSizes(tablet, desktop) {
-      p:last-of-type,
-      a {
-        justify-self: end;
+      & {
+        padding: 0 36px;
+
+        p:last-of-type,
+        a {
+          grid-column: 10 / span 3;
+        }
       }
     }
   }
@@ -66,15 +80,9 @@ section#post-170 {
   /* End of Hero Banner Section*/
 
   .weekly-highlights {
-    @include grid;
-
-    > *{
-      grid-column: 1 / -1;
-      justify-self: start;
-    }
-
     > div {
-      @include card($padding: 14px 24px);
+      @include card($padding: 14px 24px, $color: $secondary-blue);
+      width: 100%;
 
       h3 {
         font-family: $body-font-family;
@@ -88,42 +96,37 @@ section#post-170 {
   }
 
   /*--------------------------Welcome to our Church Section------------------------------*/
+  .welcome {
+    position: relative;
+    padding: 0 16px;
+    color: $accent-white !important;
+    background-color: $accent-white;
+    margin-bottom: 0;
+    @include maxWidthCentered(1248px);
+    @include grid;
 
-  div.welcome-overlay {
-    background-color: rgba(41, 73, 30, 0.7);
-    > section {
-      padding: $section-padding;
-      background-color: $white;
-      @include maxWidthCentered(1248px);
-      @include grid;
+    > * {
+      grid-column: 1 / -1;
+    }
 
-      >*{
-        grid-column: 1 / -1;
-      }
-
-      > div {
-        @include grid;
-
-        >*{
-          grid-column: 1 / -1;
-        }
-
+    // welcome to our church
+    > div:first-of-type {
+      z-index: 12;
+      // come in person
+      section {
         // church location
-        div:first-of-type {
+        > div:first-of-type {
           @include card;
         } /* end of church location */
 
         // church hours
-        div:last-of-type {
-          @include grid;
-
-          li {
-            @include card;
-            grid-column: span 2;
-
+        > div:last-of-type {
+          ul {
+            @include gridContainer($columns: 4, $gap: 16px);
             li {
+              @include card($background-color: $accent-green, $border: none);
+              grid-column: span 2;
               font-size: $font14-to-font24;
-
               time {
                 display: block;
                 font-weight: $font-weight-bold;
@@ -132,38 +135,60 @@ section#post-170 {
             }
           }
         } /* end of church hours section */
+      }
+    }
 
-        @include forScreenSizes(tablet, desktop) {
-          > div {
-            grid-column: span 6;
-            > div:last-of-type {
-              li {
-                grid-column: span 3;
-              }
-            }
-          }
+    > section {
+      z-index: 12;
+    }
 
-          section {
-            grid-column: span 6;
-            a {
+    @include forScreenSizes(tablet, desktop) {
+      & {
+        // first div
+        > div {
+          grid-column: span 6;
+
+          ul {
+            @include gridContainer;
+            li {
               grid-column: span 3;
             }
+          }
+        }
+
+        section {
+          grid-column: span 6;
+          a {
+            grid-column: span 3;
           }
         }
       }
     }
   }
+
+  div.welcome-overlay {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(41, 73, 30, 0.7);
+  }
+
   /*--------------------------Upcoming Events Section------------------------------*/
 
   .upcoming-events {
+    margin-top: 0;
     @include grid;
 
+    > * {
+      grid-column: 1 / -1;
+    }
 
     .events-list {
-      grid-column: 1 / -1;
-      @include grid;
       .event-item {
-        grid-column: 1 / -1;
         position: relative;
         .date {
           width: 3.375rem;
@@ -174,7 +199,7 @@ section#post-170 {
           font-size: 24px;
           position: absolute;
           top: 50%;
-          left: 60%;
+          left: 50%;
           z-index: 100;
 
           .event-day {
@@ -186,12 +211,17 @@ section#post-170 {
 
     // adding margin-bottom to elements
     @include forScreenSizes(tablet, desktop) {
-      .event-item {
-        grid-column: span 3;
-      }
+      & {
+        .events-list {
+          @include gridContainer;
+          .event-item {
+            grid-column: span 3;
+          }
 
-      a {
-        grid-column: 10 / span 3;
+          a {
+            grid-column: 10 / span 3;
+          }
+        }
       }
     }
   }
@@ -199,7 +229,12 @@ section#post-170 {
   /*--------------------------Explore Our Church Group Section------------------------------*/
   .upcoming-events + section {
     padding: $section-padding;
-    @include flex($direction: column, $justify: start);
+    @include grid;
+
+    > * {
+      grid-column: 1 / -1;
+    }
+
     hr {
       border: 3px solid $accent-yellow;
       grid-column: span 2;
@@ -213,7 +248,7 @@ section#post-170 {
     .organization-card {
       position: relative;
       width: 100%;
-      height: 233px; 
+      height: 233px;
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
@@ -226,111 +261,104 @@ section#post-170 {
       background-position: center;
     }
 
-
     .organization-card-title {
       position: absolute;
       bottom: 10px;
       left: 10px;
       right: 10px;
-      padding: 106px 187px 15px 15px ;
+      padding: 106px 187px 15px 15px;
       color: $accent-white;
       font-size: $font20-to-font40;
       font-weight: $font-weight-bold;
     }
 
-    @include forScreenSizes(tablet, desktop){
-      div.parish-organization-list{
+    @include forScreenSizes(tablet, desktop) {
+      div.parish-organization-list {
         order: 3;
-        @include grid;
+        @include gridContainer;
 
-        >*{
-          grid-column: span 3;
+        > * {
+          grid-column: span 4;
         }
-      } 
-    }
+      }
 
+      a {
+        grid-column: span 3;
+      }
+    }
   }
 
   /*---------------------------Membership Section------------------------------*/
-  .membership-overlay {    
-    background: rgba(239, 194, 117, 0.45);
-    width: 100%;
+  .membership {
+    position: relative;
+    color: $primary-blue;
+    @include grid;
 
-    .membership {
-      @maxWidthCentered()
-      @include grid;
-
-      >* {
-        grid-column: 1 / -1;
-      }
-
-      .membership-options{
-        section{
-          @include card;
-        }
-      }
-      .button-container{
-        display: flex;
-        justify-content: center;
+    > *{
+      grid-column:  1 / -1;
+    }
+    .membership-options {
+      section {
+        @include card;
       }
     }
 
-    @include forScreenSizes(tablet, desktop){
-      &{
-        width: 50vw;
-        .membership{
-          grid-column: span 8;
-          align-items: start;
-
-          >div:first-child{
-            grid-column: span 4;
-          }
-          
-          .button-container{
-            grid-column: span 4;
-            order: -1;
-          }
-          
-          .membership-options{
-            grid-column: span 4
-          }
+    @include forScreenSizes(tablet, desktop) {
+      & {
+        > div:first-child {
+          grid-column: span 4;
+          order: -2;
+          grid-row: 1 / span 1;
         }
 
-      }
+        .button-container {
+          grid-column: span 4;
+          grid-row: 2 / -1;
+          order: -1;
+        }
 
+        .membership-options {
+          grid-column: span 4;
+          grid-row: 1 / -1;
+        }
       }
-    
+    }
   }
 
-  .donation{
-   @include grid;
+  div.membership-overlay {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    background-color: rgba(239, 194, 117, 0.45);
+    z-index: 2;
 
-   >*:not(hr){
-    grid-column: 1 / -1;
-   }
-
-   hr {
-    border: 3px solid $accent-yellow;
-    grid-column: span 2;
-    justify-self: start;
+    @include forScreenSizes(tablet, desktop) {
+      width: 50vw;
+    }
   }
 
-  @include forScreenSizes(tablet, desktop){
-    > *{
-      grid-column: 9 / span 4;
+  .donation {
+    @include grid;
+
+    > *:not(hr) {
+      grid-column: 1 / -1;
+    }
+
+    hr {
+      border: 3px solid $accent-yellow;
+      grid-column: span 2;
       justify-self: start;
     }
 
-    hr{
-      max-width: 192px;
+    @include forScreenSizes(tablet, desktop) {
+      hr {
+        grid-column: 9 / span 3;
+      }
+      > div {
+        grid-column: 9 / span 4;
+      }
     }
-  }  
-
-
   }
-
-
-
 }
 
 /*===========================END OF FRONT PAGE=================================*/
