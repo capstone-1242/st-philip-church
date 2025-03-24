@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main front-page">
 
 	<?php
 	$announcement_title =  wp_kses_post(get_field('title'));
@@ -54,8 +54,10 @@ get_header();
 	</section>
 
 	<!-- Welcome to our Church -->
-	<div class="welcome-overlay">
-		<section>
+	
+
+		<section class="welcome">
+
 			<div>
 				<h2>Welcome to our Church</h2>
 				<p>The Orthodox Church, with its rich history and spiritual practices, invites believers and seekers alike to explore its ancient traditions and vibrant faith. If you’re feeling lost and looking for guidance through a spiritual journey, Fr. Micheal and many of the clergy would be excited to welcome you and support you on your spiritual journey.</p>
@@ -72,16 +74,20 @@ get_header();
 						</ul>
 					</div>
 				</section>
-			</div>
-
-
+				</div>
 			<section>
 				<h3>Join The Livestream</h3>
 				<iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				<a href="<?php echo esc_url(get_permalink(72)); ?>" class="default-button full-width-button" aria-label="View our livestreams">View Our Livestreams</a>
 			</section>
+			<div class="welcome-overlay">
+		</div>
 		</section>
-	</div>
+
+	
+
+		
+	
 
 
 	<!--Upcoming Events-->
@@ -193,7 +199,7 @@ get_header();
 	</section>
 
 	<!-- Become a Member -->
-	<div class="membership-overlay">
+	
 		<section class="membership">
 			<div>
 				<h2>Become a Member</h2>
@@ -219,12 +225,14 @@ get_header();
 			<p class="fine-print">*Paid memberships give users voting precedence over non-paid members.</p>
 				<a href="<?php echo esc_url(get_permalink(86)) ?>" class="default-button full-width-button" aria-label="View Full Details about Membership">View Full Details</a>
 			</div>
+			<div	 class="membership-overlay">
+		</div>
 		</section>
-	</div>
-
+	
 
 	<!-- Donation -->
 	<section class="donation">
+		<hr>
 		<div>
 			<h2>Support the Church</h2>
 			<p>Your contributions help the church continue its mission and serve the community. Every donation plays a vital role in extending our outreach and impact.</p>

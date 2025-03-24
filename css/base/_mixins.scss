@@ -67,6 +67,12 @@
   }
 }
 
+@mixin gridContainer($columns: 12, $gap: 24px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
 @mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
