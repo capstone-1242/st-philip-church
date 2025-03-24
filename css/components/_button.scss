@@ -1,0 +1,15 @@
+// this is variation of buttons using buttons from mixin
+@use "../base/colors" as *;
+@use "../base/mixins" as *;
+
+.default-button{
+  @include button;
+}
+
+.secondary-button{
+  @include button($bg: $main-yellow, $color: $primary-blue);
+}
+
+.outlined-button{
+  @include button($border: 2px solid $accent-red, $color: $primary-blue);
+}

@@ -1,66 +1,62 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Spiritual Resources Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
 
-		<!-- featured image -->
-		<?php st_philip_post_thumbnail(); ?>
-		<!-- end of featured image -->
-
 		<!-- entry content -->
 		<div class="entry-content">
-
-		<!-- i AM USING aria-controls HERE.. BUT THE ACCORDION FROM WORSHIP SERVICE AND FAQ FOLLOWS THE BASIC W3SCHOOLS, JUST IN CASE IT IS HARDER TO FOLLOW -->
 
 			<section>
 				<h2>Orthodox Teachings & Stories</h2>
 
-				<h3><button id="accordion-header-1" class="accordion" role="button" aria-controls="accordion-panel-1"
+				<!-- ACCORDION -->
+
+				<h3><button id="accordion-header-1" class="accordion" role="button" aria-controls="accordion-panel-1" aria-expanded="false"
 				data-accordion-header>Maintenance of Liturgical Foundations</button></h3>
-				<section id="accordion-panel-1" class="panel" aria-labelledby="accordion-header-1">
+				<section id="accordion-panel-1" class="panel" aria-labelledby="accordion-header-1" aria-hidden="true">
 					<p>Central to the allure of Orthodoxy is its adherence to ancient worship practices that evoke a sense of reverence and awe. The celebration of the Eucharist, also known as the Divine Liturgy, is at the heart of Orthodox worship. This liturgy is based on ancient forms, incorporating Byzantine chants, traditional hymns, and elaborate robes, creating a solemn and sacred atmosphere. The meticulous attention to detail reflects our deep respect for tradition and a desire to connect with the spiritual essence of early Christianity.</p>
 				</section>
 
 				<h3>
-					<button id="accordion-header-2" class="accordion" role="button" aria-controls="accordion-panel-2"
+					<button id="accordion-header-2" class="accordion" role="button" aria-controls="accordion-panel-2" aria-expanded="false"
 					data-accordion-header>Theological Teachings</button>
 				</h3>
-				<section id="accordion-panel-2" class="panel" aria-labelledby="accordion-header-2">
+				<section id="accordion-panel-2" class="panel" aria-labelledby="accordion-header-2" aria-hidden="true">
 					<p>Orthodox theology is deeply rooted in the teachings of the Church Fathers and the decisions of the Ecumenical Councils. Key theological concepts include the Holy Trinity, the Incarnation, and theosis or deification(glorification). The Orthodox Church emphasizes the mystery of faith, encouraging believers to experience God through worship, sacraments, and communal and/or personal prayer.</p>
 				</section>
 
 
-				<h3><button id="accordion-header-3" class="accordion" role="button" aria-controls="accordion-panel-3"
+				<h3><button id="accordion-header-3" class="accordion" role="button" aria-controls="accordion-panel-3" aria-expanded="false"
 				data-accordion-header>Our Iconography: The Windows to Heaven</button></h3>
-				<section id="accordion-panel-3" class="panel" aria-labelledby="accordion-header-3">
+				<section id="accordion-panel-3" class="panel" aria-labelledby="accordion-header-3" aria-hidden="true">
 					<p>Icons hold a special place in Orthodox spirituality. These sacred images are considered "windows to heaven," offering a visual theology that teaches and inspires. Icons are revered, not worshipped, and they play a crucial role in both public worship and private devotion. The process of creating an icon, called "writing" an icon, is itself a spiritual practice.
 					</p>
 				</section>
 
 
-				<h3><button id="accordion-header-4" class="accordion" role="button" aria-controls="accordion-panel-4"
+				<h3><button id="accordion-header-4" class="accordion" role="button" aria-controls="accordion-panel-4" aria-expanded="false"
 				data-accordion-header>Sacraments: Events of Holy Connection</button></h3>
-				<section id="accordion-panel-4" class="panel" aria-labelledby="accordion-header-4">
+				<section id="accordion-panel-4" class="panel" aria-labelledby="accordion-header-4" aria-hidden="true">
 					<p>The Orthodox Church celebrates seven Holy Mysteries (sacraments):</p>
 					<ol>
 						<li>Baptism</li>
@@ -76,9 +72,11 @@ get_header();
 					</p>
 				</section>
 
-				<h3 id="accordion-header-5" class="accordion" role="button" aria-controls="accordion-panel-5"
-				data-accordion-header>The Story of The Holy Eucharist</h3>
-				<section id="accordion-panel-5" class="panel" aria-labelledby="accordion-header-5">
+				<h3>
+					<button id="accordion-header-5" class="accordion" role="button" aria-controls="accordion-panel-5" aria-expanded="false"
+					data-accordion-header>The Story of The Holy Eucharist</button>
+				</h3>
+				<section id="accordion-panel-5" class="panel" aria-labelledby="accordion-header-5" aria-hidden="true">
 					<p>The principal worship service of the Orthodox Church is the ritual meal known as the Holy Eucharist (from the Greek εὐχαριστία, meaning “thanksgiving”). The celebration of the Eucharist is as old as the Church itself, going all the way back to Jesus’ institution of the meal in the upper room with his disciples “in the night in which he was betrayed” (1 Cor 11:23-26). Beginning in Jerusalem and then spreading throughout the world, Christians have faithfully followed Jesus’ commandment to “do this in remembrance of me.” .</p>
 					<!-- MARKED!!! NOT SURE ABOUT THE MARKUP OF THIS -->
 					<section>
@@ -89,9 +87,9 @@ get_header();
 					</section>
 				</section>
 
-				<h3><button id="accordion-header-6" class="accordion" role="button" aria-controls="accordion-panel-6"
+				<h3><button id="accordion-header-6" class="accordion" role="button" aria-controls="accordion-panel-6" aria-expanded="false"
 				data-accordion-header>Distinction of the East and West</button></h3>
-				<section id="accordion-panel-6" class="panel" aria-labelledby="accordion-header-6">
+				<section id="accordion-panel-6" class="panel" aria-labelledby="accordion-header-6" aria-hidden="true">
 					<p>As the Church grew to include various people groups and their languages, the original Eucharistic service from Jerusalem was developed and adorned by those various peoples according to their unique musical and artistic expressions, poetic traditions, and senses of beauty, dignity, and piety.</p>
 
 					<p>The largely Greek speaking eastern half of the Roman Empire (later called the Byzantine Empire) would come to call the celebration of the Eucharist “the Divine Liturgy” (Liturgy from the Greek λειτουργία,meaning “work of the people”).</p>
@@ -103,38 +101,33 @@ get_header();
 				</section>
 
 				<h3>
-					<button id="accordion-header-7" class="accordion" role="button" aria-controls="accordion-panel-7"
-					data-accordion-header>The Evolution of Liturgy3</button>
+					<button id="accordion-header-7" class="accordion" role="button" aria-controls="accordion-panel-7" aria-expanded="false"
+					data-accordion-header>The Evolution of Liturgy</button>
 				</h3>
-				<section id="accordion-panel-7" class="panel" aria-labelledby="accordion-header-7">
+				<section id="accordion-panel-7" class="panel" aria-labelledby="accordion-header-7" aria-hidden="true">
 					<p>The basic shape of the Liturgy in both the East and the West has two main parts, the Liturgy of the Catechumens and the Liturgy of the Faithful. In the early Church, catechumens (those preparing to join the Church) would be dismissed after the first part of the teachings, and only the full members of the Church (the “faithful”) would remain for the second part of the teachings.</p>
 
 					<p>As the practice of dismissing the catechumens between each part has largely disappeared, the two main parts of the Liturgy are now sometimes called the Liturgy of the Word and the Liturgy of the Eucharist.</p>
 				</section>
+
+				<!-- END OF ACCORDION -->
 			</section>
 
-			<section>
-				<h2>Extra Resources</h2>
+
+			<nav aria-labelledby="extra-resources">
+				<h2 id="extra-resources">Extra Resources</h2>
 				<p>These extra links provide more information about the Orthodox Church.</p>
 				<ul>
-					<li><a href="https://www.antiochian.org/home">The Antiochian Orthodox Archdiocese of North America</a></li>
-					<li><a href="https://www.antiochpatriarchate.org/en/home/">Greek Orthodox Patriarch of Antioch and All the East - بطريرك أنطاكية وسائر المشرق للروم الأرثوذكس </a></li>
-					<li><a href="https://www.ancientfaith.com/">Ancient Faith Ministries </a></li>
-					<li><a href="https://www.oca.org/orthodoxy/the-orthodox-faith">The Orthodox Faith by Protopresbyter Thomas Hopko</a></li>
+					<li><a href="https://www.antiochian.org/home" rel="noreferrer" target="_blank">The Antiochian Orthodox Archdiocese of North America</a></li>
+					<li><a href="https://www.antiochpatriarchate.org/en/home/" rel="noreferrer" target="_blank">Greek Orthodox Patriarch of Antioch and All the East - بطريرك أنطاكية وسائر المشرق للروم الأرثوذكس </a></li>
+					<li><a href="https://www.ancientfaith.com/" rel="noreferrer" target="_blank">Ancient Faith Ministries </a></li>
+					<li><a href="https://www.oca.org/orthodoxy/the-orthodox-faith" rel="noreferrer" target="_blank">The Orthodox Faith by Protopresbyter Thomas Hopko</a></li>
 				</ul>
-			</section>
-
-			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-					'after'  => '</div>',
-				)
-			);
-			?>
+			</nav>
 		</div>
 		<!-- .entry-content -->
 
+		<!-- This is to show the admin the Edit button -->
 		<?php if (get_edit_post_link()) : ?>
 			<footer class="entry-footer">
 				<?php
@@ -157,11 +150,13 @@ get_header();
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
+		<!-- End of the Admin Edit button -->
+	</section><!-- #post-<?php the_ID(); ?> -->
 
 
 </main><!-- #main -->
 
 <?php
-// get_sidebar();
+/* Get the footer template part*/
 get_footer();
+?>

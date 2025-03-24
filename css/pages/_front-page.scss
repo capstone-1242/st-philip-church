@@ -1,0 +1,336 @@
+/*
+Front Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
+// components
+@use "../components/button" as *;
+@use "../components/card" as *;
+
+// this is the front page wrapper id
+section#post-170 {
+  background-color: #fff;
+
+  > section:not(.hero-banner) {
+    @include maxWidthCentered(1248px);
+    background-color: $white;
+    padding: $section-padding;
+  }
+
+  /* Hero Banner Section*/
+  .hero-banner {
+    padding: $section-padding;
+    @include grid;
+  
+    > * {
+      color: $accent-white;
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    h2 {
+      font-size: $font24-to-font64;
+      font-weight: $font-weight-medium-bold;
+      line-height: $line-height-base;
+    }
+
+    p:first-of-type {
+      font-size: $font16-to-font40;
+      $font-style: italic;
+    }
+
+    p:last-of-type {
+      font-size: $font14-to-font32;
+      font-weight: $font-weight-medium;
+    }
+
+    a{
+      grid-column: span 3;
+    }
+
+    @include forScreenSizes(tablet, desktop) {
+      p:last-of-type,
+      a {
+        justify-self: end;
+      }
+    }
+  }
+
+  /* End of Hero Banner Section*/
+
+  .weekly-highlights {
+    @include grid;
+
+    > *{
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    > div {
+      @include card($padding: 14px 24px);
+
+      h3 {
+        font-family: $body-font-family;
+        font-weight: $font-weight-medium;
+      }
+
+      p {
+        font-size: $font14-to-font24;
+      }
+    }
+  }
+
+  /*--------------------------Welcome to our Church Section------------------------------*/
+
+  div.welcome-overlay {
+    background-color: rgba(41, 73, 30, 0.7);
+    > section {
+      padding: $section-padding;
+      background-color: $white;
+      @include maxWidthCentered(1248px);
+      @include grid;
+
+      >*{
+        grid-column: 1 / -1;
+      }
+
+      > div {
+        @include grid;
+
+        >*{
+          grid-column: 1 / -1;
+        }
+
+        // church location
+        div:first-of-type {
+          @include card;
+        } /* end of church location */
+
+        // church hours
+        div:last-of-type {
+          @include grid;
+
+          li {
+            @include card;
+            grid-column: span 2;
+
+            li {
+              font-size: $font14-to-font24;
+
+              time {
+                display: block;
+                font-weight: $font-weight-bold;
+                font-size: $font20-to-font32;
+              }
+            }
+          }
+        } /* end of church hours section */
+
+        @include forScreenSizes(tablet, desktop) {
+          > div {
+            grid-column: span 6;
+            > div:last-of-type {
+              li {
+                grid-column: span 3;
+              }
+            }
+          }
+
+          section {
+            grid-column: span 6;
+            a {
+              grid-column: span 3;
+            }
+          }
+        }
+      }
+    }
+  }
+  /*--------------------------Upcoming Events Section------------------------------*/
+
+  .upcoming-events {
+    @include grid;
+
+
+    .events-list {
+      grid-column: 1 / -1;
+      @include grid;
+      .event-item {
+        grid-column: 1 / -1;
+        position: relative;
+        .date {
+          width: 3.375rem;
+          height: 4.875rem;
+          display: flex;
+          flex-flow: column wrap;
+          background-color: $main-yellow;
+          font-size: 24px;
+          position: absolute;
+          top: 50%;
+          left: 60%;
+          z-index: 100;
+
+          .event-day {
+            font-family: $heading-font-family;
+          }
+        }
+      }
+    }
+
+    // adding margin-bottom to elements
+    @include forScreenSizes(tablet, desktop) {
+      .event-item {
+        grid-column: span 3;
+      }
+
+      a {
+        grid-column: 10 / span 3;
+      }
+    }
+  }
+
+  /*--------------------------Explore Our Church Group Section------------------------------*/
+  .upcoming-events + section {
+    padding: $section-padding;
+    @include flex($direction: column, $justify: start);
+    hr {
+      border: 3px solid $accent-yellow;
+      grid-column: span 2;
+    }
+
+    .organization-card-link {
+      display: block;
+      text-decoration: none;
+    }
+
+    .organization-card {
+      position: relative;
+      width: 100%;
+      height: 233px; 
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+    }
+
+    .organization-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+
+    .organization-card-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 106px 187px 15px 15px ;
+      color: $accent-white;
+      font-size: $font20-to-font40;
+      font-weight: $font-weight-bold;
+    }
+
+    @include forScreenSizes(tablet, desktop){
+      div.parish-organization-list{
+        order: 3;
+        @include grid;
+
+        >*{
+          grid-column: span 3;
+        }
+      } 
+    }
+
+  }
+
+  /*---------------------------Membership Section------------------------------*/
+  .membership-overlay {    
+    background: rgba(239, 194, 117, 0.45);
+    width: 100%;
+
+    .membership {
+      @maxWidthCentered()
+      @include grid;
+
+      >* {
+        grid-column: 1 / -1;
+      }
+
+      .membership-options{
+        section{
+          @include card;
+        }
+      }
+      .button-container{
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    @include forScreenSizes(tablet, desktop){
+      &{
+        width: 50vw;
+        .membership{
+          grid-column: span 8;
+          align-items: start;
+
+          >div:first-child{
+            grid-column: span 4;
+          }
+          
+          .button-container{
+            grid-column: span 4;
+            order: -1;
+          }
+          
+          .membership-options{
+            grid-column: span 4
+          }
+        }
+
+      }
+
+      }
+    
+  }
+
+  .donation{
+   @include grid;
+
+   >*:not(hr){
+    grid-column: 1 / -1;
+   }
+
+   hr {
+    border: 3px solid $accent-yellow;
+    grid-column: span 2;
+    justify-self: start;
+  }
+
+  @include forScreenSizes(tablet, desktop){
+    > *{
+      grid-column: 9 / span 4;
+      justify-self: start;
+    }
+
+    hr{
+      max-width: 192px;
+    }
+  }  
+
+
+  }
+
+
+
+}
+
+/*===========================END OF FRONT PAGE=================================*/

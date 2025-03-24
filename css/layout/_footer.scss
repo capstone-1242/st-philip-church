@@ -2,15 +2,15 @@
 This is where we style our footer
 */
 
-@use "colors" as *;
-@use "media-queries" as *;
-@use "mixins" as *;
-@use "variables" as *;
-@use "typography" as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/variables" as *;
+@use "../base/typography" as *;
 
 .site-footer {
-  background-color: $footer-background-color;
-  color: $footer-text-color;
+  background-color: rgba(41,73, 30, 0.7);
+  color: $white;
 
   > div {
     display: flex;
@@ -19,7 +19,7 @@ This is where we style our footer
     align-items: center;
     gap: 1rem;
     @include maxWidthCentered(1248px);
-    @include padding(112px, 0);
+    padding: 112px 0;
 
     /* 
   Footer Section Styling
@@ -46,11 +46,11 @@ This is where we style our footer
 
       // footer church info div
       .footer-church-info {
-        background-color: $church-info-background-color;
+        background-color: transparent;
         margin: 32px 0 0;
         padding: 2rem;
         min-width: 320px;
-        font-size: $footer-church-info-font-size;
+       
 
         h3 {
           text-align: center;
@@ -66,22 +66,18 @@ This is where we style our footer
 
           div {
             flex: 1;
-            border: 1px solid $footer-text-color;
-            padding: 1rem 1.5rem;
-            border-radius: $footer-div-border-radius;
+            @include card($padding: 4px 24px);
 
             span {
-              font-weight: $font-weight-semi-bold;
+              font-weight: $font-weight-medium-bold;
             }
 
             small {
               display: block;
-              font-size: $footer-hour-small-text;
             }
           }
 
           .church-location {
-            color: $church-location-text-color;
             font-weight: $font-weight-light;
             text-align: center;
           }
@@ -105,11 +101,11 @@ This is where we style our footer
       }
     }
 
-    @include forScreenSizesMin(tablet, desktop) {
+    @include forScreenSizes(tablet, desktop) {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4vw;
-      @include padding(112px, 48px);
+      padding: 112px 48px;
 
       .site-branding {
         justify-content: center;
@@ -122,7 +118,7 @@ This is where we style our footer
       }
 
       .footer-navigation {
-        @include padding(0, 0);
+        padding: 0;
       }
     }
   }

@@ -2,18 +2,20 @@
 This is where we style our header navigation
 */
 
-@use 'colors' as *;
-@use 'media-queries' as *;
-@use 'mixins' as *;
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
 
+div.header-nav-container {
+  background-color: $white;
+}
 
-
-@include forScreenSizesMin( desktop) {
+@include forScreenSizes( desktop) {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 1rem 0.5rem;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered(1440px);
 
     ul#primary-menu {
       display: flex;
@@ -77,7 +79,7 @@ header {
     overflow: hidden;
   }
 
-  @include forScreenSizesMin(desktop) {
+  @include forScreenSizes(desktop) {
     & {
       display: block;
       padding: 0;
@@ -120,7 +122,7 @@ The .acf-gallery is for the gallery section of the parish organization and commi
       flex: 1 1 100%;
     }
 
-    @include forScreenSizesMin(desktop) {
+    @include forScreenSizes(desktop) {
       flex: 1 1 25%;
     }
   }
@@ -143,8 +145,8 @@ ul#primary-menu {
 
   // start of li
   > li.menu-item {
-    color: $header-text-color;
-    background: $header-background-color;
+    color: $primary-blue;
+    background-color: rgba(245,245,245,0.77);
     display: block;
     float: left;
     padding: 8px 16px;
@@ -172,7 +174,7 @@ ul#primary-menu {
 
     // sub-menu:dropdown
     > ul.sub-menu {
-      background: $header-background-color;
+      background:  rgba(245,245,245,0.77);
       visibility: hidden;
       opacity: 0;
       min-width: 5rem;

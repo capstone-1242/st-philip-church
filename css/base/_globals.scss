@@ -1,0 +1,57 @@
+/*
+this part is for styles for the overall body
+*/
+
+@use "colors" as *;
+@use "typography" as *;
+
+body {
+  // this is only temporary for baseline grid
+      /** Step 1: Choose a font-family **/
+      font-family: $body-font-family;
+      /**Step 2: Set your default font-size (body font-size - always set in %'s **/
+      font-size: 100%;
+      /**16px**/
+      /** Step 3: Choose your grid unit size 
+          what is your vertical spacing going to be of **/
+      line-height: $line-height; /* 1.2 based on figma  */
+      /**20px x 1.5 = 30 grid units **/
+      /** Step 4: Display visual grid **/
+      background-image: linear-gradient(#0ff 1px, transparent 1px);
+      background-size: auto 24px;
+      /** Step 5: choose typographic scale 
+          12, 14, 16, 18, 21, 24, 36, 48, 60, 72
+      **/
+
+      // i did 24 since the line-height 1.3 and 1.2 resulted in 19.3 and 20.8 -- i dont wanna do math bruh.
+
+      // so all our spacing is increments of 24 unless you guys change it? 
+}
+
+/*===========================TYPOGRAPHY=================================*/
+p, a{
+  font-size: $font16-to-font24;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: $heading-font-family;
+}
+
+h2{
+  font-size: $font16-to-font40;
+  font-weight: $font-weight-medium-bold;
+}
+
+h3{
+  font-size: $font16-to-font24;
+  font-weight: $font-weight-medium-bold;
+}
+
+.fine-print{
+  font-size: $font16-to-font20;
+}
+
+// this is trial to follow vertical rhythm
+*{
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,13 @@
+/*
+the class .sr-only has been added here just in case, but the starter theme has a built-in feature:
+
+		<span class="screen-reader-text"><?php esc_html_e('Shop Button', 'st_philip'); ?></span>
+*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

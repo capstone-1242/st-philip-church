@@ -1,18 +1,18 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Event Calendar Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
@@ -21,24 +21,14 @@ get_header();
 	while (have_posts()) :
 		the_post(); ?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
 				<?php
 				if (is_singular()) :
 					the_title('<h1 class="entry-title">', '</h1>');
 				else :
 					the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-				endif;
-
-				if ('post' === get_post_type()) :
-				?>
-					<div class="entry-meta">
-						<?php
-						st_philip_posted_on();
-						st_philip_posted_by();
-						?>
-					</div><!-- .entry-meta -->
-				<?php endif; ?>
+				endif;?>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
 
@@ -73,8 +63,12 @@ get_header();
 			<footer class="entry-footer">
 				<?php st_philip_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
-		</article><!-- #post-<?php the_ID(); ?> -->
+		</section><!-- #post-<?php the_ID(); ?> -->
 <?php endwhile;?>
 </main><!-- #main -->
+
+
 <?php 
-	get_footer(); ?>
+/* Get the footer template part*/
+get_footer(); 
+?>

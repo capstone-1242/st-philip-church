@@ -57,14 +57,242 @@ table {
 }
 
 /*
+this part is for styles for the overall body
+*/
+body {
+  /** Step 1: Choose a font-family **/
+  font-family: "Alegreya Sans", sans-serif;
+  /**Step 2: Set your default font-size (body font-size - always set in %'s **/
+  font-size: 100%;
+  /**16px**/
+  /** Step 3: Choose your grid unit size 
+      what is your vertical spacing going to be of **/
+  line-height: 1.5; /* 1.2 based on figma  */
+  /**20px x 1.5 = 30 grid units **/
+  /** Step 4: Display visual grid **/
+  background-image: linear-gradient(#0ff 1px, transparent 1px);
+  background-size: auto 24px;
+  /** Step 5: choose typographic scale 
+      12, 14, 16, 18, 21, 24, 36, 48, 60, 72
+  **/
+}
+
+/*===========================TYPOGRAPHY=================================*/
+p, a {
+  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Frank Ruhl Libre", sans-serif;
+}
+
+h2 {
+  font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+  font-weight: 600;
+}
+
+.fine-print {
+  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+}
+
+* {
+  margin-bottom: 1.5rem;
+}
+
+/* those reusable component like stuff that accept variables */
+.default-button {
+  display: inline-block;
+  padding: 1.25rem 1rem;
+  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.default-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+.secondary-button {
+  display: inline-block;
+  padding: 1.25rem 1rem;
+  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #EFC275;
+  color: #111933;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.secondary-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+.outlined-button {
+  display: inline-block;
+  padding: 1.25rem 1rem;
+  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  font-weight: 700;
+  border: 2px solid #781100;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: #111933;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.outlined-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+/*
+This is where we style our footer
+*/
+.site-footer {
+  background-color: rgba(41, 73, 30, 0.7);
+  color: white;
+}
+.site-footer > div {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 112px 0;
+  /* 
+  Footer Section Styling
+  */
+  /*
+  Footer Navigation Styling 
+  */
+}
+.site-footer > div .site-branding {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.site-footer > div .site-branding a {
+  display: inline-block;
+}
+.site-footer > div .site-branding .footer-title {
+  display: block;
+}
+.site-footer > div .site-branding .site-logo {
+  width: 50px;
+  height: 50px;
+}
+.site-footer > div .site-branding .footer-church-info {
+  background-color: transparent;
+  margin: 32px 0 0;
+  padding: 2rem;
+  min-width: 320px;
+}
+.site-footer > div .site-branding .footer-church-info h3 {
+  text-align: center;
+  font-weight: 700;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 28px;
+  gap: 2rem;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div {
+  flex: 1;
+  color: #F5F5F5;
+  border: 1px solid #EFC275;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 4px 24px;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div span {
+  font-weight: 600;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours div small {
+  display: block;
+}
+.site-footer > div .site-branding .footer-church-info .church-hours .church-location {
+  font-weight: 300;
+  text-align: center;
+}
+.site-footer > div .footer-navigation #footer-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+}
+.site-footer > div .footer-navigation #footer-menu li.menu-item {
+  padding: 8px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  .site-footer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    padding: 112px 48px;
+  }
+  .site-footer > div .site-branding {
+    justify-content: center;
+    align-items: start;
+  }
+  .site-footer > div .site-branding .orthodox {
+    margin-left: -2ch;
+  }
+  .site-footer > div .footer-navigation {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .site-footer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    padding: 112px 48px;
+  }
+  .site-footer > div .site-branding {
+    justify-content: center;
+    align-items: start;
+  }
+  .site-footer > div .site-branding .orthodox {
+    margin-left: -2ch;
+  }
+  .site-footer > div .footer-navigation {
+    padding: 0;
+  }
+}
+
+/*
 This is where we style our header navigation
 */
-@media only screen and (min-width: 1280px) {
+div.header-nav-container {
+  background-color: white;
+}
+
+@media only screen and (min-width: 1000px) {
   div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 1rem 0.5rem;
-    max-width: 1248px;
+    max-width: 1440px;
     margin: 0 auto;
   }
   div.header-nav-container ul#primary-menu {
@@ -110,7 +338,7 @@ header .site-logo {
   width: 0;
   overflow: hidden;
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1000px) {
   header {
     display: block;
     padding: 0;
@@ -148,7 +376,7 @@ The .acf-gallery is for the gallery section of the parish organization and commi
 .acf-gallery img:first-child {
   flex: 1 1 100%;
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1000px) {
   .acf-gallery img {
     flex: 1 1 25%;
   }
@@ -168,8 +396,8 @@ ul#primary-menu {
   display: none;
 }
 ul#primary-menu > li.menu-item {
-  color: black;
-  background: white;
+  color: #111933;
+  background-color: rgba(245, 245, 245, 0.77);
   display: block;
   float: left;
   padding: 8px 16px;
@@ -191,7 +419,7 @@ ul#primary-menu > li.menu-item:hover > ul.sub-menu, ul#primary-menu > li.menu-it
   z-index: inherit;
 }
 ul#primary-menu > li.menu-item > ul.sub-menu {
-  background: white;
+  background: rgba(245, 245, 245, 0.77);
   visibility: hidden;
   opacity: 0;
   min-width: 5rem;
@@ -224,173 +452,606 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 }
 
 /*===========================END OF NAVIGATION=================================*/
-/**
-This is where we styles hero banner for the homepage
+/* those reusable component like stuff that accept variables */
+/*
+About Us Page Styling
+
+delete any unused styles after
 */
-/* this i have to research on why it is stored and giving error */
-.hero-banner {
+section#post-84 {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Archive Page Styling
+
+delete any unused styles after
+*/
+section.archive {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Contact Us Page Styling
+
+delete any unused styles after
+*/
+section#post-85 {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Front Page Styling
+
+delete any unused styles after
+*/
+section#post-170 {
+  background-color: #fff;
+  /* Hero Banner Section*/
+  /* End of Hero Banner Section*/
+  /*--------------------------Welcome to our Church Section------------------------------*/
+  /*--------------------------Upcoming Events Section------------------------------*/
+  /*--------------------------Explore Our Church Group Section------------------------------*/
+  /*---------------------------Membership Section------------------------------*/
+}
+section#post-170 > section:not(.hero-banner) {
   max-width: 1248px;
   margin: 0 auto;
-  display: flex;
+  background-color: white;
+  padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
 }
-.hero-banner > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  height: calc(100vh - 90px);
-  padding: 120px 16px 30px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: start;
-  gap: 1rem;
-  flex-grow: 1;
+section#post-170 .hero-banner {
+  padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
-.hero-banner > div h2 {
-  font-size: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem);
-  font-weight: 600;
-}
-.hero-banner > div p:first-of-type {
-  font-size: clamp(1rem, 0.6552rem + 1.7241vw, 2rem);
-  font-weight: 300;
-  font-style: italic;
-}
-.hero-banner > div p:last-of-type {
-  font-size: clamp(0.875rem, 0.6595rem + 1.0776vw, 1.5rem);
-  font-weight: 500;
-}
-.hero-banner > div a {
-  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero-banner > div {
-    height: calc(100vh - 90px);
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .hero-banner {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
   }
 }
-@media only screen and (min-width: 1280px) {
-  .hero-banner > div {
-    height: calc(100vh - 90px);
+@media only screen and (min-width: 1000px) {
+  section#post-170 .hero-banner {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 .hero-banner > * {
+  color: #F5F5F5;
+  grid-column: 1/-1;
+  justify-self: start;
+}
+section#post-170 .hero-banner h2 {
+  font-size: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+section#post-170 .hero-banner p:first-of-type {
+  font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+}
+section#post-170 .hero-banner p:last-of-type {
+  font-size: clamp(0.875rem, 0.4871rem + 1.9397vw, 2rem);
+  font-weight: 500;
+}
+section#post-170 .hero-banner a {
+  grid-column: span 3;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .hero-banner p:last-of-type,
+  section#post-170 .hero-banner a {
+    justify-self: end;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .hero-banner p:last-of-type,
+  section#post-170 .hero-banner a {
+    justify-self: end;
+  }
+}
+section#post-170 .weekly-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .weekly-highlights {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .weekly-highlights {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 .weekly-highlights > * {
+  grid-column: 1/-1;
+  justify-self: start;
+}
+section#post-170 .weekly-highlights > div {
+  color: #F5F5F5;
+  border: 1px solid #EFC275;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 14px 24px;
+}
+section#post-170 .weekly-highlights > div h3 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 500;
+}
+section#post-170 .weekly-highlights > div p {
+  font-size: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+}
+section#post-170 div.welcome-overlay {
+  background-color: rgba(41, 73, 30, 0.7);
+}
+section#post-170 div.welcome-overlay > section {
+  padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
+  background-color: white;
+  max-width: 1248px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 div.welcome-overlay > section {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 div.welcome-overlay > section {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 div.welcome-overlay > section > * {
+  grid-column: 1/-1;
+}
+section#post-170 div.welcome-overlay > section > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  /* end of church location */
+  /* end of church hours section */
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 div.welcome-overlay > section > div {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 div.welcome-overlay > section > div {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 div.welcome-overlay > section > div > * {
+  grid-column: 1/-1;
+}
+section#post-170 div.welcome-overlay > section > div div:first-of-type {
+  color: #F5F5F5;
+  border: 1px solid #EFC275;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 8px 24px;
+}
+section#post-170 div.welcome-overlay > section > div div:last-of-type {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 div.welcome-overlay > section > div div:last-of-type {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 div.welcome-overlay > section > div div:last-of-type {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 div.welcome-overlay > section > div div:last-of-type li {
+  color: #F5F5F5;
+  border: 1px solid #EFC275;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 8px 24px;
+  grid-column: span 2;
+}
+section#post-170 div.welcome-overlay > section > div div:last-of-type li li {
+  font-size: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+}
+section#post-170 div.welcome-overlay > section > div div:last-of-type li li time {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 div.welcome-overlay > section > div > div {
+    grid-column: span 6;
+  }
+  section#post-170 div.welcome-overlay > section > div > div > div:last-of-type li {
+    grid-column: span 3;
+  }
+  section#post-170 div.welcome-overlay > section > div section {
+    grid-column: span 6;
+  }
+  section#post-170 div.welcome-overlay > section > div section a {
+    grid-column: span 3;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 div.welcome-overlay > section > div > div {
+    grid-column: span 6;
+  }
+  section#post-170 div.welcome-overlay > section > div > div > div:last-of-type li {
+    grid-column: span 3;
+  }
+  section#post-170 div.welcome-overlay > section > div section {
+    grid-column: span 6;
+  }
+  section#post-170 div.welcome-overlay > section > div section a {
+    grid-column: span 3;
+  }
+}
+section#post-170 .upcoming-events {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .upcoming-events {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 .upcoming-events .events-list {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events .events-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .upcoming-events .events-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 .upcoming-events .events-list .event-item {
+  grid-column: 1/-1;
+  position: relative;
+}
+section#post-170 .upcoming-events .events-list .event-item .date {
+  width: 3.375rem;
+  height: 4.875rem;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #EFC275;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  z-index: 100;
+}
+section#post-170 .upcoming-events .events-list .event-item .date .event-day {
+  font-family: "Frank Ruhl Libre", sans-serif;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events .event-item {
+    grid-column: span 3;
+  }
+  section#post-170 .upcoming-events a {
+    grid-column: 10/span 3;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .upcoming-events .event-item {
+    grid-column: span 3;
+  }
+  section#post-170 .upcoming-events a {
+    grid-column: 10/span 3;
+  }
+}
+section#post-170 .upcoming-events + section {
+  padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+section#post-170 .upcoming-events + section hr {
+  border: 3px solid #D79A32;
+  grid-column: span 2;
+}
+section#post-170 .upcoming-events + section .organization-card-link {
+  display: block;
+  text-decoration: none;
+}
+section#post-170 .upcoming-events + section .organization-card {
+  position: relative;
+  width: 100%;
+  height: 233px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+}
+section#post-170 .upcoming-events + section .organization-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+section#post-170 .upcoming-events + section .organization-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 106px 187px 15px 15px;
+  color: #F5F5F5;
+  font-size: clamp(1.25rem, 0.819rem + 2.1552vw, 2.5rem);
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) and (min-width: 1000px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list > * {
+    grid-column: span 3;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+@media only screen and (min-width: 1000px) and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) and (min-width: 1000px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .upcoming-events + section div.parish-organization-list > * {
+    grid-column: span 3;
+  }
+}
+section#post-170 .membership-overlay {
+  background: rgba(239, 194, 117, 0.45);
+  width: 100%;
+}
+section#post-170 .membership-overlay .membership {
+  @maxWidthCentered ()
+      @include grid;
+}
+section#post-170 .membership-overlay .membership > * {
+  grid-column: 1/-1;
+}
+section#post-170 .membership-overlay .membership .membership-options section {
+  color: #F5F5F5;
+  border: 1px solid #EFC275;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 8px 24px;
+}
+section#post-170 .membership-overlay .membership .button-container {
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .membership-overlay {
+    width: 50vw;
+  }
+  section#post-170 .membership-overlay .membership {
+    grid-column: span 8;
+    align-items: start;
+  }
+  section#post-170 .membership-overlay .membership > div:first-child {
+    grid-column: span 4;
+  }
+  section#post-170 .membership-overlay .membership .button-container {
+    grid-column: span 4;
+    order: -1;
+  }
+  section#post-170 .membership-overlay .membership .membership-options {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .membership-overlay {
+    width: 50vw;
+  }
+  section#post-170 .membership-overlay .membership {
+    grid-column: span 8;
+    align-items: start;
+  }
+  section#post-170 .membership-overlay .membership > div:first-child {
+    grid-column: span 4;
+  }
+  section#post-170 .membership-overlay .membership .button-container {
+    grid-column: span 4;
+    order: -1;
+  }
+  section#post-170 .membership-overlay .membership .membership-options {
+    grid-column: span 4;
+  }
+}
+section#post-170 .donation {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .donation {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .donation {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+section#post-170 .donation > *:not(hr) {
+  grid-column: 1/-1;
+}
+section#post-170 .donation hr {
+  border: 3px solid #D79A32;
+  grid-column: span 2;
+  justify-self: start;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#post-170 .donation > * {
+    grid-column: 9/span 4;
+    justify-self: start;
+  }
+  section#post-170 .donation hr {
+    max-width: 192px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#post-170 .donation > * {
+    grid-column: 9/span 4;
+    justify-self: start;
+  }
+  section#post-170 .donation hr {
+    max-width: 192px;
   }
 }
 
+/*===========================END OF FRONT PAGE=================================*/
+/* those reusable component like stuff that accept variables */
 /*
-This is where we style our footer
+Livestream Page Styling
+
+delete any unused styles after
 */
-.site-footer {
-  background-color: black;
-  color: white;
+section#post-72 {
+  background-color: #fff;
 }
-.site-footer > div {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: 112px 0;
-  /* 
-  Footer Section Styling
-  */
-  /*
-  Footer Navigation Styling 
-  */
+
+/* those reusable component like stuff that accept variables */
+/*
+Membership Sign Up Page Styling
+
+delete any unused styles after
+*/
+section#post-86 {
+  background-color: #fff;
 }
-.site-footer > div .site-branding {
-  text-align: center;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
+
+/* those reusable component like stuff that accept variables */
+/*
+Single Parish Committee Page Styling
+
+delete any unused styles after
+*/
+section.parish-committee {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Single Parish Organization Page Styling
+
+delete any unused styles after
+*/
+section.parish-organization {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Shop Page Styling
+
+delete any unused styles after
+*/
+section#post-77 {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Spiritual Resources Page Styling
+
+delete any unused styles after
+*/
+section#post-76 {
+  background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Worship Services Page Styling
+
+delete any unused styles after
+*/
+section#post-74 {
+  background-color: #fff;
+}
+
+/*
+make the iframe or embedded video responsive
+*/
+.responsive-iframe {
   width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
 }
-.site-footer > div .site-branding a {
-  display: inline-block;
-}
-.site-footer > div .site-branding .footer-title {
-  display: block;
-}
-.site-footer > div .site-branding .site-logo {
-  width: 50px;
-  height: 50px;
-}
-.site-footer > div .site-branding .footer-church-info {
-  background-color: #3D4149;
-  margin: 32px 0 0;
-  padding: 2rem;
-  min-width: 320px;
-  font-size: 20px;
-}
-.site-footer > div .site-branding .footer-church-info h3 {
+
+.full-width-button {
   text-align: center;
-  font-weight: 700;
-}
-.site-footer > div .site-branding .footer-church-info .church-hours {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0 28px;
-  gap: 2rem;
-}
-.site-footer > div .site-branding .footer-church-info .church-hours div {
-  flex: 1;
-  border: 1px solid white;
-  padding: 1rem 1.5rem;
-  border-radius: 4px;
-}
-.site-footer > div .site-branding .footer-church-info .church-hours div span {
-  font-weight: 600;
-}
-.site-footer > div .site-branding .footer-church-info .church-hours div small {
-  display: block;
-  font-size: 14px;
-}
-.site-footer > div .site-branding .footer-church-info .church-hours .church-location {
-  color: #E9EDF6;
-  font-weight: 300;
-  text-align: center;
-}
-.site-footer > div .footer-navigation #footer-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2rem;
-}
-.site-footer > div .footer-navigation #footer-menu li.menu-item {
-  padding: 8px;
-}
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .site-footer > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4vw;
-    padding: 112px 48px;
-  }
-  .site-footer > div .site-branding {
-    justify-content: center;
-    align-items: start;
-  }
-  .site-footer > div .site-branding .orthodox {
-    margin-left: -2ch;
-  }
-  .site-footer > div .footer-navigation {
-    padding: 0 0;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .site-footer > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4vw;
-    padding: 112px 48px;
-  }
-  .site-footer > div .site-branding {
-    justify-content: center;
-    align-items: start;
-  }
-  .site-footer > div .site-branding .orthodox {
-    margin-left: -2ch;
-  }
-  .site-footer > div .footer-navigation {
-    padding: 0 0;
-  }
+  width: 100%;
 }
 
 /*
@@ -406,201 +1067,5 @@ the class .sr-only has been added here just in case, but the starter theme has a
   height: 1px;
   overflow: hidden;
 }
-
-/*
-make the iframe or embedded video responsive
-*/
-.responsive-iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-
-/*
-This is the universal style for the buttons
-*/
-a {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-a.fake-button {
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  background-color: blue !important;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 12px 26.5px !important;
-}
-
-.full-width-button {
-  text-align: center;
-  width: 100%;
-}
-
-/*===========================TYPOGRAPHY=================================*/
-h1,
-.site-title {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
-  font-weight: 600;
-}
-
-h3 {
-  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-  font-weight: 600;
-}
-
-p {
-  margin: 1rem auto;
-}
-
-a:hover {
-  color: pink;
-}
-
-/*===========================UNIVERSAL STYLE=================================*/
-body {
-  background-color: white;
-  font-family: "Inter", sans-serif;
-  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-  line-height: 1.5;
-}
-body main {
-  background-color: rgb(184, 238, 223);
-}
-body #primary > section:not(.hero-banner) {
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-
-/*===========================FRONT PAGE=================================*/
-/*--------------------------Weekly Highlights Section------------------------------*/
-.weekly-highlights {
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-.weekly-highlights > div {
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 4px;
-  padding: 1rem;
-}
-.weekly-highlights > div p {
-  font-size: clamp(0.875rem, 0.7457rem + 0.6466vw, 1.25rem);
-}
-
-/*--------------------------Welcome to our Church Section------------------------------*/
-.welcome {
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: 32px 16px;
-  background-color: beige;
-}
-.welcome > p {
-  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
-}
-.welcome > section {
-  /* end of church location */
-  /* end of church hours section */
-}
-.welcome > section * {
-  margin-bottom: 1rem;
-}
-.welcome > section > div:first-of-type {
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 4px;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: clamp(0.875rem, 0.7457rem + 0.6466vw, 1.25rem);
-}
-.welcome > section > div:last-of-type {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 1rem;
-}
-.welcome > section > div:last-of-type div {
-  border: 1px solid black;
-  background-color: #D6DAE1;
-  border-radius: 4px;
-  padding: 10px 14px;
-  color: #5B5E69;
-  text-align: center;
-  flex: 1 1 50%;
-}
-.welcome > section > div:last-of-type div span {
-  display: block;
-  font-size: clamp(1.25rem, 1.1638rem + 0.431vw, 1.5rem);
-  font-weight: 600;
-}
-.welcome > section > div:last-of-type div small {
-  font-size: clamp(0.875rem, 0.8319rem + 0.2155vw, 1rem);
-  vertical-align: top;
-}
-.welcome > section a {
-  text-align: center;
-  width: 100%;
-}
-
-/*--------------------------Upcoming Events Section------------------------------*/
-.upcoming-events {
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-.upcoming-events .events-list .event-item {
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 0 4px;
-  padding: 0px;
-}
-.upcoming-events .events-list .event-item > *:not(div:first-of-type) {
-  padding: 1rem;
-}
-.upcoming-events > * {
-  margin-bottom: 1rem;
-}
-
-/*--------------------------Explore Our Church Group Section------------------------------*/
-.upcoming-events + section {
-  background-color: beige;
-}
-.upcoming-events + section a {
-  display: block;
-  margin: 16px auto;
-}
-.upcoming-events + section a p.org-title {
-  padding: 132px;
-}
-
-/*--------------------------Support our Church Section------------------------------*/
-/*---------------------------Membership Section------------------------------*/
-.membership > *:not(p) {
-  margin: 16px auto;
-}
-.membership section {
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 4px;
-  padding: 1rem;
-}
-
-@media only screen and (min-width: 1280px) {
-  .weekly-highlights {
-    background-color: yellow;
-  }
-}
-/*===========================END OF FRONT PAGE=================================*/
 
 /*# sourceMappingURL=style.css.map */

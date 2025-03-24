@@ -1,0 +1,62 @@
+// this will include all related font, the values is just for testing
+// i use this clamp generator with min vieport width at 320px and max at 1248px
+// https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjMyMHB4IiwibWF4V2lkdGgiOiIxMjQ4cHgiLCJtaW5Gb250U2l6ZSI6IjE0cHgiLCJtYXhGb250U2l6ZSI6IjE2cHgifQ%3D%3D
+
+// heading- 
+
+$heading-font-family: 'Frank Ruhl Libre', sans-serif;
+$body-font-family: 'Alegreya Sans', sans-serif;
+
+// this is the p tag clamp
+$font16-to-font24: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+// same as h3 but fontweight 700:
+
+// this is the anchor tag clamp
+$font16-to-font20: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+// line-height: 1.2
+// font-weight: bold
+
+// hero banner clamp
+$font24-to-font64: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
+// font-weight: 600
+// line-height: 1.3
+
+// tagline clamp
+$font16-to-font40: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+// font-weight: regular
+// font-style: italic
+// line-height: 1.2
+
+// h2-same as tagline clamp BUT
+// font-weight: 600
+// line-height: 1.3;
+
+// hero-banner shop p
+$font14-to-font32: clamp(0.875rem, 0.4871rem + 1.9397vw, 2rem);
+// font-weight: 500;
+// line-height: 1.2
+
+// for the church hour subtitle
+$font14-to-font24: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+
+$font20-to-font32: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+
+$font20-to-font40: clamp(1.25rem, 0.819rem + 2.1552vw, 2.5rem);
+
+// line-height:
+$line-height: 1.5;
+$line-height-base: 1.3;
+$line-height-secondary: 1.2;
+
+// font-weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-medium-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+

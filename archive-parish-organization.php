@@ -1,30 +1,31 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying the Parish Organization Archive
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
+<section class="archive">
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php 
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				echo '<h1 class="page-title">Parish Organizations</h1>';
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
-
-
-
-			
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -47,7 +48,7 @@ get_header();
 
 		endif;
 		?>
-
+</section>
 	</main><!-- #main -->
 
 <?php

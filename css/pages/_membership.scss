@@ -1,0 +1,25 @@
+/*
+Membership Sign Up Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/variables' as *;
+// components
+@use '../components/button' as *;
+@use '../components/card' as *;
+
+// this is the about us wrapper id
+section#post-86{
+background-color: #fff;
+
+
+
+
+
+}
