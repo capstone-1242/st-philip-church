@@ -292,6 +292,8 @@ main.front-page {
   .membership {
     position: relative;
     color: $primary-blue;
+    background-color: $main-yellow;
+    background-color: rgba(239, 194, 117, 0.45);
     @include grid;
 
     > *{
@@ -305,20 +307,22 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
+        grid-template-rows: 1fr 1fr;
+
         > div:first-child {
-          grid-column: span 4;
+          grid-column: 1 / span 4;
           order: -2;
           grid-row: 1 / span 1;
         }
 
         .button-container {
-          grid-column: span 4;
+          grid-column: 1 / span 4;
           grid-row: 2 / -1;
           order: -1;
         }
 
         .membership-options {
-          grid-column: span 4;
+          grid-column: 5 / span 4;
           grid-row: 1 / -1;
         }
       }
