@@ -848,6 +848,8 @@ main.front-page .upcoming-events + section .organization-card-title {
 main.front-page .membership {
   position: relative;
   color: #111933;
+  background-color: #EFC275;
+  background-color: rgba(239, 194, 117, 0.45);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -875,34 +877,40 @@ main.front-page .membership .membership-options section {
   padding: 8px 24px;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
+  main.front-page .membership {
+    grid-template-rows: 1fr 1fr;
+  }
   main.front-page .membership > div:first-child {
-    grid-column: span 4;
+    grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
   main.front-page .membership .button-container {
-    grid-column: span 4;
+    grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
   main.front-page .membership .membership-options {
-    grid-column: span 4;
+    grid-column: 5/span 4;
     grid-row: 1/-1;
   }
 }
 @media only screen and (min-width: 1000px) {
+  main.front-page .membership {
+    grid-template-rows: 1fr 1fr;
+  }
   main.front-page .membership > div:first-child {
-    grid-column: span 4;
+    grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
   main.front-page .membership .button-container {
-    grid-column: span 4;
+    grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
   main.front-page .membership .membership-options {
-    grid-column: span 4;
+    grid-column: 5/span 4;
     grid-row: 1/-1;
   }
 }
