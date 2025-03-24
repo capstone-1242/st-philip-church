@@ -1,0 +1,82 @@
+@use "../base/colors" as *;
+@use "../base/typography" as *;
+@use "../base/media-queries" as *;
+
+@use 'sass:list'; // Import the list module to use its functions
+
+@mixin card(
+  $color: $accent-white,
+  $border: 1px solid $main-yellow,
+  $radius: 4px,
+  $padding: 8px 24px,
+  $background-color: transparent
+) {
+  color: $color;
+  border: $border;
+  background-color: $background-color;
+  border-radius: $radius;
+  padding: $padding;
+}
+
+
+@mixin button($bg: $accent-red, $color: $white, $radius: 0.3125rem, $padding: 1.25rem 1rem, $font-size: $font16-to-font20, $font-weight: $font-weight-bold, $border: none) {
+  display: inline-block;
+  padding: $padding;
+  font-size: $font16-to-font20;
+  font-weight: $font-weight;
+  border: $border;
+  border-radius: $radius;
+  background-color: $bg;
+  color: $color;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out ;
+
+  &:hover {
+    background-color: $main-yellow;
+    color: $primary-blue;
+  }
+}
+
+@mixin maxWidthCentered($x){
+  max-width: $x;
+  margin: 0 auto;
+}
+
+@mixin logoDimensions($width, $height){
+  width: $width;
+  height: $height;
+}
+
+
+@mixin grid($columns: 4, $gap: 16px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  // Tablet (this is just a guess estimate)
+  // @include forScreenSizesMin(tablet) {
+  //   grid-template-columns: repeat(8, 1fr);
+  //   gap: 20px;
+  // }
+
+  // Desktop 
+  @include forScreenSizes(tablet,desktop) {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+
+
+
+
+

@@ -1,13 +1,18 @@
 <?php
 
 /**
- * The template for displaying all single posts
+ * The template for displaying the Single Page of Parish Organization
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
@@ -16,12 +21,13 @@ get_header();
 	<?php
 
 	if (have_posts()) :
+		$current_organization_id = get_the_ID();
 		while (have_posts()) :
 			the_post();
 	?>
 
 			<!-- START OF CONTENT -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<?php
 					if (is_singular()) :
@@ -29,49 +35,88 @@ get_header();
 					else :
 						the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
 					endif;
-
-					if ('post' === get_post_type()) :
 					?>
-						<div class="entry-meta">
-							<?php
-							st_philip_posted_on();
-							st_philip_posted_by();
-							?>
-						</div><!-- .entry-meta -->
-					<?php endif; ?>
 				</header><!-- .entry-header -->
 
-				<?php st_philip_post_thumbnail(); ?>
-
 				<div class="entry-content">
+					<!-- PARISH ORGANIZATION ACF FIELD GROUPS -->
+
+					<!-- Brief Introduction -->
 					<p><?php echo wp_kses_post(get_field('introduction')); ?></p>
 
-					<a href="#" class="fake-button">View Events</a>
+					<a href="<?php echo esc_url(get_permalink(253)); ?>"  aria-label="View upcoming events" class="default-button">View Events</a>
+
+					<!-- Gallery Using WYSWYG editor -->
 					<div class="acf-gallery">
-
-						<?php echo wp_kses_post(get_field('gallery'));	?>
-
+						<?php
+						$gallery = get_field('gallery');
+						$gallery = preg_replace('/<p><img(.*?)<\/p>/', '<img$1', $gallery);
+						echo wp_kses_post($gallery);
+						?>
 					</div>
+
+					<!-- Description -->
 					<p><?php echo wp_kses_post(get_field('description')); ?></p>
 
+					<!-- SIGN UP FOR UPDATES FORM -->
+					<div class="form-container">
+						<?php echo do_shortcode('[forminator_form id="285"]'); ?>
+					</div><!-- .form-container -->
+					<!-- END OF SIGN UP FOR UPDATES FORM -->
+
+					<!-- START OF CAR RECOMMENDATIONS -->
 					<?php
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-							'after'  => '</div>',
-						)
+					// Set up the custom query for car recommendations (next 2 cars)
+					$args = array(
+						'post_type' => 'parish-organization',
+						'posts_per_page' => 2,
+						'post__not_in' => array($current_organization_id),
+						'orderby' => 'date',
+						'order' => 'ASC',
 					);
+
+					$query = new WP_Query($args);
+
+					// Check if there are posts to display
+					if ($query->have_posts()) :
 					?>
+						<div class="organization-recommendations">
+							<h2>Explore other groups</h2>
+							<div class="organization-cards">
+								<?php while ($query->have_posts()) : $query->the_post(); ?>
+									<a href="<?php the_permalink(); ?>" class="organization-card-link" aria-label="View details of <?php the_title(); ?>">
+									<div class="organization-card">
+										<?php
+										$image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+										if (!$image_url) {
+											$image_url = get_template_directory_uri() . '/images/home-hero-banner.webp';
+										}
+
+										?>
+										<div class="organization-card-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
+											<div class="organization-card-title">
+												<h3><?php the_title(); ?></h3>
+											</div>
+										</div>
+									</div>
+									</a>
+								<?php endwhile; ?>
+							</div>
+						</div>
+					<?php
+					endif;
+					wp_reset_postdata();
+					?>
+					<!-- END OF CAR RECOMMENDATIONS -->
+
 				</div><!-- .entry-content -->
 
+				<!-- This is to display meta tags for screen readers, DO NOT DELETE -->
 				<footer class="entry-footer">
 					<?php st_philip_entry_footer(); ?>
 				</footer><!-- .entry-footer -->
-			</article><!-- #post-<?php the_ID(); ?> -->
-
-
+			</section><!-- #post-<?php the_ID(); ?> -->
 			<!-- END OF CONTENT -->
-
 	<?php
 		endwhile; // end while
 	endif; // end if
@@ -81,5 +126,6 @@ get_header();
 </main><!-- #main -->
 
 <?php
-
+/* Get the footer template part*/
 get_footer();
+?>

@@ -1,0 +1,14 @@
+/*
+make the iframe or embedded video responsive
+*/
+
+.responsive-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  border: none;
+}
+
+.full-width-button{
+  text-align: center;
+  width: 100%;
+}

@@ -1,24 +1,24 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Livestream Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
@@ -26,16 +26,20 @@ get_header();
 		<!-- entry content -->
 		<div class="entry-content">
 			<div>
+				<!-- ONCE WE HAVE YOUTUBE EMBEDDED LINK, ADD TITLE="Livestream for St.Philips' Church Service" FOR ACCESSIBILITY-->
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 			</div>
+
 			<section>
 				<h2>Our Service Times</h2>
 				<div>
-					<div><span>9:20 AM</span>Orthros (Matins)</div>
-					<div><span>10:20 AM</span>Divine Liturgy</div>
+					<ul class="service-times">
+						<li><time datetime="09:20">9:20 AM</time> Orthros (Matins)</li>
+						<li><time datetime="10:20">10:20 AM</time> Divine Liturgy</li>
+					</ul>
 				</div>
 			</section>
+
 			<section>
 				<h2>Past Streams</h2>
 				<div>
@@ -44,28 +48,28 @@ get_header();
 
 				</div>
 			</section>
-			<div>
-				<div>
-					<h2>Follow on Facebook</h2>
-					<a href="#">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-				<div>
-					<h2>Subscribe on YouTube</h2>
-					<a href="#">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-
-			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-					'after'  => '</div>',
-				)
-			);
-			?>
+			<nav>
+				<ul class="social-links">
+					<li>
+						<section>
+							<h2>Follow on Facebook</h2>
+							<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
+							</a>
+						</section>
+					</li>
+					<li>
+						<section>
+							<h2>Subscribe on YouTube</h2>
+							<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+							</a>
+						</section>
+					</li>
+				</ul>
+			</nav>
 		</div>
 		<!-- .entry-content -->
 
+		<!-- This is to show the admin the Edit button -->
 		<?php if (get_edit_post_link()) : ?>
 			<footer class="entry-footer">
 				<?php
@@ -88,11 +92,13 @@ get_header();
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
+		<!-- End of the Admin Edit button -->
+	</section><!-- #post-<?php the_ID(); ?> -->
 
 
 </main><!-- #main -->
 
 <?php
-// get_sidebar();
+/* Get the footer template part*/
 get_footer();
+?>

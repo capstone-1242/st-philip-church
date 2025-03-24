@@ -141,7 +141,12 @@ add_action( 'widgets_init', 'st_philip_widgets_init' );
  * Enqueue scripts and styles.
  */
 function st_philip_scripts() {
+	// font styles - will delete this after
 	wp_enqueue_style('inter-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap', array(), null);
+	// font-styles
+	wp_enqueue_style( 'frank-ruhl-libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@100..900&display=swap', array(),null);
+	wp_enqueue_style( 'alegreya-sans-font', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100..900&display=swap', array(), null ); 
+
 	// Css styles
 	wp_enqueue_style( 'tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css' ,  array(), null, 'all' );
 	wp_enqueue_style( 'st_philip-style', get_template_directory_uri() . "/css/style.css", array(), filemtime(get_template_directory() . '/css/style.css'), 'all' ); /* This prevents caching issues */

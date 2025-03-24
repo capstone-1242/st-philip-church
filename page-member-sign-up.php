@@ -1,31 +1,27 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Member Sign-up Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+			<h1 class="entry-title">Membership Sign Up</h1>
 		</header><!-- .entry-header -->
-
-		<!-- featured image -->
-		<?php st_philip_post_thumbnail(); ?>
-		<!-- end of featured image -->
 
 		<!-- entry content -->
 		<div class="entry-content">
@@ -43,25 +39,17 @@ get_header();
 			</section>
 
 			<section>
-				<h2>Voting Member - Family 
-				($400/yr)</h2>
+				<h2>Voting Member - Family
+					($400/yr)</h2>
 				<p>Strengthen your family’s involvement in our parish with voting privileges for your household and deeper engagement in our church’s future.</p>
 			</section>
 
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeF1_uPaD4fO-iOUnSI6cD3LkwhQ27oSOXUJxKqUwY0WbPVzA/viewform" class="fake-button">Continue to Sign Up</a>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSeF1_uPaD4fO-iOUnSI6cD3LkwhQ27oSOXUJxKqUwY0WbPVzA/viewform" class="default-button" aria-label="Go to the Member Sign Up form">Member Sign Up <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 
-
-			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-					'after'  => '</div>',
-				)
-			);
-			?>
 		</div>
 		<!-- .entry-content -->
 
+		<!-- This is to show the admin the Edit button -->
 		<?php if (get_edit_post_link()) : ?>
 			<footer class="entry-footer">
 				<?php
@@ -84,11 +72,13 @@ get_header();
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
+		<!-- End of the Admin Edit button -->
+	</section><!-- #post-<?php the_ID(); ?> -->
 
 
 </main><!-- #main -->
 
 <?php
-// get_sidebar();
+/* Get the footer template part*/
 get_footer();
+?>

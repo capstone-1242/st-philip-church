@@ -1,56 +1,51 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Contact Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
 
-		<!-- featured image -->
-		<?php st_philip_post_thumbnail(); ?>
-		<!-- end of featured image -->
+		<!-- Featured Image -->
+		<?php if (has_post_thumbnail()) : ?>
+			<div class="page-featured-image">
+				<?php st_philip_post_thumbnail(); ?>
+			</div>
+		<?php endif; ?>
+		<!-- End of Featured Image -->
 
 		<!-- entry content -->
 		<div class="entry-content">
-
-			<address>
+			<section>
 				<h2>Fr. Dmitri Info</h2>
-				<a href="mailto:jim@example.com">stphilippriest1978@gmail.com </a><br />
-				<a href="tel:+14155550132">780-489-7943</a>
-			</address>
+				<address>
+					<a href="mailto:jim@example.com">stphilippriest1978@gmail.com </a><br />
+					<a href="tel:+14155550132">780-489-7943</a>
+				</address>
 
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="fake-button" target="_blank">Contact Us</a>
-		
-
-
-			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-					'after'  => '</div>',
-				)
-			);
-			?>
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button" target="_blank">Contact Us</a>
+			</section>
 		</div>
-		<!-- .entry-content -->
+		<!-- end of .entry-content -->
 
+		<!-- This is to show the admin the Edit button -->
 		<?php if (get_edit_post_link()) : ?>
 			<footer class="entry-footer">
 				<?php
@@ -73,11 +68,11 @@ get_header();
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
-
+		<!-- End of the Admin Edit button -->
+	</section><!-- #post-<?php the_ID(); ?> -->
 
 </main><!-- #main -->
 
 <?php
-// get_sidebar();
+/* Get the footer template part*/
 get_footer();

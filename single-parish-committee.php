@@ -1,13 +1,18 @@
 <?php
 
 /**
- * The template for displaying all single posts that belong to single parish committee
+ * The template for displaying the Single Page of Parish Committee
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
+/* Get the header template part*/
 get_header();
 ?>
 
@@ -15,15 +20,17 @@ get_header();
 
 	<?php
 	if (have_posts()):
+		// Parish Message ACF field group
 		$committee_members = get_field('committee_members');
 		$committee_chair = get_field('committee_chair');
+		// Need ACF plugin for it to not throw error in your local copy
 
 		while (have_posts()) :
 			the_post(); ?>
 
 			<!-- START OF THE CONTENT-->
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<?php
 					if (is_singular()) :
@@ -43,8 +50,6 @@ get_header();
 					<?php endif; ?>
 				</header><!-- .entry-header -->
 
-				<?php st_philip_post_thumbnail(); ?>
-
 				<div class="entry-content">
 					<p><?php echo wp_kses_post(get_field('purpose')); ?></p>
 
@@ -53,7 +58,8 @@ get_header();
 						<?php
 						$gallery = get_field('gallery');
 						$gallery = preg_replace('/<p><img(.*?)<\/p>/', '<img$1', $gallery);
-						echo wp_kses_post($gallery);	?>
+						echo wp_kses_post($gallery);	
+						?>
 					</div>
 					<h2>Responsibilities:</h2>
 					<?php
@@ -63,7 +69,7 @@ get_header();
 						<?php
 						foreach ($responsibilities as $responsibility): ?>
 							<li>
-								<?php echo $responsibility ?>
+								<?php echo esc_html($responsibility) ?>
 							</li>
 						<?php endforeach ?>
 					</ul>
@@ -81,7 +87,7 @@ get_header();
 								<div class="committee-member">
 									<!-- Member Image -->
 									<?php if ($member_image): ?>
-										<img src="<?php echo esc_url($member_image['url']); ?>" alt="<?php echo esc_attr($member_name); ?>" width="150" height="150">
+										<img src="<?php echo esc_url($member_image['url']); ?>" alt="Profile photo of <?php echo esc_attr($member_name); ?>" width="150" height="150">
 									<?php endif; ?>
 
 									<!-- Member Name -->
@@ -89,7 +95,7 @@ get_header();
 
 									<!-- Chair Label -->
 									<?php if ($committee_chair && $committee_chair[0]->ID == $member->ID): ?>
-										<p><strong>Committee Chair</strong></p>
+										<p>Chair</p>
 									<?php endif; ?>
 								</div>
 
@@ -98,43 +104,26 @@ get_header();
 					<?php else: ?>
 						<p>No members assigned.</p>
 					<?php endif; ?>
-
-					<?php
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-							'after'  => '</div>',
-						)
-					);
-					?>
 				</div><!-- .entry-content -->
+				<a href="<?php echo esc_url(get_permalink(86)) ?>">Become a Member <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+				<p class="button-description">You will be redirected to a Google Form</p>
 
+				<!-- This is to display meta tags for screen readers, DO NOT DELETE -->
 				<footer class="entry-footer">
 					<?php st_philip_entry_footer(); ?>
 				</footer><!-- .entry-footer -->
-			</article><!-- #post-<?php the_ID(); ?> -->
+			</section><!-- #post-<?php the_ID(); ?> -->
 
 
 			<!-- END OF THE CONTENT -->
 	<?php
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'st_philip') . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'st_philip') . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if (comments_open() || get_comments_number()) :
-				comments_template();
-			endif;
-
 		endwhile; // End of the loop.
-
 	endif;
 	?>
 
 </main><!-- #main -->
 
 <?php
+/* Get the footer template part*/
 get_footer();
+?>

@@ -1,3 +1,6 @@
 // this file will include all the variable that we want to use across the application
 
-$footer-div-border-radius: 4px;
+
+$section-padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
+
+

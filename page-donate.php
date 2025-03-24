@@ -1,31 +1,26 @@
 <?php
 
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying the Donation Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
+ * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- */
+ * 
+ **/
 
 get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+			<h1 class="entry-title">Make a Donation</h1>
 		</header><!-- .entry-header -->
-
-		<!-- featured image -->
-		<?php st_philip_post_thumbnail(); ?>
-		<!-- end of featured image -->
 
 		<!-- entry content -->
 		<div class="entry-content">
@@ -38,18 +33,10 @@ get_header();
 			<p>NB: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
 			<p>Tax receipts cannot be given for items being purchased.</p>
 
-
-			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
-					'after'  => '</div>',
-				)
-			);
-			?>
 		</div>
 		<!-- .entry-content -->
 
+		<!-- This is to show the admin the Edit button -->
 		<?php if (get_edit_post_link()) : ?>
 			<footer class="entry-footer">
 				<?php
@@ -72,11 +59,14 @@ get_header();
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</article><!-- #post-<?php the_ID(); ?> -->
+		<!-- End of the Admin Edit button -->
+	</section><!-- #post-<?php the_ID(); ?> -->
 
 
 </main><!-- #main -->
 
-<?php
-// get_sidebar();
-get_footer();
+
+<?php 
+/* Get the footer template part*/
+get_footer(); 
+?>

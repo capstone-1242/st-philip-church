@@ -3,9 +3,10 @@
 
 $mobile-res-min-width: 320px;
 $tablet-res-min-width: 768px;
-$desktop-res-min-width: 1280px;
+$desktop-res-min-width: 1000px;
 
-@mixin forScreenSizesMin($deviceTypes...) {
+
+@mixin forScreenSizes($deviceTypes...) {
   @each $deviceType in $deviceTypes {
     @if $deviceType == phone {
       @media only screen and (min-width: $mobile-res-min-width) {
@@ -18,13 +19,9 @@ $desktop-res-min-width: 1280px;
       }
     }
     @if $deviceType == desktop {
-      @media only screen and (min-width: $desktop-res-min-width) {
+      @media only screen and (min-width: $desktop-res-min-width){
         @content;
       }
     }
   }
 }
-
-
-
-// we can add forScreenSizeMax etc 
