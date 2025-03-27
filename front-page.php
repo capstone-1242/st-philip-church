@@ -80,14 +80,7 @@ get_header();
 				<iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				<a href="<?php echo esc_url(get_permalink(72)); ?>" class="default-button full-width-button" aria-label="View our livestreams">View Our Livestreams</a>
 			</section>
-			<div class="welcome-overlay">
-		</div>
 		</section>
-
-	
-
-		
-	
 
 
 	<!--Upcoming Events-->
@@ -225,9 +218,10 @@ get_header();
 			<p class="fine-print">*Paid memberships give users voting precedence over non-paid members.</p>
 				<a href="<?php echo esc_url(get_permalink(86)) ?>" class="default-button full-width-button" aria-label="View Full Details about Membership">View Full Details</a>
 			</div>
-			<div	 class="membership-overlay">
-		</div>
+			<div class="membership-overlay">
+			</div>
 		</section>
+
 	
 
 	<!-- Donation -->

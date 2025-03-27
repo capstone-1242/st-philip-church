@@ -592,7 +592,7 @@ main.front-page .welcome {
   position: relative;
   padding: 0 16px;
   color: #F5F5F5 !important;
-  background-color: #F5F5F5;
+  background-color: rgba(41, 73, 30, 0.7) !important;
   margin-bottom: 0;
   max-width: 1248px;
   margin: 0 auto;
@@ -688,16 +688,6 @@ main.front-page .welcome > section {
   main.front-page .welcome section a {
     grid-column: span 3;
   }
-}
-main.front-page div.welcome-overlay {
-  position: absolute;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background-color: rgba(41, 73, 30, 0.7);
 }
 main.front-page .upcoming-events {
   margin-top: 0;
@@ -848,8 +838,7 @@ main.front-page .upcoming-events + section .organization-card-title {
 main.front-page .membership {
   position: relative;
   color: #111933;
-  background-color: #EFC275;
-  background-color: rgba(239, 194, 117, 0.45);
+  background-color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -868,9 +857,10 @@ main.front-page .membership {
 }
 main.front-page .membership > * {
   grid-column: 1/-1;
+  z-index: 2;
 }
 main.front-page .membership .membership-options section {
-  color: #F5F5F5;
+  color: #111933;
   border: 1px solid #EFC275;
   background-color: transparent;
   border-radius: 4px;
@@ -878,7 +868,7 @@ main.front-page .membership .membership-options section {
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .membership {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
   }
   main.front-page .membership > div:first-child {
     grid-column: 1/span 4;
@@ -897,7 +887,7 @@ main.front-page .membership .membership-options section {
 }
 @media only screen and (min-width: 1000px) {
   main.front-page .membership {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
   }
   main.front-page .membership > div:first-child {
     grid-column: 1/span 4;
@@ -916,19 +906,25 @@ main.front-page .membership .membership-options section {
 }
 main.front-page div.membership-overlay {
   position: absolute;
+  background-color: rgba(239, 194, 117, 0.45) !important;
   top: 0;
-  width: 100vw;
-  background-color: rgba(239, 194, 117, 0.45);
-  z-index: 2;
+  left: -1rem;
+  right: -2rem;
+  bottom: 0;
+  z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page div.membership-overlay {
-    width: 50vw;
+    grid-column: 1/span 8;
+    left: -2.25rem;
+    right: -2.25rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   main.front-page div.membership-overlay {
-    width: 50vw;
+    grid-column: 1/span 8;
+    left: -2.25rem;
+    right: -2.25rem;
   }
 }
 main.front-page .donation {
@@ -954,7 +950,6 @@ main.front-page .donation > *:not(hr) {
 main.front-page .donation hr {
   border: 3px solid #D79A32;
   grid-column: span 2;
-  justify-self: start;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .donation hr {
