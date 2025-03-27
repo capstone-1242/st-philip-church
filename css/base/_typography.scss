@@ -2,51 +2,53 @@
 // i use this clamp generator with min vieport width at 320px and max at 1248px
 // https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjMyMHB4IiwibWF4V2lkdGgiOiIxMjQ4cHgiLCJtaW5Gb250U2l6ZSI6IjE0cHgiLCJtYXhGb250U2l6ZSI6IjE2cHgifQ%3D%3D
 
-// heading- 
 
 $heading-font-family: 'Frank Ruhl Libre', serif;
 $body-font-family: 'Alegreya Sans', sans-serif;
 
-// this is the p tag clamp
-$font16-to-font24: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-// same as h3 but fontweight 700:
+
+// NOTE: I gave up on making mixin for dynamically computing the line-height so im inputting it manually on font-size generator and using it for clamping the lineheight.
+
+// hero-banner shop p
+$font14-to-font32: clamp(0.875rem, 0.4871rem + 1.9397vw, 2rem);
+$line-height-14-32: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem); /* from 24px to 36px */
+// font-weight: 500;
 
 // this is the anchor tag clamp
 $font16-to-font20: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
-// line-height: 1.2
+$line-height-16-20: 1.5rem; /* 24px since both are below 24px */
 // font-weight: bold
 
-// hero banner clamp
-$font24-to-font64: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
-// font-weight: 600
-// line-height: 1.3
+// this is the p tag clamp
+$font16-to-font24: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+$line-height-16-24: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem); /* from 24 to 36px */
 
 // tagline clamp
 $font16-to-font40: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+$line-height-16-40: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem); /* from 24px to 48px */
 // font-weight: regular
 // font-style: italic
 // line-height: 1.2
 
-// h2-same as tagline clamp BUT
+// hero banner clamp
+$font24-to-font64: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
+$line-height-24-64: clamp(1.5rem, 0.4655rem + 5.1724vw, 4.5rem); /* from 24px to 72px */
 // font-weight: 600
-// line-height: 1.3;
-
-// hero-banner shop p
-$font14-to-font32: clamp(0.875rem, 0.4871rem + 1.9397vw, 2rem);
-// font-weight: 500;
-// line-height: 1.2
 
 // for the church hour subtitle
 $font14-to-font24: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+$line-height-14-24: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem); /* from 24 to 36px */
 
 $font20-to-font32: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+$line-height-20-32: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem); /* from 24 to 36px */
 
 $font20-to-font40: clamp(1.25rem, 0.819rem + 2.1552vw, 2.5rem);
+$line-height-20-40: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem); /* from 24 to 48px */
+
 
 // line-height:
-$line-height: 1.5;
-$line-height-base: 1.3;
-$line-height-secondary: 1.2;
+$base-line-height: 1.5;
+
 
 // font-weights
 $font-weight-thin: 100;
@@ -60,3 +62,4 @@ $font-weight-extra-bold: 800;
 $font-weight-black: 900;
 
 
+// OUR SPACING IS IN MULTIPLES OF 24PX/1.5rem

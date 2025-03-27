@@ -59,6 +59,14 @@ table {
 /*
 this part is for styles for the overall body
 */
+/* from 24px to 36px */
+/* 24px since both are below 24px */
+/* from 24 to 36px */
+/* from 24px to 48px */
+/* from 24px to 72px */
+/* from 24 to 36px */
+/* from 24 to 36px */
+/* from 24 to 48px */
 body {
   /** Step 1: Choose a font-family **/
   font-family: "Alegreya Sans", sans-serif;
@@ -85,24 +93,24 @@ h1, h2, h3, h4, h5 {
 
 p, a {
   font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem);
 }
 
 h2 {
   font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem);
   font-weight: 600;
 }
 
 h3 {
   font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem);
   font-weight: 600;
 }
 
 .fine-print {
   font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
-}
-
-* {
-  margin-bottom: 1.5rem;
+  line-height: 1.5rem;
 }
 
 /* those reusable component like stuff that accept variables */
@@ -546,7 +554,7 @@ main.front-page .hero-banner > * {
 main.front-page .hero-banner h2 {
   font-size: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 main.front-page .hero-banner p:first-of-type {
   font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
