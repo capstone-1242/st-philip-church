@@ -5,9 +5,9 @@ delete any unused styles after
 */
 
 // base
+@use "../base/mixins" as *;
 @use "../base/colors" as *;
 @use "../base/media-queries" as *;
-@use "../base/mixins" as *;
 @use "../base/typography" as *;
 @use "../base/variables" as *;
 // components
@@ -16,15 +16,11 @@ delete any unused styles after
 
 // this is the front page wrapper id
 main.front-page {
-  * {
-    margin-bottom: 1.5rem;
-  }
 
-  > section:not(.hero-banner) {
-    @include maxWidthCentered(1248px);
+    .weekly-highlights, .welcome {
     background-color: $white;
     padding: 1.5rem 1rem;
-
+    @include maxWidthCentered(1248px);
     @include forScreenSizes(tablet, desktop) {
       padding: 1.5rem 2.25rem;
     }
@@ -32,47 +28,73 @@ main.front-page {
 
   /* Hero Banner Section*/
   .hero-banner {
-    @include maxWidthCentered(1248px);
+    height: calc( 100vh - 120px);
     padding: 0 1rem;
     background-color: transparent;
-    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr auto auto 1fr;
+    row-gap: 24px;
+    column-gap: 16px;
     color: $accent-white;
-    @include grid;
-
-    > * {
-      grid-column: 1 / -1;
-    }
+    
+    @include maxWidthCentered(1248px); 
+    // @include grid;
+    @include childMarginBottom;
+    @include childGridSpan;
+ 
 
     h2 {
-      // padding-top: 194px 0 16px;
       font-size: $font24-to-font64;
+      line-height: $line-height-24-64;
       font-weight: $font-weight-medium-bold;
-      line-height: $base-line-height;
+      align-self: flex-end;
+
+      span{
+        display: block;
+      }
     }
 
     p:first-of-type {
       font-size: $font16-to-font40;
-      $font-style: italic;
+      line-height: $line-height-16-40;
+      font-style: italic;
     }
 
-    p:last-of-type {
-      // padding-top: 100px;
+    // our church just opened
+    p:nth-last-of-type(2) {
+      padding: 2rem 0;
       font-size: $font14-to-font32;
+      line-height: $line-height-14-32;
       font-weight: $font-weight-medium;
     }
 
-    // a {
-    //   margin: 11px 0 70px;
-    // }
+    p:last-of-type{
+      grid-column: span 3;
+    }
 
+    a{
+      width: 100%;
+    }
+
+   
+  
     @include forScreenSizes(tablet, desktop) {
       & {
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: 24px;
         padding: 0 36px;
 
-        p:last-of-type,
-        a {
+        p:nth-last-of-type(2){
+          padding-top: 9rem;
+          grid-column: 7 / span 6;
+        }
+
+        p:last-of-type {
           grid-column: 10 / span 3;
         }
+
+     
       }
     }
   }
@@ -80,9 +102,11 @@ main.front-page {
   /* End of Hero Banner Section*/
 
   .weekly-highlights {
+    @include childMarginBottom;
     > div {
-      @include card($padding: 14px 24px, $color: $secondary-blue);
+      @include card($padding: 14px 24px, $color: $secondary-blue, $border: 1px solid $accent-yellow, $background-color: rgba($main-yellow, 0.45));
       width: 100%;
+
 
       h3 {
         font-family: $body-font-family;
@@ -91,6 +115,7 @@ main.front-page {
 
       p {
         font-size: $font14-to-font24;
+        line-height: $line-height-14-24;
       }
     }
   }
@@ -98,39 +123,50 @@ main.front-page {
   /*--------------------------Welcome to our Church Section------------------------------*/
   .welcome {
     position: relative;
-    padding: 0 16px;
     color: $accent-white !important;
-    background-color: rgba(41, 73, 30, 0.70) !important;
+    background-color: $white;
     margin-bottom: 0;
     @include maxWidthCentered(1248px);
     @include grid;
-
-    > * {
-      grid-column: 1 / -1;
-    }
+    @include childGridSpan;
 
     // welcome to our church
     > div:first-of-type {
       z-index: 12;
+
+      @include childMarginBottom;
       // come in person
       section {
+        @include childMarginBottom;
         // church location
         > div:first-of-type {
           @include card;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+
+          i{
+            font-size: $font16-to-font40;
+            color: $main-yellow;
+          }
         } /* end of church location */
 
         // church hours
         > div:last-of-type {
           ul {
             @include gridContainer($columns: 4, $gap: 16px);
+            text-align: center;
             li {
               @include card($background-color: $accent-green, $border: none);
               grid-column: span 2;
               font-size: $font14-to-font24;
+              line-height: $line-height-14-24;
               time {
                 display: block;
                 font-weight: $font-weight-bold;
                 font-size: $font20-to-font32;
+                line-height: $line-height-20-32;
               }
             }
           }
@@ -138,8 +174,10 @@ main.front-page {
       }
     }
 
+    // Join Livestream Section
     > section {
       z-index: 12;
+      @include childMarginBottom;
     }
 
     @include forScreenSizes(tablet, desktop) {
@@ -166,16 +204,33 @@ main.front-page {
     }
   }
 
+  div.welcome-overlay{
+    position: absolute;
+    background-color: rgba($main-green, 0.70);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
   /*--------------------------Upcoming Events Section------------------------------*/
 
   .upcoming-events {
-    margin-top: 0;
-    @include grid;
+    // @include grid;
 
-    > * {
-      grid-column: 1 / -1;
-    }
+    // @include childMarginBottom;
 
+    // @include childGridSpan;
+    background-color: $white;
+    >div{
+      padding: 1.5rem 1rem;
+      @include childMarginBottom;
+      @include maxWidthCentered(1248px);
+      @include grid;
+      @include childGridSpan;
+  
+    
     .events-list {
       .event-item {
         position: relative;
@@ -201,28 +256,32 @@ main.front-page {
     // adding margin-bottom to elements
     @include forScreenSizes(tablet, desktop) {
       & {
+          padding: 1.5rem 2.25rem;
         .events-list {
           @include gridContainer;
           .event-item {
             grid-column: span 3;
           }
-
-          a {
-            grid-column: 10 / span 3;
-          }
+        }
+        a {
+          grid-column: 10 / span 3;
         }
       }
     }
   }
+}
 
   /*--------------------------Explore Our Church Group Section------------------------------*/
   .upcoming-events + section {
+    background-color: $white;
     padding: $section-padding;
-    @include grid;
 
-    > * {
-      grid-column: 1 / -1;
-    }
+    >div{
+    padding: 1.5rem 1rem;
+    @include maxWidthCentered(1248px);
+    @include grid;
+    @include childMarginBottom;
+    @include childGridSpan;
 
     hr {
       border: 3px solid $accent-yellow;
@@ -232,6 +291,7 @@ main.front-page {
     .organization-card-link {
       display: block;
       text-decoration: none;
+      margin-bottom: 1.5rem;
     }
 
     .organization-card {
@@ -258,10 +318,16 @@ main.front-page {
       padding: 106px 187px 15px 15px;
       color: $accent-white;
       font-size: $font20-to-font40;
+      line-height: $line-height-20-40;
       font-weight: $font-weight-bold;
     }
 
     @include forScreenSizes(tablet, desktop) {
+      padding: 1.5rem 2.25rem;
+      hr{
+        grid-column: span 3;
+      }
+
       div.parish-organization-list {
         order: 3;
         @include gridContainer;
@@ -277,17 +343,27 @@ main.front-page {
     }
   }
 
+  }
+
   /*---------------------------Membership Section------------------------------*/
   .membership {
-    position: relative;
+    background-color: $white;
+    >div{
+    padding: 1.5rem 1rem;
     color: $primary-blue;
     background-color: $white;
+    position: relative;
+    @include maxWidthCentered(1248px);
     @include grid;
-   
+    @include childMarginBottom;
 
     > *{
       grid-column:  1 / -1;
       z-index: 2;
+    }
+
+    >div{
+      @include childMarginBottom;
     }
 
     .membership-options {
@@ -298,6 +374,7 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
+        padding: 1.5rem 2.25rem;
         grid-template-rows: 1fr auto;
 
         > div:first-child {
@@ -319,6 +396,8 @@ main.front-page {
       }
     }
   }
+  
+}
 
   div.membership-overlay{
     position: absolute;
@@ -336,8 +415,15 @@ main.front-page {
     }
   }
 
+  
+  /*---------------------------Donation Section------------------------------*/
   .donation {
+    background-color: $white;
+    >div{
+    padding: 1.5rem 1rem;
+    @include maxWidthCentered(1248px);
     @include grid;
+    @include childMarginBottom;
 
     > *:not(hr) {
       grid-column: 1 / -1;
@@ -348,7 +434,12 @@ main.front-page {
       grid-column: span 2;
     }
 
+    div{
+      @include childMarginBottom;
+    }
+
     @include forScreenSizes(tablet, desktop) {
+      padding: 1.5rem 2.25rem;
       hr {
         grid-column: 9 / span 3;
       }
@@ -357,6 +448,7 @@ main.front-page {
       }
     }
   }
+}
 }
 
 /*===========================END OF FRONT PAGE=================================*/

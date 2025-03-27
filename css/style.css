@@ -67,6 +67,9 @@ this part is for styles for the overall body
 /* from 24 to 36px */
 /* from 24 to 36px */
 /* from 24 to 48px */
+/*
+this part is for styles for the overall body
+*/
 body {
   /** Step 1: Choose a font-family **/
   font-family: "Alegreya Sans", sans-serif;
@@ -78,6 +81,7 @@ body {
   line-height: 1.5; /* 1.2 based on figma  */
   /**20px x 1.5 = 30 grid units **/
   /** Step 4: Display visual grid **/
+  background-color: white;
   background-image: linear-gradient(#0ff 1px, transparent 1px);
   background-size: auto 24px;
   /** Step 5: choose typographic scale 
@@ -92,32 +96,47 @@ h1, h2, h3, h4, h5 {
 }
 
 p, a {
-  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-  line-height: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem);
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 
 h2 {
-  font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
-  line-height: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem);
+  font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 600;
 }
 
 h3 {
-  font-size: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
-  line-height: clamp(1.5rem, 1.2414rem + 1.2931vw, 2.25rem);
+  font-size: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
   font-weight: 600;
 }
 
 .fine-print {
-  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   line-height: 1.5rem;
+}
+
+.entry-header h1 {
+  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-weight: 600;
+}
+.entry-header h1 {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+
+.entry-content {
+  max-width: 1248px;
+  margin: 0 auto;
 }
 
 /* those reusable component like stuff that accept variables */
 .default-button {
   display: inline-block;
-  padding: 1.25rem 1rem;
-  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
   border-radius: 0.3125rem;
@@ -134,8 +153,8 @@ h3 {
 
 .secondary-button {
   display: inline-block;
-  padding: 1.25rem 1rem;
-  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
   border-radius: 0.3125rem;
@@ -152,8 +171,8 @@ h3 {
 
 .outlined-button {
   display: inline-block;
-  padding: 1.25rem 1rem;
-  font-size: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: 2px solid #781100;
   border-radius: 0.3125rem;
@@ -181,8 +200,6 @@ This is where we style our footer
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  max-width: 1248px;
-  margin: 0 auto;
   padding: 112px 0;
   /* 
   Footer Section Styling
@@ -190,6 +207,10 @@ This is where we style our footer
   /*
   Footer Navigation Styling 
   */
+}
+.site-footer > div {
+  max-width: 1248px;
+  margin: 0 auto;
 }
 .site-footer > div .site-branding {
   text-align: center;
@@ -302,6 +323,8 @@ div.header-nav-container {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 1rem 0.5rem;
+  }
+  div.header-nav-container {
     max-width: 1440px;
     margin: 0 auto;
   }
@@ -505,86 +528,108 @@ main.front-page {
   /*--------------------------Upcoming Events Section------------------------------*/
   /*--------------------------Explore Our Church Group Section------------------------------*/
   /*---------------------------Membership Section------------------------------*/
+  /*---------------------------Donation Section------------------------------*/
 }
-main.front-page * {
-  margin-bottom: 1.5rem;
-}
-main.front-page > section:not(.hero-banner) {
-  max-width: 1248px;
-  margin: 0 auto;
+main.front-page .weekly-highlights, main.front-page .welcome {
   background-color: white;
   padding: 1.5rem 1rem;
 }
+main.front-page .weekly-highlights, main.front-page .welcome {
+  max-width: 1248px;
+  margin: 0 auto;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page > section:not(.hero-banner) {
+  main.front-page .weekly-highlights, main.front-page .welcome {
     padding: 1.5rem 2.25rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page > section:not(.hero-banner) {
+  main.front-page .weekly-highlights, main.front-page .welcome {
     padding: 1.5rem 2.25rem;
   }
 }
 main.front-page .hero-banner {
-  max-width: 1248px;
-  margin: 0 auto;
+  height: calc(100vh - 120px);
   padding: 0 1rem;
   background-color: transparent;
-  height: calc(100vh - 100px);
-  color: #F5F5F5;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-rows: 1fr auto auto 1fr;
+  row-gap: 24px;
+  column-gap: 16px;
+  color: #F5F5F5;
 }
-@media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .hero-banner {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
-  }
+main.front-page .hero-banner {
+  max-width: 1248px;
+  margin: 0 auto;
 }
-@media only screen and (min-width: 1000px) {
-  main.front-page .hero-banner {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
-  }
+main.front-page .hero-banner > * {
+  margin-bottom: 1.5rem;
 }
 main.front-page .hero-banner > * {
   grid-column: 1/-1;
 }
 main.front-page .hero-banner h2 {
-  font-size: clamp(1.5rem, 0.6379rem + 4.3103vw, 4rem);
+  font-size: clamp(1.5rem, 0.3235rem + 5.8824vw, 4rem);
+  line-height: clamp(1.5rem, 0.0882rem + 7.0588vw, 4.5rem);
   font-weight: 600;
-  line-height: 1.5;
+  align-self: flex-end;
+}
+main.front-page .hero-banner h2 span {
+  display: block;
 }
 main.front-page .hero-banner p:first-of-type {
-  font-size: clamp(1rem, 0.4828rem + 2.5862vw, 2.5rem);
+  font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-style: italic;
+}
+main.front-page .hero-banner p:nth-last-of-type(2) {
+  padding: 2rem 0;
+  font-size: clamp(0.875rem, 0.3456rem + 2.6471vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  font-weight: 500;
 }
 main.front-page .hero-banner p:last-of-type {
-  font-size: clamp(0.875rem, 0.4871rem + 1.9397vw, 2rem);
-  font-weight: 500;
+  grid-column: span 3;
+}
+main.front-page .hero-banner a {
+  width: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .hero-banner {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 24px;
     padding: 0 36px;
   }
-  main.front-page .hero-banner p:last-of-type,
-  main.front-page .hero-banner a {
+  main.front-page .hero-banner p:nth-last-of-type(2) {
+    padding-top: 9rem;
+    grid-column: 7/span 6;
+  }
+  main.front-page .hero-banner p:last-of-type {
     grid-column: 10/span 3;
   }
 }
 @media only screen and (min-width: 1000px) {
   main.front-page .hero-banner {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 24px;
     padding: 0 36px;
   }
-  main.front-page .hero-banner p:last-of-type,
-  main.front-page .hero-banner a {
+  main.front-page .hero-banner p:nth-last-of-type(2) {
+    padding-top: 9rem;
+    grid-column: 7/span 6;
+  }
+  main.front-page .hero-banner p:last-of-type {
     grid-column: 10/span 3;
   }
 }
+main.front-page .weekly-highlights > * {
+  margin-bottom: 1.5rem;
+}
 main.front-page .weekly-highlights > div {
   color: #2F3456;
-  border: 1px solid #EFC275;
-  background-color: transparent;
+  border: 1px solid #D79A32;
+  background-color: rgba(239, 194, 117, 0.45);
   border-radius: 4px;
   padding: 14px 24px;
   width: 100%;
@@ -594,30 +639,35 @@ main.front-page .weekly-highlights > div h3 {
   font-weight: 500;
 }
 main.front-page .weekly-highlights > div p {
-  font-size: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 main.front-page .welcome {
   position: relative;
-  padding: 0 16px;
   color: #F5F5F5 !important;
-  background-color: rgba(41, 73, 30, 0.7) !important;
+  background-color: white;
   margin-bottom: 0;
+}
+main.front-page .welcome {
   max-width: 1248px;
   margin: 0 auto;
+}
+main.front-page .welcome {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .welcome {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   main.front-page .welcome {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 main.front-page .welcome > * {
@@ -626,39 +676,59 @@ main.front-page .welcome > * {
 main.front-page .welcome > div:first-of-type {
   z-index: 12;
 }
+main.front-page .welcome > div:first-of-type > * {
+  margin-bottom: 1.5rem;
+}
 main.front-page .welcome > div:first-of-type section {
   /* end of church location */
   /* end of church hours section */
+}
+main.front-page .welcome > div:first-of-type section > * {
+  margin-bottom: 1.5rem;
 }
 main.front-page .welcome > div:first-of-type section > div:first-of-type {
   color: #F5F5F5;
   border: 1px solid #EFC275;
   background-color: transparent;
   border-radius: 4px;
-  padding: 8px 24px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+main.front-page .welcome > div:first-of-type section > div:first-of-type i {
+  font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
+  color: #EFC275;
 }
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  text-align: center;
 }
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul li {
   color: #F5F5F5;
   border: none;
   background-color: #29491E;
   border-radius: 4px;
-  padding: 8px 24px;
+  padding: 12px 24px;
   grid-column: span 2;
-  font-size: clamp(0.875rem, 0.7024rem + 0.8628vw, 1.5rem);
+  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul li time {
   display: block;
   font-weight: 700;
-  font-size: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+  font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 main.front-page .welcome > section {
   z-index: 12;
 }
+main.front-page .welcome > section > * {
+  margin-bottom: 1.5rem;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .welcome > div {
     grid-column: span 6;
@@ -696,32 +766,54 @@ main.front-page .welcome > section {
   main.front-page .welcome section a {
     grid-column: span 3;
   }
+}
+main.front-page div.welcome-overlay {
+  position: absolute;
+  background-color: rgba(71, 88, 65, 0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 main.front-page .upcoming-events {
-  margin-top: 0;
+  background-color: white;
+}
+main.front-page .upcoming-events > div {
+  padding: 1.5rem 1rem;
+}
+main.front-page .upcoming-events > div > * {
+  margin-bottom: 1.5rem;
+}
+main.front-page .upcoming-events > div {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+main.front-page .upcoming-events > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .upcoming-events {
+  main.front-page .upcoming-events > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .upcoming-events {
+  main.front-page .upcoming-events > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
-main.front-page .upcoming-events > * {
+main.front-page .upcoming-events > div > * {
   grid-column: 1/-1;
 }
-main.front-page .upcoming-events .events-list .event-item {
+main.front-page .upcoming-events > div .events-list .event-item {
   position: relative;
 }
-main.front-page .upcoming-events .events-list .event-item .date {
+main.front-page .upcoming-events > div .events-list .event-item .date {
   width: 3.375rem;
   height: 4.875rem;
   display: flex;
@@ -733,65 +825,86 @@ main.front-page .upcoming-events .events-list .event-item .date {
   left: 50%;
   z-index: 100;
 }
-main.front-page .upcoming-events .events-list .event-item .date .event-day {
+main.front-page .upcoming-events > div .events-list .event-item .date .event-day {
   font-family: "Frank Ruhl Libre", serif;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .upcoming-events .events-list {
+  main.front-page .upcoming-events > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .upcoming-events > div .events-list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .upcoming-events .events-list .event-item {
+  main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
   }
-  main.front-page .upcoming-events .events-list a {
+  main.front-page .upcoming-events > div a {
     grid-column: 10/span 3;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .upcoming-events .events-list {
+  main.front-page .upcoming-events > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .upcoming-events > div .events-list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .upcoming-events .events-list .event-item {
+  main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
   }
-  main.front-page .upcoming-events .events-list a {
+  main.front-page .upcoming-events > div a {
     grid-column: 10/span 3;
   }
 }
 main.front-page .upcoming-events + section {
+  background-color: white;
   padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
+}
+main.front-page .upcoming-events + section > div {
+  padding: 1.5rem 1rem;
+}
+main.front-page .upcoming-events + section > div {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+main.front-page .upcoming-events + section > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .upcoming-events + section {
+  main.front-page .upcoming-events + section > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .upcoming-events + section {
+  main.front-page .upcoming-events + section > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
-main.front-page .upcoming-events + section > * {
+main.front-page .upcoming-events + section > div > * {
+  margin-bottom: 1.5rem;
+}
+main.front-page .upcoming-events + section > div > * {
   grid-column: 1/-1;
 }
-main.front-page .upcoming-events + section hr {
+main.front-page .upcoming-events + section > div hr {
   border: 3px solid #D79A32;
   grid-column: span 2;
 }
-main.front-page .upcoming-events + section .organization-card-link {
+main.front-page .upcoming-events + section > div .organization-card-link {
   display: block;
   text-decoration: none;
+  margin-bottom: 1.5rem;
 }
-main.front-page .upcoming-events + section .organization-card {
+main.front-page .upcoming-events + section > div .organization-card {
   position: relative;
   width: 100%;
   height: 233px;
@@ -799,115 +912,147 @@ main.front-page .upcoming-events + section .organization-card {
   overflow: hidden;
   box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
 }
-main.front-page .upcoming-events + section .organization-image {
+main.front-page .upcoming-events + section > div .organization-image {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
-main.front-page .upcoming-events + section .organization-card-title {
+main.front-page .upcoming-events + section > div .organization-card-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
   padding: 106px 187px 15px 15px;
   color: #F5F5F5;
-  font-size: clamp(1.25rem, 0.819rem + 2.1552vw, 2.5rem);
+  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 700;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .upcoming-events + section div.parish-organization-list {
+  main.front-page .upcoming-events + section > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .upcoming-events + section > div hr {
+    grid-column: span 3;
+  }
+  main.front-page .upcoming-events + section > div div.parish-organization-list {
     order: 3;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .upcoming-events + section div.parish-organization-list > * {
+  main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
   }
-  main.front-page .upcoming-events + section a {
+  main.front-page .upcoming-events + section > div a {
     grid-column: span 3;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .upcoming-events + section div.parish-organization-list {
+  main.front-page .upcoming-events + section > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .upcoming-events + section > div hr {
+    grid-column: span 3;
+  }
+  main.front-page .upcoming-events + section > div div.parish-organization-list {
     order: 3;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .upcoming-events + section div.parish-organization-list > * {
+  main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
   }
-  main.front-page .upcoming-events + section a {
+  main.front-page .upcoming-events + section > div a {
     grid-column: span 3;
   }
 }
 main.front-page .membership {
-  position: relative;
+  background-color: white;
+}
+main.front-page .membership > div {
+  padding: 1.5rem 1rem;
   color: #111933;
   background-color: white;
+  position: relative;
+}
+main.front-page .membership > div {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+main.front-page .membership > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .membership {
+  main.front-page .membership > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .membership {
+  main.front-page .membership > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
-main.front-page .membership > * {
+main.front-page .membership > div > * {
+  margin-bottom: 1.5rem;
+}
+main.front-page .membership > div > * {
   grid-column: 1/-1;
   z-index: 2;
 }
-main.front-page .membership .membership-options section {
+main.front-page .membership > div > div > * {
+  margin-bottom: 1.5rem;
+}
+main.front-page .membership > div .membership-options section {
   color: #111933;
   border: 1px solid #EFC275;
   background-color: transparent;
   border-radius: 4px;
-  padding: 8px 24px;
+  padding: 12px 24px;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .membership {
+  main.front-page .membership > div {
+    padding: 1.5rem 2.25rem;
     grid-template-rows: 1fr auto;
   }
-  main.front-page .membership > div:first-child {
+  main.front-page .membership > div > div:first-child {
     grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
-  main.front-page .membership .button-container {
+  main.front-page .membership > div .button-container {
     grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
-  main.front-page .membership .membership-options {
+  main.front-page .membership > div .membership-options {
     grid-column: 5/span 4;
     grid-row: 1/-1;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .membership {
+  main.front-page .membership > div {
+    padding: 1.5rem 2.25rem;
     grid-template-rows: 1fr auto;
   }
-  main.front-page .membership > div:first-child {
+  main.front-page .membership > div > div:first-child {
     grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
-  main.front-page .membership .button-container {
+  main.front-page .membership > div .button-container {
     grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
-  main.front-page .membership .membership-options {
+  main.front-page .membership > div .membership-options {
     grid-column: 5/span 4;
     grid-row: 1/-1;
   }
@@ -936,42 +1081,65 @@ main.front-page div.membership-overlay {
   }
 }
 main.front-page .donation {
+  background-color: white;
+}
+main.front-page .donation > div {
+  padding: 1.5rem 1rem;
+}
+main.front-page .donation > div {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+main.front-page .donation > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .donation {
+  main.front-page .donation > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .donation {
+  main.front-page .donation > div {
     grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+    row-gap: 1.5rem;
   }
 }
-main.front-page .donation > *:not(hr) {
+main.front-page .donation > div > * {
+  margin-bottom: 1.5rem;
+}
+main.front-page .donation > div > *:not(hr) {
   grid-column: 1/-1;
 }
-main.front-page .donation hr {
+main.front-page .donation > div hr {
   border: 3px solid #D79A32;
   grid-column: span 2;
 }
+main.front-page .donation > div div > * {
+  margin-bottom: 1.5rem;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .donation hr {
+  main.front-page .donation > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .donation > div hr {
     grid-column: 9/span 3;
   }
-  main.front-page .donation > div {
+  main.front-page .donation > div > div {
     grid-column: 9/span 4;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .donation hr {
+  main.front-page .donation > div {
+    padding: 1.5rem 2.25rem;
+  }
+  main.front-page .donation > div hr {
     grid-column: 9/span 3;
   }
-  main.front-page .donation > div {
+  main.front-page .donation > div > div {
     grid-column: 9/span 4;
   }
 }

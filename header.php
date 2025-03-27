@@ -26,9 +26,10 @@
 	<?php wp_body_open(); ?>
 	<div id="page" class="site"
     <?php if (is_front_page()): ?>
-        style="background: #f0f0f0 url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
+        style="background: #ffffff url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
     <?php endif; ?>
 >
+
 
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'st_philip'); ?></a>
 
