@@ -8,7 +8,7 @@
   $color: $accent-white,
   $border: 1px solid $main-yellow,
   $radius: 4px,
-  $padding: 8px 24px,
+  $padding: 12px 24px,
   $background-color: transparent
 ) {
   color: $color;
@@ -19,7 +19,7 @@
 }
 
 
-@mixin button($bg: $accent-red, $color: $white, $radius: 0.3125rem, $padding: 1.25rem 1rem, $font-size: $font16-to-font20, $font-weight: $font-weight-bold, $border: none) {
+@mixin button($bg: $accent-red, $color: $white, $radius: 0.3125rem, $padding: 1.5rem 1rem, $font-size: $font16-to-font20, $font-weight: $font-weight-bold, $border: none) {
   display: inline-block;
   padding: $padding;
   font-size: $font16-to-font20;
@@ -39,8 +39,10 @@
 }
 
 @mixin maxWidthCentered($x){
-  max-width: $x;
-  margin: 0 auto;
+  &{
+    max-width: $x;
+    margin: 0 auto;
+  }
 }
 
 @mixin logoDimensions($width, $height){
@@ -49,16 +51,37 @@
 }
 
 
-@mixin grid($columns: 4, $gap: 16px) {
-  display: grid;
-  grid-template-columns: repeat($columns, 1fr);
-  gap: $gap;
+@mixin grid($columns: 4, $row-gap: 1rem, $column-gap: 1.5rem) {
+  &{
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    row-gap: $row-gap;
+    column-gap: $column-gap;
+  }
 
-  @include forScreenSizes(tablet,desktop) {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+  @include forScreenSizes(tablet, desktop) {
+    & { 
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 1.5rem;
+    }
   }
 }
+
+// this makes all the child elements of the parent that has display:grid to span 12 columns
+@mixin childGridSpan() {
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+// this makes sure our spacing corresponds to the vertical rhythm 24px and I use it a lot so i created mixin for it
+@mixin childMarginBottom($value: 1.5rem) {
+  > * { 
+    margin-bottom: $value;
+  }
+}
+
+
 
 @mixin gridContainer($columns: 12, $gap: 24px) {
   display: grid;

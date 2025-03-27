@@ -4,6 +4,7 @@ this part is for styles for the overall body
 
 @use "colors" as *;
 @use "typography" as *;
+@use "mixins" as *;
 
 body {
   // this is only temporary for baseline grid
@@ -17,6 +18,7 @@ body {
       line-height: $base-line-height; /* 1.2 based on figma  */
       /**20px x 1.5 = 30 grid units **/
       /** Step 4: Display visual grid **/
+      background-color: $white;
       background-image: linear-gradient(#0ff 1px, transparent 1px);
       background-size: auto 24px;
       /** Step 5: choose typographic scale 
@@ -48,8 +50,8 @@ h2{
 }
 
 h3{
-  font-size: $font16-to-font24;
-  line-height: $line-height-16-24;
+  font-size: $font16-to-font32;
+  line-height: $line-height-16-32;
   font-weight: $font-weight-medium-bold;
 }
 
@@ -57,4 +59,17 @@ h3{
   font-size: $font16-to-font20;
   line-height: $line-height-16-20;
 }
+
+// for all the single pages
+.entry-header h1{
+  font-size: $font20-to-font40;
+  line-height: $line-height-20-40;
+  font-weight: $font-weight-medium-bold;
+  @include maxWidthCentered(1248px);
+}
+
+.entry-content{
+  @include maxWidthCentered(1248px);
+}
+
 
