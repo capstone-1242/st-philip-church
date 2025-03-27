@@ -54,13 +54,6 @@
   grid-template-columns: repeat($columns, 1fr);
   gap: $gap;
 
-  // Tablet (this is just a guess estimate)
-  // @include forScreenSizesMin(tablet) {
-  //   grid-template-columns: repeat(8, 1fr);
-  //   gap: 20px;
-  // }
-
-  // Desktop 
   @include forScreenSizes(tablet,desktop) {
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
@@ -80,7 +73,6 @@
   align-items: $align;
   flex-wrap: $wrap;
 }
-
 
 
 
