@@ -56,15 +56,15 @@ get_header();
 					</div>
 
 					<!-- Description -->
-					<p><?php echo wp_kses_post(get_field('description')); ?></p>
+					<?php echo wp_kses_post(get_field('description')); ?>
 
 					<!-- SIGN UP FOR UPDATES FORM -->
 					<div class="form-recommendation-container">
 						<h3>Sign up for the Newsletter</h3>
-						<!-- ?php echo do_shortcode('[forminator_form id="285"]'); ?> -->
+						<?php echo do_shortcode('[forminator_form id="285"]'); ?>
 
 						<!-- this for st.philip local -->
-						<?php echo do_shortcode('[forminator_form id="264"]')?>
+						<!-- ?php echo do_shortcode('[forminator_form id="264"]')?> -->
 					<!-- .form-container -->
 					<!-- END OF SIGN UP FOR UPDATES FORM -->
 
