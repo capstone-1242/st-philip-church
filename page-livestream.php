@@ -18,7 +18,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="livestream" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
@@ -27,7 +27,7 @@ get_header();
 		<div class="entry-content">
 			<div>
 				<!-- ONCE WE HAVE YOUTUBE EMBEDDED LINK, ADD TITLE="Livestream for St.Philips' Church Service" FOR ACCESSIBILITY-->
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<iframe class="responsive-iframe" width="100%" max-height="450" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</div>
 
 			<section>
@@ -43,8 +43,15 @@ get_header();
 			<section>
 				<h2>Past Streams</h2>
 				<div>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<div>
+						<iframe class="responsive-iframe" width="100%" max-height="450" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<p>Date</p>
+					</div>
+
+				<div>
+					<iframe class="responsive-iframe" width="100%" max-height="450" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<p>Date</p>
+				</div>
 
 				</div>
 			</section>
@@ -53,14 +60,14 @@ get_header();
 					<li>
 						<section>
 							<h2>Follow on Facebook</h2>
-							<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link default-button">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
 						</section>
 					</li>
 					<li>
 						<section>
 							<h2>Subscribe on YouTube</h2>
-							<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
 						</section>
 					</li>
