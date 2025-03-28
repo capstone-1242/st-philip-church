@@ -65,11 +65,9 @@ h3{
   font-size: $font20-to-font40;
   line-height: $line-height-20-40;
   font-weight: $font-weight-medium-bold;
-  @include maxWidthCentered(1248px);
+ 
 }
 
-.entry-content{
-  @include maxWidthCentered(1248px);
-}
+
 
 

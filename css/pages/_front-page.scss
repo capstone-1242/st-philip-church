@@ -16,13 +16,12 @@ delete any unused styles after
 
 // this is the front page wrapper id
 main.front-page {
-
-    .weekly-highlights, .welcome {
+    .weekly-highlights {
     background-color: $white;
-    padding: 1.5rem 1rem;
+    padding: $mobileGridPadding;
     @include maxWidthCentered(1248px);
     @include forScreenSizes(tablet, desktop) {
-      padding: 1.5rem 2.25rem;
+      padding: $desktopGridPadding;
     }
   }
 
@@ -126,6 +125,7 @@ main.front-page {
     color: $accent-white !important;
     background-color: $white;
     margin-bottom: 0;
+    padding:$mobileGridPadding;
     @include maxWidthCentered(1248px);
     @include grid;
     @include childGridSpan;
@@ -154,7 +154,7 @@ main.front-page {
 
         // church hours
         > div:last-of-type {
-          ul {
+          ul.service-times {
             @include gridContainer($columns: 4, $gap: 16px);
             text-align: center;
             li {
@@ -182,11 +182,12 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
+        padding: $desktopGridPadding;
         // first div
         > div {
           grid-column: span 6;
 
-          ul {
+          ul.service-times {
             @include gridContainer;
             li {
               grid-column: span 3;
@@ -208,10 +209,15 @@ main.front-page {
     position: absolute;
     background-color: rgba($main-green, 0.70);
     top: 0;
-    left: 0;
-    right: 0;
+    left: -1rem;
+    right: -1rem;
     bottom: 0;
     z-index: 1;
+
+    @include forScreenSizes(tablet,desktop){
+      left: 0;
+      right: 0;
+    }
   }
 
   /*--------------------------Upcoming Events Section------------------------------*/
@@ -224,7 +230,7 @@ main.front-page {
     // @include childGridSpan;
     background-color: $white;
     >div{
-      padding: 1.5rem 1rem;
+      padding:$mobileGridPadding;
       @include childMarginBottom;
       @include maxWidthCentered(1248px);
       @include grid;
@@ -256,7 +262,7 @@ main.front-page {
     // adding margin-bottom to elements
     @include forScreenSizes(tablet, desktop) {
       & {
-          padding: 1.5rem 2.25rem;
+          padding: $desktopGridPadding;
         .events-list {
           @include gridContainer;
           .event-item {
@@ -274,10 +280,10 @@ main.front-page {
   /*--------------------------Explore Our Church Group Section------------------------------*/
   .upcoming-events + section {
     background-color: $white;
-    padding: $section-padding;
+
 
     >div{
-    padding: 1.5rem 1rem;
+    padding:$mobileGridPadding;
     @include maxWidthCentered(1248px);
     @include grid;
     @include childMarginBottom;
@@ -323,7 +329,7 @@ main.front-page {
     }
 
     @include forScreenSizes(tablet, desktop) {
-      padding: 1.5rem 2.25rem;
+      padding: $desktopGridPadding;
       hr{
         grid-column: span 3;
       }
@@ -349,7 +355,7 @@ main.front-page {
   .membership {
     background-color: $white;
     >div{
-    padding: 1.5rem 1rem;
+    padding:$mobileGridPadding;
     color: $primary-blue;
     background-color: $white;
     position: relative;
@@ -374,7 +380,7 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
-        padding: 1.5rem 2.25rem;
+        padding: $desktopGridPadding;
         grid-template-rows: 1fr auto;
 
         > div:first-child {
@@ -420,7 +426,7 @@ main.front-page {
   .donation {
     background-color: $white;
     >div{
-    padding: 1.5rem 1rem;
+    padding:$mobileGridPadding;
     @include maxWidthCentered(1248px);
     @include grid;
     @include childMarginBottom;
@@ -439,7 +445,7 @@ main.front-page {
     }
 
     @include forScreenSizes(tablet, desktop) {
-      padding: 1.5rem 2.25rem;
+      padding: $desktopGridPadding;
       hr {
         grid-column: 9 / span 3;
       }

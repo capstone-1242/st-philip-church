@@ -78,7 +78,7 @@ body {
   /**16px**/
   /** Step 3: Choose your grid unit size 
       what is your vertical spacing going to be of **/
-  line-height: 1.5; /* 1.2 based on figma  */
+  line-height: 1.5rem; /* 1.2 based on figma  */
   /**20px x 1.5 = 30 grid units **/
   /** Step 4: Display visual grid **/
   background-color: white;
@@ -121,15 +121,6 @@ h3 {
   font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
   line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 600;
-}
-.entry-header h1 {
-  max-width: 1248px;
-  margin: 0 auto;
-}
-
-.entry-content {
-  max-width: 1248px;
-  margin: 0 auto;
 }
 
 /* those reusable component like stuff that accept variables */
@@ -530,21 +521,21 @@ main.front-page {
   /*---------------------------Membership Section------------------------------*/
   /*---------------------------Donation Section------------------------------*/
 }
-main.front-page .weekly-highlights, main.front-page .welcome {
+main.front-page .weekly-highlights {
   background-color: white;
   padding: 1.5rem 1rem;
 }
-main.front-page .weekly-highlights, main.front-page .welcome {
+main.front-page .weekly-highlights {
   max-width: 1248px;
   margin: 0 auto;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .weekly-highlights, main.front-page .welcome {
+  main.front-page .weekly-highlights {
     padding: 1.5rem 2.25rem;
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .weekly-highlights, main.front-page .welcome {
+  main.front-page .weekly-highlights {
     padding: 1.5rem 2.25rem;
   }
 }
@@ -647,6 +638,7 @@ main.front-page .welcome {
   color: #F5F5F5 !important;
   background-color: white;
   margin-bottom: 0;
+  padding: 1.5rem 1rem;
 }
 main.front-page .welcome {
   max-width: 1248px;
@@ -701,13 +693,13 @@ main.front-page .welcome > div:first-of-type section > div:first-of-type i {
   font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
   color: #EFC275;
 }
-main.front-page .welcome > div:first-of-type section > div:last-of-type ul {
+main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   text-align: center;
 }
-main.front-page .welcome > div:first-of-type section > div:last-of-type ul li {
+main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times li {
   color: #F5F5F5;
   border: none;
   background-color: #29491E;
@@ -717,7 +709,7 @@ main.front-page .welcome > div:first-of-type section > div:last-of-type ul li {
   font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
-main.front-page .welcome > div:first-of-type section > div:last-of-type ul li time {
+main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times li time {
   display: block;
   font-weight: 700;
   font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
@@ -730,15 +722,18 @@ main.front-page .welcome > section > * {
   margin-bottom: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
+  main.front-page .welcome {
+    padding: 1.5rem 2.25rem;
+  }
   main.front-page .welcome > div {
     grid-column: span 6;
   }
-  main.front-page .welcome > div ul {
+  main.front-page .welcome > div ul.service-times {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .welcome > div ul li {
+  main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
   }
   main.front-page .welcome section {
@@ -749,15 +744,18 @@ main.front-page .welcome > section > * {
   }
 }
 @media only screen and (min-width: 1000px) {
+  main.front-page .welcome {
+    padding: 1.5rem 2.25rem;
+  }
   main.front-page .welcome > div {
     grid-column: span 6;
   }
-  main.front-page .welcome > div ul {
+  main.front-page .welcome > div ul.service-times {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 24px;
   }
-  main.front-page .welcome > div ul li {
+  main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
   }
   main.front-page .welcome section {
@@ -771,10 +769,22 @@ main.front-page div.welcome-overlay {
   position: absolute;
   background-color: rgba(71, 88, 65, 0.7);
   top: 0;
-  left: 0;
-  right: 0;
+  left: -1rem;
+  right: -1rem;
   bottom: 0;
   z-index: 1;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  main.front-page div.welcome-overlay {
+    left: 0;
+    right: 0;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  main.front-page div.welcome-overlay {
+    left: 0;
+    right: 0;
+  }
 }
 main.front-page .upcoming-events {
   background-color: white;
@@ -862,7 +872,6 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
 }
 main.front-page .upcoming-events + section {
   background-color: white;
-  padding: clamp(1rem, 0.6721rem + 1.6393vw, 2.1875rem);
 }
 main.front-page .upcoming-events + section > div {
   padding: 1.5rem 1rem;
@@ -1151,8 +1160,239 @@ Livestream Page Styling
 
 delete any unused styles after
 */
-section#post-72 {
-  background-color: #fff;
+section#livestream {
+  background-color: #F5F5F5;
+  margin: 3rem auto 7.5rem !important;
+}
+section#livestream {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#livestream .entry-header {
+  margin-bottom: 1.5rem;
+}
+section#livestream div.entry-content {
+  justify-self: start;
+}
+section#livestream div.entry-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream div.entry-content {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream div.entry-content {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#livestream div.entry-content > * {
+  grid-column: 1/-1;
+}
+section#livestream div.entry-content > section:first-of-type {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream div.entry-content > section:first-of-type {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream div.entry-content > section:first-of-type {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#livestream div.entry-content > section:first-of-type > * {
+  grid-column: 1/-1;
+}
+section#livestream div.entry-content > section:first-of-type h2 {
+  margin-bottom: 1.5rem;
+}
+section#livestream div.entry-content > section:first-of-type > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream div.entry-content > section:first-of-type > div {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream div.entry-content > section:first-of-type > div {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#livestream div.entry-content > section:first-of-type > div ul.service-times {
+  text-align: center;
+  background-color: rgba(71, 88, 65, 0.7);
+  padding: 1rem;
+  grid-column: 1/-1;
+}
+section#livestream div.entry-content > section:first-of-type > div ul.service-times {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream div.entry-content > section:first-of-type > div ul.service-times {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream div.entry-content > section:first-of-type > div ul.service-times {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#livestream div.entry-content > section:first-of-type > div ul.service-times li {
+  grid-column: span 2;
+  color: #F5F5F5;
+  border: none;
+  background-color: #29491E;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#livestream div.entry-content > section:first-of-type > div ul.service-times li time {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#livestream div.entry-content > section:last-of-type {
+  padding: 1.5rem 1rem;
+}
+section#livestream div.entry-content > section:last-of-type h2 {
+  margin-bottom: 1.5rem;
+}
+section#livestream div.entry-content > section:last-of-type > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream div.entry-content > section:last-of-type > div {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream div.entry-content > section:last-of-type > div {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#livestream div.entry-content > section:last-of-type > div > div {
+  grid-column: span 2;
+}
+section#livestream div.entry-content > section:last-of-type > div > div iframe {
+  margin-bottom: 1.5rem;
+}
+section#livestream div.entry-content nav {
+  padding: 1.5rem 1rem;
+}
+section#livestream div.entry-content nav section > * {
+  margin-bottom: 1.5rem;
+}
+section#livestream div.entry-content nav a {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#livestream {
+    padding: 1.5rem 2.25rem;
+  }
+  section#livestream div.entry-content {
+    grid-template-rows: repeat(3, auto);
+  }
+  section#livestream div.entry-content > div:first-of-type {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#livestream div.entry-content > section:first-of-type {
+    grid-column: 9/span 4;
+    grid-row: 1/span 1;
+    grid-template-rows: auto 1fr;
+  }
+  section#livestream div.entry-content > section:first-of-type > div {
+    align-items: start;
+  }
+  section#livestream div.entry-content > section:first-of-type > div > ul.service-times {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  section#livestream div.entry-content > section:first-of-type > div > ul.service-times li {
+    min-width: 40%;
+    grid-column: span 6;
+  }
+  section#livestream div.entry-content nav {
+    grid-column: 9/span 4;
+    grid-row: 2/span 2;
+  }
+  section#livestream div.entry-content > section:last-of-type {
+    grid-column: 1/span 8;
+    grid-row: 2/-1;
+  }
+  section#livestream div.entry-content > section:last-of-type > div > div {
+    grid-column: span 6;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#livestream {
+    padding: 1.5rem 2.25rem;
+  }
+  section#livestream div.entry-content {
+    grid-template-rows: repeat(3, auto);
+  }
+  section#livestream div.entry-content > div:first-of-type {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#livestream div.entry-content > section:first-of-type {
+    grid-column: 9/span 4;
+    grid-row: 1/span 1;
+    grid-template-rows: auto 1fr;
+  }
+  section#livestream div.entry-content > section:first-of-type > div {
+    align-items: start;
+  }
+  section#livestream div.entry-content > section:first-of-type > div > ul.service-times {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  section#livestream div.entry-content > section:first-of-type > div > ul.service-times li {
+    min-width: 40%;
+    grid-column: span 6;
+  }
+  section#livestream div.entry-content nav {
+    grid-column: 9/span 4;
+    grid-row: 2/span 2;
+  }
+  section#livestream div.entry-content > section:last-of-type {
+    grid-column: 1/span 8;
+    grid-row: 2/-1;
+  }
+  section#livestream div.entry-content > section:last-of-type > div > div {
+    grid-column: span 6;
+  }
 }
 
 /* those reusable component like stuff that accept variables */

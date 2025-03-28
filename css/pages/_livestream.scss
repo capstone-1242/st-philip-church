@@ -5,21 +5,148 @@ delete any unused styles after
 */
 
 // base
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-@use '../base/variables' as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
 // components
-@use '../components/button' as *;
-@use '../components/card' as *;
-
-// this is the Livestream wrapper id
-section#post-72{
-background-color: #fff;
+@use "../components/button" as *;
+@use "../components/card" as *;
 
 
+// NOTE!!! STILL HAVE TO FIGURE OUT THE CHURCH HOURS AS IT IS OVERFLOWING:
+section#livestream {
+  background-color: $accent-white;
+  margin: 3rem auto 7.5rem !important;
+  @include maxWidthCentered(1248px);
+  
+  .entry-header{
+    margin-bottom: $base-line-height;
+  }
 
+  div.entry-content {
+    justify-self: start;
+    @include grid;
+    @include childGridSpan;
+    // our service times
+    > section:first-of-type {
+      @include grid;
+      @include childGridSpan;
+    
+      h2 {
+        margin-bottom: 1.5rem;
+      }
 
+      >div{
+        @include grid;
+        ul.service-times {
+          text-align: center;
+          background-color: rgba($main-green, 0.7);
+          padding: 1rem;
+          grid-column: 1 / -1;
+          @include grid;
+          li {
+            grid-column: span 2;
+            @include card($background-color: $accent-green, $border: none);
+            font-size: $font14-to-font24;
+            line-height: $line-height-14-24;
+            time {
+              display: block;
+              font-weight: $font-weight-bold;
+              font-size: $font20-to-font32;
+              line-height: $line-height-20-32;
+            }
+          }
+        }
+      }
+    
+    }
 
+    // past streams
+    > section:last-of-type {
+      padding: $mobileGridPadding;
+
+      h2{
+        margin-bottom: $base-line-height;
+      }
+
+      // past stream videos
+      > div {
+        @include grid;
+        > div {
+          iframe{
+            margin-bottom: $base-line-height;
+          }
+          grid-column: span 2;    
+        }
+      }
+    }
+
+    // social media links
+    nav {
+      padding: $mobileGridPadding;
+
+      section {
+        @include childMarginBottom;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  @include forScreenSizes(tablet,desktop){
+    &{
+      padding: $desktopGridPadding;
+      div.entry-content{
+        grid-template-rows: repeat(3, auto);
+        // first video
+        >div:first-of-type{
+          grid-column: span 8;
+          grid-row: 1 / span 1;
+        }
+
+        // our service times
+        >section:first-of-type{
+          grid-column: 9 / span 4;
+          grid-row: 1 / span 1;
+          grid-template-rows: auto 1fr;
+          > div{
+            align-items: start;
+            >ul.service-times{
+              max-width: 100%;
+              overflow: hidden;
+              li{
+                min-width: 40%;
+                grid-column: span 6;
+              }
+
+            }
+          }
+        }
+
+        // past streams
+        nav{
+          grid-column: 9 / span 4;
+          grid-row: 2 / span 2;
+        }
+
+        // social media links
+        >section:last-of-type{
+          grid-column: 1 / span 8;
+          grid-row: 2 / -1;
+          >div{
+            >div{
+              grid-column: span 6;
+            }
+          }
+
+        }
+      }
+    }
+
+   
+  }
 }
