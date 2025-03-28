@@ -5,17 +5,17 @@ delete any unused styles after
 */
 
 // base
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-@use '../base/variables' as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
 // components
-@use '../components/button' as *;
-@use '../components/card' as *;
+@use "../components/button" as *;
+@use "../components/card" as *;
 
 // this is the about us wrapper id
-section.organization-archive{
+section.organization-archive {
   background-color: $accent-white;
   margin: 2rem auto !important;
   padding: $mobileGridPadding;
@@ -24,14 +24,13 @@ section.organization-archive{
   @include childGridSpan;
 
   & {
-
-   header{
-    margin-bottom: $base-line-height;
-   }
+    header {
+      margin-bottom: $base-line-height;
+    }
 
     grid-template-rows: repeat(8, 1fr);
 
-    section{
+    section {
       background-color: $accent-white;
     }
 
@@ -52,10 +51,10 @@ section.organization-archive{
 
     .organization-image {
       min-height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
     }
 
     .organization-card-title {
@@ -69,33 +68,24 @@ section.organization-archive{
       line-height: $line-height-20-40;
       font-weight: $font-weight-bold;
     }
-
   }
 
-
-
-
-  @include forScreenSizes(tablet, desktop){
+  @include forScreenSizes(tablet, desktop) {
     grid-template-rows: repeat(3, auto);
     padding: $desktopGridPadding;
 
-    > div{
+    > div {
       grid-column: 1 / span 6;
     }
 
-    >section:first-of-type{
+    > section:first-of-type {
       grid-row: 1 / span 1;
       grid-column: 7 / span 6;
       align-self: start;
     }
 
-    >section:not(:first-of-type){
+    > section:not(:first-of-type) {
       grid-column: span 4;
     }
-  
   }
-
-
-
-
 }

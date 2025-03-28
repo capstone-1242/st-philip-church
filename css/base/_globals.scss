@@ -68,6 +68,28 @@ h3{
  
 }
 
+// /*===========================ACF FILED GROUP=================================*/
+// /*
+// The .acf-gallery is for the gallery section of the parish organization and committee acf post types
+// */
+// .acf-gallery {
+//   @include grid;
+//   @include childGridSpan;
 
+//   img {
+//     display: inline-block;
+//     max-width: 100%;
+//     height: auto;
+//     flex: 1 1 33.33%;
+
+//     &:first-child {
+//       flex: 1 1 100%;
+//     }
+
+//     @include forScreenSizes(desktop) {
+//       flex: 1 1 25%;
+//     }
+//   }
+// }
 
 
