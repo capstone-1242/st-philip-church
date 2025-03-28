@@ -1,0 +1,73 @@
+/*
+Archive Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/variables' as *;
+// components
+@use '../components/button' as *;
+@use '../components/card' as *;
+
+// this is the about us wrapper id
+section.committee-archive{
+  background-color: $accent-white;
+  margin: 2rem auto !important;
+  padding: $mobileGridPadding;
+  @include maxWidthCentered($maxWidth);
+  @include grid;
+  @include childGridSpan;
+
+  & {
+    header {
+      margin-bottom: $base-line-height;
+    }
+
+    grid-template-rows: repeat(8, 1fr);
+
+    section {
+      background-color: $accent-white;
+    }
+
+  }
+
+  @include forScreenSizes(tablet,desktop){
+    padding: $desktopGridPadding;
+    grid-template-rows: auto;
+
+
+
+    > div {
+        grid-column: 1 / span 6;
+        order: -1;
+      }
+  
+      section:first-of-type {
+        grid-row: 1 / span 1;
+        grid-column: 7 / span 6;
+      }
+
+      section:nth-of-type(n + 2):nth-of-type(-n + 7) {
+        grid-column: span 4;
+      }
+  
+  }
+
+  @include forScreenSizes(tablet){
+    section:nth-last-of-type(-n + 4){
+      grid-column: span 6;
+    }
+  }
+
+  @include forScreenSizes(desktop) { 
+    // last 4 sections
+    section:nth-last-of-type(-n + 4){
+      grid-column: span 3;
+    }
+  }
+}

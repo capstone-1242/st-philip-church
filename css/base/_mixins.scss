@@ -83,10 +83,11 @@
 
 
 
-@mixin gridContainer($columns: 12, $gap: 24px) {
+@mixin gridContainer($columns: 12, $row-gap: 1.5rem, $column-gap: 1rem ) {
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
-  gap: $gap;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
 }
 
 @mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {

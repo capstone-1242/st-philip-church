@@ -3,6 +3,7 @@
 // https://css-tricks.com/approaches-media-queries-sass/
 // https://medium.com/@ahsan-ali-mansoor/new-css-media-range-queries-5bbe42a841f8
 
+
 $phone: 320px;
 $tablet: 768px;
 $desktop: 1000px;
@@ -25,5 +26,14 @@ $desktop: 1000px;
         @content;
       }
     }
+
+    // this is for customized breakpoint - just call it as @include forScreenSizes(480px) for example
+    @else{
+      @media only screen and (min-width: $deviceType){
+        @content;
+      }
+    }
   }
 }
+
+

@@ -155,7 +155,7 @@ main.front-page {
         // church hours
         > div:last-of-type {
           ul.service-times {
-            @include gridContainer($columns: 4, $gap: 16px);
+            @include gridContainer($columns: 4, $column-gap: 16px);
             text-align: center;
             li {
               @include card($background-color: $accent-green, $border: none);

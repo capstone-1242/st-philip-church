@@ -18,14 +18,14 @@
 
 // pages - pages styling
 @use "pages/about-us" as *;
-@use "pages/archive" as *;
-@use "pages/org-archive" as *;
+@use "pages/archive-com" as *;
+@use "pages/archive-org" as *;
 @use "pages/contact" as *;
 @use "pages/front-page" as *;
 @use "pages/livestream" as *;
 @use "pages/membership" as *;
-@use "pages/parish-committee-single" as *;
-@use "pages/parish-org-single" as *;
+@use "pages/single-com" as *;
+@use "pages/single-org" as *;
 @use "pages/shop" as *;
 @use "pages/spiritual-resources" as *;
 @use "pages/worship-services-faq" as *;
