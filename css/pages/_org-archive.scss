@@ -1,0 +1,101 @@
+/*
+Archive Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/variables' as *;
+// components
+@use '../components/button' as *;
+@use '../components/card' as *;
+
+// this is the about us wrapper id
+section.organization-archive{
+  background-color: $accent-white;
+  margin: 2rem auto !important;
+  padding: $mobileGridPadding;
+  @include maxWidthCentered($maxWidth);
+  @include grid;
+  @include childGridSpan;
+
+  & {
+
+   header{
+    margin-bottom: $base-line-height;
+   }
+
+    grid-template-rows: repeat(8, 1fr);
+
+    section{
+      background-color: $accent-white;
+    }
+
+    .organization-card-link {
+      display: block;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .organization-card {
+      position: relative;
+      width: 100%;
+      height: 233px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+    }
+
+    .organization-image {
+      min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    }
+
+    .organization-card-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 106px 187px 15px 15px;
+      color: $accent-white;
+      font-size: $font20-to-font40;
+      line-height: $line-height-20-40;
+      font-weight: $font-weight-bold;
+    }
+
+  }
+
+
+
+
+  @include forScreenSizes(tablet, desktop){
+    grid-template-rows: repeat(3, auto);
+    padding: $desktopGridPadding;
+
+    > div{
+      grid-column: 1 / span 6;
+    }
+
+    >section:first-of-type{
+      grid-row: 1 / span 1;
+      grid-column: 7 / span 6;
+      align-self: start;
+    }
+
+    >section:not(:first-of-type){
+      grid-column: span 4;
+    }
+  
+  }
+
+
+
+
+}
