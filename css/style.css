@@ -117,7 +117,7 @@ h3 {
   line-height: 1.5rem;
 }
 
-.entry-header h1 {
+.entry-header h1, .page-header h1 {
   font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
   line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 600;
@@ -494,6 +494,117 @@ delete any unused styles after
 */
 section.archive {
   background-color: #fff;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Archive Page Styling
+
+delete any unused styles after
+*/
+section.organization-archive {
+  background-color: #F5F5F5;
+  margin: 2rem auto !important;
+  padding: 1.5rem 1rem;
+}
+section.organization-archive {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section.organization-archive {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section.organization-archive {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section.organization-archive {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section.organization-archive > * {
+  grid-column: 1/-1;
+}
+section.organization-archive {
+  grid-template-rows: repeat(8, 1fr);
+}
+section.organization-archive header {
+  margin-bottom: 1.5rem;
+}
+section.organization-archive section {
+  background-color: #F5F5F5;
+}
+section.organization-archive .organization-card-link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+section.organization-archive .organization-card {
+  position: relative;
+  width: 100%;
+  height: 233px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+}
+section.organization-archive .organization-image {
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+section.organization-archive .organization-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 106px 187px 15px 15px;
+  color: #F5F5F5;
+  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section.organization-archive {
+    grid-template-rows: repeat(3, auto);
+    padding: 1.5rem 2.25rem;
+  }
+  section.organization-archive > div {
+    grid-column: 1/span 6;
+  }
+  section.organization-archive > section:first-of-type {
+    grid-row: 1/span 1;
+    grid-column: 7/span 6;
+    align-self: start;
+  }
+  section.organization-archive > section:not(:first-of-type) {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section.organization-archive {
+    grid-template-rows: repeat(3, auto);
+    padding: 1.5rem 2.25rem;
+  }
+  section.organization-archive > div {
+    grid-column: 1/span 6;
+  }
+  section.organization-archive > section:first-of-type {
+    grid-row: 1/span 1;
+    grid-column: 7/span 6;
+    align-self: start;
+  }
+  section.organization-archive > section:not(:first-of-type) {
+    grid-column: span 4;
+  }
 }
 
 /* those reusable component like stuff that accept variables */

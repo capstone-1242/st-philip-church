@@ -19,7 +19,7 @@ delete any unused styles after
 section#livestream {
   background-color: $accent-white;
   margin: 3rem auto 7.5rem !important;
-  @include maxWidthCentered(1248px);
+  @include maxWidthCentered($maxWidth);
   
   .entry-header{
     margin-bottom: $base-line-height;

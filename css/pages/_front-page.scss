@@ -19,7 +19,7 @@ main.front-page {
     .weekly-highlights {
     background-color: $white;
     padding: $mobileGridPadding;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered($maxWidth);
     @include forScreenSizes(tablet, desktop) {
       padding: $desktopGridPadding;
     }
@@ -37,7 +37,7 @@ main.front-page {
     column-gap: 16px;
     color: $accent-white;
     
-    @include maxWidthCentered(1248px); 
+    @include maxWidthCentered($maxWidth); 
     // @include grid;
     @include childMarginBottom;
     @include childGridSpan;
@@ -126,7 +126,7 @@ main.front-page {
     background-color: $white;
     margin-bottom: 0;
     padding:$mobileGridPadding;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered($maxWidth);
     @include grid;
     @include childGridSpan;
 
@@ -232,7 +232,7 @@ main.front-page {
     >div{
       padding:$mobileGridPadding;
       @include childMarginBottom;
-      @include maxWidthCentered(1248px);
+      @include maxWidthCentered($maxWidth);
       @include grid;
       @include childGridSpan;
   
@@ -284,7 +284,7 @@ main.front-page {
 
     >div{
     padding:$mobileGridPadding;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered($maxWidth);
     @include grid;
     @include childMarginBottom;
     @include childGridSpan;
@@ -359,7 +359,7 @@ main.front-page {
     color: $primary-blue;
     background-color: $white;
     position: relative;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered($maxWidth);
     @include grid;
     @include childMarginBottom;
 
@@ -427,7 +427,7 @@ main.front-page {
     background-color: $white;
     >div{
     padding:$mobileGridPadding;
-    @include maxWidthCentered(1248px);
+    @include maxWidthCentered($maxWidth);
     @include grid;
     @include childMarginBottom;
 

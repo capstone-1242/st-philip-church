@@ -16,15 +16,18 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-<section class="archive">
+<section class="organization-archive">
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php 
-				echo '<h1 class="page-title">Parish Organizations</h1>';
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+			<div>
+				<header class="page-header">
+					<?php 
+					echo '<h1 class="page-title">Parish Organizations</h1>';
+					the_archive_description( '<div class="archive-description">', '</div>' );
+					?>
+				</header><!-- .page-header -->
+				<p>When the liturgical services conclude, St. Philip's offers even more opportunities within our community to get to know one another and share our faith. Regardless of your age, the parish hosts various groups that encourage living a Christian life, fostering fellowship, and serving others. We look forward to getting to know you better outside of regular liturgical worship!</p>
+			</div>
 
 			<?php
 			/* Start the Loop */
@@ -36,7 +39,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part( 'template-parts/archive-content', get_post_type() );
 
 			endwhile;
 
