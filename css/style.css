@@ -64,6 +64,7 @@ this part is for styles for the overall body
 /* from 24 to 36px */
 /* from 24px to 48px */
 /* from 24px to 72px */
+/* from 24 to 108px */
 /* from 24 to 36px */
 /* from 24 to 36px */
 /* from 24 to 48px */
@@ -380,29 +381,6 @@ header .site-logo {
     height: auto;
     width: 50px;
     object-fit: cover;
-  }
-}
-
-/*===========================ACF FILED GROUP=================================*/
-/*
-The .acf-gallery is for the gallery section of the parish organization and committee acf post types
-*/
-.acf-gallery {
-  display: flex;
-  flex-flow: row wrap;
-}
-.acf-gallery img {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  flex: 1 1 33.33%;
-}
-.acf-gallery img:first-child {
-  flex: 1 1 100%;
-}
-@media only screen and (min-width: 1000px) {
-  .acf-gallery img {
-    flex: 1 1 25%;
   }
 }
 
@@ -1532,8 +1510,179 @@ Single Parish Organization Page Styling
 
 delete any unused styles after
 */
-section.parish-organization {
-  background-color: #fff;
+section#organization-single {
+  background-color: #F5F5F5;
+  margin: 2rem auto !important;
+  padding: 1.5rem 1rem;
+}
+section#organization-single {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#organization-single {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#organization-single {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#organization-single {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#organization-single > * {
+  grid-column: 1/-1;
+}
+section#organization-single .org-single-header h1 {
+  font-size: clamp(1.5rem, -0.6176rem + 10.5882vw, 6rem);
+  line-height: clamp(1.5rem, -0.9706rem + 12.3529vw, 6.75rem);
+}
+section#organization-single div.entry-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#organization-single div.entry-content {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#organization-single div.entry-content {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#organization-single div.entry-content > * {
+  grid-column: 1/-1;
+}
+section#organization-single div.entry-content .acf-gallery img:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+section#organization-single div.entry-content .acf-gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+section#organization-single div.entry-content div.form-recommendation-container {
+  padding: 1.5rem 1rem;
+  background-color: #EFC275;
+  overflow-x: hidden;
+}
+section#organization-single div.entry-content div.organization-recommendations h2 {
+  margin-bottom: 1.5rem;
+}
+section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card-link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card {
+  position: relative;
+  width: 100%;
+  height: 233px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+}
+section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-image {
+  width: 100%;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 106px 187px 15px 15px;
+  color: #F5F5F5;
+  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#organization-single {
+    padding: 1.5rem 2.25rem;
+  }
+  section#organization-single div.entry-content {
+    grid-template-rows: repeat(5, auto);
+  }
+  section#organization-single div.entry-content p:first-of-type {
+    grid-row: 1/span 1;
+  }
+  section#organization-single div.entry-content a {
+    grid-column: 1/span 4;
+    grid-row: 2/span 1;
+  }
+  section#organization-single div.entry-content .acf-gallery {
+    grid-column: 1/span 8;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px;
+  }
+  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+    grid-column: 1/-1;
+  }
+  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
+    grid-column: span 2;
+  }
+  section#organization-single div.entry-content p:nth-of-type(2) {
+    grid-column: 1/span 8;
+    grid-row: 5/-1;
+  }
+  section#organization-single div.entry-content div.form-recommendation-container {
+    grid-column: 9/span 4;
+    grid-row: 3/-1;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#organization-single {
+    padding: 1.5rem 2.25rem;
+  }
+  section#organization-single div.entry-content {
+    grid-template-rows: repeat(5, auto);
+  }
+  section#organization-single div.entry-content p:first-of-type {
+    grid-row: 1/span 1;
+  }
+  section#organization-single div.entry-content a {
+    grid-column: 1/span 4;
+    grid-row: 2/span 1;
+  }
+  section#organization-single div.entry-content .acf-gallery {
+    grid-column: 1/span 8;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px;
+  }
+  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+    grid-column: 1/-1;
+  }
+  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
+    grid-column: span 2;
+  }
+  section#organization-single div.entry-content p:nth-of-type(2) {
+    grid-column: 1/span 8;
+    grid-row: 5/-1;
+  }
+  section#organization-single div.entry-content div.form-recommendation-container {
+    grid-column: 9/span 4;
+    grid-row: 3/-1;
+  }
 }
 
 /* those reusable component like stuff that accept variables */

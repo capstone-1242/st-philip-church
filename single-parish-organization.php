@@ -27,8 +27,8 @@ get_header();
 	?>
 
 			<!-- START OF CONTENT -->
-			<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
+			<section id="organization-single" <?php post_class(); ?>>
+				<header class="org-single-header">
 					<?php
 					if (is_singular()) :
 						the_title('<h1 class="entry-title">', '</h1>');
@@ -59,9 +59,13 @@ get_header();
 					<p><?php echo wp_kses_post(get_field('description')); ?></p>
 
 					<!-- SIGN UP FOR UPDATES FORM -->
-					<div class="form-container">
-						<?php echo do_shortcode('[forminator_form id="285"]'); ?>
-					</div><!-- .form-container -->
+					<div class="form-recommendation-container">
+						<h3>Sign up for the Newsletter</h3>
+						<!-- ?php echo do_shortcode('[forminator_form id="285"]'); ?> -->
+
+						<!-- this for st.philip local -->
+						<?php echo do_shortcode('[forminator_form id="264"]')?>
+					<!-- .form-container -->
 					<!-- END OF SIGN UP FOR UPDATES FORM -->
 
 					<!-- START OF CAR RECOMMENDATIONS -->
@@ -69,7 +73,7 @@ get_header();
 					// Set up the custom query for car recommendations (next 2 cars)
 					$args = array(
 						'post_type' => 'parish-organization',
-						'posts_per_page' => 2,
+						'posts_per_page' => 3,
 						'post__not_in' => array($current_organization_id),
 						'orderby' => 'date',
 						'order' => 'ASC',
@@ -93,7 +97,7 @@ get_header();
 										}
 
 										?>
-										<div class="organization-card-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
+										<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
 											<div class="organization-card-title">
 												<h3><?php the_title(); ?></h3>
 											</div>
@@ -110,7 +114,7 @@ get_header();
 					<!-- END OF CAR RECOMMENDATIONS -->
 
 				</div><!-- .entry-content -->
-
+				</div>
 				<!-- This is to display meta tags for screen readers, DO NOT DELETE -->
 				<footer class="entry-footer">
 					<?php st_philip_entry_footer(); ?>
