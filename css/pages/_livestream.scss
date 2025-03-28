@@ -15,7 +15,7 @@ delete any unused styles after
 @use "../components/card" as *;
 
 
-// NOTE!!! STILL HAVE TO FIGURE OUT THE CHURCH HOURS AS IT IS OVERFLOWING:
+// NOTE!!! STILL HAVE TO FIGURE OUT THE CHURCH HOURS AS IT IS OVERFLOWING AT CERTAIN BREAKPOINT:
 section#livestream {
   background-color: $accent-white;
   margin: 3rem auto 7.5rem !important;
