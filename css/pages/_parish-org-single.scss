@@ -134,7 +134,7 @@ section#organization-single{
       }
   
       // description
-      p:nth-of-type(2){
+      >p:nth-of-type(2){
         grid-column: 1 / span 8;
         grid-row: 5 / -1;
       }
