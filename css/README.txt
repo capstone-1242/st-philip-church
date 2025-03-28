@@ -19,6 +19,12 @@ like that or else it will throw a warning
 
 _________________________________________________
 
+FOR THE BUTTONS OR A: 
+
+just simple add "default-button" class to follow the red button styling
+
+
+
  Our SASS is divided into parts: 
 
  1. BASE FOLDER:

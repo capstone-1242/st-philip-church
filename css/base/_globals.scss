@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5{
 }
 
 
-p, a{
+p, a, li{
   font-size: $font16-to-font24;
   line-height: $line-height-16-24;
 }
@@ -67,6 +67,46 @@ h3{
   font-weight: $font-weight-medium-bold;
  
 }
+
+
+// this is the to style the individual committee/organization cards in the archive
+.organization-card-link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.organization-card {
+  position: relative;
+  width: 100%;
+  height: 233px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+}
+
+.organization-image {
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.organization-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 106px 187px 15px 15px;
+  color: $accent-white;
+  font-size: $font20-to-font40;
+  line-height: $line-height-20-40;
+  font-weight: $font-weight-bold;
+}
+// end of card styling
+
+
 
 // /*===========================ACF FILED GROUP=================================*/
 // /*

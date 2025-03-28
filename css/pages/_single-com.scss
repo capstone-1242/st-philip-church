@@ -1,0 +1,243 @@
+/*
+Single Parish Committee Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
+// components
+@use "../components/button" as *;
+@use "../components/card" as *;
+
+// this is the single parish committee wrapper
+section#committee-single {
+  background-color: $accent-white;
+  margin: 2rem auto !important;
+  padding: $mobileGridPadding;
+  @include maxWidthCentered($maxWidth);
+  @include grid;
+  @include childGridSpan;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .com-single-header h1 {
+    font-size: $font24-to-font64;
+    line-height: $line-height-24-64;
+  }
+
+  div.entry-content {
+    @include grid;
+    @include childGridSpan;
+
+    // gallery section
+    .acf-gallery {
+      img:not(:last-of-type) {
+        margin-bottom: $base-line-height;
+      }
+    }
+
+    // responsibility
+    div.responsibility-container {
+      h2 {
+        margin-bottom: $base-line-height;
+      }
+
+      // Responsibility List
+      ul {
+        list-style-type: none;
+        padding-left: 1rem;
+
+        li {
+          position: relative;
+          padding-left: 1rem;
+
+          &::before {
+            content: "•";
+            font-size: $font16-to-font24;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+
+    // committee member section
+
+    div.committee-button-container {
+      @include grid;
+      @include childGridSpan;
+      &{
+        grid-template-rows: auto;
+      }
+      div.committee-list {
+        margin-bottom: $base-line-height;
+        @include grid;
+        & {
+          grid-template-columns: repeat(4, auto);
+        }
+
+        div.committee-member {
+          justify-items: start;
+          margin: 0 auto;
+          grid-column: 2 / span 2;
+
+          // image of the member
+          img {
+            max-width: 168px;
+          }
+          // name of the member
+          h3 {
+            font-size: $font16-to-font24;
+            line-height: $line-height-16-24;
+            justify-self: start;
+          }
+        }
+      }
+
+      p.button-description {
+        font-size: $font14-to-font24;
+        line-height: $line-height-14-24;
+        font-weight: $font-weight-light;
+      }
+    }
+  }
+
+  @include forScreenSizes(400px) {
+    &{
+    div.entry-content {
+      div.committee-button-container {
+        div.committee-list {
+          div.committee-member {
+            grid-column: span 2;
+          }
+        }
+
+        div:last-of-type {
+          grid-column: span 3;
+          a{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+  @include forScreenSizes(425px) {
+    &{
+    div.entry-content {
+      grid-template-columns: repeat(12, 1fr);
+      .acf-gallery {
+        @include gridContainer($columns: 12, $row-gap: 0);
+        img:first-of-type {
+          grid-column: 1 / -1;
+        }
+        img:not(:first-of-type) {
+          grid-column: span 4;
+        }
+      }
+    }
+  }
+}
+
+  @include forScreenSizes(650px) {
+    &{
+      
+    div.entry-content {
+      grid-template-columns: repeat(12, 1fr);
+      .acf-gallery {
+        @include gridContainer($columns: 12, $row-gap: 0);
+        img:first-of-type {
+          grid-column: 1 / -1;
+        }
+        img:not(:first-of-type) {
+          grid-column: span 4;
+        }
+      }
+
+      div.committee-button-container {
+        div.committee-list {
+          grid-template-columns: repeat(12, 1fr);
+          div.committee-member {
+            grid-column: span 4;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+  @include forScreenSizes(tablet) {
+    &{
+    div.committee-list {
+      div.committee-member {
+        grid-column: span 4;
+      }
+    }
+  }
+}
+
+
+  @include forScreenSizes(tablet, desktop) {
+    &{
+    padding: $desktopGridPadding;
+
+    div.entry-content {
+      grid-template-rows: repeat(4, auto);
+
+      // gallery section
+      .acf-gallery {
+        grid-column: 1 / span 8;
+
+        img:not(:first-of-type) {
+          grid-column: span 3;
+        }
+      }
+
+      div.responsibility-container {
+        grid-column: 1 / span 8;
+        grid-row: 4 / -1;
+      }
+
+      div.committee-button-container {
+        grid-row: 3;
+        grid-column: 9 / span 4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+
+        h2{
+          height: fit-content;
+        }
+
+        div.committee-list {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 1rem;
+          div.committee-member {
+            grid-column: span 2;
+          }
+        }
+
+        div:last-of-type {
+          grid-column: 1 / -1;
+          align-self: start;
+        
+        }
+      }
+    }
+  }
+}
+}
