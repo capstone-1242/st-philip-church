@@ -11,7 +11,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
+<p>This should be followed</p>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">

@@ -44,7 +44,7 @@ get_header();
 					<!-- Brief Introduction -->
 					<p><?php echo wp_kses_post(get_field('introduction')); ?></p>
 
-					<a href="<?php echo esc_url(get_permalink(253)); ?>"  aria-label="View upcoming events" class="default-button">View Events</a>
+					<a href="/events/" aria-label="View upcoming events" class="default-button">View Events</a>
 
 					<!-- Gallery Using WYSWYG editor -->
 					<div class="acf-gallery">
@@ -62,60 +62,57 @@ get_header();
 
 					<!-- SIGN UP FOR UPDATES FORM -->
 					<div class="form-recommendation-container">
-						<h3>Sign up for the Newsletter</h3>
-						<?php echo do_shortcode('[forminator_form id="285"]'); ?>
+						<section>
+							<h2>Sign up for the Newsletter</h2>
+							<?php echo do_shortcode('[forminator_form id="285"]'); ?>
+						</section>
 
-						<!-- this for st.philip local -->
-						<!-- ?php echo do_shortcode('[forminator_form id="264"]')?> -->
-					<!-- .form-container -->
-					<!-- END OF SIGN UP FOR UPDATES FORM -->
-
-					<!-- START OF CAR RECOMMENDATIONS -->
-					<?php
-					// Set up the custom query for car recommendations (next 2 cars)
-					$args = array(
-						'post_type' => 'parish-organization',
-						'posts_per_page' => 3,
-						'post__not_in' => array($current_organization_id),
-						'orderby' => 'date',
-						'order' => 'ASC',
-					);
-
-					$query = new WP_Query($args);
-
-					// Check if there are posts to display
-					if ($query->have_posts()) :
-					?>
-						<div class="organization-recommendations">
-							<h2>Explore other groups</h2>
-							<div class="organization-cards">
-								<?php while ($query->have_posts()) : $query->the_post(); ?>
-									<a href="<?php the_permalink(); ?>" class="organization-card-link" aria-label="View details of <?php the_title(); ?>">
-									<div class="organization-card">
-										<?php
-										$image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
-										if (!$image_url) {
-											$image_url = get_template_directory_uri() . '/images/home-hero-banner.webp';
-										}
-
-										?>
-										<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
-											<div class="organization-card-title">
-												<h3><?php the_title(); ?></h3>
-											</div>
-										</div>
+				
+						<!-- START OF CAR RECOMMENDATIONS -->
+					
+							<?php
+							$args = array(
+								'post_type' => 'parish-organization',
+								'posts_per_page' => 3,
+								'post__not_in' => array($current_organization_id),
+								'orderby' => 'date',
+								'order' => 'ASC',
+							);
+	
+							$query = new WP_Query($args);
+	
+							if ($query->have_posts()) :
+							?>
+								<section class="organization-recommendations">
+									<h2>Explore other groups</h2>
+									<div class="organization-cards">
+										<?php while ($query->have_posts()) : $query->the_post(); ?>
+											<a href="<?php the_permalink(); ?>" class="organization-card-link" aria-label="View details of <?php the_title(); ?>">
+												<div class="organization-card">
+													<?php
+													$image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+													if (!$image_url) {
+														$image_url = get_template_directory_uri() . '/images/home-hero-banner.webp';
+													}
+													?>
+													<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
+														<div class="organization-card-title">
+															<h3><?php the_title(); ?></h3>
+														</div>
+													</div>
+												</div>
+											</a>
+										<?php endwhile; ?>
 									</div>
-									</a>
-								<?php endwhile; ?>
-							</div>
-						</div>
-					<?php
-					endif;
-					wp_reset_postdata();
-					?>
-					<!-- END OF CAR RECOMMENDATIONS -->
+								</section>
+							<?php
+							endif;
+							wp_reset_postdata();
+							?>
+				
+						<!-- END OF CAR RECOMMENDATIONS -->
 
-				</div><!-- .entry-content -->
+					</div><!-- .entry-content -->
 				</div>
 				<!-- This is to display meta tags for screen readers, DO NOT DELETE -->
 				<footer class="entry-footer">

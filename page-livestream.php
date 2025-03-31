@@ -66,7 +66,7 @@ get_header();
 					</li>
 					<li>
 						
-							<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="https://www.youtube.com/@St.Philip.Orthodox.Church" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
 					
 					</li>

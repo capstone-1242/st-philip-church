@@ -147,7 +147,7 @@ get_header();
 				<p>These extra links provide more information about the Orthodox Church.</p>
 				<ul>
 					<li><a href="https://www.antiochian.org/home" rel="noreferrer" target="_blank">The Antiochian Orthodox Archdiocese of North America</a></li>
-					<li><a href="https://www.antiochpatriarchate.org/en/home/" rel="noreferrer" target="_blank">Greek Orthodox Patriarch of Antioch and All the East - بطريرك أنطاكية وسائر المشرق للروم الأرثوذكس </a></li>
+					<li><a href="https://www.antiochpatriarchate.org/en/home/" rel="noreferrer" target="_blank">Greek Orthodox Patriarch of Antioch and All the East</a></li>
 					<li><a href="https://www.ancientfaith.com/" rel="noreferrer" target="_blank">Ancient Faith Ministries </a></li>
 					<li><a href="https://www.oca.org/orthodoxy/the-orthodox-faith" rel="noreferrer" target="_blank">The Orthodox Faith by Protopresbyter Thomas Hopko</a></li>
 				</ul>

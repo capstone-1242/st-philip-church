@@ -650,6 +650,9 @@ section#about-page div.entry-content address {
 section#about-page div.entry-content i {
   margin-left: 1.625rem;
 }
+section#about-page div.entry-content #full-parish-message > *:not(:last-child), section#about-page div.entry-content #more-history-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#about-page div.entry-content {
     display: grid;
@@ -942,6 +945,88 @@ section.organization-archive section:nth-of-type(n+4) {
 
 /* those reusable component like stuff that accept variables */
 /*
+Shop Page Styling
+
+delete any unused styles after
+*/
+/* Styling for Shop Page */
+section#cart-page {
+  background-color: #F5F5F5;
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#cart-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#cart-page a.wc-block-cart__submit-button {
+  display: inline-block;
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+section#cart-page a.wc-block-cart__submit-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Shop Page Styling
+
+delete any unused styles after
+*/
+/* Styling for Shop Page */
+section#checkout-page {
+  background-color: #F5F5F5;
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#checkout-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#checkout-page div.wp-block-woocommerce-checkout-order-summary-block {
+  color: #111933;
+  border: 1px solid #EFC275;
+  background-color: #EFC275;
+  border-radius: 4px;
+  padding: 12px 24px;
+}
+section#checkout-page button.wc-block-components-checkout-place-order-button {
+  display: inline-block;
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+section#checkout-page button.wc-block-components-checkout-place-order-button span {
+  justify-self: center;
+}
+section#checkout-page button.wc-block-components-checkout-place-order-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
 Contact Us Page Styling
 
 delete any unused styles after
@@ -1107,6 +1192,24 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
     grid-column: 9/span 4;
     grid-row: 1/-1;
   }
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Donation Page Styling
+*/
+section#events-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#events-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#events-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
 
 /* those reusable component like stuff that accept variables */
@@ -2716,15 +2819,15 @@ section#organization-single div.entry-content div.form-recommendation-container 
   background-color: #EFC275;
   overflow-x: hidden;
 }
-section#organization-single div.entry-content div.organization-recommendations h2 {
+section#organization-single div.entry-content section.organization-recommendations h2 {
   margin-bottom: 1.5rem;
 }
-section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card-link {
+section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card-link {
   display: block;
   text-decoration: none;
   margin-bottom: 1.5rem;
 }
-section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card {
+section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card {
   position: relative;
   width: 100%;
   height: 233px;
@@ -2732,7 +2835,7 @@ section#organization-single div.entry-content div.organization-recommendations d
   overflow: hidden;
   box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
 }
-section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-image {
+section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-image {
   width: 100%;
   min-height: 300px;
   background-size: cover;
@@ -2740,7 +2843,7 @@ section#organization-single div.entry-content div.organization-recommendations d
   background-repeat: no-repeat;
   display: block;
 }
-section#organization-single div.entry-content div.organization-recommendations div.organization-cards .organization-card-title {
+section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -2879,12 +2982,130 @@ section#organization-single div.entry-content div.organization-recommendations d
 
 /* those reusable component like stuff that accept variables */
 /*
+Single Product Page Styling
+
+*/
+section#single-product-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#single-product-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#single-product-page > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#single-product-page div.entry-summary > *:not(:last-child), section#single-product-page div.woocommerce-Tabs-panel--description > *:not(:last-child), section#single-product-page section.related.products > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#single-product-page .woocommerce-Price-amount {
+  font-size: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-weight: 500;
+  color: #111933;
+}
+section#single-product-page form.cart {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+section#single-product-page form.cart div.quantity input.input-text {
+  padding: 24px 16px;
+}
+section#single-product-page .single_add_to_cart_button, section#single-product-page a.add_to_cart_button, section#single-product-page .woocommerce-message a {
+  display: inline-block;
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+section#single-product-page .single_add_to_cart_button:hover, section#single-product-page a.add_to_cart_button:hover, section#single-product-page .woocommerce-message a:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+section#single-product-page div.woocommerce-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section#single-product-page div.product_meta {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1.5rem;
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#single-product-page li.description_tab {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: rgba(41, 73, 30, 0.45);
+  color: #111933;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+section#single-product-page li.description_tab:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+/* those reusable component like stuff that accept variables */
+/*
 Shop Page Styling
 
 delete any unused styles after
 */
-section#post-77 {
-  background-color: #fff;
+/* Styling for Shop Page */
+section#shop-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#shop-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#shop-page form.woocommerce-ordering select.orderby {
+  padding: 0.75rem 1rem;
+}
+section#shop-page img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+section#shop-page ul.products li.product .price {
+  margin-top: auto;
+}
+section#shop-page ul.products li.product a.button {
+  display: inline-block;
+  padding: 1.5rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  width: 100%;
+}
+section#shop-page ul.products li.product a.button:hover {
+  background-color: #EFC275;
+  color: #111933;
 }
 
 /* those reusable component like stuff that accept variables */
@@ -3105,7 +3326,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1.5rem;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3176,7 +3397,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1.5rem;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3247,7 +3468,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1.5rem;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
