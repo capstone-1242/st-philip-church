@@ -43,6 +43,10 @@ section#about-page{
       margin-left: 1.625rem;
     }
 
+    #full-parish-message, #more-history-content{
+      @include childMarginBottom;
+    }
+
     @include forScreenSizes(tablet, desktop) {
       @include gridContainer($column-gap: 1.5rem);
       &{

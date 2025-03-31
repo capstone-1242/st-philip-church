@@ -32,7 +32,7 @@ get_header();
 		<h2 class="hero-title">St. Philip Antiochian<span>Church</span></h2>
 		<p>Orthodoxy with Middle Eastern Flavour!</p>
 		<p>Our store shop just opened, check it out!</p>
-		<p><a href="<?php echo esc_url(get_permalink(77)); ?>" class="default-button" aria-label="Visit St.Philip's online shop">View Shop</a></p>
+		<p><a href="/shop/" class="default-button" aria-label="Visit St.Philip's online shop">View Shop</a></p>
 
 	</section>
 
@@ -76,7 +76,7 @@ get_header();
 			<section>
 				<h3>Join The Livestream</h3>
 				<iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				<a href="<?php echo esc_url(get_permalink(72)); ?>" class="default-button full-width-button" aria-label="View our livestreams">View Our Livestreams</a>
+				<a href="/livestream/" class="default-button full-width-button" aria-label="View our livestreams">View Our Livestreams</a>
 			</section>
 
 			<div class="welcome-overlay"></div>
@@ -87,65 +87,7 @@ get_header();
 	<section class="upcoming-events">
 		<div>
 			<h2>Upcoming Events</h2>
-			<div class="events-list">
-				<!--test-->
-				<?php
-				$args = array(
-					'post_type'      => 'event_listing',
-					'posts_per_page' => 2,
-					'orderby'        => 'meta_value',
-					'meta_key'       => '_event_start_date',
-					'order'          => 'ASC',
-				);
-	
-				$events = new WP_Query($args);
-	
-	
-				if ($events->have_posts()) :
-					while ($events->have_posts()) : $events->the_post(); ?>
-						<div class="event-item">
-							<div>
-								<?php
-								$event_banner = get_post_meta(get_the_ID(), '_event_banner', true);
-								if ($event_banner) :
-								?>
-									<img src="<?php echo esc_url($event_banner); ?>" alt="Event Banner">
-								<?php else : ?>
-									<p>No event banner available</p>
-								<?php endif; ?>
-							</div>
-							<div class="date">
-								<?php
-								$event_start_date = get_post_meta(get_the_ID(), '_event_start_date', true);
-	
-								if ($event_start_date) :
-									$date = new DateTime($event_start_date);
-									$month = $date->format('F');
-									$day = $date->format('j'); ?>
-									<span class="event-month"><?php echo $month; ?></span>
-									<hr>
-									<span class="event-day"><?php echo $day; ?></span>
-	
-								<?php endif;
-								?>
-							</div>
-	
-	
-	
-							<h3><a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), '_event_title', true); ?></a></h3>
-							<p><?php echo get_post_meta(get_the_ID(), '_event_start_time', true); ?></p>
-							<p><?php echo get_post_meta(get_the_ID(), '_event_description', true); ?></p>
-						</div>
-				<?php endwhile;
-					wp_reset_postdata();
-				else :
-					echo '<p>No upcoming events found.</p>';
-				endif;
-				?>
-				<!-- end of test -->
-			</div>
-			<?php $total_events = wp_count_posts('event_listing')->publish; ?>
-			<a href="<?php echo esc_url(get_permalink(253)); ?>" class="default-button full-width-button">View All Events (<?php echo $total_events ?>)</a>
+			<p>Work in Progress</p>
 		</div>
 	</section>
 
@@ -174,12 +116,17 @@ get_header();
 	
 					while ($organization_query->have_posts()) : $organization_query->the_post();
 	
-						$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-						$organization_url = get_permalink();
+						
 				?>
-						<a href="<?php echo esc_url($featured_image_url); ?>" class="organization-card-link">
+						<a href="<?php esc_url(the_permalink()); ?>" class="organization-card-link">
 							<div class="organization-card">
-								<div class="organization-image" style="background-image: url('<?php echo esc_url($featured_image_url); ?>');">
+							<?php
+										$image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+										if (!$image_url) {
+											$image_url = get_template_directory_uri() . '/images/home-hero-banner.webp';
+										}
+										?>
+								<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url); ?>');">
 									<p class="organization-card-title"><?php the_title() ?></p>
 								</div>
 							</div>
@@ -191,7 +138,7 @@ get_header();
 				wp_reset_postdata();
 				?>
 			</div>
-			<a href="<?php echo $archive_organization_url ?>" class="default-button full-width-button" aria-label="View full list of Parish Organizations">Browse the full list</a>
+			<a href="/parish-organization/" class="default-button full-width-button" aria-label="View full list of Parish Organizations">Browse the full list</a>
 		</div>
 	</section>
 
@@ -221,7 +168,7 @@ get_header();
 				</div>
 				<div class="button-container">
 				<p class="fine-print">*Paid memberships give users voting precedence over non-paid members.</p>
-					<a href="<?php echo esc_url(get_permalink(86)) ?>" class="default-button full-width-button" aria-label="View Full Details about Membership">Read the Full Details</a>
+					<a href="/member-sign-up/" class="default-button full-width-button" aria-label="View Full Details about Membership">Read the Full Details</a>
 				</div>
 				<div class="membership-overlay">
 				</div>
@@ -237,7 +184,7 @@ get_header();
 			<div>
 				<h2>Support the Church</h2>
 				<p>Your contributions help the church continue its mission and serve the community. Every donation plays a vital role in extending our outreach and impact.</p>
-				<a href="<?php echo esc_url(get_permalink(83)); ?>" class="default-button full-width-button">Make a Donation</a>
+				<a href="/donate/" class="default-button full-width-button">Make a Donation</a>
 			</div>
 			<?php
 			$donation_page_id = 83;

@@ -5,21 +5,64 @@ delete any unused styles after
 */
 
 // base
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-@use '../base/variables' as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
 // components
-@use '../components/button' as *;
-@use '../components/card' as *;
+@use "../components/button" as *;
+@use "../components/card" as *;
 
 // this is the shop wrapper id
-section#post-77{
-background-color: #fff;
+/* Styling for Shop Page */
+section#shop-page {
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
 
+  form.woocommerce-ordering {
+    select.orderby {
+      padding: 0.75rem 1rem;
+    }
+  }
 
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 
+  ul.products{
+    li.product {
+      
+      .price {
+        margin-top: auto;
+      }
+      
+      a.button {
+        @include button;
+        width: 100%;
+      }
+    }
+  }
+  
 
-
+  // ul.products {
+  //   li.product {
+  //     .woocommerce-loop-product__title {
+  //       min-height: 180px;
+  //     }
+      
+  //     .price {
+  //       margin-top: auto;
+  //     }
+      
+  //     a.button {
+  //       @include button;
+  //       width: 100%;
+  //     }
+  //   }
+  // }
 }

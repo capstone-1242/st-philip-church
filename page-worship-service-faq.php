@@ -126,7 +126,7 @@ get_header();
 
 				<div>
 					<p>Want to read more about the history of the church? Check out</p>
-					<a href="<?php echo esc_url(get_permalink(86)) ?>" class="default-button">Our Library <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+					<a href="/spiritual-resources/" class="default-button">Our Library <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 
 				</div>
 			</section>

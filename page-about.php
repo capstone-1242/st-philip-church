@@ -94,7 +94,7 @@ get_header();
 								<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link default-button">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 							</li>
 							<li>
-								<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+								<a href="https://www.youtube.com/@St.Philip.Orthodox.Church" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 							</li>
 						</ul>
 					</section>

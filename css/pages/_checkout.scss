@@ -1,0 +1,40 @@
+/*
+Shop Page Styling
+
+delete any unused styles after
+*/
+
+// base
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
+// components
+@use "../components/button" as *;
+@use "../components/card" as *;
+
+// this is the shop wrapper id
+/* Styling for Shop Page */
+section#checkout-page {
+  background-color: $accent-white;
+  // padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  font-size: $font16-to-font24;
+  line-height: $line-height-16-24;
+  @include maxWidthCentered($maxWidth);
+
+  div.wp-block-woocommerce-checkout-order-summary-block{
+     @include card($background-color: $main-yellow, $color: $primary-blue);
+  }
+
+  button.wc-block-components-checkout-place-order-button{
+    span{
+      justify-self: center;
+    }
+    @include button;
+  }
+
+
+}

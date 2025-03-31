@@ -41,9 +41,11 @@ accordionHeaders.forEach(accordionHeader => {
 
 // READ MORE HISTORY FUNCTIONALITY
 
+
 const moreText = document.querySelector("#more-history-content");
 const readHistoryBtn = document.querySelector(".read-more-history")
 
+if (moreText && readHistoryBtn) {
 readHistoryBtn.addEventListener("click", function(){
   const isExpanded = readHistoryBtn.getAttribute("aria-expanded") === "true";
 
@@ -56,12 +58,14 @@ readHistoryBtn.addEventListener("click", function(){
     readHistoryBtn.innerHTML = 'Read less <i class="fa-solid fa-chevron-up">'; 
   }
 });
+}
 
 // READ MORE PARISH MESSAGE FUNCTIONALITY
 const messagePreview = document.querySelector("#parish-message-preview")
 const moreMessage = document.querySelector("#full-parish-message");
 const readMessageBtn = document.querySelector(".read-more-message")
 
+if (messagePreview && moreMessage && readMessageBtn) {
 readMessageBtn.addEventListener("click", function(){
   const isExpanded = readMessageBtn.getAttribute("aria-expanded") === "true";
   
@@ -76,4 +80,4 @@ readMessageBtn.addEventListener("click", function(){
   }
 
 });
-
+}

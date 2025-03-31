@@ -21,18 +21,11 @@ get_header();
 	while (have_posts()) :
 		the_post(); ?>
 
-		<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<section id="events-page" <?php post_class(); ?>>
 			<header class="entry-header">
-				<?php
-				if (is_singular()) :
-					the_title('<h1 class="entry-title">', '</h1>');
-				else :
-					the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-				endif;?>
+				<h1 class="entry-title">Parish Events</h1>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
-
-				<h2>Parish Events</h2>
 				<p>Throughout the year, there are a variety of events planned to help build fellowship and strengthen our parish community. These events are a great opportunity to connect with one another and share in the joy of our faith. </p>
 				<?php
 

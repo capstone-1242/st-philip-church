@@ -114,7 +114,8 @@ get_header();
 								<p>No members assigned.</p>
 							<?php endif; ?>
 							<div>
-								<a href="<?php echo esc_url(get_permalink(86)) ?>" class="default-button become-member-button">Become a Member <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button become-member-button" 
+								aria-label="Become a member by filling out the form">Become a Member <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 							<p class="button-description">You will be redirected to a Google Form</p>
 							</div>
 						</div>
