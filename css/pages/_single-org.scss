@@ -18,7 +18,8 @@ delete any unused styles after
 section#organization-single{
   background-color: $accent-white;
   margin: 2rem auto !important;
-  padding: $mobileGridPadding;
+  padding: $responsiveSectionPadding;
+  border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
@@ -120,10 +121,7 @@ section#organization-single{
   }
 }
 
-  
   @include forScreenSizes(tablet, desktop){
-    padding: $desktopGridPadding;
-
     div.entry-content{
       grid-template-rows: repeat(3, auto) 1fr ;
   
@@ -155,6 +153,7 @@ section#organization-single{
       div.org-description{
         grid-column: 1 / span 8;
         grid-row: 4 / -1;
+        @include childMarginBottom;
       }
   
       div.form-recommendation-container{

@@ -5,67 +5,89 @@ this part is for styles for the overall body
 @use "colors" as *;
 @use "typography" as *;
 @use "mixins" as *;
+@use "variables" as *;
 
 body {
   // this is only temporary for baseline grid
-      /** Step 1: Choose a font-family **/
-      font-family: $body-font-family;
-      /**Step 2: Set your default font-size (body font-size - always set in %'s **/
-      font-size: 100%;
-      /**16px**/
-      /** Step 3: Choose your grid unit size 
+  /** Step 1: Choose a font-family **/
+  font-family: $body-font-family;
+  /**Step 2: Set your default font-size (body font-size - always set in %'s **/
+  font-size: 100%;
+  /**16px**/
+  /** Step 3: Choose your grid unit size 
           what is your vertical spacing going to be of **/
-      line-height: $base-line-height; /* 1.2 based on figma  */
-      /**20px x 1.5 = 30 grid units **/
-      /** Step 4: Display visual grid **/
-      background-color: $white;
-      background-image: linear-gradient(#0ff 1px, transparent 1px);
-      background-size: auto 24px;
-      /** Step 5: choose typographic scale 
+  line-height: $base-line-height; /* 1.2 based on figma  */
+  /**20px x 1.5 = 30 grid units **/
+  /** Step 4: Display visual grid **/
+  background-color: $white;
+  background-image: linear-gradient(#0ff 1px, transparent 1px);
+  background-size: auto 24px;
+  /** Step 5: choose typographic scale 
           12, 14, 16, 18, 21, 24, 36, 48, 60, 72
       **/
 
-      // i did 24 since the line-height 1.3 and 1.2 resulted in 19.3 and 20.8 -- i dont wanna do math bruh.
+  // i did 24 since the line-height 1.3 and 1.2 resulted in 19.3 and 20.8 -- i dont wanna do math bruh.
 
-      // so all our spacing is increments of 24 unless you guys change it? 
-      text-align: left;
+  // so all our spacing is increments of 24 unless you guys change it?
+  text-align: left;
 }
 
 /*===========================TYPOGRAPHY=================================*/
 
-h1, h2, h3, h4, h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: $heading-font-family;
 }
 
-
-p, a, li{
+p,
+a,
+li {
   font-size: $font16-to-font24;
   line-height: $line-height-16-24;
 }
 
-h2{
-  font-size: $font16-to-font40;
-  line-height: $line-height-16-40;
+// for all the single pages
+.entry-header h1,
+.page-header h1 {
+  font-size: $font24-to-font48;
+  line-height: $line-height-24-48;
+  // font-size: $font20-to-font40;
+  // line-height: $line-height-20-40;
   font-weight: $font-weight-medium-bold;
 }
 
-h3{
-  font-size: $font16-to-font32;
-  line-height: $line-height-16-32;
+
+h2 {
+  font-size: $font20-to-font36;
+  line-height: $line-height-20-36;
+  // font-size: $font16-to-font40;
+  // line-height: $line-height-16-40;
   font-weight: $font-weight-medium-bold;
 }
 
-.fine-print{
+h3 {
+  font-size: $font18-to-font32;
+  line-height: $line-height-18-32;
+  // font-size: $font16-to-font32;
+  // line-height: $line-height-16-32;
+  font-weight: $font-weight-medium-bold;
+}
+
+h4{
+  font-size: $font16-to-font28;
+  line-height: $line-height-16-28;
+  // font-size: $font24-to-font30;
+  // line-height: $line-height-24-30;
+  font-weight: $font-weight-medium;
+}
+
+
+.fine-print {
   font-size: $font16-to-font20;
   line-height: $line-height-16-20;
-}
-
-// for all the single pages
-.entry-header h1, .page-header h1{
-  font-size: $font20-to-font40;
-  line-height: $line-height-20-40;
-  font-weight: $font-weight-medium-bold;
- 
 }
 
 
@@ -79,7 +101,8 @@ h3{
 .organization-card {
   position: relative;
   width: 100%;
-  height: 233px;
+  max-height: 300px;
+  aspect-ratio: 1 / 1;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
@@ -93,20 +116,94 @@ h3{
   display: block;
 }
 
+.organization-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($accent-green, 0.52); 
+  z-index: 1;
+}
+
 .organization-card-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
-  padding: 106px 187px 15px 15px;
+  // padding: 106px 187px 15px 15px;
   color: $accent-white;
   font-size: $font20-to-font40;
   line-height: $line-height-20-40;
   font-weight: $font-weight-bold;
+  z-index: 2;
 }
 // end of card styling
 
+// for accordion
 
+.accordion-container {
+  border: 2px solid rgba($accent-green, 0.52);
+  border-radius: 10px;
+  background-color: $accent-white;
+
+  .accordion {
+    background: transparent;
+    text-align: left;
+    width: 100%;
+    padding: $mobileAccordionPadding;
+    font-size: $font16-to-font32;
+    line-height: $line-height-16-32;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    border-bottom: 2px solid rgba($accent-green, 0.52);
+    transition: all 0.8s ease-in;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        background: rgba($accent-green, 0.52);
+    }
+
+    &[aria-expanded="true"]{
+      border-bottom: none;
+    }
+  }
+
+  & > div:last-child .accordion{
+    border: none;
+  }
+
+    .panel {
+      padding: 32px 16px;
+      background: rgba($accent-green, 0.16);
+      display: none;
+      @include childMarginBottom;
+
+      section{
+        @include childMarginBottom;
+      }
+
+      ol, ul{
+        padding-left: 3rem;
+        list-style-type: decimal;
+        @include childMarginBottom;
+      }
+
+      &[aria-hidden="false"] {
+        display: block;
+      }
+    }
+  }
+
+// end of accordion
+
+
+// for the header of each page
+.entry-header{
+  margin-bottom: $base-line-height;
+}
 
 // /*===========================ACF FILED GROUP=================================*/
 // /*
@@ -131,5 +228,3 @@ h3{
 //     }
 //   }
 // }
-
-

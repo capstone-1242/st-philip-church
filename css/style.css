@@ -57,18 +57,30 @@ table {
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /*
 this part is for styles for the overall body
 */
 /* from 24px to 36px */
 /* 24px since both are below 24px */
 /* from 24 to 36px */
+/* 24 to 48px */
+/* 24 to 36 */
 /* from 24px to 48px */
 /* from 24px to 72px */
 /* from 24 to 108px */
 /* from 24 to 36px */
 /* from 24 to 36px */
 /* from 24 to 48px */
+/* 24px to 36 */
+/* 24 48 */
+/* 24 to 48 */
+/* 24 to 36 */
+/* 24 to 36 */
 /*
 this part is for styles for the overall body
 */
@@ -79,7 +91,7 @@ body {
   font-size: 100%;
   /**16px**/
   /** Step 3: Choose your grid unit size 
-      what is your vertical spacing going to be of **/
+          what is your vertical spacing going to be of **/
   line-height: 1.5rem; /* 1.2 based on figma  */
   /**20px x 1.5 = 30 grid units **/
   /** Step 4: Display visual grid **/
@@ -87,42 +99,55 @@ body {
   background-image: linear-gradient(#0ff 1px, transparent 1px);
   background-size: auto 24px;
   /** Step 5: choose typographic scale 
-      12, 14, 16, 18, 21, 24, 36, 48, 60, 72
-  **/
+          12, 14, 16, 18, 21, 24, 36, 48, 60, 72
+      **/
   text-align: left;
 }
 
 /*===========================TYPOGRAPHY=================================*/
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: "Frank Ruhl Libre", serif;
 }
 
-p, a, li {
+p,
+a,
+li {
   font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 
+.entry-header h1,
+.page-header h1 {
+  font-size: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  font-weight: 600;
+}
+
 h2 {
-  font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
+  font-size: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
   line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 600;
 }
 
 h3 {
-  font-size: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
+  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 2rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
   font-weight: 600;
+}
+
+h4 {
+  font-size: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  font-weight: 500;
 }
 
 .fine-print {
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   line-height: 1.5rem;
-}
-
-.entry-header h1, .page-header h1 {
-  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
-  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
-  font-weight: 600;
 }
 
 .organization-card-link {
@@ -134,7 +159,8 @@ h3 {
 .organization-card {
   position: relative;
   width: 100%;
-  height: 233px;
+  max-height: 300px;
+  aspect-ratio: 1/1;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
@@ -148,16 +174,81 @@ h3 {
   display: block;
 }
 
+.organization-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 73, 30, 0.52);
+  z-index: 1;
+}
+
 .organization-card-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
-  padding: 106px 187px 15px 15px;
   color: #F5F5F5;
   font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
   line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 700;
+  z-index: 2;
+}
+
+.accordion-container {
+  border: 2px solid rgba(41, 73, 30, 0.52);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.accordion-container .accordion {
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  padding: 1.125rem 1rem;
+  font-size: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(41, 73, 30, 0.52);
+  transition: all 0.8s ease-in;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion-container .accordion:hover {
+  background: rgba(41, 73, 30, 0.52);
+}
+.accordion-container .accordion[aria-expanded=true] {
+  border-bottom: none;
+}
+.accordion-container > div:last-child .accordion {
+  border: none;
+}
+.accordion-container .panel {
+  padding: 32px 16px;
+  background: rgba(41, 73, 30, 0.16);
+  display: none;
+}
+.accordion-container .panel > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.accordion-container .panel section > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.accordion-container .panel ol, .accordion-container .panel ul {
+  padding-left: 3rem;
+  list-style-type: decimal;
+}
+.accordion-container .panel ol > *:not(:last-child), .accordion-container .panel ul > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.accordion-container .panel[aria-hidden=false] {
+  display: block;
+}
+
+.entry-header {
+  margin-bottom: 1.5rem;
 }
 
 /* those reusable component like stuff that accept variables */
@@ -211,6 +302,24 @@ h3 {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .outlined-button:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+
+.read-more-button {
+  display: inline-block;
+  padding: 2rem 1rem;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 0.625rem;
+  background-color: rgba(41, 73, 30, 0.18);
+  color: #111933;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.read-more-button:hover {
   background-color: #EFC275;
   color: #111933;
 }
@@ -512,10 +621,118 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 /*
 About Us Page Styling
 
-delete any unused styles after
+Source for read more functionality
+@link https://www.youtube.com/watch?v=Fw1XMO6MSXk 
 */
-section#post-84 {
-  background-color: #fff;
+section#about-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#about-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#about-page button, section#about-page a {
+  width: 100%;
+}
+section#about-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#about-page div.entry-content > section > *:not(:last-child), section#about-page div.entry-content ul > *:not(:last-child), section#about-page div.entry-content > div > *:not(:last-child), section#about-page div.entry-content > div section > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#about-page div.entry-content address {
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#about-page div.entry-content i {
+  margin-left: 1.625rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#about-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#about-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#about-page div.entry-content > section:first-of-type {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#about-page div.entry-content > section:nth-of-type(2) {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#about-page div.entry-content > div {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+    color: #111933;
+    border: 1px solid #EFC275;
+    background-color: rgba(239, 194, 117, 0.45);
+    border-radius: 4px;
+    padding: 12px 24px;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#about-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#about-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#about-page div.entry-content > section:first-of-type {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#about-page div.entry-content > section:nth-of-type(2) {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#about-page div.entry-content > div {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+    color: #111933;
+    border: 1px solid #EFC275;
+    background-color: rgba(239, 194, 117, 0.45);
+    border-radius: 4px;
+    padding: 12px 24px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#about-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#about-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#about-page div.entry-content > section:first-of-type {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#about-page div.entry-content > section:nth-of-type(2) {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#about-page div.entry-content > div {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+    color: #111933;
+    border: 1px solid #EFC275;
+    background-color: rgba(239, 194, 117, 0.45);
+    border-radius: 4px;
+    padding: 12px 24px;
+  }
 }
 
 /* those reusable component like stuff that accept variables */
@@ -526,8 +743,9 @@ delete any unused styles after
 */
 section.committee-archive {
   background-color: #F5F5F5;
-  margin: 2rem auto !important;
-  padding: 1.5rem 1rem;
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  border-radius: 10px;
 }
 section.committee-archive {
   max-width: 1248px;
@@ -561,7 +779,7 @@ section.committee-archive > * {
   grid-column: 1/-1;
 }
 section.committee-archive {
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: auto;
 }
 section.committee-archive header {
   margin-bottom: 1.5rem;
@@ -569,11 +787,10 @@ section.committee-archive header {
 section.committee-archive section {
   background-color: #F5F5F5;
 }
+section.committee-archive section:nth-of-type(n + 4) {
+  grid-column: span 2;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  section.committee-archive {
-    padding: 1.5rem 2.25rem;
-    grid-template-rows: auto;
-  }
   section.committee-archive > div {
     grid-column: 1/span 6;
     order: -1;
@@ -587,10 +804,6 @@ section.committee-archive section {
   }
 }
 @media only screen and (min-width: tablet) {
-  section.committee-archive {
-    padding: 1.5rem 2.25rem;
-    grid-template-rows: auto;
-  }
   section.committee-archive > div {
     grid-column: 1/span 6;
     order: -1;
@@ -604,10 +817,6 @@ section.committee-archive section {
   }
 }
 @media only screen and (min-width: 1000px) {
-  section.committee-archive {
-    padding: 1.5rem 2.25rem;
-    grid-template-rows: auto;
-  }
   section.committee-archive > div {
     grid-column: 1/span 6;
     order: -1;
@@ -644,8 +853,9 @@ delete any unused styles after
 */
 section.organization-archive {
   background-color: #F5F5F5;
-  margin: 2rem auto !important;
-  padding: 1.5rem 1rem;
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  border-radius: 10px;
 }
 section.organization-archive {
   max-width: 1248px;
@@ -679,7 +889,7 @@ section.organization-archive > * {
   grid-column: 1/-1;
 }
 section.organization-archive {
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: auto;
 }
 section.organization-archive header {
   margin-bottom: 1.5rem;
@@ -687,11 +897,10 @@ section.organization-archive header {
 section.organization-archive section {
   background-color: #F5F5F5;
 }
+section.organization-archive section:nth-of-type(n+4) {
+  grid-column: span 2;
+}
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  section.organization-archive {
-    grid-template-rows: repeat(3, auto);
-    padding: 1.5rem 2.25rem;
-  }
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
@@ -705,10 +914,6 @@ section.organization-archive section {
   }
 }
 @media only screen and (min-width: tablet) {
-  section.organization-archive {
-    grid-template-rows: repeat(3, auto);
-    padding: 1.5rem 2.25rem;
-  }
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
@@ -722,10 +927,6 @@ section.organization-archive section {
   }
 }
 @media only screen and (min-width: 1000px) {
-  section.organization-archive {
-    grid-template-rows: repeat(3, auto);
-    padding: 1.5rem 2.25rem;
-  }
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
@@ -745,8 +946,167 @@ Contact Us Page Styling
 
 delete any unused styles after
 */
-section#post-85 {
-  background-color: #fff;
+section#contact-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#contact-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#contact-page > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#contact-page img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+section#contact-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#contact-page div.entry-content section > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#contact-page div.entry-content section address dl dt {
+  font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  font-weight: 600;
+}
+section#contact-page div.entry-content section address dl dd {
+  margin-bottom: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#contact-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#contact-page div.entry-content > * {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#contact-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#contact-page div.entry-content > * {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#contact-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#contact-page div.entry-content > * {
+    grid-column: span 4;
+  }
+}
+
+/* those reusable component like stuff that accept variables */
+/*
+Donation Page Styling
+*/
+section#donation-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#donation-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#donation-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#donation-page div.entry-content .donation-info {
+  color: #111933;
+  border: 3px solid #111933;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 12px 24px;
+}
+section#donation-page div.entry-content .donation-info > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#donation-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#donation-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#donation-page div.entry-content .page-featured-image {
+    grid-column: 1/span 8;
+    grid-row: span 1;
+  }
+  section#donation-page div.entry-content > p {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#donation-page div.entry-content .donation-info {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#donation-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#donation-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#donation-page div.entry-content .page-featured-image {
+    grid-column: 1/span 8;
+    grid-row: span 1;
+  }
+  section#donation-page div.entry-content > p {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#donation-page div.entry-content .donation-info {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#donation-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#donation-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#donation-page div.entry-content .page-featured-image {
+    grid-column: 1/span 8;
+    grid-row: span 1;
+  }
+  section#donation-page div.entry-content > p {
+    grid-column: span 8;
+    grid-row: 2/-1;
+  }
+  section#donation-page div.entry-content .donation-info {
+    grid-column: 9/span 4;
+    grid-row: 1/-1;
+  }
 }
 
 /* those reusable component like stuff that accept variables */
@@ -802,7 +1162,7 @@ main.front-page .hero-banner {
   max-width: 1248px;
   margin: 0 auto;
 }
-main.front-page .hero-banner > * {
+main.front-page .hero-banner > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .hero-banner > * {
@@ -876,7 +1236,7 @@ main.front-page .hero-banner a {
     grid-column: 10/span 3;
   }
 }
-main.front-page .weekly-highlights > * {
+main.front-page .weekly-highlights > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .weekly-highlights > div {
@@ -900,7 +1260,7 @@ main.front-page .welcome {
   color: #F5F5F5 !important;
   background-color: white;
   margin-bottom: 0;
-  padding: 1.5rem 1rem;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
 }
 main.front-page .welcome {
   max-width: 1248px;
@@ -936,14 +1296,14 @@ main.front-page .welcome > * {
 main.front-page .welcome > div:first-of-type {
   z-index: 12;
 }
-main.front-page .welcome > div:first-of-type > * {
+main.front-page .welcome > div:first-of-type > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .welcome > div:first-of-type section {
   /* end of church location */
   /* end of church hours section */
 }
-main.front-page .welcome > div:first-of-type section > * {
+main.front-page .welcome > div:first-of-type section > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .welcome > div:first-of-type section > div:first-of-type {
@@ -987,13 +1347,10 @@ main.front-page .welcome > div:first-of-type section > div:last-of-type ul.servi
 main.front-page .welcome > section {
   z-index: 12;
 }
-main.front-page .welcome > section > * {
+main.front-page .welcome > section > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  main.front-page .welcome {
-    padding: 1.5rem 2.25rem;
-  }
   main.front-page .welcome > div {
     grid-column: span 6;
   }
@@ -1014,9 +1371,6 @@ main.front-page .welcome > section > * {
   }
 }
 @media only screen and (min-width: tablet) {
-  main.front-page .welcome {
-    padding: 1.5rem 2.25rem;
-  }
   main.front-page .welcome > div {
     grid-column: span 6;
   }
@@ -1037,9 +1391,6 @@ main.front-page .welcome > section > * {
   }
 }
 @media only screen and (min-width: 1000px) {
-  main.front-page .welcome {
-    padding: 1.5rem 2.25rem;
-  }
   main.front-page .welcome > div {
     grid-column: span 6;
   }
@@ -1092,7 +1443,7 @@ main.front-page .upcoming-events {
 main.front-page .upcoming-events > div {
   padding: 1.5rem 1rem;
 }
-main.front-page .upcoming-events > div > * {
+main.front-page .upcoming-events > div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .upcoming-events > div {
@@ -1229,7 +1580,7 @@ main.front-page .upcoming-events + section > div {
     row-gap: 1.5rem;
   }
 }
-main.front-page .upcoming-events + section > div > * {
+main.front-page .upcoming-events + section > div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .upcoming-events + section > div > * {
@@ -1369,14 +1720,14 @@ main.front-page .membership > div {
     row-gap: 1.5rem;
   }
 }
-main.front-page .membership > div > * {
+main.front-page .membership > div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .membership > div > * {
   grid-column: 1/-1;
   z-index: 2;
 }
-main.front-page .membership > div > div > * {
+main.front-page .membership > div > div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .membership > div .membership-options section {
@@ -1510,7 +1861,7 @@ main.front-page .donation > div {
     row-gap: 1.5rem;
   }
 }
-main.front-page .donation > div > * {
+main.front-page .donation > div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 main.front-page .donation > div > *:not(hr) {
@@ -1520,7 +1871,7 @@ main.front-page .donation > div hr {
   border: 3px solid #D79A32;
   grid-column: span 2;
 }
-main.front-page .donation > div div > * {
+main.front-page .donation > div div > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
@@ -1566,7 +1917,9 @@ delete any unused styles after
 */
 section#livestream {
   background-color: #F5F5F5;
-  margin: 3rem auto 7.5rem !important;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
 }
 section#livestream {
   max-width: 1248px;
@@ -1635,62 +1988,16 @@ section#livestream div.entry-content > section:first-of-type > * {
 section#livestream div.entry-content > section:first-of-type h2 {
   margin-bottom: 1.5rem;
 }
-section#livestream div.entry-content > section:first-of-type > div {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 1rem;
-  column-gap: 1.5rem;
-}
-@media only screen and (min-width: 768px) and (max-width: 999px) {
-  section#livestream div.entry-content > section:first-of-type > div {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
-}
-@media only screen and (min-width: tablet) {
-  section#livestream div.entry-content > section:first-of-type > div {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  section#livestream div.entry-content > section:first-of-type > div {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
-}
 section#livestream div.entry-content > section:first-of-type > div ul.service-times {
   text-align: center;
   background-color: rgba(71, 88, 65, 0.7);
-  padding: 1rem;
-  grid-column: 1/-1;
-}
-section#livestream div.entry-content > section:first-of-type > div ul.service-times {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 1rem;
-  column-gap: 1.5rem;
-}
-@media only screen and (min-width: 768px) and (max-width: 999px) {
-  section#livestream div.entry-content > section:first-of-type > div ul.service-times {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
-}
-@media only screen and (min-width: tablet) {
-  section#livestream div.entry-content > section:first-of-type > div ul.service-times {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  section#livestream div.entry-content > section:first-of-type > div ul.service-times {
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-  }
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 section#livestream div.entry-content > section:first-of-type > div ul.service-times li {
-  grid-column: span 2;
+  flex-basis: 50%;
   color: #F5F5F5;
   border: none;
   background-color: #29491E;
@@ -1704,9 +2011,6 @@ section#livestream div.entry-content > section:first-of-type > div ul.service-ti
   font-weight: 700;
   font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
-}
-section#livestream div.entry-content > section:last-of-type {
-  padding: 1.5rem 1rem;
 }
 section#livestream div.entry-content > section:last-of-type h2 {
   margin-bottom: 1.5rem;
@@ -1741,10 +2045,10 @@ section#livestream div.entry-content > section:last-of-type > div > div {
 section#livestream div.entry-content > section:last-of-type > div > div iframe {
   margin-bottom: 1.5rem;
 }
-section#livestream div.entry-content nav {
-  padding: 1.5rem 1rem;
+section#livestream div.entry-content nav h2 {
+  margin-bottom: 1.5rem;
 }
-section#livestream div.entry-content nav section > * {
+section#livestream div.entry-content nav ul > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 section#livestream div.entry-content nav a {
@@ -1874,8 +2178,94 @@ Membership Sign Up Page Styling
 
 delete any unused styles after
 */
-section#post-86 {
-  background-color: #fff;
+section#member-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#member-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#member-page header {
+  margin-bottom: 1.5rem;
+}
+section#member-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#member-page div.entry-content section {
+  color: #111933;
+  border: 1px solid #EFC275;
+  background-color: #EFC275;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+section#member-page div.entry-content section > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#member-page div.entry-content a {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#member-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#member-page div.entry-content p {
+    grid-column: 1/-1;
+  }
+  section#member-page div.entry-content section {
+    grid-column: span 4;
+  }
+  section#member-page div.entry-content section h2 {
+    min-height: 64px;
+  }
+  section#member-page div.entry-content a {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#member-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#member-page div.entry-content p {
+    grid-column: 1/-1;
+  }
+  section#member-page div.entry-content section {
+    grid-column: span 4;
+  }
+  section#member-page div.entry-content section h2 {
+    min-height: 64px;
+  }
+  section#member-page div.entry-content a {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#member-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 24px;
+  }
+  section#member-page div.entry-content p {
+    grid-column: 1/-1;
+  }
+  section#member-page div.entry-content section {
+    grid-column: span 4;
+  }
+  section#member-page div.entry-content section h2 {
+    min-height: 64px;
+  }
+  section#member-page div.entry-content a {
+    grid-column: span 4;
+  }
 }
 
 /* those reusable component like stuff that accept variables */
@@ -2247,7 +2637,8 @@ delete any unused styles after
 section#organization-single {
   background-color: #F5F5F5;
   margin: 2rem auto !important;
-  padding: 1.5rem 1rem;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  border-radius: 10px;
 }
 section#organization-single {
   max-width: 1248px;
@@ -2378,9 +2769,6 @@ section#organization-single div.entry-content div.organization-recommendations d
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  section#organization-single {
-    padding: 1.5rem 2.25rem;
-  }
   section#organization-single div.entry-content {
     grid-template-rows: repeat(3, auto) 1fr;
   }
@@ -2407,6 +2795,9 @@ section#organization-single div.entry-content div.organization-recommendations d
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;
     grid-row: 4/-1;
+  }
+  section#organization-single div.entry-content div.org-description > *:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
   section#organization-single div.entry-content div.form-recommendation-container {
     grid-column: 9/span 4;
@@ -2414,9 +2805,6 @@ section#organization-single div.entry-content div.organization-recommendations d
   }
 }
 @media only screen and (min-width: tablet) {
-  section#organization-single {
-    padding: 1.5rem 2.25rem;
-  }
   section#organization-single div.entry-content {
     grid-template-rows: repeat(3, auto) 1fr;
   }
@@ -2443,6 +2831,9 @@ section#organization-single div.entry-content div.organization-recommendations d
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;
     grid-row: 4/-1;
+  }
+  section#organization-single div.entry-content div.org-description > *:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
   section#organization-single div.entry-content div.form-recommendation-container {
     grid-column: 9/span 4;
@@ -2450,9 +2841,6 @@ section#organization-single div.entry-content div.organization-recommendations d
   }
 }
 @media only screen and (min-width: 1000px) {
-  section#organization-single {
-    padding: 1.5rem 2.25rem;
-  }
   section#organization-single div.entry-content {
     grid-template-rows: repeat(3, auto) 1fr;
   }
@@ -2479,6 +2867,9 @@ section#organization-single div.entry-content div.organization-recommendations d
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;
     grid-row: 4/-1;
+  }
+  section#organization-single div.entry-content div.org-description > *:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
   section#organization-single div.entry-content div.form-recommendation-container {
     grid-column: 9/span 4;
@@ -2502,8 +2893,127 @@ Spiritual Resources Page Styling
 
 delete any unused styles after
 */
-section#post-76 {
-  background-color: #fff;
+section#spiritual-resources-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#spiritual-resources-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#spiritual-resources-page {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#spiritual-resources-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#spiritual-resources-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#spiritual-resources-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#spiritual-resources-page > * {
+  grid-column: 1/-1;
+}
+section#spiritual-resources-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#spiritual-resources-page div.entry-content h2 {
+  margin-bottom: 1.5rem;
+}
+section#spiritual-resources-page div.entry-content img {
+  width: 100%;
+}
+section#spiritual-resources-page div.entry-content nav > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#spiritual-resources-page div.entry-content nav ul > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#spiritual-resources-page div.entry-content nav ul li:hover {
+  color: #781100;
+  text-decoration: underline;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#spiritual-resources-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#spiritual-resources-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#spiritual-resources-page div.entry-content .page-featured-image {
+    grid-column: 1/-1;
+  }
+  section#spiritual-resources-page div.entry-content > section {
+    grid-row: 2/-1;
+    grid-column: span 8;
+  }
+  section#spiritual-resources-page div.entry-content nav {
+    grid-row: 2/-1;
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#spiritual-resources-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#spiritual-resources-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#spiritual-resources-page div.entry-content .page-featured-image {
+    grid-column: 1/-1;
+  }
+  section#spiritual-resources-page div.entry-content > section {
+    grid-row: 2/-1;
+    grid-column: span 8;
+  }
+  section#spiritual-resources-page div.entry-content nav {
+    grid-row: 2/-1;
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#spiritual-resources-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  }
+  section#spiritual-resources-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#spiritual-resources-page div.entry-content .page-featured-image {
+    grid-column: 1/-1;
+  }
+  section#spiritual-resources-page div.entry-content > section {
+    grid-row: 2/-1;
+    grid-column: span 8;
+  }
+  section#spiritual-resources-page div.entry-content nav {
+    grid-row: 2/-1;
+    grid-column: span 4;
+  }
 }
 
 /* those reusable component like stuff that accept variables */
@@ -2512,8 +3022,296 @@ Worship Services Page Styling
 
 delete any unused styles after
 */
-section#post-74 {
-  background-color: #fff;
+section#worship-page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section#worship-page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section#worship-page {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#worship-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#worship-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#worship-page {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+  }
+}
+section#worship-page > * {
+  grid-column: 1/-1;
+}
+section#worship-page div.entry-content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#worship-page div.entry-content > section:first-of-type div ul.service-times {
+  text-align: center;
+  background-color: rgba(71, 88, 65, 0.7);
+  padding: 1rem;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 1.5rem;
+  column-gap: 1rem;
+}
+section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
+  grid-column: span 6;
+  color: #F5F5F5;
+  border: none;
+  background-color: #29491E;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+}
+section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#worship-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#worship-page div.entry-content div.page-featured-image {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#worship-page div.entry-content > section:first-of-type {
+    grid-column: 9/-1;
+    grid-row: 1/-1;
+  }
+  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times {
+    text-align: center;
+    background-color: rgba(71, 88, 65, 0.7);
+    padding: 1rem;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
+    grid-column: span 6;
+    color: #F5F5F5;
+    border: none;
+    background-color: #29491E;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:last-of-type {
+    grid-column: span 8;
+    grid-row: 2/span 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > * {
+    grid-column: 1/-1;
+  }
+  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
+    grid-column: span 5;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#worship-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#worship-page div.entry-content div.page-featured-image {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#worship-page div.entry-content > section:first-of-type {
+    grid-column: 9/-1;
+    grid-row: 1/-1;
+  }
+  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times {
+    text-align: center;
+    background-color: rgba(71, 88, 65, 0.7);
+    padding: 1rem;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
+    grid-column: span 6;
+    color: #F5F5F5;
+    border: none;
+    background-color: #29491E;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:last-of-type {
+    grid-column: span 8;
+    grid-row: 2/span 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > * {
+    grid-column: 1/-1;
+  }
+  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
+    grid-column: span 5;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#worship-page div.entry-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content {
+    grid-template-rows: auto 1fr;
+  }
+  section#worship-page div.entry-content div.page-featured-image {
+    grid-column: span 8;
+    grid-row: 1/span 1;
+  }
+  section#worship-page div.entry-content > section:first-of-type {
+    grid-column: 9/-1;
+    grid-row: 1/-1;
+  }
+  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times {
+    text-align: center;
+    background-color: rgba(71, 88, 65, 0.7);
+    padding: 1rem;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
+    grid-column: span 6;
+    color: #F5F5F5;
+    border: none;
+    background-color: #29491E;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  }
+  section#worship-page div.entry-content > section:last-of-type {
+    grid-column: span 8;
+    grid-row: 2/span 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > * {
+    grid-column: 1/-1;
+  }
+  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
+    grid-column: span 5;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
+    width: 100%;
+  }
 }
 
 /*

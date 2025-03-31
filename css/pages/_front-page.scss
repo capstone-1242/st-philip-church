@@ -125,7 +125,7 @@ main.front-page {
     color: $accent-white !important;
     background-color: $white;
     margin-bottom: 0;
-    padding:$mobileGridPadding;
+    padding: $responsiveSectionPadding;
     @include maxWidthCentered($maxWidth);
     @include grid;
     @include childGridSpan;
@@ -182,7 +182,6 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
-        padding: $desktopGridPadding;
         // first div
         > div {
           grid-column: span 6;

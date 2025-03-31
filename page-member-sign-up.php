@@ -18,7 +18,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="member-page" <?php post_class(); ?>>
 		<header class="entry-header">
 			<h1 class="entry-title">Membership Sign Up</h1>
 		</header><!-- .entry-header -->

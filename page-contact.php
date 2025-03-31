@@ -18,30 +18,52 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="contact-page" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 		</header><!-- .entry-header -->
 
-		<!-- Featured Image -->
-		<?php if (has_post_thumbnail()) : ?>
-			<div class="page-featured-image">
-				<?php st_philip_post_thumbnail(); ?>
-			</div>
-		<?php endif; ?>
-		<!-- End of Featured Image -->
 
 		<!-- entry content -->
 		<div class="entry-content">
+
+			<!-- featured image -->
+			<div class="page-featured-image">
+				<?php if (has_post_thumbnail()) :
+					st_philip_post_thumbnail();
+				else: ?>
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/images/spiritual-resources-image-placeholder.webp'); ?>" alt="Church Ceiling">
+				<?php endif; ?>
+			</div>
+			<!-- end of featured image -->
+
 			<section>
 				<h2>Fr. Dmitri Info</h2>
 				<address>
-					<a href="mailto:jim@example.com">stphilippriest1978@gmail.com </a><br />
-					<a href="tel:+14155550132">780-489-7943</a>
+					<!-- i structured it this way for styling while still following semantic HTML -->
+					<!-- definition list -->
+					<dl>
+						<!-- definition term -->
+						<dt>Email:</dt>
+						<!-- definition data -->
+						<dd><a href="mailto:stphilippriest1978@gmail.com">stphilippriest1978@gmail.com</a></dd>
+
+						<dt>Phone:</dt>
+						<dd><a href="tel:+17804897943">780-489-7943</a></dd>
+					</dl>
 				</address>
 
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button" target="_blank">Contact Us</a>
+
+
 			</section>
+
+			<div class="form-container">
+				<h2>Send Us a Message</h2>
+				<?php echo do_shortcode('[forminator_form id="303"]'); ?>
+			</div>
+
+			<!-- I created a forminator form for the contact page so the goole form is useless?  -->
+			<!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button" target="_blank">Contact Us</a> -->
 		</div>
 		<!-- end of .entry-content -->
 

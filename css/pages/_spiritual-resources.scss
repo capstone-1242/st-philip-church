@@ -15,9 +15,63 @@ delete any unused styles after
 @use '../components/card' as *;
 
 // this is the spiritual resources wrapper id
-section#post-76{
-background-color: #fff;
+section#spiritual-resources-page{
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+  @include grid;
+  @include childGridSpan;
+ 
+  div.entry-content{
+    @include childMarginBottom;
 
+    h2{
+      margin-bottom: $base-line-height;
+    }
+
+    img{
+      width: 100%;
+    }
+  
+    nav{
+      @include childMarginBottom;
+      ul{
+        @include childMarginBottom;
+        li{
+          &:hover{
+            color: $accent-red;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    @include forScreenSizes(tablet, desktop){
+      &{
+        @include gridContainer($column-gap: 1.5rem);
+        &{
+          grid-template-rows: auto 1fr;
+        }
+        .page-featured-image{
+          grid-column: 1 / -1;
+        }
+
+        >section{
+          grid-row: 2 / -1;
+          grid-column: span 8;
+        }
+
+        nav{
+          grid-row: 2 / -1;
+          grid-column: span 4;
+        }
+      }
+    }
+  }
+
+ 
 
 
 

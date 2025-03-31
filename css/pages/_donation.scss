@@ -1,7 +1,5 @@
 /*
-Membership Sign Up Page Styling
-
-delete any unused styles after
+Donation Page Styling
 */
 
 // base
@@ -15,52 +13,43 @@ delete any unused styles after
 @use '../components/card' as *;
 
 // this is the about us wrapper id
-section#member-page{
+section#donation-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
   margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
 
-  header{
-    margin-bottom: $base-line-height;
-  }
-
   div.entry-content{
     @include childMarginBottom;
-    section{
-      @include card($background-color: $main-yellow, $color: $primary-blue, $padding: 1.5rem);
+
+    .donation-info{
+      @include card($color: $primary-blue, $border: 3px solid $primary-blue);
       @include childMarginBottom;
+     
     }
 
-    a{
-      width: 100%;
-    }
-
-    @include forScreenSizes(tablet,desktop){
-      &{
+    @include forScreenSizes(tablet, desktop){
         @include gridContainer($column-gap: 24px);
-        p{
-          grid-column: 1 / -1;
+        &{
+          grid-template-rows: auto 1fr;
         }
 
-        section{
-          grid-column: span 4;
-          h2{
-            min-height: 64px;
-          }
+        .page-featured-image{
+          grid-column: 1 / span 8;
+          grid-row: span 1;
         }
 
-        a{
-          grid-column: span 4;
+        > p {
+          grid-column: span 8;
+          grid-row: 2 / -1;
         }
 
+        .donation-info{
+          grid-column: 9 / span 4;
+          grid-row: 1 / -1;
+        }
       }
-    }
+    
   }
-
- 
-
-
-
 }

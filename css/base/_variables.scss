@@ -3,6 +3,19 @@
 $mobileGridPadding: 1.5rem 1rem;
 $desktopGridPadding: 1.5rem 2.25rem;
 
+
+
+$mobileAccordionPadding: 1.125rem 1rem;
 $maxWidth: 1248px;
 
 
+// this is a suggestion so the padding is constant to all the sections
+
+//from px: 24 to 32px and py: 24px to 48px
+// 
+$responsiveSectionPadding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem)clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+
+//  from 32px to 48 top and 84px
+$sectionMargin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem);
+$borderRadius: 4px;
+$mainSectionBorderRadius: 10px;

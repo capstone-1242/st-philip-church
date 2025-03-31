@@ -1,13 +1,14 @@
 @use "../base/colors" as *;
 @use "../base/typography" as *;
 @use "../base/media-queries" as *;
+@use "../base/variables" as *;
 
 @use 'sass:list'; // Import the list module to use its functions
 
 @mixin card(
   $color: $accent-white,
   $border: 1px solid $main-yellow,
-  $radius: 4px,
+  $radius: $borderRadius,
   $padding: 12px 24px,
   $background-color: transparent
 ) {
@@ -76,7 +77,7 @@
 
 // this makes sure our spacing corresponds to the vertical rhythm 24px and I use it a lot so i created mixin for it
 @mixin childMarginBottom($value: 1.5rem) {
-  > * { 
+  > *:not(:last-child){ 
     margin-bottom: $value;
   }
 }

@@ -5,21 +5,137 @@ delete any unused styles after
 */
 
 // base
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-@use '../base/variables' as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
 // components
-@use '../components/button' as *;
-@use '../components/card' as *;
+@use "../components/button" as *;
+@use "../components/card" as *;
 
 // this is the shop wrapper id
-section#post-74{
-background-color: #fff;
+section#worship-page {
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+  @include grid;
+  @include childGridSpan;
+
+  div.entry-content{
+    @include childMarginBottom;
+    // our service times
+  > section:first-of-type {
+    @include childMarginBottom;
 
 
+    //service times container
+    div {
+      ul.service-times {
+        text-align: center;
+        background-color: rgba($main-green, 0.7);
+        padding: 1rem;
+        grid-column: 1 / -1;
+        @include gridContainer;
 
+        li {
+          grid-column: span 6;
+          @include card($background-color: $accent-green, $border: none);
+          font-size: $font14-to-font24;
+          line-height: $line-height-14-24;
+          time {
+            display: block;
+            font-weight: $font-weight-bold;
+            font-size: $font20-to-font32;
+            line-height: $line-height-20-32;
+          }
+        }
+      }
+    }
+  }
+  // end of service times
 
+  // divine liturgy
+  > section:last-of-type {
+    @include childMarginBottom;
 
+    // want to read more about the history of the church 
+    >div:last-of-type{
+      @include childMarginBottom;
+      a{
+        width: 100%;
+      }
+    }
+  }
+
+  @include forScreenSizes(tablet,desktop){
+    & {
+      @include gridContainer;
+      &{
+        grid-template-rows: auto 1fr;
+      }
+
+      div.page-featured-image{
+        grid-column: span 8;
+        grid-row: 1 / span 1;
+      }
+ 
+      // our service times
+      > section:first-of-type {
+        grid-column: 9 / -1;
+        grid-row: 1 / -1;
+        @include childMarginBottom;
+    
+    
+        //service times container
+        div {
+          ul.service-times {
+            text-align: center;
+            background-color: rgba($main-green, 0.7);
+            padding: 1rem;
+            grid-column: 1 / -1;
+            @include gridContainer;
+    
+            li {
+              grid-column: span 6;
+              @include card($background-color: $accent-green, $border: none);
+              font-size: $font14-to-font24;
+              line-height: $line-height-14-24;
+              time {
+                display: block;
+                font-weight: $font-weight-bold;
+                font-size: $font20-to-font32;
+                line-height: $line-height-20-32;
+              }
+            }
+          }
+        }
+      }
+      // end of service times
+    
+      // divine liturgy
+      > section:last-of-type {
+        grid-column: span 8;
+        grid-row: 2 / span 1;
+        @include gridContainer($columns: 8);
+        > * {
+          grid-column: 1 / -1;
+        }
+
+        @include childMarginBottom;
+        >div:last-of-type{
+          grid-column: span 5;
+          @include childMarginBottom;
+          a{
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+
+  }
 }

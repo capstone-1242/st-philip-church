@@ -5,21 +5,58 @@ delete any unused styles after
 */
 
 // base
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-@use '../base/variables' as *;
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
+@use "../base/variables" as *;
 // components
-@use '../components/button' as *;
-@use '../components/card' as *;
+@use "../components/button" as *;
+@use "../components/card" as *;
 
 // this is the contact us wrapper id
-section#post-85{
-background-color: #fff;
+section#contact-page {
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+  @include childMarginBottom;
 
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 
+  div.entry-content {
+    @include childMarginBottom;
 
+    section {
+      @include childMarginBottom;
 
+      address {
+        dl {
+          dt {
+            font-size: $font16-to-font24;
+            line-height: $line-height-16-24;
+            font-weight: $font-weight-medium-bold;
+          }
+          dd{
+            margin-bottom: $base-line-height;
+          }
+        }
+      }
+    }
 
+    @include forScreenSizes(tablet, desktop) {
+      & {
+        @include gridContainer($column-gap: 24px);
+
+        > * {
+          grid-column: span 4;
+        }
+      }
+    }
+  }
 }

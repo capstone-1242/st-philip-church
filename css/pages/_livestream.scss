@@ -14,11 +14,12 @@ delete any unused styles after
 @use "../components/button" as *;
 @use "../components/card" as *;
 
-
-// NOTE!!! STILL HAVE TO FIGURE OUT THE CHURCH HOURS AS IT IS OVERFLOWING AT CERTAIN BREAKPOINT:
 section#livestream {
   background-color: $accent-white;
-  margin: 3rem auto 7.5rem !important;
+  padding: $responsiveSectionPadding;
+  // margin: 3rem auto 7.5rem !important;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   
   .entry-header{
@@ -39,15 +40,15 @@ section#livestream {
       }
 
       >div{
-        @include grid;
         ul.service-times {
           text-align: center;
           background-color: rgba($main-green, 0.7);
-          padding: 1rem;
-          grid-column: 1 / -1;
-          @include grid;
+          padding: 1.5rem 1rem;
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
           li {
-            grid-column: span 2;
+            flex-basis: 50%;
             @include card($background-color: $accent-green, $border: none);
             font-size: $font14-to-font24;
             line-height: $line-height-14-24;
@@ -65,7 +66,6 @@ section#livestream {
 
     // past streams
     > section:last-of-type {
-      padding: $mobileGridPadding;
 
       h2{
         margin-bottom: $base-line-height;
@@ -85,10 +85,12 @@ section#livestream {
 
     // social media links
     nav {
-      padding: $mobileGridPadding;
+      h2{
+        margin-bottom: $base-line-height;
+      }
 
-      section {
-        @include childMarginBottom;
+      ul {
+       @include childMarginBottom;
       }
 
       a {

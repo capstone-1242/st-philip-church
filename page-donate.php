@@ -17,7 +17,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section id="donation-page" <?php post_class(); ?>>
 		<header class="entry-header">
 			<h1 class="entry-title">Make a Donation</h1>
 		</header><!-- .entry-header -->
@@ -25,14 +25,25 @@ get_header();
 		<!-- entry content -->
 		<div class="entry-content">
 
+			<!-- featured image -->
+			<div class="page-featured-image">
+				<?php if (has_post_thumbnail()) :
+					st_philip_post_thumbnail();
+				else: ?>
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/images/spiritual-resources-image-placeholder.webp'); ?>" alt="Church Ceiling">
+				<?php endif; ?>
+			</div>
+			<!-- end of featured image -->
+
 			<p> St. Philip Antiochian Orthodox Church has been a place of faith and community for over 46 years. Your generous donations support our mission, organizations, and community. Thank you for helping us grow for future generations.</p>
 
-			<p>Donations may be given via eTransfer using your online bank account directly to:</p>
-			<p>saintphilipedmonton@gmail.com</p>
-
-			<p>NB: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
-			<p>Tax receipts cannot be given for items being purchased.</p>
-
+			<div class="donation-info">
+				<p>Donations may be given via eTransfer using your online bank account directly to:</p>
+				<p>saintphilipedmonton@gmail.com</p>
+	
+				<p>NB: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
+				<p>Tax receipts cannot be given for items being purchased.</p>
+			</div>
 		</div>
 		<!-- .entry-content -->
 

@@ -56,7 +56,9 @@ get_header();
 					</div>
 
 					<!-- Description -->
-					<div class="org-description"><?php echo wp_kses_post(get_field('description')); ?></div>
+					<div class="org-description">
+						<?php echo wp_kses_post(get_field('description')); ?>
+					</div>
 
 					<!-- SIGN UP FOR UPDATES FORM -->
 					<div class="form-recommendation-container">

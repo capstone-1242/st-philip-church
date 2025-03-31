@@ -153,8 +153,15 @@ function st_philip_scripts() {
 
 	// Navigation script
 	wp_enqueue_script( 'st_philip-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_template_directory() . '/js/navigation.js'), true );
-	wp_enqueue_script( 'st_philip-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_template_directory() . '/js/main.js'), true );
 
+
+	wp_enqueue_script( 
+    'st_philip-main', 
+    get_template_directory_uri() . '/js/main.js', 
+    array(), 
+    filemtime(get_template_directory() . '/js/main.js'), 
+    true 
+);
 	// Enqueue Font Awesome if needed
 	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), null);
 

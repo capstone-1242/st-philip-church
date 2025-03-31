@@ -17,8 +17,9 @@ delete any unused styles after
 // this is the about us wrapper id
 section.organization-archive {
   background-color: $accent-white;
-  margin: 2rem auto !important;
-  padding: $mobileGridPadding;
+  margin: $sectionMargin !important;
+  padding: $responsiveSectionPadding;
+  border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
@@ -28,18 +29,19 @@ section.organization-archive {
       margin-bottom: $base-line-height;
     }
 
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: auto;
 
     section {
       background-color: $accent-white;
     }
 
+    section:nth-of-type(n+4){
+      grid-column: span 2;
+    }
+
   }
 
   @include forScreenSizes(tablet, desktop) {
-    grid-template-rows: repeat(3, auto);
-    padding: $desktopGridPadding;
-
     > div {
       grid-column: 1 / span 6;
     }

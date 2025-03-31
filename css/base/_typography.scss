@@ -23,10 +23,14 @@ $line-height-16-20: 1.5rem; /* 24px since both are below 24px */
 $font16-to-font24: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
 $line-height-16-24: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);/* from 24 to 36px */
 
+// h2
+$font18-to-font36: clamp(1.125rem, 0.5956rem + 2.6471vw, 2.25rem);
+$line-height-18-36: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 to 48px */
+
 
 // h3
 $font16-to-font32: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
-$line-height-16-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+$line-height-16-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 
 // tagline clamp
 $font16-to-font40: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
@@ -53,6 +57,28 @@ $line-height-20-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* from 24 to 
 $font20-to-font40: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
 $line-height-20-40: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* from 24 to 48px */
 
+// for accordion h3
+$font24-to-font30: clamp(1.5rem, 1.3235rem + 0.8824vw, 1.875rem);
+$line-height-24-30: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24px to 36 */
+
+
+
+// SUGGESTED FONTS:
+// h1
+$font24-to-font48: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+$line-height-24-48: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 48 */
+
+// h2
+$font20-to-font36: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
+$line-height-20-36: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 to 48 */
+
+// h3
+$font18-to-font32: clamp(1.125rem, 0.7132rem + 2.0588vw, 2rem);
+$line-height-18-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
+
+// h4
+$font16-to-font28: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem);
+$line-height-16-28: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 
 // line-height:
 $base-line-height: 1.5rem;

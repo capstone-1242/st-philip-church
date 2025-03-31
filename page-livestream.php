@@ -56,20 +56,19 @@ get_header();
 				</div>
 			</section>
 			<nav>
+				<h2>Follow Our Socials</h2>
 				<ul class="social-links">
 					<li>
-						<section>
-							<h2>Follow on Facebook</h2>
+				
 							<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link default-button">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
-						</section>
+					
 					</li>
 					<li>
-						<section>
-							<h2>Subscribe on YouTube</h2>
+						
 							<a href="#" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
-						</section>
+					
 					</li>
 				</ul>
 			</nav>

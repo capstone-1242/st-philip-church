@@ -1,7 +1,8 @@
 /*
 About Us Page Styling
 
-delete any unused styles after
+Source for read more functionality
+@link https://www.youtube.com/watch?v=Fw1XMO6MSXk 
 */
 
 // base
@@ -15,8 +16,56 @@ delete any unused styles after
 @use '../components/card' as *;
 
 // this is the about us wrapper id
-section#post-84{
-background-color: #fff;
+section#about-page{
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+
+  button, a{
+    width: 100%;
+  }
+
+  div.entry-content{
+    @include childMarginBottom;
+
+    > section, ul, >div, >div section{
+      @include childMarginBottom;
+    }
+
+    address{
+      font-size: $font16-to-font24;
+      line-height: $line-height-16-24;
+    }
+
+    i{
+      margin-left: 1.625rem;
+    }
+
+    @include forScreenSizes(tablet, desktop) {
+      @include gridContainer($column-gap: 1.5rem);
+      &{
+        grid-template-rows: auto 1fr;
+      }
+
+      >section:first-of-type{
+        grid-column: span 8;
+        grid-row: 1 / span 1;
+      }
+
+      >section:nth-of-type(2){
+        grid-column: span 8;
+        grid-row: 2 / -1;
+      }
+
+      >div{
+        grid-column: 9 / span 4;
+        grid-row: 1 / -1;
+        @include card($color: $primary-blue, $background-color: rgba($main-yellow, .45));
+      }
+    }
+  }
 
 
 
