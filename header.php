@@ -26,22 +26,14 @@
 	<?php wp_body_open(); ?>
 	<div id="page" class="site"
     <?php if (is_front_page()): ?>
-        style="background: #ffffff url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
+        style="background: #f0f0f0 url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
     <?php endif; ?>
 >
-
 
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'st_philip'); ?></a>
 
 		<div class="header-nav-container">
 			<header id="masthead" class="site-header">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<span class="screen-reader-text"><?php esc_html_e('Toggle Navigation', 'st_philip'); ?></span>
-					<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="20" cy="20" r="20" fill="#E9EDF6" />
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6 14C11.6 13.6818 11.7264 13.3765 11.9515 13.1515C12.1765 12.9265 12.4817 12.8 12.8 12.8H27.2C27.5183 12.8 27.8235 12.9265 28.0485 13.1515C28.2736 13.3765 28.4 13.6818 28.4 14C28.4 14.3183 28.2736 14.6235 28.0485 14.8486C27.8235 15.0736 27.5183 15.2 27.2 15.2H12.8C12.4817 15.2 12.1765 15.0736 11.9515 14.8486C11.7264 14.6235 11.6 14.3183 11.6 14ZM11.6 20C11.6 19.6818 11.7264 19.3765 11.9515 19.1515C12.1765 18.9265 12.4817 18.8 12.8 18.8H27.2C27.5183 18.8 27.8235 18.9265 28.0485 19.1515C28.2736 19.3765 28.4 19.6818 28.4 20C28.4 20.3183 28.2736 20.6235 28.0485 20.8486C27.8235 21.0736 27.5183 21.2 27.2 21.2H12.8C12.4817 21.2 12.1765 21.0736 11.9515 20.8486C11.7264 20.6235 11.6 20.3183 11.6 20ZM11.6 26C11.6 25.6818 11.7264 25.3765 11.9515 25.1515C12.1765 24.9265 12.4817 24.8 12.8 24.8H27.2C27.5183 24.8 27.8235 24.9265 28.0485 25.1515C28.2736 25.3765 28.4 25.6818 28.4 26C28.4 26.3183 28.2736 26.6235 28.0485 26.8486C27.8235 27.0736 27.5183 27.2 27.2 27.2H12.8C12.4817 27.2 12.1765 27.0736 11.9515 26.8486C11.7264 26.6235 11.6 26.3183 11.6 26Z" fill="#5B5E69" />
-					</svg>
-				</button>
 				<div class="site-branding">
 					<div class="site-logo"><?php the_custom_logo(); ?></div>
 					<?php
@@ -57,29 +49,22 @@
 					$st_philip_description = get_bloginfo('description', 'display');
 					if ($st_philip_description || is_customize_preview()) :
 					?>
-						<p class="site-description"><?php echo $st_philip_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-																				?></p>
+						<p class="site-description"><?php echo $st_philip_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?></p>
 					<?php endif; ?>
 				</div><!-- .site-branding -->
-				<!-- woocommerce button -->
-				<a href="<?php echo esc_url(get_permalink(77)); ?>" class="woo-shop-button">
-					<span class="screen-reader-text"><?php esc_html_e('Shop', 'st_philip'); ?></span>
-					<svg width="45" height="45" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="20" cy="20" r="20" fill="#E9EDF6" />
-						<path d="M24 19V15C24 13.9391 23.5786 12.9217 22.8284 12.1716C22.0783 11.4214 21.0609 11 20 11C18.9391 11 17.9217 11.4214 17.1716 12.1716C16.4214 12.9217 16 13.9391 16 15V19M13 17H27L28 29H12L13 17Z" stroke="#5B5E69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
-				</a>
-			</header><!-- #masthead -->
 
 			<nav id="site-navigation" class="main-navigation" aria-label="Main site navigation">
 
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'main-navigation',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'main-navigation',
+					'menu_id'        => 'primary-menu',
+					'walker'         => new St_Philip_Walker_Nav_Menu(),
+				)
+			);
+			?>
+
 			</nav><!-- #site-navigation -->
+			</header><!-- #masthead -->
 		</div>

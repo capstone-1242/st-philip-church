@@ -465,158 +465,115 @@ This is where we style our footer
   }
 }
 
-/*
-This is where we style our header navigation
-*/
-div.header-nav-container {
-  background-color: white;
+.header-nav-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  position: relative;
+  transition: border-radius 0.3s ease;
+}
+.header-nav-container.menu-hovered {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+@media only screen and (min-width: 1000px) {
+  .header-nav-container {
+    padding: 1rem 2rem;
+  }
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  width: 48px;
+  height: auto;
+  margin-right: 2rem;
+}
+.site-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.site-title {
+  display: none;
+}
+
+.main-navigation ul#primary-menu {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 2rem;
+}
+.main-navigation ul#primary-menu li.menu-item a {
+  font-family: "Alegreya Sans", sans-serif;
+  text-decoration: none;
+  color: #111933;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+.main-navigation ul#primary-menu li.menu-item .dropdown-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 600px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  opacity: 0%;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 4rem;
+  border-radius: 0 0 8px 8px;
   z-index: 1000;
 }
-
-@media only screen and (min-width: 1000px) {
-  div.header-nav-container {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    padding: 1rem 0.5rem;
-  }
-  div.header-nav-container {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-  div.header-nav-container ul#primary-menu {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item {
-    position: relative;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu {
-    position: absolute;
-    top: 50px;
-    left: -8px;
-    z-index: 1000;
-    min-width: 200px;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item > ul.sub-menu li.menu-item a {
-    flex-wrap: nowrap;
-    min-width: auto;
-  }
-  div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
-    margin-left: auto;
-    justify-self: end;
-  }
-}
-/*===========================HEADER=================================*/
-header {
+.main-navigation ul#primary-menu li.menu-item .dropdown-wrapper ul.sub-menu {
+  text-align: start;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 29px 0 16px;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-header.page-header {
-  display: block;
+.main-navigation ul#primary-menu li.menu-item .dropdown-wrapper ul.sub-menu li {
+  white-space: nowrap;
 }
-header .woo-shop-button,
-header .menu-toggle {
-  display: block;
-}
-header .site-logo {
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  overflow: hidden;
-}
-@media only screen and (min-width: 1000px) {
-  header {
-    display: block;
-    padding: 0;
-  }
-  header .menu-toggle,
-  header .woo-shop-button {
-    display: none;
-  }
-  header .site-title {
-    visibility: hidden;
-    height: 0;
-  }
-  header .site-logo {
-    visibility: visible;
-    height: auto;
-    width: 50px;
-    object-fit: cover;
-  }
-}
-
-.comment-list {
-  display: flex;
-  flex-flow: row wrap;
-}
-.comment-list .committee-member {
-  flex: auto;
-}
-
-/*===========================NAVIGATION=================================*/
-ul#primary-menu {
-  background: white;
-  display: none;
-}
-ul#primary-menu > li.menu-item {
-  color: #111933;
-  background-color: rgba(245, 245, 245, 0.77);
-  display: block;
-  float: left;
-  padding: 8px 16px;
-  position: relative;
-  text-decoration: none;
-  transition-duration: 0.5s;
-  z-index: 900;
-}
-ul#primary-menu > li.menu-item:hover, ul#primary-menu > li.menu-item:focus-within {
-  cursor: pointer;
-}
-ul#primary-menu > li.menu-item:focus-within a {
-  outline: none;
-}
-ul#primary-menu > li.menu-item:hover > ul.sub-menu, ul#primary-menu > li.menu-item:focus-within > ul.submenu {
-  visibility: visible;
+.main-navigation ul#primary-menu li.menu-item:hover > .dropdown-wrapper, .main-navigation ul#primary-menu li.menu-item:focus-within > .dropdown-wrapper {
   opacity: 1;
-  display: block;
-  z-index: inherit;
-}
-ul#primary-menu > li.menu-item > ul.sub-menu {
-  background: rgba(245, 245, 245, 0.77);
-  visibility: hidden;
-  opacity: 0;
-  min-width: 5rem;
-  transition: all 0.5s ease;
-  margin-top: 1rem;
-  padding: 8px 16px;
-  left: 0;
-  display: none;
-}
-ul#primary-menu > li.menu-item > ul.sub-menu:hover > li, ul#primary-menu > li.menu-item > ul.sub-menu:focus > li {
-  visibility: visible;
-  opacity: 1;
-  display: block;
-  width: 100%;
-  z-index: inherit;
-}
-ul#primary-menu > li.menu-item > ul.sub-menu > li {
-  clear: both;
-  width: 100%;
-  padding: 8px 16px;
-}
-#site-navigation.toggled ul#primary-menu {
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-}
-#site-navigation.toggled ul#primary-menu ul.sub-menu > li.menu-item {
-  padding-left: 24px;
-  margin-top: 4px;
+  pointer-events: auto;
 }
 
-/*===========================END OF NAVIGATION=================================*/
+div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2) {
+  grid-column: 8/span 1;
+  text-align: end;
+}
+
+div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a {
+  font-weight: bold;
+}
+
 /* those reusable component like stuff that accept variables */
 /*
 About Us Page Styling

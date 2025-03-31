@@ -144,8 +144,12 @@ function st_philip_scripts() {
 	// font styles - will delete this after
 	wp_enqueue_style('inter-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap', array(), null);
 	// font-styles
-	wp_enqueue_style( 'frank-ruhl-libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@100..900&display=swap', array(),null);
-	wp_enqueue_style( 'alegreya-sans-font', 'https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100..900&display=swap', array(), null ); 
+	wp_enqueue_style(
+		'stphilip-google-fonts',
+		'https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Frank+Ruhl+Libre:wght@300..900&display=swap',
+		array(),
+		null
+	);
 
 	// Css styles
 	wp_enqueue_style( 'tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css' ,  array(), null, 'all' );
@@ -154,14 +158,14 @@ function st_philip_scripts() {
 	// Navigation script
 	wp_enqueue_script( 'st_philip-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_template_directory() . '/js/navigation.js'), true );
 
-
 	wp_enqueue_script( 
-    'st_philip-main', 
-    get_template_directory_uri() . '/js/main.js', 
-    array(), 
-    filemtime(get_template_directory() . '/js/main.js'), 
-    true 
-);
+		'st_philip-main', 
+		get_template_directory_uri() . '/js/main.js', 
+		array(), 
+		filemtime(get_template_directory() . '/js/main.js'), 
+		true 
+	);
+
 	// Enqueue Font Awesome if needed
 	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), null);
 
@@ -200,5 +204,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+require get_template_directory() . '/class-custom-walker.php';
+
 
 // ____________________________ADDED FUNCTIONALITY________________________________//

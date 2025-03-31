@@ -1,196 +1,129 @@
-/*
-This is where we style our header navigation
-*/
-
 @use '../base/colors' as *;
 @use '../base/media-queries' as *;
 @use '../base/mixins' as *;
+@use '../base/typography' as *;
 
-div.header-nav-container {
-  background-color: $white;
+.header-nav-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
   z-index: 1000;
-}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  position: relative;
+  transition: border-radius 0.3s ease;
 
-@include forScreenSizes( desktop) {
-  div.header-nav-container {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    padding: 1rem 0.5rem;
-    @include maxWidthCentered(1440px);
-
-    ul#primary-menu {
-      display: flex;
-      flex-flow: row nowrap;
-
-      // i change this
-      > li.menu-item{
-        position: relative;
-
-        > ul.sub-menu{
-          position: absolute;
-          top: 50px;
-          left: -8px;
-          z-index: 1000;
-          min-width: 200px;
-
-          li.menu-item a{
-            flex-wrap: nowrap;
-            min-width: auto;
-          }
-        }
-      }
-      // new change
-
-      & > li.menu-item:nth-last-of-type(2) {
-        margin-left: auto;
-        justify-self: end;
-      }
-    }
-  }
-}
-
-/*===========================HEADER=================================*/
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 29px 0 16px;
-
-  // i forgot that header should be sticky and I have no brain cells left to figure this out, maybe next week 
-  // this is an attempt
-  // position: sticky;
-  // top: 0;
-  // z-index: 1100;
-  // background-color: white;
-
-
-  &.page-header {
-    display: block;
-  }
-
-  .woo-shop-button,
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-logo {
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+  &.menu-hovered {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   @include forScreenSizes(desktop) {
-    & {
-      display: block;
-      padding: 0;
-    }
-
-    .menu-toggle,
-    .woo-shop-button {
-      display: none;
-    }
-
-    .site-title {
-      visibility: hidden;
-      height: 0;
-    }
-
-    .site-logo {
-      visibility: visible;
-      height: auto;
-      width: 50px;
-      object-fit: cover;
-    }
+    padding: 1rem 2rem;
   }
 }
 
-
-
-.comment-list {
+.site-header {
   display: flex;
-  flex-flow: row wrap;
-
-  .committee-member {
-    flex: auto;
-  }
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-/*===========================NAVIGATION=================================*/
-// based on the "Solved with CSS! Dropdown Menus Article --focus-within--
-ul#primary-menu {
-  background: white;
-  display: none;
-
-  // start of li
-  > li.menu-item {
-    color: $primary-blue;
-    background-color: rgba(245,245,245,0.77);
-    display: block;
-    float: left;
-    padding: 8px 16px;
-    position: relative;
-    text-decoration: none;
-    transition-duration: 0.5s;
-    z-index: 900;
-
-    &:hover,
-    &:focus-within {
-      cursor: pointer;
-    }
-
-    &:focus-within a {
-      outline: none;
-    }
-
-    &:hover > ul.sub-menu,
-    &:focus-within > ul.submenu {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-      z-index: inherit;
-    }
-
-    // sub-menu:dropdown
-    > ul.sub-menu {
-      background:  rgba(245,245,245,0.77);
-      visibility: hidden;
-      opacity: 0;
-      min-width: 5rem;
-      transition: all 0.5s ease;
-      margin-top: 1rem;
-      padding: 8px 16px;
-      left: 0;
-      display: none;
-
-      &:hover > li,
-      &:focus > li { 
-        visibility: visible;
-        opacity: 1;
-        display: block;
-        width: 100%;
-        z-index: inherit;
-      }
-
-      > li {
-        clear: both;
-        width: 100%;
-        padding: 8px 16px;
-      }
-    }
-    // end of sub-menu: dropdown
-  }
-  // end of end of li
-
-  #site-navigation.toggled & {
-    display: flex;
-    flex-flow: column wrap;
+.site-logo {
+  width: 48px;
+  height: auto;
+  margin-right: 2rem;
+  img {
     width: 100%;
-
-    ul.sub-menu > li.menu-item {
-      padding-left: 24px;
-      margin-top: 4px;
-    }
+    height: auto;
+    object-fit: contain;
   }
 }
-/*===========================END OF NAVIGATION=================================*/
+
+.site-title {
+  display: none;
+}
+
+.main-navigation {
+  ul#primary-menu {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 2rem;
+
+    li.menu-item {
+
+      a {
+        font-family: $body-font-family;
+        text-decoration: none;
+        color: $primary-blue;
+        font-weight: 500;
+        display: inline-block;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .dropdown-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        min-width: 600px;
+        max-width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        opacity: 0%;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0 4rem;
+        border-radius: 0 0 8px 8px;
+        z-index: 1000;
+
+        ul.sub-menu {
+          text-align: start;
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            white-space: nowrap;
+          }
+        }
+      }
+
+
+      &:hover > .dropdown-wrapper,
+      &:focus-within > .dropdown-wrapper {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+
+    }
+  }
+
+}
+
+div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2){
+  grid-column: 8 / span 1;
+  text-align: end;
+}
+div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a {
+  font-weight: bold;
+}

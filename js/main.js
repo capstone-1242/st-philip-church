@@ -81,3 +81,17 @@ readMessageBtn.addEventListener("click", function(){
 
 });
 }
+
+//HEADER FUCTIONS
+const navContainer = document.querySelector('.header-nav-container');
+const menuItems = document.querySelectorAll('#primary-menu > li.menu-item');
+
+menuItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    navContainer.classList.add('menu-hovered');
+  });
+
+  item.addEventListener('mouseleave', () => {
+    navContainer.classList.remove('menu-hovered');
+  });
+});
