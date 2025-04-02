@@ -26,7 +26,7 @@
 	<?php wp_body_open(); ?>
 	<div id="page" class="site"
     <?php if (is_front_page()): ?>
-        style="background: #f0f0f0 url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
+        style="padding-top: 0.25rem; background: #f0f0f0 url('<?php echo get_template_directory_uri(); ?>/images/angel-background.webp') no-repeat fixed top / cover;"
     <?php endif; ?>
 >
 

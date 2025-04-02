@@ -574,6 +574,11 @@ div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a 
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  #page {
+    background-attachment: scroll !important;
+  }
+}
 /* those reusable component like stuff that accept variables */
 /*
 About Us Page Styling

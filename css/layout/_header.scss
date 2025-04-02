@@ -127,3 +127,11 @@ div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2){
 div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a {
   font-weight: bold;
 }
+
+
+// cherry i just added this for the background image: coz it glitches in the mobile.. if you want i can also just apply the background image to all the pages? 
+@media (max-width: 768px) {
+    #page {
+        background-attachment: scroll !important;
+    }
+}
