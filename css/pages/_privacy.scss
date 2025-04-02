@@ -1,0 +1,35 @@
+/*
+Privacy Policy Page Styling
+
+Source for read more functionality
+@link https://www.youtube.com/watch?v=Fw1XMO6MSXk 
+*/
+
+// base
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/variables' as *;
+// components
+@use '../components/button' as *;
+@use '../components/card' as *;
+
+// this is the about us wrapper id
+section#about-page{
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+
+
+  div.entry-content{
+    @include childMarginBottom;
+  }
+}
+
+
+
+
+

@@ -87,7 +87,7 @@ get_header();
 	<section class="upcoming-events">
 		<div>
 			<h2>Upcoming Events</h2>
-			<p>Work in Progress</p>
+			<iframe title="St. Philip's Events" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FEdmonton&showPrint=0&src=Y29tbXVuaWNhdGlvbi5zdC5waGlsaXAuY2h1cmNoQGdtYWlsLmNvbQ&src=YjQxYjk3MTcxOWE2OTk5ZjAxMWVlNjdhN2ViMTYxODAyNWQ0ZjVmOWFmYzkwYjk5ZDU2N2E5MTU1YTI2ZDYyZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZGM5NWZlNTAwY2E3NTdkNGIwNWNiNjE4MzU5ZDBlMTA5YTNjZDg5Y2I0YjAxZjk4NTUyNWVmNTVhYjBlNGQwOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23EF6C00&color=%23F09300" class="responsive-iframe" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 		</div>
 	</section>
 
