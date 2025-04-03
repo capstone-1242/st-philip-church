@@ -579,6 +579,20 @@ div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a 
     background-attachment: scroll !important;
   }
 }
+section.error-404 {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section.error-404 {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section.error-404 > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
 /* those reusable component like stuff that accept variables */
 /*
 About Us Page Styling
@@ -612,7 +626,7 @@ section#about-page div.entry-content address {
 section#about-page div.entry-content i {
   margin-left: 1.625rem;
 }
-section#about-page div.entry-content #full-parish-message > *:not(:last-child), section#about-page div.entry-content #more-history-content > *:not(:last-child) {
+section#about-page div.entry-content #full-parish-message p, section#about-page div.entry-content #parish-message-preview p, section#about-page div.entry-content #more-history-content p {
   margin-bottom: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
@@ -2120,9 +2134,6 @@ section#livestream div.entry-content nav a {
   width: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  section#livestream {
-    padding: 1.5rem 2.25rem;
-  }
   section#livestream div.entry-content {
     grid-template-rows: repeat(3, auto);
   }
@@ -2159,9 +2170,6 @@ section#livestream div.entry-content nav a {
   }
 }
 @media only screen and (min-width: tablet) {
-  section#livestream {
-    padding: 1.5rem 2.25rem;
-  }
   section#livestream div.entry-content {
     grid-template-rows: repeat(3, auto);
   }
@@ -2198,9 +2206,6 @@ section#livestream div.entry-content nav a {
   }
 }
 @media only screen and (min-width: 1000px) {
-  section#livestream {
-    padding: 1.5rem 2.25rem;
-  }
   section#livestream div.entry-content {
     grid-template-rows: repeat(3, auto);
   }
@@ -2331,6 +2336,20 @@ section#member-page div.entry-content a {
   section#member-page div.entry-content a {
     grid-column: span 4;
   }
+}
+
+section.page {
+  background-color: #F5F5F5;
+  padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
+  margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem) !important;
+  border-radius: 10px;
+}
+section.page {
+  max-width: 1248px;
+  margin: 0 auto;
+}
+section.page > *:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
 
 /* those reusable component like stuff that accept variables */

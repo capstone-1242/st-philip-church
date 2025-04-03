@@ -11,7 +11,7 @@
 ?>
 
 
-<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<section id="post-<?php the_ID(); ?>" <?php post_class('page'); ?>>
 	<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="organization-card-link">
 		<div class="organization-card">
 

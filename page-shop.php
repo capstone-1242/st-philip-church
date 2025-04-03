@@ -40,8 +40,9 @@ get_header();
 							</div><!-- .entry-meta -->
 						<?php endif; ?>
 					</header><!-- .entry-header -->
-
-					<?php st_philip_post_thumbnail(); ?>
+						<div>
+							<?php get_sidebar('sidebar-1');?>
+						</div>
 
 					<div class="entry-content">
 						<?php
@@ -67,6 +68,10 @@ get_header();
 							)
 						);
 						?>
+
+						<div class="cart-section">
+							<?php get_sidebar('shopping-cart');?>
+						</div>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-footer">

@@ -125,7 +125,7 @@ add_action( 'after_setup_theme', 'st_philip_content_width', 0 );
 function st_philip_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'st_philip' ),
+			'name'          => esc_html__( 'Shop-Filters', 'st_philip' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'st_philip' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -134,6 +134,18 @@ function st_philip_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Shopping-Cart', 'st_philip' ),
+			'id'            => 'shopping-cart',
+			'description'   => esc_html__( 'Add widgets here.', 'st_philip' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	
 }
 add_action( 'widgets_init', 'st_philip_widgets_init' );
 

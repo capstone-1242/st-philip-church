@@ -101,7 +101,6 @@ section#livestream {
 
   @include forScreenSizes(tablet,desktop){
     &{
-      padding: $desktopGridPadding;
       div.entry-content{
         grid-template-rows: repeat(3, auto);
         // first video

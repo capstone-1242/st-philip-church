@@ -17,6 +17,7 @@
 
 
 // pages - pages styling
+@use "pages/404" as *;
 @use "pages/about-us" as *;
 @use "pages/archive-com" as *;
 @use "pages/archive-org" as *;
@@ -28,6 +29,7 @@
 @use "pages/front-page" as *;
 @use "pages/livestream" as *;
 @use "pages/membership" as *;
+@use "pages/page" as *;
 @use "pages/privacy" as *;
 @use "pages/single-com" as *;
 @use "pages/single-org" as *;

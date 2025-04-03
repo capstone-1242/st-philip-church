@@ -50,14 +50,13 @@ get_header();
 					$parish_message = wp_kses_post(get_field('parish_message'));
 					$parish_name = wp_kses_post(get_field('parish_name'));
 					?>
-					<!-- Need ACF plugin for it to not throw error in your local copy -->
 					<h2>
 						<?php echo $parish_message_title; ?>
 					</h2>
 					<div id="parish-message-preview">
 						<?php
-						$paragraphs = explode('</p>', $parish_message); // Split the content into paragraphs
-						$visible_paragraphs = array_slice($paragraphs, 0, 3);
+						$paragraphs = explode('</p>', $parish_message);
+						$visible_paragraphs = array_slice($paragraphs, 0, 2);
 						echo implode('</p>', $visible_paragraphs) . '</p>';
 						?>
 

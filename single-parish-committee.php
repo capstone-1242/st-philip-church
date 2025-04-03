@@ -58,10 +58,10 @@ get_header();
 						<?php
 						$gallery = get_field('gallery');
 						$gallery = preg_replace('/<p><img(.*?)<\/p>/', '<img$1', $gallery);
-						echo wp_kses_post($gallery);	
+						echo wp_kses_post($gallery);
 						?>
 					</div>
-				<div class="responsibility-container">
+					<div class="responsibility-container">
 						<h2>Responsibilities:</h2>
 						<?php
 						$string = get_field('responsibilities');
@@ -74,53 +74,59 @@ get_header();
 								</li>
 							<?php endforeach ?>
 						</ul>
-				</div>
+					</div>
 
-						<div class="committee-button-container">
-							<?php if ($committee_members): ?>
-								<h2>Committee Members</h2>
-								<div class="committee-list">
-									<?php foreach ($committee_members as $member):
-		
-										// Get member image (from custom field)
-										$member_image = get_field('profile_photo', $member->ID);
-										$member_name = get_the_title($member->ID);
-		
-									?>
-										<div class="committee-member">
-											<!-- Member Image -->
-											<?php if ($member_image): 
-												  $member_image_url = $member_image['url'];
-													$default_image_url = get_template_directory_uri() . '/images/avatar-placeholder.webp';
-											?>
-												<img src="<?php 
-													echo esc_url($member_image_url) ?>" alt="Profile photo of <?php echo esc_attr($member_name); ?>" width="150" height="150">
-											<?php else:?>
-												<img src="<?php echo esc_url($default_image_url)?>" alt="Placeholder image for <?php echo esc_attr($member_name); ?>" width="150" height="150">
-											<?php endif; ?>
-		
-											<!-- Member Name -->
-											<h3><?php echo esc_html($member_name); ?></h3>
-		
-											<!-- Chair Label -->
-											<?php if ($committee_chair && $committee_chair[0]->ID == $member->ID): ?>
-												<p>Chair</p>
-											<?php endif; ?>
-										</div>
-		
-									<?php endforeach; ?>
-								</div>
-							<?php else: ?>
-								<p>No members assigned.</p>
-							<?php endif; ?>
-							<div>
-								<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button become-member-button" 
+					<div class="committee-button-container">
+						<?php if ($committee_members): ?>
+							<h2>Committee Members</h2>
+							<div class="committee-list">
+								<?php foreach ($committee_members as $member):
+
+									// Get member image (from custom field)
+									$member_image = get_field('profile_photo', $member->ID);
+									$member_name = get_the_title($member->ID);
+
+								?>
+									<div class="committee-member">
+										<!-- Member Image -->
+										<?php
+										$default_image_url = get_template_directory_uri() . '/images/avatar-placeholder.webp'; // Define default image URL outside of the if block
+
+										if ($member_image):
+											$member_image_url = $member_image['url'];
+										?>
+											<img src="<?php echo esc_url($member_image_url); ?>" alt="Profile photo of <?php echo esc_attr($member_name); ?>" width="150" height="150">
+										<?php else: ?>
+											<img src="<?php echo esc_url($default_image_url); ?>" alt="Placeholder image for <?php echo esc_attr($member_name); ?>" width="150" height="150">
+										<?php endif; ?>
+
+
+										<!-- Member Name -->
+										<h3>
+											<a href="<?php echo esc_url(get_edit_post_link($member->ID)); ?>">
+												<?php echo esc_html($member_name); ?>
+											</a>
+										</h3>
+
+										<!-- Chair Label -->
+										<?php if ($committee_chair && $committee_chair[0]->ID == $member->ID): ?>
+											<p>Chair</p>
+										<?php endif; ?>
+									</div>
+
+								<?php endforeach; ?>
+							</div>
+						<?php else: ?>
+							<p>No members assigned.</p>
+						<?php endif; ?>
+						<div>
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button become-member-button"
 								aria-label="Become a member by filling out the form">Become a Member <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 							<p class="button-description">You will be redirected to a Google Form</p>
-							</div>
 						</div>
-					</div><!-- .entry-content -->
-					
+					</div>
+				</div><!-- .entry-content -->
+
 
 				<!-- This is to display meta tags for screen readers, DO NOT DELETE -->
 				<footer class="entry-footer">

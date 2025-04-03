@@ -30,19 +30,34 @@ get_header();
 				<p>St. Philip's has various committees that play a vital role in the life of our church, each contributing to our community. These groups work together to support our shared mission, helping to guide and strengthen our parish. We welcome you to learn more about each committee and get involved!</p>
 			</div>
 
-		<?php
+			<?php
 			/* Start the Loop */
 			while (have_posts()) :
-				the_post();
+				the_post(); ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part('template-parts/archive-content', get_post_type());
 
-			endwhile;
+				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="organization-card-link">
+						<div class="organization-card">
+
+							<div class="organization-image" style="background-image: url('<?php
+																																						$featured_image_url = esc_url(get_the_post_thumbnail_url());
+																																						$featured_image_placeholder_url = esc_url(get_template_directory_uri() . '/images/archive-image-placeholder.webp');
+																																						echo $featured_image_url ? $featured_image_url : $featured_image_placeholder_url;
+																																						?>');">
+
+								<p class="organization-card-title">
+									<?php the_title() ?>
+								</p>
+							</div>
+							<footer class="entry-footer">
+								<?php st_philip_entry_footer(); ?>
+							</footer>
+						</div>
+					</a>
+				</section>
+
+		<?php endwhile;
 
 			the_posts_navigation();
 

@@ -1,0 +1,17 @@
+//this will be the default styling for archive.php, single.php, page.php and index.php
+
+@use '../base/colors' as *;
+@use '../base/media-queries' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+@use '../base/variables' as *;
+
+
+section.page{
+  background-color: $accent-white;
+  padding: $responsiveSectionPadding;
+  margin: $sectionMargin !important;
+  border-radius: $mainSectionBorderRadius;
+  @include maxWidthCentered($maxWidth);
+  @include childMarginBottom;
+}

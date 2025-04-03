@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the Parish Organization Archive
  *
@@ -15,15 +16,15 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-<section class="organization-archive">
-		<?php if ( have_posts() ) : ?>
+<main id="primary" class="site-main">
+	<section class="organization-archive">
+		<?php if (have_posts()) : ?>
 
 			<div>
 				<header class="page-header">
-					<?php 
+					<?php
 					echo '<h1 class="page-title">Parish Organizations</h1>';
-					the_archive_description( '<div class="archive-description">', '</div>' );
+					the_archive_description('<div class="archive-description">', '</div>');
 					?>
 				</header><!-- .page-header -->
 				<p>When the liturgical services conclude, St. Philip's offers even more opportunities within our community to get to know one another and share our faith. Regardless of your age, the parish hosts various groups that encourage living a Christian life, fostering fellowship, and serving others. We look forward to getting to know you better outside of regular liturgical worship!</p>
@@ -31,28 +32,42 @@ get_header();
 
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			while (have_posts()) :
+				the_post(); ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/archive-content', get_post_type() );
+				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="organization-card-link">
+						<div class="organization-card">
 
-			endwhile;
+							<div class="organization-image" style="background-image: url('<?php
+																																						$featured_image_url = esc_url(get_the_post_thumbnail_url());
+																																						$featured_image_placeholder_url = esc_url(get_template_directory_uri() . '/images/archive-image-placeholder.webp');
+																																						echo $featured_image_url ? $featured_image_url : $featured_image_placeholder_url;
+																																						?>');">
+
+								<p class="organization-card-title">
+									<?php the_title() ?>
+								</p>
+							</div>
+							<footer class="entry-footer">
+								<?php st_philip_entry_footer(); ?>
+							</footer>
+						</div>
+					</a>
+				</section>
+
+		<?php endwhile;
 
 			the_posts_navigation();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part('template-parts/content', 'none');
 
 		endif;
 		?>
-</section>
-	</main><!-- #main -->
+	</section>
+</main><!-- #main -->
 
 <?php
 get_footer();

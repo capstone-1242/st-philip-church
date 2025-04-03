@@ -43,8 +43,8 @@ section#about-page{
       margin-left: 1.625rem;
     }
 
-    #full-parish-message, #more-history-content{
-      @include childMarginBottom;
+    #full-parish-message p, #parish-message-preview p, #more-history-content p{
+      margin-bottom: $base-line-height;
     }
 
     @include forScreenSizes(tablet, desktop) {
