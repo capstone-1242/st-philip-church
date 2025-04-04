@@ -19,10 +19,12 @@ Source for read more functionality
 section#about-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
-
+  &{
+    margin: $sectionMargin;
+  }
+ 
   button, a{
     width: 100%;
   }
@@ -48,6 +50,7 @@ section#about-page{
     }
 
     @include forScreenSizes(tablet, desktop) {
+
       @include gridContainer($column-gap: 1.5rem);
       &{
         grid-template-rows: auto 1fr;

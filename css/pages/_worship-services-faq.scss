@@ -18,11 +18,15 @@ delete any unused styles after
 section#worship-page {
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
+  &{
+    margin: $sectionMargin;
+    margin-inline: 16px;
+  }
 
   div.entry-content{
     @include childMarginBottom;
@@ -72,6 +76,7 @@ section#worship-page {
 
   @include forScreenSizes(tablet,desktop){
     & {
+      margin-inline: auto;
       @include gridContainer($column-gap: 1.5rem);
       &{
         grid-template-rows: auto 1fr;
@@ -130,6 +135,9 @@ section#worship-page {
           @include childMarginBottom;
           a{
             width: 100%;
+            i{
+              margin-left: 1.625rem;
+            }
           }
         }
       }

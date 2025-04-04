@@ -17,13 +17,10 @@ get_header();
 ?>
 
 <main id="primary" class="site-main front-page">
-
 	<?php
 	$announcement_title =  wp_kses_post(get_field('title'));
 	$announcement_content = wp_kses_post(get_field('content'));
-	$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-	$theme_banner_image_url =  get_template_directory_uri() . '/images/home-hero-banner.webp';
-	$archive_organization_url =  get_post_type_archive_link('parish-organization');
+	$livestream_video_url = wp_kses_post(get_field('video_url'));
 	?>
 
 	<!-- Hero Banner section -->
@@ -75,7 +72,7 @@ get_header();
 				</div>
 			<section>
 				<h3>Join The Livestream</h3>
-				<iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OJX06i3tkEE?si=td1aZ8N_bUPJvPce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div class="fb-video responsive-iframe" data-href="			<?php echo $livestream_video_url?>" data-width="auto" data-show-text="false" data-allowfullscreen="true" data-lazy="true" data-show-captions="true" ><blockquote cite="			<?php echo $livestream_video_url?>/" class="fb-xfbml-parse-ignore"><a href="			<?php echo $livestream_video_url?>/"></a><p></p>Posted by <a href="https://www.facebook.com/stphilipedmonton">St. Philip Antiochian Orthodox Church</a> on Sunday, March 30, 2025</blockquote></div>
 				<a href="/livestream/" class="default-button full-width-button" aria-label="View our livestreams">View Our Livestreams</a>
 			</section>
 
@@ -87,7 +84,7 @@ get_header();
 	<section class="upcoming-events">
 		<div>
 			<h2>Upcoming Events</h2>
-			<iframe title="St. Philip's Events" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FEdmonton&showPrint=0&src=Y29tbXVuaWNhdGlvbi5zdC5waGlsaXAuY2h1cmNoQGdtYWlsLmNvbQ&src=YjQxYjk3MTcxOWE2OTk5ZjAxMWVlNjdhN2ViMTYxODAyNWQ0ZjVmOWFmYzkwYjk5ZDU2N2E5MTU1YTI2ZDYyZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZGM5NWZlNTAwY2E3NTdkNGIwNWNiNjE4MzU5ZDBlMTA5YTNjZDg5Y2I0YjAxZjk4NTUyNWVmNTVhYjBlNGQwOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23EF6C00&color=%23F09300" class="responsive-iframe" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			<iframe title="St. Philip's Events" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FEdmonton&showPrint=0&src=Y29tbXVuaWNhdGlvbi5zdC5waGlsaXAuY2h1cmNoQGdtYWlsLmNvbQ&src=YjQxYjk3MTcxOWE2OTk5ZjAxMWVlNjdhN2ViMTYxODAyNWQ0ZjVmOWFmYzkwYjk5ZDU2N2E5MTU1YTI2ZDYyZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZGM5NWZlNTAwY2E3NTdkNGIwNWNiNjE4MzU5ZDBlMTA5YTNjZDg5Y2I0YjAxZjk4NTUyNWVmNTVhYjBlNGQwOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23EF6C00&color=%23F09300&mode=AGENDA" class="responsive-iframe" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 		</div>
 	</section>
 

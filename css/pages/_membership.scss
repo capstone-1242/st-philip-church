@@ -18,9 +18,12 @@ delete any unused styles after
 section#member-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+  }
 
   header{
     margin-bottom: $base-line-height;

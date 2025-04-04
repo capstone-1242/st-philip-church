@@ -20,8 +20,6 @@ get_header();
 			while (have_posts()) :
 				the_post(); ?>
 
-
-				<section id="shop-page" <?php post_class(); ?>>
 					<header class="entry-header">
 						<?php
 						if (is_singular()) :
@@ -72,9 +70,6 @@ get_header();
 					<footer class="entry-footer">
 						<?php st_philip_entry_footer(); ?>
 					</footer><!-- .entry-footer -->
-				</section><!-- #post-<?php the_ID(); ?> -->
-
-
 			<?php endwhile; ?>
 
 		<?php endif ?>

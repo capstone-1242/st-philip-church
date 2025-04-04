@@ -9,17 +9,16 @@
 
 ?>
 
-<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-    <aside id="product-filter-section" class="widget-area">
-        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-    </aside><!-- #product-filter -->
-		<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">Reset Filters</a>
-<?php endif; ?>
 
-<?php if ( is_active_sidebar( 'shopping-cart' ) ) : ?>
-    <aside id="cart-section" class="widget-area">
-        <?php dynamic_sidebar( 'shopping-cart' ); ?>
-    </aside><!-- #product-filter -->
+
+<?php if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) : ?>
+    <div id="woocommerce-sidebars">
+            <h2>Filters:</h2>
+            <aside id="product-filter-section" class="widget-area">
+                <?php dynamic_sidebar( 'sidebar-1' ); ?>
+                <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" aria-label="Reset product filters" class="reset-btn">Reset Filters</a>
+            </aside><!-- #product-filter -->
+    </div>
 <?php endif; ?>
 
 

@@ -110,7 +110,7 @@ get_header();
 							wp_reset_postdata();
 							?>
 				
-						<!-- END OF CAR RECOMMENDATIONS -->
+						<!-- END OF RECOMMENDATIONS -->
 
 					</div><!-- .entry-content -->
 				</div>

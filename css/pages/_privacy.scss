@@ -19,9 +19,12 @@ Source for read more functionality
 section#privacy-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+  }
 
 
   div.entry-content{

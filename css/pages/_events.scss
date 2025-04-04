@@ -16,12 +16,22 @@ Donation Page Styling
 section#events-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+  }
 
   div.entry-content{
     @include childMarginBottom;
 
+    @include forScreenSizes(750px){
+      > * {
+        grid-column: 1 / -1;
+      }
+    }
   }
+
+
 }

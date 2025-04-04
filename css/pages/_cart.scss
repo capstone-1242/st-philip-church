@@ -19,11 +19,14 @@ delete any unused styles after
 section#cart-page {
   background-color: $accent-white;
   // padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   font-size: $font16-to-font24;
   line-height: $line-height-16-24;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+  }
 
 
   a.wc-block-cart__submit-button{

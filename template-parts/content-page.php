@@ -18,17 +18,7 @@
 	<?php st_philip_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<?php
-		if (function_exists('is_woocommerce') && (is_shop() || is_product() || is_product_category() || is_product_tag())) {
-			if (is_active_sidebar('sidebar-1')) {
-		?>
-				<aside id="woocommerce-sidebar" class="widget-area">
-					<?php dynamic_sidebar('sidebar-1'); ?>
-				</aside><!-- #woocommerce-sidebar -->
-		<?php
-			}
-		}
-		?>
+		<?php get_sidebar()?>
 		<?php
 		the_content();
 

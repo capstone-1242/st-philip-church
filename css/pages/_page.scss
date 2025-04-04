@@ -10,8 +10,37 @@
 section.page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include childMarginBottom;
+  &{
+    margin: $sectionMargin;
+    margin-left: 16px!important;
+    margin-right: 16px!important;
+  }
+
+ a.button{
+  @include button;
+  width: 100%;
+ }
+
+
+ @include forScreenSizes(750px){
+  div.entry-content{
+    @include gridContainer($column-gap: 32px);
+    // filter section
+    div#woocommerce-sidebars{
+      grid-column: span 3;
+    }
+
+    div.woocommerce{ 
+      grid-column: 4 / span 9;
+    }
+  }
+}
+
+  @include forScreenSizes(desktop){
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

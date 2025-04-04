@@ -95,3 +95,4 @@ menuItems.forEach(item => {
     navContainer.classList.remove('menu-hovered');
   });
 });
+
