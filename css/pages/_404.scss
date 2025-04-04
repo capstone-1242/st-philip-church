@@ -10,9 +10,12 @@
 section.error-404{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include childMarginBottom;
+  &{
+    margin: $sectionMargin;
+  }
 
 }

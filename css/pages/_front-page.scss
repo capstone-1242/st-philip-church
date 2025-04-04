@@ -222,11 +222,6 @@ main.front-page {
   /*--------------------------Upcoming Events Section------------------------------*/
 
   .upcoming-events {
-    // @include grid;
-
-    // @include childMarginBottom;
-
-    // @include childGridSpan;
     background-color: $white;
     >div{
       padding:$mobileGridPadding;
@@ -409,7 +404,7 @@ main.front-page {
     background-color: rgba(239, 194, 117, 0.45)!important;
     top: 0;
     left: -1rem;
-    right: -2rem;
+    right: -1rem;
     bottom: 0;
     z-index: 1;
 

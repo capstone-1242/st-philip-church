@@ -18,10 +18,14 @@ delete any unused styles after
 /* Styling for Shop Page */
 section#shop-page {
   background-color: $accent-white;
-  padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  padding: $responsiveSectionPadding!important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+
+  }
 
   form.woocommerce-ordering {
     select.orderby {
@@ -48,21 +52,19 @@ section#shop-page {
     }
   }
   
+  @include forScreenSizes(750px){
+    div.entry-content{
+      @include gridContainer($column-gap: 32px);
+      // filter section
+      >div:first-of-type{
+        grid-column: span 3;
+      }
 
-  // ul.products {
-  //   li.product {
-  //     .woocommerce-loop-product__title {
-  //       min-height: 180px;
-  //     }
-      
-  //     .price {
-  //       margin-top: auto;
-  //     }
-      
-  //     a.button {
-  //       @include button;
-  //       width: 100%;
-  //     }
-  //   }
-  // }
+      >div:last-of-type{
+        grid-column: 4 / span 9;
+      }
+
+    }
+  }
+ 
 }

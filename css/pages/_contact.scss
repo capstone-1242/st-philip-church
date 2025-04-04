@@ -18,10 +18,13 @@ delete any unused styles after
 section#contact-page {
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include childMarginBottom;
+  & {
+    margin: $sectionMargin;
+  }
 
   img {
     width: 100%;
@@ -42,7 +45,7 @@ section#contact-page {
             line-height: $line-height-16-24;
             font-weight: $font-weight-medium-bold;
           }
-          dd{
+          dd {
             margin-bottom: $base-line-height;
           }
         }

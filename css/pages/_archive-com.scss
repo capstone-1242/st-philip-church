@@ -17,14 +17,17 @@ delete any unused styles after
 // this is the about us wrapper id
 section.committee-archive{
   background-color: $accent-white;
-  margin: $sectionMargin!important;
+  // margin: $sectionMargin!important;
   padding: $responsiveSectionPadding;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
 
+
   & {
+    margin: $sectionMargin;
+    margin-inline: 16px;
     header {
       margin-bottom: $base-line-height;
     }
@@ -42,6 +45,7 @@ section.committee-archive{
   }
 
   @include forScreenSizes(tablet,desktop){
+    margin-inline: auto;
     > div {
         grid-column: 1 / span 6;
         order: -1;

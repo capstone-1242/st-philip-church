@@ -17,7 +17,7 @@ delete any unused styles after
 // this is the about us wrapper id
 section.organization-archive {
   background-color: $accent-white;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   padding: $responsiveSectionPadding;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
@@ -25,6 +25,8 @@ section.organization-archive {
   @include childGridSpan;
 
   & {
+    margin: $sectionMargin;
+    margin-inline: 1rem;
     header {
       margin-bottom: $base-line-height;
     }
@@ -42,6 +44,7 @@ section.organization-archive {
   }
 
   @include forScreenSizes(tablet, desktop) {
+    margin-inline: auto;
     > div {
       grid-column: 1 / span 6;
     }

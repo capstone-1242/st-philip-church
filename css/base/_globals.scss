@@ -6,6 +6,7 @@ this part is for styles for the overall body
 @use "typography" as *;
 @use "mixins" as *;
 @use "variables" as *;
+@use "media-queries" as *;
 
 body {
   // this is only temporary for baseline grid
@@ -20,8 +21,8 @@ body {
   /**20px x 1.5 = 30 grid units **/
   /** Step 4: Display visual grid **/
   background-color: $white;
-  background-image: linear-gradient(#0ff 1px, transparent 1px);
-  background-size: auto 24px;
+  // background-image: linear-gradient(#0ff 1px, transparent 1px);
+  // background-size: auto 24px;
   /** Step 5: choose typographic scale 
           12, 14, 16, 18, 21, 24, 36, 48, 60, 72
       **/
@@ -105,7 +106,10 @@ h4{
   aspect-ratio: 1 / 1;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+
+  &:hover{
+    box-shadow: 1px 0px 15px 7px rgba(rgba($accent-green, 0.16), 0.55);
+  }
 }
 
 .organization-image {
@@ -205,26 +209,38 @@ h4{
   margin-bottom: $base-line-height;
 }
 
-// /*===========================ACF FILED GROUP=================================*/
-// /*
-// The .acf-gallery is for the gallery section of the parish organization and committee acf post types
-// */
-// .acf-gallery {
-//   @include grid;
-//   @include childGridSpan;
+// shop filters area
 
-//   img {
-//     display: inline-block;
-//     max-width: 100%;
-//     height: auto;
-//     flex: 1 1 33.33%;
-
-//     &:first-child {
-//       flex: 1 1 100%;
-//     }
-
-//     @include forScreenSizes(desktop) {
-//       flex: 1 1 25%;
-//     }
-//   }
+// .wc-block-product-categories ul{
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
 // }
+
+a.reset-btn{
+  @include button($bg: transparent, $color: $primary-blue, $border: 2px solid $accent-red);
+  margin-left: auto;
+  width: 100%;
+}
+
+#woocommerce-sidebars{
+  margin-bottom: calc($base-line-height * 3);
+  h2{
+    font-family: $body-font-family;
+    font-weight: $font-weight-medium;
+    margin-bottom: $base-line-height;
+  }
+
+  ul{
+    @include childMarginBottom;
+  }
+}
+
+.woocommerce-loop-product__title{
+  font-family: $body-font-family;
+}
+
+// checkout page
+.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout{
+  grid-column: 1 / -1;
+}

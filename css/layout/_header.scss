@@ -1,39 +1,7 @@
-@use '../base/colors' as *;
-@use '../base/media-queries' as *;
-@use '../base/mixins' as *;
-@use '../base/typography' as *;
-
-.header-nav-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 0.75rem 1rem;
-  margin: 1rem;
-  border-radius: 8px;
-  position: relative;
-  transition: border-radius 0.3s ease;
-
-  &.menu-hovered {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  @include forScreenSizes(desktop) {
-    padding: 1rem 2rem;
-  }
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1440px;
-  margin: 0 auto;
-}
+@use "../base/colors" as *;
+@use "../base/media-queries" as *;
+@use "../base/mixins" as *;
+@use "../base/typography" as *;
 
 .site-logo {
   width: 48px;
@@ -46,92 +14,250 @@
   }
 }
 
-.site-title {
-  display: none;
+.show-nav {
+  opacity: 1 !important;
+  display: block !important;
 }
 
-.main-navigation {
-  ul#primary-menu {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0 2rem;
+// contains both header and nav
+.header-nav-container {
+  position: relative;
+  background-color: $accent-white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  transition: border-radius 0.3s ease;
 
-    li.menu-item {
+  &.menu-hovered {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-      a {
-        font-family: $body-font-family;
-        text-decoration: none;
-        color: $primary-blue;
-        font-weight: 500;
-        display: inline-block;
-        position: relative;
-        white-space: nowrap;
-      }
+  aside{
+    justify-self: center;
+  }
 
-      .dropdown-wrapper {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        min-width: 600px;
-        max-width: 100%;
+  .menu-toggle{
+    padding: 12px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    justify-self: center;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        opacity: 0%;
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 0 4rem;
-        border-radius: 0 0 8px 8px;
-        z-index: 1000;
-
-        ul.sub-menu {
-          text-align: start;
-          display: flex;
-          flex-direction: column;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          li {
-            white-space: nowrap;
-          }
-        }
-      }
-
-
-      &:hover > .dropdown-wrapper,
-      &:focus-within > .dropdown-wrapper {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-
+    i{
+      font-size: $font16-to-font24;
     }
   }
 
+  @include forScreenSizes(1216px) {
+    padding: 1rem 2rem;
+
+    .menu-toggle,
+    .shopping-cart {
+      display: none;
+    }
+  }
 }
 
-div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(2){
-  grid-column: 8 / span 1;
-  text-align: end;
+// inner container that contains header nav
+.site-header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  .site-branding {
+    justify-self: center;
+  }
+
+  @include forScreenSizes(1216px) {
+    grid-template-columns: auto 1fr;
+  }
 }
-div.header-nav-container ul#primary-menu > li.menu-item:nth-last-of-type(1) > a {
+
+// contains the navigation links
+.main-navigation {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 2rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  width: 100%;
+  max-height: 80vh;
+  overflow: scroll;
+  background-color: $accent-white;
+  // animation
+  opacity: 0;
+  transition: all 3s ease;
+  // border for hover
+
+  // test
+  left: 50%;
+  transform: translateX(-50%);
+  ul#primary-menu {
+    >*:not(:last-of-type){
+      margin-bottom: 6px;
+    }
+
+    a{
+      width: 100%;
+    }
+    
+     li.menu-item {
+      padding: 6px 9px;
+      border-left: 3px solid transparent;
+
+
+      ul.sub-menu {
+        padding-left: 36px;
+
+        >li.menu-item{
+          border-left: 0;
+          margin: 6px 0;
+          padding-right: 24px;
+        }
+
+      }
+
+      &:hover{
+        border-color: $main-red;
+        background-color: rgba($accent-red, 0.3);
+
+     }
+    }
+  }
+
+  @include forScreenSizes(1216px) {
+    & {
+      opacity: 1;
+      transform: unset;
+      padding: 0;
+      position: unset;
+      display: block;
+      max-height: unset;
+      overflow: unset;
+      box-shadow: unset;
+
+      ul#primary-menu {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, auto) minmax(3rem, 1fr) auto auto;
+        gap: 1rem;
+        // list-style: none;
+        margin: 0;
+        padding: 0 0 0 2ch;
+
+        >*:not(:last-of-type){
+          margin-bottom: 0;
+        }
+    
+
+        li.menu-item {
+          border-left: 0;
+          border-bottom: 3px solid transparent;
+          padding-left: 0;
+       
+          &:hover, &:focus-within:hover{
+            border-color:  $accent-red;
+            background-color: transparent;
+          }
+
+          &:nth-last-of-type(2) {
+            justify-self: end;
+          }
+
+          a {
+            font-family: $body-font-family;
+            text-decoration: none;
+            color: $primary-blue;
+            font-weight: 500;
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+          }
+
+          .dropdown-wrapper {
+            position: absolute;
+            position: fixed;
+            top: 130%;
+            left: 0;
+            min-width: 100%;
+            width: 100%;
+            max-width: 1496px;
+            margin: 0 auto;
+            opacity: 0%;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            background-color: $accent-white;
+            // backdrop-filter: blur(12px);
+            // -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0 1.5rem;
+            border-radius: 0 0 8px 8px;
+            z-index: 2000;
+            ul.sub-menu {
+              text-align: start;
+              display: flex;
+              flex-direction: column;
+              list-style: none;
+              margin: -1rem 0 0.75rem;
+              padding: 0 0 0 0;
+
+              li {
+                white-space: nowrap;
+                padding: 0.5rem 0.75rem;
+                width: 100%;
+                border-bottom: 0;
+                border-left: 3px solid transparent;
+                margin-bottom: 0;
+
+                &:hover{
+                  border-color: $accent-red;
+                  background-color: rgba($accent-red, 0.3);
+                }
+              }
+            }
+          }
+
+          &:hover > .dropdown-wrapper,
+          &:focus-within > .dropdown-wrapper {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+
+    div.header-nav-container
+      ul#primary-menu
+      > li.menu-item:nth-last-of-type(2) {
+      grid-column: 8 / span 1;
+      text-align: end;
+      margin-left: auto;
+    }
+  }
+}
+
+div.header-nav-container
+  ul#primary-menu
+  > li.menu-item:nth-last-of-type(1)
+  > a {
   font-weight: bold;
 }
 
-
-// cherry i just added this for the background image: coz it glitches in the mobile.. if you want i can also just apply the background image to all the pages? 
-@media (max-width: 768px) {
-    #page {
-        background-attachment: scroll !important;
-    }
-}
+// cherry i just added this for the background image: coz it glitches in the mobile.. if you want i can also just apply the background image to all the pages?
+// @media (max-width: 768px) {
+//   #page {
+//     background-attachment: scroll !important;
+//   }
+// }

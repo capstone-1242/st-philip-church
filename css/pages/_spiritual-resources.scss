@@ -18,11 +18,15 @@ delete any unused styles after
 section#spiritual-resources-page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
+  & {
+    margin: $sectionMargin;
+    margin-inline: 16px;
+  }
  
   div.entry-content{
     @include childMarginBottom;
@@ -49,6 +53,8 @@ section#spiritual-resources-page{
     }
 
     @include forScreenSizes(tablet, desktop){
+      margin-inline: auto;
+      
       &{
         @include gridContainer($column-gap: 1.5rem);
         &{

@@ -134,10 +134,23 @@ function st_philip_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Shopping-Cart', 'st_philip' ),
 			'id'            => 'shopping-cart',
+			'description'   => esc_html__( 'Add widgets here.', 'st_philip' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Shopping-cart-icon', 'st_philip' ),
+			'id'            => 'shopping-cart-icon',
 			'description'   => esc_html__( 'Add widgets here.', 'st_philip' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

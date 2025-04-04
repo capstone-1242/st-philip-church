@@ -36,9 +36,8 @@ get_header();
 				<?php endif; ?>
 			</header><!-- .entry-header -->
 
-			<?php st_philip_post_thumbnail(); ?>
-
 			<div class="entry-content">
+
 				<?php
 				the_content(
 					sprintf(
@@ -53,8 +52,9 @@ get_header();
 						),
 						wp_kses_post(get_the_title())
 					)
-				);
+				);?>
 
+				<?php
 				wp_link_pages(
 					array(
 						'before' => '<div class="page-links">' . esc_html__('Pages:', 'st_philip'),
@@ -70,13 +70,6 @@ get_header();
 		</section><!-- #post-<?php the_ID(); ?> -->
 
 	<?php
-		the_post_navigation(
-			array(
-				'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'st_philip') . '</span> <span class="nav-title">%title</span>',
-				'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'st_philip') . '</span> <span class="nav-title">%title</span>',
-			)
-		);
-
 	endwhile; // End of the loop.
 	?>
 

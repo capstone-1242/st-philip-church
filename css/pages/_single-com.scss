@@ -17,12 +17,15 @@ delete any unused styles after
 // this is the single parish committee wrapper
 section#committee-single {
   background-color: $accent-white;
-  margin: 2rem auto !important;
-  padding: $mobileGridPadding;
+  // margin: 2rem auto !important;
+  padding: $responsiveSectionPadding;
   @include maxWidthCentered($maxWidth);
-  @include grid;
-  @include childGridSpan;
 
+  & {
+    margin: $sectionMargin;
+    margin-inline: 16px;
+  }
+  
   img {
     width: 100%;
     height: auto;
@@ -40,17 +43,18 @@ section#committee-single {
     @include childGridSpan;
 
     // gallery section
+    >section:first-of-type{
+      @include childMarginBottom;
     .acf-gallery {
       img:not(:last-of-type) {
         margin-bottom: $base-line-height;
       }
     }
+  }
 
     // responsibility
-    div.responsibility-container {
-      h2 {
-        margin-bottom: $base-line-height;
-      }
+    .responsibility-container {
+      @include childMarginBottom;
 
       // Responsibility List
       ul {
@@ -72,25 +76,25 @@ section#committee-single {
       }
     }
 
-    // committee member section
-
-    div.committee-button-container {
+    // committee member, button section
+    .committee-button-container {
       @include grid;
       @include childGridSpan;
       &{
         grid-template-rows: auto;
       }
+      
+      // committe list
       div.committee-list {
         margin-bottom: $base-line-height;
-        @include grid;
-        & {
-          grid-template-columns: repeat(4, auto);
-        }
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
         div.committee-member {
           justify-items: start;
           margin: 0 auto;
-          grid-column: 2 / span 2;
+          gap: 24px;
+          flex-basis: 1 1 50%;
 
           // image of the member
           img {
@@ -109,6 +113,7 @@ section#committee-single {
         font-size: $font14-to-font24;
         line-height: $line-height-14-24;
         font-weight: $font-weight-light;
+        margin-bottom: $base-line-height;
       }
     }
   }
@@ -116,19 +121,14 @@ section#committee-single {
   @include forScreenSizes(400px) {
     &{
     div.entry-content {
-      div.committee-button-container {
-        div.committee-list {
-          div.committee-member {
-            grid-column: span 2;
-          }
+      .committee-recommendations{
+        @include childMarginBottom;
+        .organization-cards{
+        @include gridContainer;
+        >*{
+          grid-column: span 6;
         }
-
-        div:last-of-type {
-          grid-column: span 3;
-          a{
-            width: 100%;
-          }
-        }
+      }
       }
     }
   }
@@ -153,8 +153,7 @@ section#committee-single {
 
   @include forScreenSizes(650px) {
     &{
-      
-    div.entry-content {
+      div.entry-content {
       grid-template-columns: repeat(12, 1fr);
       .acf-gallery {
         @include gridContainer($columns: 12, $row-gap: 0);
@@ -165,55 +164,45 @@ section#committee-single {
           grid-column: span 4;
         }
       }
-
-      div.committee-button-container {
-        div.committee-list {
-          grid-template-columns: repeat(12, 1fr);
-          div.committee-member {
-            grid-column: span 4;
-          }
-        }
-      }
     }
   }
   
 }
 
-  @include forScreenSizes(tablet) {
-    &{
-    div.committee-list {
-      div.committee-member {
-        grid-column: span 4;
-      }
-    }
-  }
-}
-
-
   @include forScreenSizes(tablet, desktop) {
     &{
-    padding: $desktopGridPadding;
+    margin-inline: auto;
 
+    a{
+      width: 100%;
+    }
+  
     div.entry-content {
-      grid-template-rows: repeat(4, auto);
+      grid-template-rows: auto auto auto 1fr;
 
       // gallery section
-      .acf-gallery {
+      >section:first-of-type{
         grid-column: 1 / span 8;
+      .acf-gallery {
+        grid-column: 1 / -1;
 
         img:not(:first-of-type) {
           grid-column: span 3;
         }
       }
+    }
 
-      div.responsibility-container {
+      .responsibility-container {
         grid-column: 1 / span 8;
-        grid-row: 4 / -1;
+        grid-row: 3 / span 1;
       }
 
-      div.committee-button-container {
-        grid-row: 3;
+      >div:last-of-type{
         grid-column: 9 / span 4;
+        grid-row: 2 / -1;
+      .committee-button-container {
+        // grid-column: 9 / span 4;
+        // grid-row: 2 / span 2;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr;
@@ -237,6 +226,17 @@ section#committee-single {
         
         }
       }
+
+      .committee-recommendations{
+        grid-column: 9 / span 4;
+        grid-row: 3 / -1;
+        .organization-cards{
+        >*{
+          grid-column: 1 / -1;
+        }
+      }
+    }
+  }
     }
   }
 }

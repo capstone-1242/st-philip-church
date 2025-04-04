@@ -19,14 +19,19 @@ delete any unused styles after
 section#checkout-page {
   background-color: $accent-white;
   // padding: $responsiveSectionPadding;
-  margin: $sectionMargin !important;
+  // margin: $sectionMargin !important;
   border-radius: $mainSectionBorderRadius;
   font-size: $font16-to-font24;
   line-height: $line-height-16-24;
   @include maxWidthCentered($maxWidth);
+  &{
+    margin: $sectionMargin;
+  }
+
+  
 
   div.wp-block-woocommerce-checkout-order-summary-block{
-     @include card($background-color: $main-yellow, $color: $primary-blue);
+     @include card($background-color: $white, $color: $primary-blue, $border: 1px solid hsla(0,0%,7%,.11));
   }
 
   button.wc-block-components-checkout-place-order-button{
@@ -35,6 +40,11 @@ section#checkout-page {
     }
     @include button;
   }
+
+  input, select{
+    border-color: rgba(18, 18, 18, 0.11);
+  }
+
 
 
 }

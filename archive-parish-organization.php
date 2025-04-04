@@ -45,9 +45,9 @@ get_header();
 																																						echo $featured_image_url ? $featured_image_url : $featured_image_placeholder_url;
 																																						?>');">
 
-								<p class="organization-card-title">
+								<h2 class="organization-card-title">
 									<?php the_title() ?>
-								</p>
+								</h2>
 							</div>
 							<footer class="entry-footer">
 								<?php st_philip_entry_footer(); ?>
