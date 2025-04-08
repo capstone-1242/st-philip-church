@@ -2,6 +2,7 @@
 @use "../base/media-queries" as *;
 @use "../base/mixins" as *;
 @use "../base/typography" as *;
+@use "../base/variables" as *;
 
 .site-logo {
   width: 48px;
@@ -56,7 +57,7 @@
     }
   }
 
-  @include forScreenSizes(1216px) {
+  @include forScreenSizes($marginWidthBreakpoint) {
     padding: 1rem 2rem;
 
     .menu-toggle,
@@ -75,7 +76,7 @@
     justify-self: center;
   }
 
-  @include forScreenSizes(1216px) {
+  @include forScreenSizes($marginWidthBreakpoint) {
     grid-template-columns: auto 1fr;
   }
 }
@@ -137,7 +138,7 @@
     }
   }
 
-  @include forScreenSizes(1216px) {
+  @include forScreenSizes($marginWidthBreakpoint) {
     & {
       opacity: 1;
       transform: unset;

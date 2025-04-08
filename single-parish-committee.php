@@ -52,17 +52,44 @@ get_header();
 					<p><?php echo wp_kses_post(get_field('purpose')); ?></p>
 
 					<section>
-						<h3>Gallery</h3>
+						<h2>Gallery</h2>
 						<div class="acf-gallery">
+							<!-- This code is generated through the help of Chat and GoogleSearch : I need to customized it to better fit it's intended functionality -->
 							<?php
-							$gallery = get_field('gallery');
-							$gallery = preg_replace('/<p><img(.*?)<\/p>/', '<img$1', $gallery);
-							echo wp_kses_post($gallery);
+							// this is to get the gallery field from acf;
+							$gallery_content = get_field('gallery');
+
+							// this is to check if there is any content, otherwise it says "no images uploaded"
+							if ($gallery_content) {
+								// Remove any <a> tags that may already be wrapping images (e.g., from the WYSIWYG editor) - WYSIWYG is weird in a sense that it wraps every image i have in a and also generate another a after that, this expression is basicallly saying remove the firstcaptured group ([^"]+)"[^>]*> with the second captured group: (<img[^>]+>)
+								$gallery_content = preg_replace('/<a[^>]*href="([^"]+)"[^>]*>(<img[^>]+>)<\/a>/i', '$2', $gallery_content);
+
+								// This is to find all the img tags and wrap them in a
+								$gallery = preg_replace_callback(
+									'/<img[^>]+src="([^"]+)"[^>]*>/i',
+									function ($matches) {
+										$img_tag = $matches[0];
+										$src = $matches[1];
+										// Wrap the image tag with <a> for Lightbox
+										return '<a href="' . esc_url($src) . '" data-lightbox="committee-gallery">' . $img_tag . '</a>';
+									},
+									$gallery_content
+								);
+
+								// Ensure there are no <p> tags around the <a> tag since WYSIWG wraps every a with p before
+								$gallery = preg_replace('/<p>\s*(<a[^>]+>.*?)<\/p>/i', '$1', $gallery);
+
+								// Output the final gallery content with lightbox wrapping images
+								echo wp_kses_post($gallery);
+							} else {
+								echo '<p>No images uploaded yet.</p>';
+							}
 							?>
+							<!-- End of Code -->
 						</div>
 					</section>
 					<section class="responsibility-container">
-						<h3>Responsibilities:</h3>
+						<h2>Responsibilities:</h2>
 						<?php
 						$string = get_field('responsibilities');
 						$responsibilities = explode("\n", $string); ?>
@@ -79,7 +106,7 @@ get_header();
 					<div>
 						<section class="committee-button-container">
 							<?php if ($committee_members): ?>
-								<h3>Committee Members</h3>
+								<h2>Committee Members</h2>
 								<div class="committee-list">
 									<?php foreach ($committee_members as $member):
 
@@ -103,11 +130,11 @@ get_header();
 
 
 											<!-- Member Name -->
-											<h4>
+											<h3>
 												<a href="<?php echo esc_url(get_edit_post_link($member->ID)); ?>">
 													<?php echo esc_html($member_name); ?>
 												</a>
-											</h4>
+											</h3>
 
 											<!-- Chair Label -->
 											<?php if ($committee_chair && $committee_chair[0]->ID == $member->ID): ?>
@@ -155,9 +182,9 @@ get_header();
 												}
 												?>
 												<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
-													<div class="organization-card-title">
-														<h3><?php the_title(); ?></h3>
-													</div>
+													<h3 class="organization-card-title">
+														<?php the_title(); ?>
+													</h3>
 												</div>
 											</div>
 										</a>

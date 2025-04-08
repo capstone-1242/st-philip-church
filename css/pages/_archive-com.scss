@@ -12,12 +12,11 @@ delete any unused styles after
 @use '../base/variables' as *;
 // components
 @use '../components/button' as *;
-@use '../components/card' as *;
+
 
 // this is the about us wrapper id
 section.committee-archive{
   background-color: $accent-white;
-  // margin: $sectionMargin!important;
   padding: $responsiveSectionPadding;
   border-radius: $mainSectionBorderRadius;
   @include maxWidthCentered($maxWidth);
@@ -34,11 +33,8 @@ section.committee-archive{
 
     grid-template-rows: auto;
 
-    section {
-      background-color: $accent-white;
-    }
 
-    section:nth-of-type(n + 4){
+    article:nth-of-type(n + 4){
       grid-column: span 2;
     }
 
@@ -51,26 +47,26 @@ section.committee-archive{
         order: -1;
       }
   
-      section:first-of-type {
+      article:first-of-type {
         grid-row: 1 / span 1;
         grid-column: 7 / span 6;
       }
 
-      section:nth-of-type(n + 2):nth-of-type(-n + 7) {
+      article:nth-of-type(n + 2):nth-of-type(-n + 7) {
         grid-column: span 4;
       }
   
   }
 
   @include forScreenSizes(tablet){
-    section:nth-last-of-type(-n + 4){
+    article:nth-last-of-type(-n + 4){
       grid-column: span 6;
     }
   }
 
   @include forScreenSizes(desktop) { 
     // last 4 sections
-    section:nth-last-of-type(-n + 4){
+    article:nth-last-of-type(-n + 4){
       grid-column: span 3;
     }
   }

@@ -13,7 +13,7 @@ Source for read more functionality
 @use '../base/variables' as *;
 // components
 @use '../components/button' as *;
-@use '../components/card' as *;
+
 
 // this is the about us wrapper id
 section#privacy-page{
@@ -26,10 +26,19 @@ section#privacy-page{
     margin: $sectionMargin;
   }
 
-
   div.entry-content{
     @include childMarginBottom;
+
+    @include forScreenSizes(750px){
+      @include childGridSpan;
+      @include childMarginBottom;
+      section{
+        @include childMarginBottom;
+      }
+    }
   }
+
+
 }
 
 

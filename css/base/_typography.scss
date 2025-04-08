@@ -1,72 +1,42 @@
-// this will include all related font, the values is just for testing
-// i use this clamp generator with min vieport width at 320px and max at 1000px
-// https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjMyMHB4IiwibWF4V2lkdGgiOiIxMjQ4cHgiLCJtaW5Gb250U2l6ZSI6IjE0cHgiLCJtYXhGb250U2l6ZSI6IjE2cHgifQ%3D%3D
+/*
+  ============================
+  Typography
+  ============================
+  This section contains typography variables: line-height, font-family, font-weight::after\
+*/
 
+/*
+Developer's note:
+ 1. I used clamp generator with min viewport width of 320px and max viewport width at 100px
+
+ @link https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjMyMHB4IiwibWF4V2lkdGgiOiIxMjQ4cHgiLCJtaW5Gb250U2l6ZSI6IjE0cHgiLCJtYXhGb250U2l6ZSI6IjE2cHgifQ%3D%3D
+
+ 2. I also used it to calculate the line-height making sure it is a multiple of 24px - because my mind can't handle creating a mixin for dynamic line-height so if you can figure it out, you are most welcome to do so.
+
+*/
+
+// ============================
+// FONT FAMILY SETTINGS
+// ============================
 
 $heading-font-family: 'Frank Ruhl Libre', serif;
 $body-font-family: 'Alegreya Sans', sans-serif;
 
 
-// NOTE: I gave up on making mixin for dynamically computing the line-height so im inputting it manually on font-size generator and using it for clamping the lineheight.
+// ============================
+// FONT SIZE CLAMPING FOR RESPONSIVENESS
+// ============================
 
-// hero-banner shop p
-$font14-to-font32: clamp(0.875rem, 0.3456rem + 2.6471vw, 2rem);
-$line-height-14-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* from 24px to 36px */
-// font-weight: 500;
+// line-height:
+$base-line-height: 1.5rem; /* We are following 24px baseline grid (1.5rem = 24px if root font-size is 16px)*/
 
-// this is the anchor tag clamp
-$font16-to-font20: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
-$line-height-16-20: 1.5rem; /* 24px since both are below 24px */
-// font-weight: bold
-
-// this is the p tag clamp
+// p
 $font16-to-font24: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
 $line-height-16-24: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);/* from 24 to 36px */
 
-// h2
-$font18-to-font36: clamp(1.125rem, 0.5956rem + 2.6471vw, 2.25rem);
-$line-height-18-36: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 to 48px */
-
-
-// h3
-$font16-to-font32: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
-$line-height-16-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
-
-// tagline clamp
-$font16-to-font40: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
-$line-height-16-40: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);/* from 24px to 48px */
-// font-weight: regular
-// font-style: italic
-// line-height: 1.2
-
-// hero banner clamp
-$font24-to-font64: clamp(1.5rem, 0.3235rem + 5.8824vw, 4rem);
-$line-height-24-64: clamp(1.5rem, 0.0882rem + 7.0588vw, 4.5rem); /* from 24px to 72px */
-// font-weight: 600
-
-$font24-to-font96: clamp(1.5rem, -0.6176rem + 10.5882vw, 6rem);
-$line-height-24-96: clamp(1.5rem, -0.9706rem + 12.3529vw, 6.75rem); /* from 24 to 108px */
-
-// for the church hour subtitle
-$font14-to-font24: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-$line-height-14-24: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);/* from 24 to 36px */
-
-$font20-to-font32: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-$line-height-20-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* from 24 to 36px */
-
-$font20-to-font40: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
-$line-height-20-40: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* from 24 to 48px */
-
-// for accordion h3
-$font24-to-font30: clamp(1.5rem, 1.3235rem + 0.8824vw, 1.875rem);
-$line-height-24-30: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24px to 36 */
-
-
-
-// SUGGESTED FONTS:
 // h1
 $font24-to-font48: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
-$line-height-24-48: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 48 */
+$line-height-24-48: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 to 48 */
 
 // h2
 $font20-to-font36: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
@@ -80,10 +50,59 @@ $line-height-18-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 $font16-to-font28: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem);
 $line-height-16-28: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 
-// line-height:
-$base-line-height: 1.5rem;
+/*--------------- Hero Banner Section------------- */
+// HERO BANNER title
+$font24-to-font64: clamp(1.5rem, 0.3235rem + 5.8824vw, 4rem);
+$line-height-24-64: clamp(1.5rem, 0.0882rem + 7.0588vw, 4.5rem); /* from 24px to 72px */
+
+// HERO BANNER tagline font and font-awesome icon font
+$font16-to-font40: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
+$line-height-16-40: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);/* from 24px to 48px */
+
+// HERO BANNER p tag for "Our church just opened!)
+$font14-to-font32: clamp(0.875rem, 0.3456rem + 2.6471vw, 2rem);
+$line-height-14-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* from 24px to 36px */
+// font-weight: 500;
+
+/*--------------- FIne Print or for Smaller Fonts------------- */
+// FINE PRINT font:
+$font16-to-font20: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+$line-height-16-20: 1.5rem; /* 24px since both are below 24px */
+
+/*--------------- Accordion------------- */
+
+// ACCORDION font
+$font16-to-font32: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
+$line-height-16-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 
 
+/*--------------- Church Hour Section/Div and Weekly Highlights ------------- */
+
+// CHURCH HOUR subtitle and WEEKLY HIGHLIGHTS p tag
+$font14-to-font24: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
+$line-height-14-24: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);/* from 24 to 36px */
+
+// CHURCH HOUR time font
+$font20-to-font32: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
+$line-height-20-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* from 24 to 36px */
+
+
+/*--------------- Parish Organization Card------------- */
+
+// SINGLE ORG Title 
+$font24-to-font96: clamp(1.5rem, -0.6176rem + 10.5882vw, 6rem);
+$line-height-24-96: clamp(1.5rem, -0.9706rem + 12.3529vw, 6.75rem); /* from 24 to 108px */
+
+
+// ORGANIZATION CARD Title
+$font20-to-font40: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
+$line-height-20-40: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* from 24 to 48px */
+
+
+
+// ============================
+// FONT WEIGHTS
+// ============================
 
 // font-weights
 $font-weight-thin: 100;
@@ -96,5 +115,9 @@ $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
 $font-weight-black: 900;
 
+/*
+Developer's Note:
 
-// OUR SPACING IS IN MULTIPLES OF 24PX/1.5rem
+I did the font-weight this way so it's easier to copy off figma design styles. =)
+
+*/

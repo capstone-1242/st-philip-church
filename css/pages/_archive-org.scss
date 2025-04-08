@@ -12,7 +12,7 @@ delete any unused styles after
 @use "../base/variables" as *;
 // components
 @use "../components/button" as *;
-@use "../components/card" as *;
+
 
 // this is the about us wrapper id
 section.organization-archive {
@@ -33,11 +33,7 @@ section.organization-archive {
 
     grid-template-rows: auto;
 
-    section {
-      background-color: $accent-white;
-    }
-
-    section:nth-of-type(n+4){
+    article:nth-of-type(n+4){
       grid-column: span 2;
     }
 
@@ -49,13 +45,13 @@ section.organization-archive {
       grid-column: 1 / span 6;
     }
 
-    > section:first-of-type {
+    > article:first-of-type {
       grid-row: 1 / span 1;
       grid-column: 7 / span 6;
       align-self: start;
     }
 
-    > section:not(:first-of-type) {
+    > article:not(:first-of-type) {
       grid-column: span 4;
     }
   }

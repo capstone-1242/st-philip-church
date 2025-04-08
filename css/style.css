@@ -1,5 +1,13 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* 
+  ============================
+  CSS Reset (from Meyerweb)
+  ============================
+  A commonly used CSS reset by Eric Meyer (v2.0), which neutralizes browser-specific styling 
+  and makes it easier to apply your own styles without having to deal with unwanted defaults.
+  This reset helps ensure that the website looks consistent across all browsers.
+
+	@link  http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -53,6 +61,13 @@ table {
   border-spacing: 0;
 }
 
+/*
+Developer's Note: 
+1. I added box-sizing:border-box so the width and height is consistent(when declared) no matter the changes in margin, padding or border
+2. I added the img properties to ensure it is responsive and will not break the layout (best practice!)
+3. Please feel free to add more to suit your needs.
+
+*/
 * {
   box-sizing: border-box;
 }
@@ -63,46 +78,234 @@ img {
 }
 
 /*
-this part is for styles for the overall body
+  ============================
+  GLOBAL STYLES
+  ============================
+  This section includes global styles that apply to the entire website, such as font settings, basic body styling,
+  and foundational layout properties.
 */
-/* from 24px to 36px */
-/* 24px since both are below 24px */
+/*
+  ============================
+  COLOR VARIABLES
+  ============================
+  This section includes global color variables that will be used throughout the website.
+  Colors are categorized into main colors, accent colors, and various shades.
+*/
+/* used for card's border-color and a:hover background-color */
+/* used for header nav hover state styling */
+/* used for front-page section's background overlay */
+/*
+  ============================
+  Typography
+  ============================
+  This section contains typography variables: line-height, font-family, font-weight::after\
+*/
+/*
+Developer's note:
+ 1. I used clamp generator with min viewport width of 320px and max viewport width at 100px
+
+ @link https://clamp.font-size.app/?config=eyJyb290IjoiMTYiLCJtaW5XaWR0aCI6IjMyMHB4IiwibWF4V2lkdGgiOiIxMjQ4cHgiLCJtaW5Gb250U2l6ZSI6IjE0cHgiLCJtYXhGb250U2l6ZSI6IjE2cHgifQ%3D%3D
+
+ 2. I also used it to calculate the line-height making sure it is a multiple of 24px - because my mind can't handle creating a mixin for dynamic line-height so if you can figure it out, you are most welcome to do so.
+
+*/
+/* We are following 24px baseline grid (1.5rem = 24px if root font-size is 16px)*/
 /* from 24 to 36px */
-/* 24 to 48px */
-/* 24 to 36 */
-/* from 24px to 48px */
-/* from 24px to 72px */
-/* from 24 to 108px */
-/* from 24 to 36px */
-/* from 24 to 36px */
-/* from 24 to 48px */
-/* 24px to 36 */
-/* 24 48 */
+/* 24 to 48 */
 /* 24 to 48 */
 /* 24 to 36 */
 /* 24 to 36 */
+/*--------------- Hero Banner Section------------- */
+/* from 24px to 72px */
+/* from 24px to 48px */
+/* from 24px to 36px */
+/*--------------- FIne Print or for Smaller Fonts------------- */
+/* 24px since both are below 24px */
+/*--------------- Accordion------------- */
+/* 24 to 36 */
+/*--------------- Church Hour Section/Div and Weekly Highlights ------------- */
+/* from 24 to 36px */
+/* from 24 to 36px */
+/*--------------- Parish Organization Card------------- */
+/* from 24 to 108px */
+/* from 24 to 48px */
 /*
-this part is for styles for the overall body
+Developer's Note:
+
+I did the font-weight this way so it's easier to copy off figma design styles. =)
+
+*/
+/*
+  ============================
+  GLOBAL STYLES
+  ============================
+  This section includes global styles that apply to the entire website, such as font settings, basic body styling,
+  and foundational layout properties.
+*/
+/*
+  ============================
+  GLOBAL STYLES MIXINS
+  ============================
+  This section contains reusable mixins for components, layouts, and utilities
+  that can be applied throughout the website.
+  These mixins help keep the code DRY (Don’t Repeat Yourself) by encapsulating
+  common patterns and styles that are used across multiple parts of the website.
+*/
+/*
+  ============================
+  GLOBAL MEDIA QUERIES MIXIN
+  ============================
+  This mixin handles media queries for different screen sizes (phone, tablet, desktop).
+  It allows you to apply styles for specific screen widths by using a reusable mixin.
+  For custom breakpoints, you can pass any value (e.g., 480px) as an argument.
+  Sources for inspiration: 
+  - https://css-tricks.com/approaches-media-queries-sass/
+  - https://medium.com/@ahsan-ali-mansoor/new-css-media-range-queries-5bbe42a841f8
+*/
+/*
+  Mixin to handle media queries based on device types.
+  - `phone`: min-width of $phone
+  - `tablet`: min-width of $tablet and max-width just before $desktop
+  - `desktop`: min-width of $desktop
+  - Custom: pass any value as a custom breakpoint (e.g., 480px)
+*/
+/*
+  ============================
+  Global Variables
+  ============================
+  This file includes all the variables used across the application
+*/
+/* this is the width where the nav goes from mobile form (dropdown)  to desktop form (laid out horizontally) */
+/*
+Developer's Note: 
+
+I used the $sectionMargin in a way that in mobile the left-right is 16px and the starting from tablet, desktop it is auto
+Since the clamp doesn't support auto to be included in its function, I made a way around it by:
+
+@include $sectionMargin;
+&{
+  margin-inline: 16px!important;
+}
+
+and then on a breakpoint of your choosing:
+@include forScreenSizes(tablet, desktop){
+  margin-inline: auto!important;
+}
+
+*/
+/*
+  ============================
+  CARD STYLING MIXIN
+  ============================
+  This mixin is used for creating card components. You can adjust the card's
+  text color, border, border-radius, padding, and background color.
+  You can apply this mixin to any element that requires a card-like appearance.
+*/
+/*
+  ============================
+  BUTTON STYLING MIXIN
+  ============================
+  This mixin is used for creating button styles. It accepts customizable properties
+  like background color, text color, border radius, padding, font size, and more.
+  The button also has a hover effect that changes the background color and text color.
+*/
+/*
+  ============================
+  MAX WIDTH CENTERING MIXIN
+  ============================
+  This mixin centers an element horizontally by setting a max-width and using
+  margin: 0 auto. It's useful for containers that need to have a specific
+  maximum width and remain centered.
+
+  TIP: If you want to override the margin::after
+
+  do: 
+  @maxWidthCenterd(1248px)
+  &{
+  margin: 1.5rem !important;
+  }
+
+  Please make sure to always wrap non sass elements in &{} after the sass element to avoid error warning
+*/
+/*
+  ============================
+  LOGO DIMENSIONS MIXIN
+  ============================
+  This mixin is used to set the dimensions (width and height) of a logo or image.
+  It helps ensure logos have consistent sizes across the site.
+*/
+/*
+  ============================
+  GRID LAYOUT MIXIN
+  ============================
+  This mixin creates a grid layout with adjustable columns, row gaps, and column gaps.
+  It provides a flexible way to create responsive layouts. The default number of columns is 4,
+  but it can be adjusted according to the needs of the page.
+  Additionally, it supports media queries for responsive grid layouts on tablet and desktop screens.
+*/
+/*
+Developer's note:
+1. This mixin is only helpful when you have a complicated layout in mobile view which also changes in desktop view
+2. If your mobile view is just plain 1 column, better skip this mixin and use the gridContainer (for bigger screen sizes) 
+*/
+/*
+  ============================
+  GRID CONTAINER MIXIN
+  ============================
+  This mixin creates a 12-column grid container with adjustable row and column gaps.
+  It is a flexible and responsive way to create a grid layout for larger screens.
+*/
+/*
+Developer's note:
+ 1. Mobile View column-gap is 16px or 1rem
+ 2. Desktop View column-gap is 24px or 1.5rem
+*/
+/*
+  ============================
+  CHILD GRID SPAN MIXIN
+  ============================
+  This mixin makes all child elements of a grid container span across all columns,
+  ensuring that the child element takes up the entire width of the grid container.
+*/
+/*
+  ============================
+  CHILD MARGIN BOTTOM MIXIN
+  ============================
+  This mixin applies a bottom margin to all child elements inside a container,
+  except the last child. It helps maintain consistent spacing between elements
+  throughout the layout.
+*/
+/*
+  ============================
+  FLEX LAYOUT MIXIN
+  ============================
+  This mixin creates a flexbox layout with customizable properties like direction,
+  justification, alignment, and wrapping behavior. It's useful for creating flexible
+  and responsive layouts for various elements like containers, headers, footers, etc.
+*/
+/*
+  ============================
+  GLOBAL STYLES MIXINS
+  ============================
+  This section contains reusable mixins for components, layouts, and utilities
+  that can be applied throughout the website.
+  These mixins help keep the code DRY (Don’t Repeat Yourself) by encapsulating
+  common patterns and styles that are used across multiple parts of the website.
 */
 body {
-  /** Step 1: Choose a font-family **/
   font-family: "Alegreya Sans", sans-serif;
-  /**Step 2: Set your default font-size (body font-size - always set in %'s **/
   font-size: 100%;
-  /**16px**/
-  /** Step 3: Choose your grid unit size 
-          what is your vertical spacing going to be of **/
-  line-height: 1.5rem; /* 1.2 based on figma  */
-  /**20px x 1.5 = 30 grid units **/
-  /** Step 4: Display visual grid **/
+  line-height: 1.5rem;
   background-color: white;
-  /** Step 5: choose typographic scale 
-          12, 14, 16, 18, 21, 24, 36, 48, 60, 72
-      **/
   text-align: left;
 }
 
-/*===========================TYPOGRAPHY=================================*/
+/*
+  ============================
+  TYPOGRAPHY STYLES
+  ============================
+  This section includes font settings for all text elements, such as headings, paragraphs, and links.
+*/
 h1,
 h2,
 h3,
@@ -148,6 +351,14 @@ h4 {
   line-height: 1.5rem;
 }
 
+/*
+  ============================
+  STYLES FOR ORGANIZATION CARDS
+  ============================
+  This section includes styles for the cards displaying different organizations or committees, like the layout and hover effects.
+
+  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =) 
+*/
 .organization-card-link {
   display: block;
   text-decoration: none;
@@ -191,12 +402,19 @@ h4 {
   left: 10px;
   right: 10px;
   color: #F5F5F5;
+  font-family: "Alegreya Sans", sans-serif;
   font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
   line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 700;
   z-index: 2;
 }
 
+/*
+  ============================
+  ACCORDION STYLES
+  ============================
+  This section contains styles for the accordion component, including its container, individual accordion items, and content panels.
+*/
 .accordion-container {
   border: 2px solid rgba(41, 73, 30, 0.52);
   border-radius: 10px;
@@ -207,8 +425,6 @@ h4 {
   text-align: left;
   width: 100%;
   padding: 1.125rem 1rem;
-  font-size: clamp(1rem, 0.5294rem + 2.3529vw, 2rem);
-  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
   font-weight: 500;
   cursor: pointer;
   border-bottom: 2px solid rgba(41, 73, 30, 0.52);
@@ -247,6 +463,12 @@ h4 {
   display: block;
 }
 
+/*
+  ============================
+  HEADER AND SHOP FILTER STYLES
+  ============================
+  This section includes header and shop filter styles for better layout control.
+*/
 .entry-header {
   margin-bottom: 1.5rem;
 }
@@ -291,7 +513,31 @@ a.reset-btn:hover {
   grid-column: 1/-1;
 }
 
+/*
+  TIP for future developers:
+
+  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages), 
+  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout` 
+  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the 
+  structure WooCommerce generates, especially when new pages or blocks are created.
+
+  If you need to extend or modify this behavior for future WooCommerce pages:
+  1. Check that the page you're working with includes the necessary WooCommerce blocks (e.g., cart, checkout, thank you).
+  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`, 
+     using grid layout properties like `grid-column: 1 / -1` to make them span the full container width.
+  3. The client can modify these settings without needing to rewrite page-specific styles—just ensure the WooCommerce-generated blocks are being used correctly.
+
+  This approach makes the design flexible and maintainable without having to customize every page template or rely on page-specific selectors. All the WooCommerce pages will have a consistent layout as long as the necessary blocks are present.
+
+  Keep this in mind when adding customizations to WooCommerce-related pages!
+*/
 /* those reusable component like stuff that accept variables */
+/*
+  ============================
+  BUTTON COMPONENT CLASSES
+  ============================
+  This section contains the classes for the button variations made from the button mixin.
+*/
 .default-button {
   display: inline-block;
   padding: 1.5rem 1rem;
@@ -364,6 +610,14 @@ a.reset-btn:hover {
   color: #111933;
 }
 
+/*
+Developer's Note:
+
+I didn't get to use the classes secondary-button and outlined-button but I left it here anyway incase you want to change some styles, Just add the classes on the button in the html and you're good to go.
+
+The reason I was not able to use it is the buttons with different styles is in the WooCommerce pages which I have no access to the actual source code to be able to add these classes.
+
+*/
 /*
 This is where we style our footer
 */
@@ -904,10 +1158,7 @@ section.committee-archive {
 section.committee-archive header {
   margin-bottom: 1.5rem;
 }
-section.committee-archive section {
-  background-color: #F5F5F5;
-}
-section.committee-archive section:nth-of-type(n + 4) {
+section.committee-archive article:nth-of-type(n + 4) {
   grid-column: span 2;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
@@ -918,11 +1169,11 @@ section.committee-archive section:nth-of-type(n + 4) {
     grid-column: 1/span 6;
     order: -1;
   }
-  section.committee-archive section:first-of-type {
+  section.committee-archive article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
   }
-  section.committee-archive section:nth-of-type(n + 2):nth-of-type(-n + 7) {
+  section.committee-archive article:nth-of-type(n + 2):nth-of-type(-n + 7) {
     grid-column: span 4;
   }
 }
@@ -934,11 +1185,11 @@ section.committee-archive section:nth-of-type(n + 4) {
     grid-column: 1/span 6;
     order: -1;
   }
-  section.committee-archive section:first-of-type {
+  section.committee-archive article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
   }
-  section.committee-archive section:nth-of-type(n + 2):nth-of-type(-n + 7) {
+  section.committee-archive article:nth-of-type(n + 2):nth-of-type(-n + 7) {
     grid-column: span 4;
   }
 }
@@ -950,26 +1201,26 @@ section.committee-archive section:nth-of-type(n + 4) {
     grid-column: 1/span 6;
     order: -1;
   }
-  section.committee-archive section:first-of-type {
+  section.committee-archive article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
   }
-  section.committee-archive section:nth-of-type(n + 2):nth-of-type(-n + 7) {
+  section.committee-archive article:nth-of-type(n + 2):nth-of-type(-n + 7) {
     grid-column: span 4;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-  section.committee-archive section:nth-last-of-type(-n + 4) {
+  section.committee-archive article:nth-last-of-type(-n + 4) {
     grid-column: span 6;
   }
 }
 @media only screen and (min-width: tablet) {
-  section.committee-archive section:nth-last-of-type(-n + 4) {
+  section.committee-archive article:nth-last-of-type(-n + 4) {
     grid-column: span 6;
   }
 }
 @media only screen and (min-width: 1000px) {
-  section.committee-archive section:nth-last-of-type(-n + 4) {
+  section.committee-archive article:nth-last-of-type(-n + 4) {
     grid-column: span 3;
   }
 }
@@ -1024,10 +1275,7 @@ section.organization-archive {
 section.organization-archive header {
   margin-bottom: 1.5rem;
 }
-section.organization-archive section {
-  background-color: #F5F5F5;
-}
-section.organization-archive section:nth-of-type(n+4) {
+section.organization-archive article:nth-of-type(n+4) {
   grid-column: span 2;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
@@ -1037,12 +1285,12 @@ section.organization-archive section:nth-of-type(n+4) {
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
-  section.organization-archive > section:first-of-type {
+  section.organization-archive > article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
     align-self: start;
   }
-  section.organization-archive > section:not(:first-of-type) {
+  section.organization-archive > article:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -1053,12 +1301,12 @@ section.organization-archive section:nth-of-type(n+4) {
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
-  section.organization-archive > section:first-of-type {
+  section.organization-archive > article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
     align-self: start;
   }
-  section.organization-archive > section:not(:first-of-type) {
+  section.organization-archive > article:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -1069,12 +1317,12 @@ section.organization-archive section:nth-of-type(n+4) {
   section.organization-archive > div {
     grid-column: 1/span 6;
   }
-  section.organization-archive > section:first-of-type {
+  section.organization-archive > article:first-of-type {
     grid-row: 1/span 1;
     grid-column: 7/span 6;
     align-self: start;
   }
-  section.organization-archive > section:not(:first-of-type) {
+  section.organization-archive > article:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -2554,6 +2802,17 @@ section#privacy-page {
 section#privacy-page div.entry-content > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
+@media only screen and (min-width: 750px) {
+  section#privacy-page div.entry-content > * {
+    grid-column: 1/-1;
+  }
+  section#privacy-page div.entry-content > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  section#privacy-page div.entry-content section > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
 
 /* those reusable component like stuff that accept variables */
 /*
@@ -2613,7 +2872,7 @@ section#committee-single div.entry-content > * {
 section#committee-single div.entry-content > section:first-of-type > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
-section#committee-single div.entry-content > section:first-of-type .acf-gallery img:not(:last-of-type) {
+section#committee-single div.entry-content > section:first-of-type .acf-gallery a:not(:last-of-type) {
   margin-bottom: 1.5rem;
 }
 section#committee-single div.entry-content .responsibility-container > *:not(:last-child) {
@@ -2714,10 +2973,10 @@ section#committee-single div.entry-content .committee-button-container p.button-
     row-gap: 0;
     column-gap: 1rem;
   }
-  section#committee-single div.entry-content .acf-gallery img:first-of-type {
+  section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
   }
-  section#committee-single div.entry-content .acf-gallery img:not(:first-of-type) {
+  section#committee-single div.entry-content .acf-gallery a:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -2731,10 +2990,10 @@ section#committee-single div.entry-content .committee-button-container p.button-
     row-gap: 0;
     column-gap: 1rem;
   }
-  section#committee-single div.entry-content .acf-gallery img:first-of-type {
+  section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
   }
-  section#committee-single div.entry-content .acf-gallery img:not(:first-of-type) {
+  section#committee-single div.entry-content .acf-gallery a:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -2754,7 +3013,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
   section#committee-single div.entry-content > section:first-of-type .acf-gallery {
     grid-column: 1/-1;
   }
-  section#committee-single div.entry-content > section:first-of-type .acf-gallery img:not(:first-of-type) {
+  section#committee-single div.entry-content > section:first-of-type .acf-gallery a:not(:first-of-type) {
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
@@ -2809,7 +3068,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
   section#committee-single div.entry-content > section:first-of-type .acf-gallery {
     grid-column: 1/-1;
   }
-  section#committee-single div.entry-content > section:first-of-type .acf-gallery img:not(:first-of-type) {
+  section#committee-single div.entry-content > section:first-of-type .acf-gallery a:not(:first-of-type) {
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
@@ -2864,7 +3123,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
   section#committee-single div.entry-content > section:first-of-type .acf-gallery {
     grid-column: 1/-1;
   }
-  section#committee-single div.entry-content > section:first-of-type .acf-gallery img:not(:first-of-type) {
+  section#committee-single div.entry-content > section:first-of-type .acf-gallery a:not(:first-of-type) {
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
@@ -2981,7 +3240,7 @@ section#organization-single div.entry-content {
 section#organization-single div.entry-content > * {
   grid-column: 1/-1;
 }
-section#organization-single div.entry-content .acf-gallery img:not(:last-of-type) {
+section#organization-single div.entry-content .acf-gallery a:not(:last-of-type) {
   margin-bottom: 1.5rem;
 }
 section#organization-single div.entry-content .acf-gallery img {
@@ -2998,38 +3257,6 @@ section#organization-single div.entry-content div.form-recommendation-container 
 section#organization-single div.entry-content section.organization-recommendations h2 {
   margin-bottom: 1.5rem;
 }
-section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card-link {
-  display: block;
-  text-decoration: none;
-  margin-bottom: 1.5rem;
-}
-section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card {
-  position: relative;
-  width: 100%;
-  height: 233px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
-}
-section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-image {
-  width: 100%;
-  min-height: 300px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: block;
-}
-section#organization-single div.entry-content section.organization-recommendations div.organization-cards .organization-card-title {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  padding: 106px 187px 15px 15px;
-  color: #F5F5F5;
-  font-size: clamp(1.25rem, 0.6618rem + 2.9412vw, 2.5rem);
-  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
-  font-weight: 700;
-}
 @media only screen and (min-width: 425px) {
   section#organization-single div.entry-content {
     grid-template-columns: repeat(12, 1fr);
@@ -3040,10 +3267,10 @@ section#organization-single div.entry-content section.organization-recommendatio
     row-gap: 0;
     column-gap: 1rem;
   }
-  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+  section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
   }
-  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
+  section#organization-single div.entry-content .acf-gallery a:not(:first-of-type) {
     grid-column: span 4;
   }
 }
@@ -3063,16 +3290,15 @@ section#organization-single div.entry-content section.organization-recommendatio
   }
   section#organization-single div.entry-content .acf-gallery {
     grid-column: 1/span 8;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    grid-template-rows: auto;
   }
-  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+  section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
+    grid-row: 1/span 1;
   }
-  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
-    grid-column: span 2;
+  section#organization-single div.entry-content .acf-gallery a:not(:first-of-type) {
+    grid-column: span 3;
+    grid-row: 2/-1;
   }
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;
@@ -3102,16 +3328,15 @@ section#organization-single div.entry-content section.organization-recommendatio
   }
   section#organization-single div.entry-content .acf-gallery {
     grid-column: 1/span 8;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    grid-template-rows: auto;
   }
-  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+  section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
+    grid-row: 1/span 1;
   }
-  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
-    grid-column: span 2;
+  section#organization-single div.entry-content .acf-gallery a:not(:first-of-type) {
+    grid-column: span 3;
+    grid-row: 2/-1;
   }
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;
@@ -3141,16 +3366,15 @@ section#organization-single div.entry-content section.organization-recommendatio
   }
   section#organization-single div.entry-content .acf-gallery {
     grid-column: 1/span 8;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    grid-template-rows: auto;
   }
-  section#organization-single div.entry-content .acf-gallery img:first-of-type {
+  section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
+    grid-row: 1/span 1;
   }
-  section#organization-single div.entry-content .acf-gallery img:not(:first-of-type) {
-    grid-column: span 2;
+  section#organization-single div.entry-content .acf-gallery a:not(:first-of-type) {
+    grid-column: span 3;
+    grid-row: 2/-1;
   }
   section#organization-single div.entry-content div.org-description {
     grid-column: 1/span 8;

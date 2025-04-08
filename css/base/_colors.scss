@@ -1,23 +1,62 @@
-// main-colors
+/*
+  ============================
+  COLOR VARIABLES
+  ============================
+  This section includes global color variables that will be used throughout the website.
+  Colors are categorized into main colors, accent colors, and various shades.
+*/
 
-$main-yellow: #EFC275;
-$main-red: #5D1207;
-$main-green: #475841;
+// ============================
+// MAIN COLORS: Primary branding colors
+// ============================
 
-// accents
-$accent-green: #29491E;
+$main-yellow: #EFC275; /* used for card's border-color and a:hover background-color */
+$main-red: #5D1207; /* used for header nav hover state styling */
+$main-green: #475841; /* used for front-page section's background overlay */
+
+// ============================
+// ACCENT COLORS: Secondary colors for highlights and subtle accents
+// ============================
+
+$accent-green: #29491E; 
 $accent-red: #781100;
 $accent-yellow: #D79A32;
 
-// shades of blue
+// ============================
+// SHADES OF BLUE: Used for depth, contrast, and visual hierarchy
+// ============================
+
 $primary-blue: #111933;
 $secondary-blue: #2F3456;
 $tertiary-blue: #9194A8;
 
-// shades of white
+// ============================
+// SHADES OF WHITE: Lighter tones for neutral backgrounds and text contrasts
+// ============================
+
 $light: #E2E2E2;
 $accent-white: #F5F5F5;
 $white: white;
+
+// ============================
+// TIP: How to Add Transparency to Colors with RGBA
+// ============================
+
+// When you want to apply a color with transparency, you can use the `rgba()` function, which accepts:
+// 1. A color (e.g., $accent-green)
+// 2. An alpha value (opacity), which is a number between 0 (fully transparent) and 1 (fully opaque).
+
+// Example: Using a transparent version of $accent-green
+// rgba($accent-green, 0.8) makes $accent-green 80% opaque (20% transparent).
+$accent-green-transparent: rgba($accent-green, 0.8);
+
+// This transparent version can be used for background colors, borders, or other elements that need transparency.
+// Usage Example:
+  // background-color: $accent-green-transparent;
+// This will apply the $accent-green color with 80% opacity, allowing the background to slightly show through.
+  
+// NOTE: You can adjust the transparency level by changing the second value in rgba()
+// For example, rgba($accent-green, 0.5) would make the color 50% transparent.
 
 
 

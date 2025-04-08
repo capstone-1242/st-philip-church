@@ -12,7 +12,7 @@ delete any unused styles after
 @use "../base/variables" as *;
 // components
 @use "../components/button" as *;
-@use "../components/card" as *;
+
 
 // this is the single parish committee wrapper
 section#committee-single {
@@ -46,7 +46,7 @@ section#committee-single {
     >section:first-of-type{
       @include childMarginBottom;
     .acf-gallery {
-      img:not(:last-of-type) {
+      a:not(:last-of-type) {
         margin-bottom: $base-line-height;
       }
     }
@@ -140,10 +140,10 @@ section#committee-single {
       grid-template-columns: repeat(12, 1fr);
       .acf-gallery {
         @include gridContainer($columns: 12, $row-gap: 0);
-        img:first-of-type {
+        a:first-of-type {
           grid-column: 1 / -1;
         }
-        img:not(:first-of-type) {
+        a:not(:first-of-type) {
           grid-column: span 4;
         }
       }
@@ -157,10 +157,10 @@ section#committee-single {
       grid-template-columns: repeat(12, 1fr);
       .acf-gallery {
         @include gridContainer($columns: 12, $row-gap: 0);
-        img:first-of-type {
+        a:first-of-type {
           grid-column: 1 / -1;
         }
-        img:not(:first-of-type) {
+        a:not(:first-of-type) {
           grid-column: span 4;
         }
       }
@@ -186,7 +186,7 @@ section#committee-single {
       .acf-gallery {
         grid-column: 1 / -1;
 
-        img:not(:first-of-type) {
+        a:not(:first-of-type) {
           grid-column: span 3;
         }
       }

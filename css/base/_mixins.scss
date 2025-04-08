@@ -1,9 +1,28 @@
+/*
+  ============================
+  GLOBAL STYLES MIXINS
+  ============================
+  This section contains reusable mixins for components, layouts, and utilities
+  that can be applied throughout the website.
+  These mixins help keep the code DRY (Don’t Repeat Yourself) by encapsulating
+  common patterns and styles that are used across multiple parts of the website.
+*/
+
+// Importing necessary modules for colors, typography, mixins, variables, and media queries
+
 @use "../base/colors" as *;
 @use "../base/typography" as *;
 @use "../base/media-queries" as *;
 @use "../base/variables" as *;
 
-@use 'sass:list'; // Import the list module to use its functions
+/*
+  ============================
+  CARD STYLING MIXIN
+  ============================
+  This mixin is used for creating card components. You can adjust the card's
+  text color, border, border-radius, padding, and background color.
+  You can apply this mixin to any element that requires a card-like appearance.
+*/
 
 @mixin card(
   $color: $accent-white,
@@ -19,8 +38,16 @@
   padding: $padding;
 }
 
+/*
+  ============================
+  BUTTON STYLING MIXIN
+  ============================
+  This mixin is used for creating button styles. It accepts customizable properties
+  like background color, text color, border radius, padding, font size, and more.
+  The button also has a hover effect that changes the background color and text color.
+*/
 
-@mixin button($bg: $accent-red, $color: $white, $radius: 0.3125rem, $padding: 1.5rem 1rem, $font-size: $font16-to-font20, $font-weight: $font-weight-bold, $border: none) {
+@mixin button($bg: $accent-red, $color: $white, $radius: 0.3125rem, $padding: 1.5rem 1rem, $font-size: $font16-to-font20, $font-weight: $font-weight-bold, $border: none, $hover-color: $primary-blue, $hover-bg: $main-yellow) {
   display: inline-block;
   padding: $padding;
   font-size: $font16-to-font20;
@@ -34,10 +61,30 @@
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out ;
 
   &:hover {
-    background-color: $main-yellow;
-    color: $primary-blue;
+    background-color: $hover-bg;
+    color: $hover-color;
   }
 }
+
+
+/*
+  ============================
+  MAX WIDTH CENTERING MIXIN
+  ============================
+  This mixin centers an element horizontally by setting a max-width and using
+  margin: 0 auto. It's useful for containers that need to have a specific
+  maximum width and remain centered.
+
+  TIP: If you want to override the margin::after
+
+  do: 
+  @maxWidthCenterd(1248px)
+  &{
+  margin: 1.5rem !important;
+  }
+
+  Please make sure to always wrap non sass elements in &{} after the sass element to avoid error warning
+*/
 
 @mixin maxWidthCentered($x){
   &{
@@ -46,11 +93,35 @@
   }
 }
 
+
+
+/*
+  ============================
+  LOGO DIMENSIONS MIXIN
+  ============================
+  This mixin is used to set the dimensions (width and height) of a logo or image.
+  It helps ensure logos have consistent sizes across the site.
+*/
 @mixin logoDimensions($width, $height){
   width: $width;
   height: $height;
 }
 
+/*
+  ============================
+  GRID LAYOUT MIXIN
+  ============================
+  This mixin creates a grid layout with adjustable columns, row gaps, and column gaps.
+  It provides a flexible way to create responsive layouts. The default number of columns is 4,
+  but it can be adjusted according to the needs of the page.
+  Additionally, it supports media queries for responsive grid layouts on tablet and desktop screens.
+*/
+
+/*
+Developer's note:
+1. This mixin is only helpful when you have a complicated layout in mobile view which also changes in desktop view
+2. If your mobile view is just plain 1 column, better skip this mixin and use the gridContainer (for bigger screen sizes) 
+*/
 
 @mixin grid($columns: 4, $row-gap: 1rem, $column-gap: 1.5rem) {
   &{
@@ -68,21 +139,20 @@
   }
 }
 
-// this makes all the child elements of the parent that has display:grid to span 12 columns
-@mixin childGridSpan() {
-  > * {
-    grid-column: 1 / -1;
-  }
-}
 
-// this makes sure our spacing corresponds to the vertical rhythm 24px and I use it a lot so i created mixin for it
-@mixin childMarginBottom($value: 1.5rem) {
-  > *:not(:last-child){ 
-    margin-bottom: $value;
-  }
-}
+/*
+  ============================
+  GRID CONTAINER MIXIN
+  ============================
+  This mixin creates a 12-column grid container with adjustable row and column gaps.
+  It is a flexible and responsive way to create a grid layout for larger screens.
+*/
 
-
+/*
+Developer's note:
+ 1. Mobile View column-gap is 16px or 1rem
+ 2. Desktop View column-gap is 24px or 1.5rem
+*/
 
 @mixin gridContainer($columns: 12, $row-gap: 1.5rem, $column-gap: 1rem ) {
   display: grid;
@@ -90,6 +160,44 @@
   row-gap: $row-gap;
   column-gap: $column-gap;
 }
+
+/*
+  ============================
+  CHILD GRID SPAN MIXIN
+  ============================
+  This mixin makes all child elements of a grid container span across all columns,
+  ensuring that the child element takes up the entire width of the grid container.
+*/
+
+@mixin childGridSpan() {
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+/*
+  ============================
+  CHILD MARGIN BOTTOM MIXIN
+  ============================
+  This mixin applies a bottom margin to all child elements inside a container,
+  except the last child. It helps maintain consistent spacing between elements
+  throughout the layout.
+*/
+
+@mixin childMarginBottom($value: $base-line-height) {
+  > *:not(:last-child){ 
+    margin-bottom: $value;
+  }
+}
+
+/*
+  ============================
+  FLEX LAYOUT MIXIN
+  ============================
+  This mixin creates a flexbox layout with customizable properties like direction,
+  justification, alignment, and wrapping behavior. It's useful for creating flexible
+  and responsive layouts for various elements like containers, headers, footers, etc.
+*/
 
 @mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
   display: flex;

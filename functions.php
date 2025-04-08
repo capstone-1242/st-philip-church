@@ -234,3 +234,10 @@ require get_template_directory() . '/class-custom-walker.php';
 
 
 // ____________________________ADDED FUNCTIONALITY________________________________//
+function stphilip_enqueue_lightbox() {
+  if (is_singular(array('parish-committee', 'parish-organization'))) {
+    wp_enqueue_style('lightbox-css', 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css');
+    wp_enqueue_script('lightbox-js', 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js', array('jquery'), null, true);
+  }
+}
+add_action('wp_enqueue_scripts', 'stphilip_enqueue_lightbox');

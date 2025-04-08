@@ -1,26 +1,46 @@
-// this will include all the media queries 
-// this is what we can do:
-// https://css-tricks.com/approaches-media-queries-sass/
-// https://medium.com/@ahsan-ali-mansoor/new-css-media-range-queries-5bbe42a841f8
+/*
+  ============================
+  GLOBAL MEDIA QUERIES MIXIN
+  ============================
+  This mixin handles media queries for different screen sizes (phone, tablet, desktop).
+  It allows you to apply styles for specific screen widths by using a reusable mixin.
+  For custom breakpoints, you can pass any value (e.g., 480px) as an argument.
+  Sources for inspiration: 
+  - https://css-tricks.com/approaches-media-queries-sass/
+  - https://medium.com/@ahsan-ali-mansoor/new-css-media-range-queries-5bbe42a841f8
+*/
 
-
+// Breakpoints for common screen sizes
 $phone: 320px;
 $tablet: 768px;
 $desktop: 1000px;
 
+/*
+  Mixin to handle media queries based on device types.
+  - `phone`: min-width of $phone
+  - `tablet`: min-width of $tablet and max-width just before $desktop
+  - `desktop`: min-width of $desktop
+  - Custom: pass any value as a custom breakpoint (e.g., 480px)
+*/
 
 @mixin forScreenSizes($deviceTypes...) {
   @each $deviceType in $deviceTypes {
+
+    // For 'phone' devices, apply min-width of $phone
     @if $deviceType == phone {
       @media only screen and (min-width: $phone) {
         @content;
       }
     }
+
+    // For 'tablet' devices, apply range from $tablet to just before $desktop
     @if $deviceType == tablet {
       @media only screen and (min-width: $tablet) and (max-width: #{ $desktop - 1px }) {
         @content;
       }
     }
+
+      // For 'desktop' devices, apply min-width of $desktop
     @if $deviceType == desktop {
       @media only screen and (min-width: $desktop){
         @content;

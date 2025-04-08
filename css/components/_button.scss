@@ -1,19 +1,40 @@
-// this is variation of buttons using buttons from mixin
+/*
+  ============================
+  BUTTON COMPONENT CLASSES
+  ============================
+  This section contains the classes for the button variations made from the button mixin.
+*/
+
+// Importing necessary modules for colors and mixins
 @use "../base/colors" as *;
 @use "../base/mixins" as *;
 
+
+// Red Button with white text - universal button style that has hover state of yellow
 .default-button{
   @include button;
 }
 
+// Yellow Button with Primary Blue Text 
 .secondary-button{
   @include button($bg: $main-yellow, $color: $primary-blue);
 }
 
+// Outline Button with Red border and Primary Blue Text
 .outlined-button{
   @include button($border: 2px solid $accent-red, $color: $primary-blue);
 }
 
+// Green Button with Primary Blue Text - use for Read More in About US
 .read-more-button{
  @include button($bg: rgba($accent-green, 0.18), $color: $primary-blue, $radius: 0.625rem, $padding: 2rem 1rem, $border: 2px solid transparent )
 }
+
+/*
+Developer's Note:
+
+I didn't get to use the classes secondary-button and outlined-button but I left it here anyway incase you want to change some styles, Just add the classes on the button in the html and you're good to go.
+
+The reason I was not able to use it is the buttons with different styles is in the WooCommerce pages which I have no access to the actual source code to be able to add these classes.
+
+*/

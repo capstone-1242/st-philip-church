@@ -1,6 +1,12 @@
 /*
-this part is for styles for the overall body
+  ============================
+  GLOBAL STYLES
+  ============================
+  This section includes global styles that apply to the entire website, such as font settings, basic body styling,
+  and foundational layout properties.
 */
+
+// Importing necessary modules for colors, typography, mixins, variables, and media queries
 
 @use "colors" as *;
 @use "typography" as *;
@@ -8,32 +14,36 @@ this part is for styles for the overall body
 @use "variables" as *;
 @use "media-queries" as *;
 
+// Global styling for the body and common layout elements
 body {
-  // this is only temporary for baseline grid
-  /** Step 1: Choose a font-family **/
-  font-family: $body-font-family;
-  /**Step 2: Set your default font-size (body font-size - always set in %'s **/
-  font-size: 100%;
-  /**16px**/
-  /** Step 3: Choose your grid unit size 
-          what is your vertical spacing going to be of **/
-  line-height: $base-line-height; /* 1.2 based on figma  */
-  /**20px x 1.5 = 30 grid units **/
-  /** Step 4: Display visual grid **/
-  background-color: $white;
+  // Set the font family for the body text
+  font-family: $body-font-family; // Choose a suitable font for the overall body text
+  
+  // Set default font-size for the page (usually 100% or 16px)
+  font-size: 100%; // Step 1: Set the default font size (16px)
+  
+  // Set the line height based on the baseline grid
+  line-height: $base-line-height; // Step 2: Use a consistent line height (1.2 or 1.5 times the font size)
+  
+  // Set background color to white for the body
+  background-color: $white; // Step 3: Use a white background color for the overall page
+
+  // Optional: Uncomment for a visual grid (useful for aligning elements to a baseline grid)
   // background-image: linear-gradient(#0ff 1px, transparent 1px);
   // background-size: auto 24px;
-  /** Step 5: choose typographic scale 
-          12, 14, 16, 18, 21, 24, 36, 48, 60, 72
-      **/
-
-  // i did 24 since the line-height 1.3 and 1.2 resulted in 19.3 and 20.8 -- i dont wanna do math bruh.
-
-  // so all our spacing is increments of 24 unless you guys change it?
-  text-align: left;
+  
+  // Align text to the left globally
+  text-align: left; // Step 4: Ensure left-aligned text throughout the site
 }
 
-/*===========================TYPOGRAPHY=================================*/
+
+/*
+  ============================
+  TYPOGRAPHY STYLES
+  ============================
+  This section includes font settings for all text elements, such as headings, paragraphs, and links.
+*/
+
 
 h1,
 h2,
@@ -55,8 +65,6 @@ li {
 .page-header h1 {
   font-size: $font24-to-font48;
   line-height: $line-height-24-48;
-  // font-size: $font20-to-font40;
-  // line-height: $line-height-20-40;
   font-weight: $font-weight-medium-bold;
 }
 
@@ -64,39 +72,41 @@ li {
 h2 {
   font-size: $font20-to-font36;
   line-height: $line-height-20-36;
-  // font-size: $font16-to-font40;
-  // line-height: $line-height-16-40;
   font-weight: $font-weight-medium-bold;
 }
 
 h3 {
   font-size: $font18-to-font32;
   line-height: $line-height-18-32;
-  // font-size: $font16-to-font32;
-  // line-height: $line-height-16-32;
   font-weight: $font-weight-medium-bold;
 }
 
 h4{
   font-size: $font16-to-font28;
   line-height: $line-height-16-28;
-  // font-size: $font24-to-font30;
-  // line-height: $line-height-24-30;
   font-weight: $font-weight-medium;
 }
 
-
+// Fine print for smaller text like footnotes or disclaimers
 .fine-print {
   font-size: $font16-to-font20;
   line-height: $line-height-16-20;
 }
 
 
-// this is the to style the individual committee/organization cards in the archive
+/*
+  ============================
+  STYLES FOR ORGANIZATION CARDS
+  ============================
+  This section includes styles for the cards displaying different organizations or committees, like the layout and hover effects.
+
+  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =) 
+*/
+
 .organization-card-link {
   display: block;
   text-decoration: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: $base-line-height;
 }
 
 .organization-card {
@@ -104,14 +114,15 @@ h4{
   width: 100%;
   max-height: 300px;
   aspect-ratio: 1 / 1;
-  border-radius: 4px;
+  border-radius: $borderRadius;
   overflow: hidden;
 
   &:hover{
-    box-shadow: 1px 0px 15px 7px rgba(rgba($accent-green, 0.16), 0.55);
+    box-shadow: 1px 0px 15px 7px rgba($accent-green, 0.55);
   }
 }
 
+// Image styling for organization cards (background image)
 .organization-image {
   min-height: 300px;
   background-size: cover;
@@ -120,6 +131,7 @@ h4{
   display: block;
 }
 
+// Overlay effect for the organization image (semi-transparent overlay)
 .organization-image::before {
   content: "";
   position: absolute;
@@ -131,34 +143,40 @@ h4{
   z-index: 1;
 }
 
+// Title text for the organization card
 .organization-card-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
-  // padding: 106px 187px 15px 15px;
   color: $accent-white;
+  font-family: $body-font-family;
   font-size: $font20-to-font40;
   line-height: $line-height-20-40;
   font-weight: $font-weight-bold;
   z-index: 2;
 }
-// end of card styling
 
-// for accordion
 
+/*
+  ============================
+  ACCORDION STYLES
+  ============================
+  This section contains styles for the accordion component, including its container, individual accordion items, and content panels.
+*/
+
+// Accordion container styling
 .accordion-container {
   border: 2px solid rgba($accent-green, 0.52);
   border-radius: 10px;
   background-color: $accent-white;
 
+  // Individual accordion item styling
   .accordion {
     background: transparent;
     text-align: left;
     width: 100%;
     padding: $mobileAccordionPadding;
-    font-size: $font16-to-font32;
-    line-height: $line-height-16-32;
     font-weight: $font-weight-medium;
     cursor: pointer;
     border-bottom: 2px solid rgba($accent-green, 0.52);
@@ -166,10 +184,12 @@ h4{
     display: flex;
     justify-content: space-between;
 
+    // Hover effect for accordion items
     &:hover {
         background: rgba($accent-green, 0.52);
     }
 
+    // When the accordion item is expanded, remove the bottom border
     &[aria-expanded="true"]{
       border-bottom: none;
     }
@@ -179,6 +199,7 @@ h4{
     border: none;
   }
 
+  // Panel content inside the accordion (hidden by default)
     .panel {
       padding: 32px 16px;
       background: rgba($accent-green, 0.16);
@@ -189,33 +210,33 @@ h4{
         @include childMarginBottom;
       }
 
+       // Display list-style content in the panel
       ol, ul{
         padding-left: 3rem;
         list-style-type: decimal;
         @include childMarginBottom;
       }
 
+        // Display the panel when it's expanded
       &[aria-hidden="false"] {
         display: block;
       }
     }
   }
 
-// end of accordion
+/*
+  ============================
+  HEADER AND SHOP FILTER STYLES
+  ============================
+  This section includes header and shop filter styles for better layout control.
+*/
 
-
-// for the header of each page
+// Page header styling (entry headers)
 .entry-header{
   margin-bottom: $base-line-height;
 }
 
 // shop filters area
-
-// .wc-block-product-categories ul{
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
 
 a.reset-btn{
   @include button($bg: transparent, $color: $primary-blue, $border: 2px solid $accent-red);
@@ -223,8 +244,10 @@ a.reset-btn{
   width: 100%;
 }
 
+// WooCommerce sidebars (styling for product categories and filters)
 #woocommerce-sidebars{
   margin-bottom: calc($base-line-height * 3);
+
   h2{
     font-family: $body-font-family;
     font-weight: $font-weight-medium;
@@ -236,11 +259,32 @@ a.reset-btn{
   }
 }
 
+// WooCommerce product titles (ensure they use the same font family)
 .woocommerce-loop-product__title{
   font-family: $body-font-family;
 }
 
-// checkout page
+// Checkout page layout for WooCommerce cart and checkout blocks
 .wp-block-woocommerce-cart, .wp-block-woocommerce-checkout{
   grid-column: 1 / -1;
 }
+
+/*
+  TIP for future developers:
+
+  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages), 
+  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout` 
+  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the 
+  structure WooCommerce generates, especially when new pages or blocks are created.
+
+  If you need to extend or modify this behavior for future WooCommerce pages:
+  1. Check that the page you're working with includes the necessary WooCommerce blocks (e.g., cart, checkout, thank you).
+  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`, 
+     using grid layout properties like `grid-column: 1 / -1` to make them span the full container width.
+  3. The client can modify these settings without needing to rewrite page-specific styles—just ensure the WooCommerce-generated blocks are being used correctly.
+
+  This approach makes the design flexible and maintainable without having to customize every page template or rely on page-specific selectors. All the WooCommerce pages will have a consistent layout as long as the necessary blocks are present.
+
+  Keep this in mind when adding customizations to WooCommerce-related pages!
+*/
+

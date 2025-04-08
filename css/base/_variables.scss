@@ -1,21 +1,62 @@
-// this file will include all the variable that we want to use across the application
+/*
+  ============================
+  Global Variables
+  ============================
+  This file includes all the variables used across the application
+*/
+
+
+// ============================
+// Layout Sizing
+// ============================
+
+$maxWidth: 1248px;
+$marginWidthBreakpoint: 1216px; /* this is the width where the nav goes from mobile form (dropdown)  to desktop form (laid out horizontally) */
+
+// ============================
+// Grid Padding
+// ============================
 
 $mobileGridPadding: 1.5rem 1rem;
 $desktopGridPadding: 1.5rem 2.25rem;
 
+// ============================
+// Section Padding and Margin
+// ============================
 
-
+// padding for mobile accordions
 $mobileAccordionPadding: 1.125rem 1rem;
-$maxWidth: 1248px;
 
-
-// this is a suggestion so the padding is constant to all the sections
-
-//from px: 24 to 32px and py: 24px to 48px
-// 
+// Responsive section padding 
+// Padding (px): X-axis from 24 → 32, Y-axis from 24 → 48
 $responsiveSectionPadding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem)clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
 
-//  from 32px to 48 top and 84px
+// Responsive section margin suggestion
+// Top: 32 → 48px, Left&Right: auto, Bottom: 32 → 84px
 $sectionMargin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem);
+
+/*
+Developer's Note: 
+
+I used the $sectionMargin in a way that in mobile the left-right is 16px and the starting from tablet, desktop it is auto
+Since the clamp doesn't support auto to be included in its function, I made a way around it by:
+
+@include $sectionMargin;
+&{
+  margin-inline: 16px!important;
+}
+
+and then on a breakpoint of your choosing:
+@include forScreenSizes(tablet, desktop){
+  margin-inline: auto!important;
+}
+
+*/
+
+
+// ============================
+// BorderRadius
+// ============================
+
 $borderRadius: 4px;
 $mainSectionBorderRadius: 10px;

@@ -12,7 +12,7 @@ delete any unused styles after
 @use "../base/variables" as *;
 // components
 @use "../components/button" as *;
-@use "../components/card" as *;
+
 
 section#livestream {
   background-color: $accent-white;

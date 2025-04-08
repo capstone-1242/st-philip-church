@@ -12,7 +12,7 @@ delete any unused styles after
 @use '../base/variables' as *;
 // components
 @use '../components/button' as *;
-@use '../components/card' as *;
+
 
 // this is the about us wrapper id
 section#organization-single{
@@ -40,7 +40,7 @@ section#organization-single{
 
     // gallery section
     .acf-gallery{
-      img:not(:last-of-type){
+      a:not(:last-of-type){
         margin-bottom: $base-line-height;
       }
 
@@ -64,47 +64,7 @@ section#organization-single{
         margin-bottom: $base-line-height;
       }
       
-      div.organization-cards{
-        .organization-card-link {
-          display: block;
-          text-decoration: none;
-          margin-bottom: 1.5rem;
-        }
-
-        .organization-card {
-          position: relative;
-          width: 100%;
-          height: 233px;
-          border-radius: 4px;
-          overflow: hidden;
-          box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
-        }
-      
-        .organization-image {
-          width: 100%;
-          min-height: 300px;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          display: block;
-        }
-      
-        .organization-card-title {
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          right: 10px;
-          padding: 106px 187px 15px 15px;
-          color: $accent-white;
-          font-size: $font20-to-font40;
-          line-height: $line-height-20-40;
-          font-weight: $font-weight-bold;
-        }
-
-        
-      }
     }
-
 
   }
 
@@ -112,12 +72,14 @@ section#organization-single{
     &{
     div.entry-content {
       grid-template-columns: repeat(12, 1fr);
+      
       .acf-gallery {
         @include gridContainer($columns: 12, $row-gap: 0);
-        img:first-of-type {
+
+        a:first-of-type {
           grid-column: 1 / -1;
         }
-        img:not(:first-of-type) {
+        a:not(:first-of-type) {
           grid-column: span 4;
         }
       }
@@ -142,15 +104,16 @@ section#organization-single{
       // gallery section
       .acf-gallery{
         grid-column: 1 / span 8;  
+        grid-template-rows: auto;
         
-        @include gridContainer($columns: 8);
-
-        img:first-of-type{
+        a:first-of-type{
           grid-column: 1 / -1;
+          grid-row: 1 / span 1;
         }
 
-        img:not(:first-of-type){
-          grid-column: span 2;
+        a:not(:first-of-type){
+          grid-column: span 3;
+          grid-row: 2 / -1;
         }
       }
   

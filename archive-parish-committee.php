@@ -23,7 +23,7 @@ get_header();
 				<header class="page-header">
 					<?php
 					echo '<h1 class="page-title">Parish Committees</h1>';
-					the_archive_description('<div class="archive-description">', '</div>');
+					the_archive_description('<p class="archive-description">', '</p>');
 					?>
 				</header><!-- .page-header -->
 
@@ -36,7 +36,7 @@ get_header();
 				the_post(); ?>
 
 
-				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="organization-card-link">
 						<div class="organization-card">
 
@@ -55,7 +55,7 @@ get_header();
 							</footer>
 						</div>
 					</a>
-				</section>
+				</article>
 
 		<?php endwhile;
 

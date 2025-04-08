@@ -1,4 +1,12 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* 
+  ============================
+  CSS Reset (from Meyerweb)
+  ============================
+  A commonly used CSS reset by Eric Meyer (v2.0), which neutralizes browser-specific styling 
+  and makes it easier to apply your own styles without having to deal with unwanted defaults.
+  This reset helps ensure that the website looks consistent across all browsers.
+
+	@link  http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -28,24 +36,37 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*
+Developer's Note: 
+1. I added box-sizing:border-box so the width and height is consistent(when declared) no matter the changes in margin, padding or border
+2. I added the img properties to ensure it is responsive and will not break the layout (best practice!)
+3. Please feel free to add more to suit your needs.
+
+*/
 
 *{
   box-sizing: border-box;

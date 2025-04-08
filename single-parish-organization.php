@@ -29,13 +29,7 @@ get_header();
 			<!-- START OF CONTENT -->
 			<section id="organization-single" <?php post_class(); ?>>
 				<header class="org-single-header">
-					<?php
-					if (is_singular()) :
-						the_title('<h1 class="entry-title">', '</h1>');
-					else :
-						the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-					endif;
-					?>
+					<?php 		the_title('<h1 class="entry-title">', '</h1>');?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
@@ -48,11 +42,38 @@ get_header();
 
 					<!-- Gallery Using WYSWYG editor -->
 					<div class="acf-gallery">
-						<?php
-						$gallery = get_field('gallery');
-						$gallery = preg_replace('/<p><img(.*?)<\/p>/', '<img$1', $gallery);
-						echo wp_kses_post($gallery);
-						?>
+							<!-- This code is generated through the help of Chat and GoogleSearch : I need to customized it to better fit it's intended functionality -->
+							<?php
+							// this is to get the gallery field from acf;
+							$gallery_content = get_field('gallery');
+
+							// this is to check if there is any content, otherwise it says "no images uploaded"
+							if ($gallery_content) {
+								// Remove any <a> tags that may already be wrapping images (e.g., from the WYSIWYG editor) - WYSIWYG is weird in a sense that it wraps every image i have in a and also generate another a after that, this expression is basicallly saying remove the firstcaptured group ([^"]+)"[^>]*> with the second captured group: (<img[^>]+>)
+								$gallery_content = preg_replace('/<a[^>]*href="([^"]+)"[^>]*>(<img[^>]+>)<\/a>/i', '$2', $gallery_content);
+
+								// This is to find all the img tags and wrap them in a
+								$gallery = preg_replace_callback(
+									'/<img[^>]+src="([^"]+)"[^>]*>/i',
+									function ($matches) {
+										$img_tag = $matches[0];
+										$src = $matches[1];
+										// Wrap the image tag with <a> for Lightbox
+										return '<a href="' . esc_url($src) . '" data-lightbox="committee-gallery">' . $img_tag . '</a>';
+									},
+									$gallery_content
+								);
+
+								// Ensure there are no <p> tags around the <a> tag since WYSIWG wraps every a with p before
+								$gallery = preg_replace('/<p>\s*(<a[^>]+>.*?)<\/p>/i', '$1', $gallery);
+
+								// Output the final gallery content with lightbox wrapping images
+								echo wp_kses_post($gallery);
+							} else {
+								echo '<p>No images uploaded yet.</p>';
+							}
+							?>
+							<!-- End of Code -->
 					</div>
 
 					<!-- Description -->
@@ -68,7 +89,7 @@ get_header();
 						</section>
 
 				
-						<!-- START OF CAR RECOMMENDATIONS -->
+						<!-- START OF RECOMMENDATIONS -->
 					
 							<?php
 							$args = array(
@@ -96,9 +117,9 @@ get_header();
 													}
 													?>
 													<div class="organization-image" style="background-image: url('<?php echo esc_url($image_url) ?>');" role="img" aria-label="Image of <?php the_title(); ?>">
-														<div class="organization-card-title">
-															<h3><?php the_title(); ?></h3>
-														</div>
+														<h3 class="organization-card-title">
+															<?php the_title(); ?>
+														</h3>
 													</div>
 												</div>
 											</a>

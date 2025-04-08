@@ -1,17 +1,23 @@
 <?php
 
 /**
- * Template part for displaying posts
+ * Template part for displaying archive cards
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package st_philip
  */
 
+/*
+ Developer's Note:
+
+ I created this template part for the archive since the design calls for a card like structure. You can just include it in the archive pages for easier coding, I didn't coz i customized some part and revert it back to this one. 
+ */
+
 ?>
 
 
-<section id="post-<?php the_ID(); ?>" <?php post_class('page'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('page'); ?>>
 	<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="organization-card-link">
 		<div class="organization-card">
 
@@ -21,13 +27,13 @@
 																																		echo $featured_image_url ? $featured_image_url : $featured_image_placeholder_url;
 																																		?>');">
 
-				<p class="organization-card-title">
+				<h2 class="organization-card-title">
 					<?php the_title() ?>
-				</p>
+				</h2>
 			</div>
 			<footer class="entry-footer">
 				<?php st_philip_entry_footer(); ?>
 			</footer>
 		</div>
 	</a>
-</section>
+</article>
