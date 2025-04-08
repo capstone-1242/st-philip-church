@@ -531,6 +531,24 @@ a.reset-btn:hover {
 
   Keep this in mind when adding customizations to WooCommerce-related pages!
 */
+.site {
+  background-image: url("/wp-content/themes/st-philip-church/images/church-bg.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: 320px;
+  max-width: 100%;
+  background-attachment: scroll;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+}
+@media only screen and (min-width: 1000px) {
+  .site {
+    background-attachment: fixed;
+  }
+}
+
 /* those reusable component like stuff that accept variables */
 /*
   ============================
@@ -1942,10 +1960,8 @@ main.front-page div.welcome-overlay {
     right: 0;
   }
 }
-main.front-page .upcoming-events {
-  background-color: white;
-}
 main.front-page .upcoming-events > div {
+  background-color: white;
   padding: 1.5rem 1rem;
 }
 main.front-page .upcoming-events > div > *:not(:last-child) {
@@ -2051,10 +2067,8 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
     grid-column: 10/span 3;
   }
 }
-main.front-page .upcoming-events + section {
-  background-color: white;
-}
 main.front-page .upcoming-events + section > div {
+  background-color: white;
   padding: 1.5rem 1rem;
 }
 main.front-page .upcoming-events + section > div {
@@ -2188,10 +2202,8 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     grid-column: span 3;
   }
 }
-main.front-page .membership {
-  background-color: white;
-}
 main.front-page .membership > div {
+  background-color: white;
   padding: 1.5rem 1rem;
   color: #111933;
   background-color: white;
@@ -2333,9 +2345,10 @@ main.front-page div.membership-overlay {
   }
 }
 main.front-page .donation {
-  background-color: white;
+  margin-bottom: 1.5rem;
 }
 main.front-page .donation > div {
+  background-color: white;
   padding: 1.5rem 1rem;
 }
 main.front-page .donation > div {
@@ -2773,7 +2786,7 @@ section.page a.button:hover {
     grid-column: 4/span 9;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1216px) {
   section.page {
     margin-left: auto !important;
     margin-right: auto !important;

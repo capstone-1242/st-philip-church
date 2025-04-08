@@ -39,7 +39,7 @@ section.page{
   }
 }
 
-  @include forScreenSizes(desktop){
+  @include forScreenSizes($marginWidthBreakpoint){
     margin-left: auto !important;
     margin-right: auto !important;
   }

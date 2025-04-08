@@ -222,8 +222,8 @@ main.front-page {
   /*--------------------------Upcoming Events Section------------------------------*/
 
   .upcoming-events {
-    background-color: $white;
     >div{
+      background-color: $white;
       padding:$mobileGridPadding;
       @include childMarginBottom;
       @include maxWidthCentered($maxWidth);
@@ -273,10 +273,8 @@ main.front-page {
 
   /*--------------------------Explore Our Church Group Section------------------------------*/
   .upcoming-events + section {
-    background-color: $white;
-
-
     >div{
+    background-color: $white;
     padding:$mobileGridPadding;
     @include maxWidthCentered($maxWidth);
     @include grid;
@@ -347,8 +345,8 @@ main.front-page {
 
   /*---------------------------Membership Section------------------------------*/
   .membership {
-    background-color: $white;
     >div{
+    background-color: $white;
     padding:$mobileGridPadding;
     color: $primary-blue;
     background-color: $white;
@@ -418,8 +416,9 @@ main.front-page {
   
   /*---------------------------Donation Section------------------------------*/
   .donation {
-    background-color: $white;
+    margin-bottom: $base-line-height;
     >div{
+    background-color: $white;
     padding:$mobileGridPadding;
     @include maxWidthCentered($maxWidth);
     @include grid;

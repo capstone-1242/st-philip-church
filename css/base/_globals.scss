@@ -288,3 +288,19 @@ a.reset-btn{
   Keep this in mind when adding customizations to WooCommerce-related pages!
 */
 
+.site {
+  background-image: url('/wp-content/themes/st-philip-church/images/church-bg.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: 320px;
+  max-width: 100%;
+  background-attachment: scroll;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+
+  @include forScreenSizes(desktop) {
+    background-attachment: fixed;
+  }
+}
