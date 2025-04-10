@@ -76,7 +76,7 @@ h2 {
 }
 
 h3 {
-  font-size: $font18-to-font28;
+  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 1.5rem);
   line-height: $line-height-18-28;
   font-weight: $font-weight-medium-bold;
 }
@@ -172,7 +172,7 @@ h4{
   background-color: $accent-white;
 
   h3 {
-      font-size: $font-16-to-font28 !important;
+      font-size: $font16-to-font28 !important;
     }
   // Individual accordion item styling
   .accordion {

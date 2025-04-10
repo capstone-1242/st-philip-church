@@ -335,7 +335,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 2rem);
+  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 1.5rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
   font-weight: 600;
 }
@@ -357,7 +357,7 @@ h4 {
   ============================
   This section includes styles for the cards displaying different organizations or committees, like the layout and hover effects.
 
-  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =) 
+  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =)
 */
 .organization-card-link {
   display: block;
@@ -419,6 +419,9 @@ h4 {
   border: 2px solid rgba(41, 73, 30, 0.52);
   border-radius: 10px;
   background-color: #F5F5F5;
+}
+.accordion-container h3 {
+  font-size: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem) !important;
 }
 .accordion-container .accordion {
   background: transparent;
@@ -516,14 +519,14 @@ a.reset-btn:hover {
 /*
   TIP for future developers:
 
-  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages), 
-  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout` 
-  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the 
+  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages),
+  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout`
+  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the
   structure WooCommerce generates, especially when new pages or blocks are created.
 
   If you need to extend or modify this behavior for future WooCommerce pages:
   1. Check that the page you're working with includes the necessary WooCommerce blocks (e.g., cart, checkout, thank you).
-  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`, 
+  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`,
      using grid layout properties like `grid-column: 1 / -1` to make them span the full container width.
   3. The client can modify these settings without needing to rewrite page-specific styles—just ensure the WooCommerce-generated blocks are being used correctly.
 
@@ -2597,6 +2600,9 @@ section#livestream div.entry-content nav a {
     min-width: 40%;
     grid-column: span 6;
   }
+  section#livestream div.entry-content .service-socials > nav a {
+    margin-bottom: 1rem;
+  }
   section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
   }
@@ -2627,6 +2633,9 @@ section#livestream div.entry-content nav a {
     min-width: 40%;
     grid-column: span 6;
   }
+  section#livestream div.entry-content .service-socials > nav a {
+    margin-bottom: 1rem;
+  }
   section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
   }
@@ -2656,6 +2665,9 @@ section#livestream div.entry-content nav a {
   section#livestream div.entry-content .service-socials > section > div > ul.service-times li {
     min-width: 40%;
     grid-column: span 6;
+  }
+  section#livestream div.entry-content .service-socials > nav a {
+    margin-bottom: 1rem;
   }
   section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
