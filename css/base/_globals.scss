@@ -51,6 +51,7 @@ h3,
 h4,
 h5 {
   font-family: $heading-font-family;
+  color: $primary-blue;
 }
 
 p,
@@ -58,6 +59,7 @@ a,
 li {
   font-size: $font16-to-font24;
   line-height: $line-height-16-24;
+  color: $primary-blue;
 }
 
 // for all the single pages
@@ -71,7 +73,6 @@ li {
 
 h2 {
   font-size: $font20-to-font36;
-  line-height: $line-height-20-36;
   font-weight: $font-weight-medium-bold;
 }
 
@@ -177,6 +178,7 @@ h4{
   // Individual accordion item styling
   .accordion {
     background: transparent;
+    color: $primary-blue;
     text-align: left;
     width: 100%;
     padding: $mobileAccordionPadding;
@@ -242,9 +244,14 @@ h4{
 // shop filters area
 
 a.reset-btn{
-  @include button($bg: transparent, $color: $primary-blue, $border: 2px solid $accent-red);
+  @include button($bg: $main-yellow, $color: $primary-blue, $border: none);
+  padding: 8px 0;
   margin-left: auto;
   width: 100%;
+
+  &:hover {
+    background-color: $accent-yellow;
+  }
 }
 
 // WooCommerce sidebars (styling for product categories and filters)

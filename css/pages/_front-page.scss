@@ -47,10 +47,13 @@ main.front-page {
       line-height: $line-height-24-64;
       font-weight: $font-weight-medium-bold;
       align-self: flex-end;
-
       span{
         display: block;
       }
+    }
+
+    h2, p {
+      color: white;
     }
 
     p:first-of-type {

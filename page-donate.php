@@ -38,10 +38,12 @@ get_header();
 			<p> St. Philip Antiochian Orthodox Church has been a place of faith and community for over 46 years. Your generous donations support our mission, organizations, and community. Thank you for helping us grow for future generations.</p>
 
 			<div class="donation-info">
-				<p>Donations may be given via eTransfer using your online bank account directly to:</p>
-				<p>saintphilipedmonton@gmail.com</p>
+				<div class="main-info">
+					<p>Donations may be given via eTransfer using your online bank account directly to:</p>
+					<p class="email">saintphilipedmonton@gmail.com</p>
+				</div>
 	
-				<p>NB: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
+				<p>Note: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
 				<p>Tax receipts cannot be given for items being purchased.</p>
 			</div>
 		</div>

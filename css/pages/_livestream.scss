@@ -44,7 +44,7 @@ section#livestream {
           ul.service-times {
             text-align: center;
             background-color: rgba($main-green, 0.7);
-            padding: 1.5rem 1rem;
+            padding: 1rem 1rem;
             display: flex;
             justify-content: space-between;
             gap: 1rem;
@@ -69,6 +69,9 @@ section#livestream {
       // social media links
       nav {
 
+        h2 {
+          margin-bottom: 1.5rem;
+        }
         a {
           width: 100%;
         }

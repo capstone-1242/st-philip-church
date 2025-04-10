@@ -312,6 +312,7 @@ h3,
 h4,
 h5 {
   font-family: "Frank Ruhl Libre", serif;
+  color: #111933;
 }
 
 p,
@@ -319,6 +320,7 @@ a,
 li {
   font-size: clamp(1rem, 0.7647rem + 1.1765vw, 1.5rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  color: #111933;
 }
 
 .entry-header h1,
@@ -330,7 +332,6 @@ li {
 
 h2 {
   font-size: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
-  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
   font-weight: 600;
 }
 
@@ -425,6 +426,7 @@ h4 {
 }
 .accordion-container .accordion {
   background: transparent;
+  color: #111933;
   text-align: left;
   width: 100%;
   padding: 1.125rem 1rem;
@@ -481,19 +483,23 @@ a.reset-btn {
   padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
-  border: 2px solid #781100;
+  border: none;
   border-radius: 0.3125rem;
-  background-color: transparent;
+  background-color: #EFC275;
   color: #111933;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  padding: 8px 0;
   margin-left: auto;
   width: 100%;
 }
 a.reset-btn:hover {
   background-color: #EFC275;
   color: #111933;
+}
+a.reset-btn:hover {
+  background-color: #D79A32;
 }
 
 #woocommerce-sidebars {
@@ -582,7 +588,7 @@ a.reset-btn:hover {
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 .default-button:hover {
   background-color: #EFC275;
@@ -600,7 +606,7 @@ a.reset-btn:hover {
   color: #111933;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 .secondary-button:hover {
   background-color: #EFC275;
@@ -618,7 +624,7 @@ a.reset-btn:hover {
   color: #111933;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 .outlined-button:hover {
   background-color: #EFC275;
@@ -636,7 +642,7 @@ a.reset-btn:hover {
   color: #111933;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 .read-more-button:hover {
   background-color: #EFC275;
@@ -665,16 +671,19 @@ This is where we style our footer
   align-items: center;
   gap: 1rem;
   padding: 112px 0;
-  /* 
+  /*
   Footer Section Styling
   */
   /*
-  Footer Navigation Styling 
+  Footer Navigation Styling
   */
 }
 .site-footer > div {
   max-width: 1248px;
   margin: 0 auto;
+}
+.site-footer > div h2, .site-footer > div h3, .site-footer > div p, .site-footer > div a {
+  color: white;
 }
 .site-footer > div .site-branding {
   text-align: center;
@@ -696,13 +705,11 @@ This is where we style our footer
 }
 .site-footer > div .site-branding .footer-church-info {
   background-color: transparent;
-  margin: 32px 0 0;
-  padding: 2rem;
+  padding-top: 2rem;
   min-width: 320px;
 }
 .site-footer > div .site-branding .footer-church-info h3 {
-  text-align: center;
-  font-weight: 700;
+  text-align: left;
 }
 .site-footer > div .site-branding .footer-church-info .church-hours {
   display: flex;
@@ -1391,7 +1398,7 @@ section#cart-page a.wc-block-cart__submit-button {
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 section#cart-page a.wc-block-cart__submit-button:hover {
   background-color: #EFC275;
@@ -1436,7 +1443,7 @@ section#checkout-page button.wc-block-components-checkout-place-order-button {
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 section#checkout-page button.wc-block-components-checkout-place-order-button span {
   justify-self: center;
@@ -1542,61 +1549,20 @@ section#donation-page {
 section#donation-page div.entry-content > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
-section#donation-page div.entry-content .donation-info {
+section#donation-page div.entry-content .donation-info .main-info {
   color: #111933;
-  border: 3px solid #111933;
-  background-color: transparent;
+  border: none;
+  background-color: #F3DEBC;
   border-radius: 4px;
   padding: 12px 24px;
-}
-section#donation-page div.entry-content .donation-info > *:not(:last-child) {
+  padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
-@media only screen and (min-width: 768px) and (max-width: 999px) {
-  section#donation-page div.entry-content {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1rem;
-    column-gap: 24px;
-  }
-  section#donation-page div.entry-content {
-    grid-template-rows: auto 1fr;
-  }
-  section#donation-page div.entry-content .page-featured-image {
-    grid-column: 1/span 8;
-    grid-row: span 1;
-  }
-  section#donation-page div.entry-content > p {
-    grid-column: span 8;
-    grid-row: 2/-1;
-  }
-  section#donation-page div.entry-content .donation-info {
-    grid-column: 9/span 4;
-    grid-row: 1/-1;
-  }
+section#donation-page div.entry-content .donation-info .main-info > *:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
-@media only screen and (min-width: tablet) {
-  section#donation-page div.entry-content {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1rem;
-    column-gap: 24px;
-  }
-  section#donation-page div.entry-content {
-    grid-template-rows: auto 1fr;
-  }
-  section#donation-page div.entry-content .page-featured-image {
-    grid-column: 1/span 8;
-    grid-row: span 1;
-  }
-  section#donation-page div.entry-content > p {
-    grid-column: span 8;
-    grid-row: 2/-1;
-  }
-  section#donation-page div.entry-content .donation-info {
-    grid-column: 9/span 4;
-    grid-row: 1/-1;
-  }
+section#donation-page div.entry-content .donation-info p {
+  margin-bottom: 1rem;
 }
 @media only screen and (min-width: 1000px) {
   section#donation-page div.entry-content {
@@ -1711,6 +1677,9 @@ main.front-page .hero-banner h2 {
 }
 main.front-page .hero-banner h2 span {
   display: block;
+}
+main.front-page .hero-banner h2, main.front-page .hero-banner p {
+  color: white;
 }
 main.front-page .hero-banner p:first-of-type {
   font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
@@ -2517,7 +2486,7 @@ section#livestream div.entry-content section > * {
 section#livestream div.entry-content section > div ul.service-times {
   text-align: center;
   background-color: rgba(71, 88, 65, 0.7);
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -2538,6 +2507,9 @@ section#livestream div.entry-content section > div ul.service-times li {
 section#livestream div.entry-content section > div ul.service-times li time {
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 16px);
+}
+section#livestream div.entry-content nav h2 {
+  margin-bottom: 1.5rem;
 }
 section#livestream div.entry-content nav a {
   width: 100%;
@@ -2772,7 +2744,7 @@ section.page a.button {
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
   width: 100%;
 }
 section.page a.button:hover {
@@ -3468,7 +3440,7 @@ section#single-product-page .single_add_to_cart_button, section#single-product-p
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 section#single-product-page .single_add_to_cart_button:hover, section#single-product-page a.add_to_cart_button:hover, section#single-product-page .woocommerce-message a:hover {
   background-color: #EFC275;
@@ -3497,7 +3469,7 @@ section#single-product-page li.description_tab {
   color: #111933;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 section#single-product-page li.description_tab:hover {
   background-color: #EFC275;
@@ -3538,12 +3510,45 @@ section#shop-page {
 section#shop-page {
   margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem);
 }
+section#shop-page #woocommerce-sidebars h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+section#shop-page #woocommerce-sidebars .wc-block-product-categories-list--has-images .wc-block-product-categories-list-item {
+  margin: 0;
+}
+section#shop-page #woocommerce-sidebars .wc-block-product-categories-list--has-images .wc-block-product-categories-list-item__image {
+  display: none !important;
+}
 section#shop-page form.woocommerce-ordering select.orderby {
   padding: 0.75rem 1rem;
 }
 section#shop-page img {
   aspect-ratio: 1/1;
   object-fit: cover;
+}
+section#shop-page ul.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 4px;
+}
+section#shop-page ul.products::before {
+  display: none;
+  content: none;
+}
+section#shop-page ul.products li.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+section#shop-page ul.products li.product:hover {
+  transition: all 0.3s ease;
+  box-shadow: 1px 0px 9px 0 rgba(145, 148, 168, 0.12);
 }
 section#shop-page ul.products li.product .price {
   margin-top: auto;
@@ -3559,7 +3564,7 @@ section#shop-page ul.products li.product a.button {
   color: white;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
   width: 100%;
 }
 section#shop-page ul.products li.product a.button:hover {
@@ -3567,6 +3572,11 @@ section#shop-page ul.products li.product a.button:hover {
   color: #111933;
 }
 @media only screen and (min-width: 750px) {
+  section#shop-page ul.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
   section#shop-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -3575,6 +3585,10 @@ section#shop-page ul.products li.product a.button:hover {
   }
   section#shop-page div.entry-content > div:first-of-type {
     grid-column: span 3;
+    padding: 1rem;
+    margin-top: 4rem;
+    background-color: white;
+    border-radius: 4px;
   }
   section#shop-page div.entry-content > div:last-of-type {
     grid-column: 4/span 9;
@@ -3768,16 +3782,13 @@ section#worship-page {
   margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem);
   margin-inline: 16px;
 }
-section#worship-page div.entry-content > *:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
 section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 section#worship-page div.entry-content > section:first-of-type div ul.service-times {
   text-align: center;
   background-color: rgba(71, 88, 65, 0.7);
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -3799,9 +3810,6 @@ section#worship-page div.entry-content > section:first-of-type div ul.service-ti
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 16px);
 }
-section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
 section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -3822,6 +3830,13 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content div.page-featured-image {
     grid-column: span 8;
     grid-row: 1/span 1;
+    margin-bottom: 0;
+  }
+  section#worship-page div.entry-content div.page-featured-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
   }
   section#worship-page div.entry-content > section:first-of-type {
     grid-column: 9/-1;
@@ -3830,7 +3845,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -3887,6 +3902,13 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content div.page-featured-image {
     grid-column: span 8;
     grid-row: 1/span 1;
+    margin-bottom: 0;
+  }
+  section#worship-page div.entry-content div.page-featured-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
   }
   section#worship-page div.entry-content > section:first-of-type {
     grid-column: 9/-1;
@@ -3895,7 +3917,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -3952,6 +3974,13 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content div.page-featured-image {
     grid-column: span 8;
     grid-row: 1/span 1;
+    margin-bottom: 0;
+  }
+  section#worship-page div.entry-content div.page-featured-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
   }
   section#worship-page div.entry-content > section:first-of-type {
     grid-column: 9/-1;
@@ -3960,7 +3989,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;

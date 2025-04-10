@@ -27,6 +27,24 @@ section#shop-page {
 
   }
 
+  #woocommerce-sidebars {
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .wc-block-product-categories-list--has-images .wc-block-product-categories-list-item{
+      margin: 0;
+
+    }
+
+    .wc-block-product-categories-list--has-images .wc-block-product-categories-list-item__image {
+      display: none !important;
+    }
+
+  }
+
   form.woocommerce-ordering {
     select.orderby {
       padding: 0.75rem 1rem;
@@ -39,25 +57,60 @@ section#shop-page {
   }
 
   ul.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    background-color: white;
+    padding: 1rem;
+    border-radius: $borderRadius;
+
+      &::before {
+      display: none;
+      content: none;
+    }
+
     li.product {
-      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem;
+
+      &:hover {
+        transition: all 0.3s ease;
+        box-shadow: 1px 0px 9px 0 rgba($tertiary-blue, 0.12);
+      }
+
       .price {
         margin-top: auto;
       }
-      
+
       a.button {
         @include button;
         width: 100%;
       }
     }
   }
-  
+
   @include forScreenSizes(750px){
+
+    ul.products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
     div.entry-content{
       @include gridContainer($column-gap: 32px);
       // filter section
       >div:first-of-type{
         grid-column: span 3;
+        padding: 1rem;
+        margin-top: 4rem;
+
+        background-color: white;
+        border-radius: $borderRadius;
       }
 
       >div:last-of-type{
@@ -66,5 +119,5 @@ section#shop-page {
 
     }
   }
- 
+
 }

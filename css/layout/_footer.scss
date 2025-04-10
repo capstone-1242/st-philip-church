@@ -20,9 +20,12 @@ This is where we style our footer
     gap: 1rem;
     padding: 112px 0;
     @include maxWidthCentered(1248px);
-  
 
-    /* 
+    h2, h3, p, a {
+      color: white;
+    }
+
+    /*
   Footer Section Styling
   */
     .site-branding {
@@ -32,7 +35,7 @@ This is where we style our footer
       justify-content: center;
       align-items: center;
       width: 100%;
-     
+
       a {
         display: inline-block;
       }
@@ -48,14 +51,11 @@ This is where we style our footer
       // footer church info div
       .footer-church-info {
         background-color: transparent;
-        margin: 32px 0 0;
-        padding: 2rem;
+        padding-top: 2rem;
         min-width: 320px;
-       
 
         h3 {
-          text-align: center;
-          font-weight: $font-weight-bold;
+          text-align: left;
         }
 
         .church-hours {
@@ -87,7 +87,7 @@ This is where we style our footer
     }
 
     /*
-  Footer Navigation Styling 
+  Footer Navigation Styling
   */
     .footer-navigation {
       // width: 100%;

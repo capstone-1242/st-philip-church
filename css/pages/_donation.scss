@@ -27,12 +27,22 @@ section#donation-page{
     @include childMarginBottom;
 
     .donation-info{
-      @include card($color: $primary-blue, $border: 3px solid $primary-blue);
+
+      .main-info{
+      @include card($color: $primary-blue, $background-color: $light-yellow, $border: none);
       @include childMarginBottom;
-     
+
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+
+     }
+
+      p {
+        margin-bottom: 1rem;
+      }
     }
 
-    @include forScreenSizes(tablet, desktop){
+    @include forScreenSizes(desktop){
         @include gridContainer($column-gap: 24px);
         &{
           grid-template-rows: auto 1fr;
@@ -53,6 +63,6 @@ section#donation-page{
           grid-row: 1 / -1;
         }
       }
-    
+
   }
 }
