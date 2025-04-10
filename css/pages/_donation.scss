@@ -40,6 +40,10 @@ section#donation-page{
       p {
         margin-bottom: 1rem;
       }
+
+      .email {
+        font-weight: $font-weight-medium-bold;
+      }
     }
 
     @include forScreenSizes(desktop){

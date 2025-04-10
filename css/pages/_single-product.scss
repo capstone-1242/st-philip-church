@@ -47,9 +47,10 @@ form.cart{
     }
   }
 }
-  
+
   .single_add_to_cart_button, a.add_to_cart_button, .woocommerce-message a{
     @include button;
+    padding: 0 3rem;
   }
 
   div.woocommerce-message{
@@ -68,11 +69,23 @@ form.cart{
   }
 
   li.description_tab{
-    @include button($bg: rgba($accent-green, 0.45), $color: $primary-blue, $padding: 0.75rem 1rem)
+    @include button($bg: rgba($accent-green, 0.45), $color: $primary-blue);
+
+    padding: 0 3rem;
+  }
+
+  .woocommerce div.product .woocommerce-tabs ul.tabs {
+    margin: 0;
+
+  }
+
+  .woocommerce div.product .woocommerce-tabs .panel {
+    padding: 3rem 2rem;
+    background-color: white;
   }
 
   @include forScreenSizes(tablet, desktop){
     margin-inline: auto;
   }
-  
+
 }

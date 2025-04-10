@@ -1564,6 +1564,9 @@ section#donation-page div.entry-content .donation-info .main-info > *:not(:last-
 section#donation-page div.entry-content .donation-info p {
   margin-bottom: 1rem;
 }
+section#donation-page div.entry-content .donation-info .email {
+  font-weight: 600;
+}
 @media only screen and (min-width: 1000px) {
   section#donation-page div.entry-content {
     display: grid;
@@ -3441,6 +3444,7 @@ section#single-product-page .single_add_to_cart_button, section#single-product-p
   text-align: center;
   cursor: pointer;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  padding: 0 3rem;
 }
 section#single-product-page .single_add_to_cart_button:hover, section#single-product-page a.add_to_cart_button:hover, section#single-product-page .woocommerce-message a:hover {
   background-color: #EFC275;
@@ -3470,10 +3474,18 @@ section#single-product-page li.description_tab {
   text-align: center;
   cursor: pointer;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  padding: 0 3rem;
 }
 section#single-product-page li.description_tab:hover {
   background-color: #EFC275;
   color: #111933;
+}
+section#single-product-page .woocommerce div.product .woocommerce-tabs ul.tabs {
+  margin: 0;
+}
+section#single-product-page .woocommerce div.product .woocommerce-tabs .panel {
+  padding: 3rem 2rem;
+  background-color: white;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#single-product-page {
