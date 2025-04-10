@@ -1,0 +1,215 @@
+/*
+This is where we style our header navigation
+*/
+
+@use 'colors' as *;
+@use 'media-queries' as *;
+@use 'mixins' as *;
+
+
+
+@include forScreenSizesMin( desktop) {
+  div.header-nav-container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 1rem 0.5rem;
+    @include maxWidthCentered(1248px);
+
+    ul#primary-menu {
+      display: flex;
+      flex-flow: row nowrap;
+
+      // i change this
+      > li.menu-item{
+        position: relative;
+
+        > ul.sub-menu{
+          position: absolute;
+          top: 50px;
+          left: -8px;
+          z-index: 1000;
+          min-width: 200px;
+
+          li.menu-item a{
+            flex-wrap: nowrap;
+            min-width: auto;
+          }
+        }
+      }
+      // new change
+
+      & > li.menu-item:nth-last-of-type(2) {
+        margin-left: auto;
+        justify-self: end;
+      }
+    }
+  }
+}
+
+/*===========================HEADER=================================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 29px 0 16px;
+
+  // i forgot that header should be sticky and I have no brain cells left to figure this out, maybe next week 
+  // this is an attempt
+  // position: sticky;
+  // top: 0;
+  // z-index: 1100;
+  // background-color: white;
+
+
+  &.page-header {
+    display: block;
+  }
+
+  .woo-shop-button,
+  .menu-toggle {
+    display: block;
+  }
+
+  .site-logo {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  @include forScreenSizesMin(desktop) {
+    & {
+      display: block;
+      padding: 0;
+    }
+
+    .menu-toggle,
+    .woo-shop-button {
+      display: none;
+    }
+
+    .site-title {
+      visibility: hidden;
+      height: 0;
+    }
+
+    .site-logo {
+      visibility: visible;
+      height: auto;
+      width: 50px;
+      object-fit: cover;
+    }
+  }
+}
+
+/*===========================ACF FILED GROUP=================================*/
+/*
+The .acf-gallery is for the gallery section of the parish organization and committee acf post types
+*/
+.acf-gallery {
+  display: flex;
+  flex-flow: row wrap;
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 33.33%;
+
+    &:first-child {
+      flex: 1 1 100%;
+    }
+
+    @include forScreenSizesMin(desktop) {
+      flex: 1 1 25%;
+    }
+  }
+}
+
+.comment-list {
+  display: flex;
+  flex-flow: row wrap;
+
+  .committee-member {
+    flex: auto;
+  }
+}
+
+/*===========================NAVIGATION=================================*/
+// based on the "Solved with CSS! Dropdown Menus Article --focus-within--
+ul#primary-menu {
+  background: white;
+  display: none;
+
+  // start of li
+  > li.menu-item {
+    color: $header-text-color;
+    background: $header-background-color;
+    display: block;
+    float: left;
+    padding: 8px 16px;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    z-index: 900;
+
+    &:hover,
+    &:focus-within {
+      cursor: pointer;
+    }
+
+    &:focus-within a {
+      outline: none;
+    }
+
+    &:hover > ul.sub-menu,
+    &:focus-within > ul.submenu {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      z-index: inherit;
+    }
+
+    // sub-menu:dropdown
+    > ul.sub-menu {
+      background: $header-background-color;
+      visibility: hidden;
+      opacity: 0;
+      min-width: 5rem;
+      transition: all 0.5s ease;
+      margin-top: 1rem;
+      padding: 8px 16px;
+      left: 0;
+      display: none;
+
+      &:hover > li,
+      &:focus > li { 
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        width: 100%;
+        z-index: inherit;
+      }
+
+      > li {
+        clear: both;
+        width: 100%;
+        padding: 8px 16px;
+      }
+    }
+    // end of sub-menu: dropdown
+  }
+  // end of end of li
+
+  #site-navigation.toggled & {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+
+    ul.sub-menu > li.menu-item {
+      padding-left: 24px;
+      margin-top: 4px;
+    }
+  }
+}
+/*===========================END OF NAVIGATION=================================*/

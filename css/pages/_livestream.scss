@@ -30,19 +30,16 @@ section#livestream {
   div.entry-content {
     justify-self: start;
     width: 100%;
-    @include grid;
+    @include grid ($row-gap: 1rem);
     @include childGridSpan;
 
     // our service times
 
-   
+
       section {
-        @include grid;
+        @include grid ($row-gap: 1rem);
         @include childGridSpan;
 
-        h2 {
-          margin-bottom: 1.5rem;
-        }
         > div {
           ul.service-times {
             text-align: center;
@@ -53,14 +50,16 @@ section#livestream {
             gap: 1rem;
             li {
               flex-basis: 50%;
-              @include card($background-color: $accent-green, $border: none);
-              font-size: $font14-to-font24;
-              line-height: $line-height-14-24;
+              display: flex;
+              flex-direction: column;
+              @include card($background-color: $accent-green, $border: none, $padding: 0);
+              font-size: clamp(14px, 1.5vw, 16px);
+              line-height: normal !important;
+              padding: 8px 0;
+
               time {
-                display: block;
                 font-weight: $font-weight-bold;
-                font-size: $font20-to-font32;
-                line-height: $line-height-20-32;
+                font-size: clamp(14px, 1.5vw, 16px);
               }
             }
           }
@@ -69,13 +68,6 @@ section#livestream {
 
       // social media links
       nav {
-        h2 {
-          margin-bottom: $base-line-height;
-        }
-
-        ul {
-          @include childMarginBottom;
-        }
 
         a {
           width: 100%;
@@ -93,32 +85,31 @@ section#livestream {
           grid-row: 1 / span 1;
         }
 
-        // our service times
-        > section {
-          grid-column: span 8;
-          grid-row: 2 / span -1;
-          grid-template-rows: auto 1fr;
-          > div {
-            align-items: start;
-            > ul.service-times {
-              max-width: 100%;
-              overflow: hidden;
-              li {
-                min-width: 40%;
-                grid-column: span 6;
+        .service-socials {
+          grid-column: 9 / span 4;
+          // our service times
+          > section {
+            grid-template-rows: auto 1fr;
+            margin-bottom: 1.5rem;
+            > div {
+              align-items: start;
+              > ul.service-times {
+                max-width: 100%;
+                overflow: hidden;
+                li {
+                  min-width: 40%;
+                  grid-column: span 6;
+                }
               }
             }
           }
-        }
 
-        // social links
-        > nav {
-          grid-column: 9 / span 4;
-          grid-row: 1 / -1;
-
-          a{
-            i{
-              margin-left: 1.625rem;
+          // social links
+          > nav {
+            a{
+              i{
+                margin-left: 1.625rem;
+              }
             }
           }
         }

@@ -4,12 +4,12 @@
  * The template for displaying the Livestream Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.advancedcustomfields.com/resources/
  * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
  * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- * 
+ *
  **/
 
 /* Get the header template part*/
@@ -33,6 +33,7 @@ get_header();
 				</blockquote>
 			</div>
 
+			<div class="service-socials">
 				<section>
 					<h2>Our Service Times</h2>
 					<div>
@@ -46,19 +47,20 @@ get_header();
 					<h2>Follow Our Socials</h2>
 					<ul class="social-links">
 						<li>
-	
+
 							<a href="https://www.facebook.com/stphilipedmonton/" aria-label="Visit St. Philip's Facebook page" class="social-link default-button">St.Philip Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
-	
+
 						</li>
 						<li>
-	
+
 							<a href="https://www.youtube.com/@St.Philip.Orthodox.Church" aria-label="Visit St. Philip's Youtube page" class="social-link default-button">St.Philip Youtube <i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
-	
+
 						</li>
 					</ul>
 				</nav>
+			</div>
 		</div>
 		<!-- .entry-content -->
 

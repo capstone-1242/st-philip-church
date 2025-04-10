@@ -18,20 +18,20 @@
 body {
   // Set the font family for the body text
   font-family: $body-font-family; // Choose a suitable font for the overall body text
-  
+
   // Set default font-size for the page (usually 100% or 16px)
   font-size: 100%; // Step 1: Set the default font size (16px)
-  
+
   // Set the line height based on the baseline grid
   line-height: $base-line-height; // Step 2: Use a consistent line height (1.2 or 1.5 times the font size)
-  
+
   // Set background color to white for the body
   background-color: $white; // Step 3: Use a white background color for the overall page
 
   // Optional: Uncomment for a visual grid (useful for aligning elements to a baseline grid)
   // background-image: linear-gradient(#0ff 1px, transparent 1px);
   // background-size: auto 24px;
-  
+
   // Align text to the left globally
   text-align: left; // Step 4: Ensure left-aligned text throughout the site
 }
@@ -76,8 +76,8 @@ h2 {
 }
 
 h3 {
-  font-size: $font18-to-font32;
-  line-height: $line-height-18-32;
+  font-size: $font18-to-font28;
+  line-height: $line-height-18-28;
   font-weight: $font-weight-medium-bold;
 }
 
@@ -100,7 +100,7 @@ h4{
   ============================
   This section includes styles for the cards displaying different organizations or committees, like the layout and hover effects.
 
-  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =) 
+  NOTE: We keep it as organization despite being also used in committee cards for more efficient coding =)
 */
 
 .organization-card-link {
@@ -118,7 +118,7 @@ h4{
   overflow: hidden;
 
   &:hover{
-    box-shadow: 1px 0px 15px 7px rgba($accent-green, 0.55);
+    box-shadow: 1px 0px 15px 7px rgba($tertiary-blue, 0.3);
   }
 }
 
@@ -139,7 +139,7 @@ h4{
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($accent-green, 0.52); 
+  background: rgba($accent-green, 0.52);
   z-index: 1;
 }
 
@@ -171,6 +171,9 @@ h4{
   border-radius: 10px;
   background-color: $accent-white;
 
+  h3 {
+      font-size: $font-16-to-font28 !important;
+    }
   // Individual accordion item styling
   .accordion {
     background: transparent;
@@ -180,7 +183,7 @@ h4{
     font-weight: $font-weight-medium;
     cursor: pointer;
     border-bottom: 2px solid rgba($accent-green, 0.52);
-    transition: all 0.8s ease-in;
+    transition: all 0.3s ease-in;
     display: flex;
     justify-content: space-between;
 
@@ -272,14 +275,14 @@ a.reset-btn{
 /*
   TIP for future developers:
 
-  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages), 
-  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout` 
-  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the 
+  When working with WooCommerce-generated pages (such as Cart, Checkout, and Thank You pages),
+  we are targeting the general `.wp-block-woocommerce-cart` and `.wp-block-woocommerce-checkout`
+  classes to ensure they span the entire grid layout. This is a dynamic solution that adapts to the
   structure WooCommerce generates, especially when new pages or blocks are created.
 
   If you need to extend or modify this behavior for future WooCommerce pages:
   1. Check that the page you're working with includes the necessary WooCommerce blocks (e.g., cart, checkout, thank you).
-  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`, 
+  2. If new blocks are introduced by WooCommerce, simply target them in the same way as `.wp-block-woocommerce-cart` or `.wp-block-woocommerce-checkout`,
      using grid layout properties like `grid-column: 1 / -1` to make them span the full container width.
   3. The client can modify these settings without needing to rewrite page-specific styles—just ensure the WooCommerce-generated blocks are being used correctly.
 
@@ -289,6 +292,7 @@ a.reset-btn{
 */
 
 .site {
+  position: relative;
   background-image: url('/wp-content/themes/st-philip-church/images/church-bg.avif');
   background-size: cover;
   background-position: center;
@@ -299,6 +303,19 @@ a.reset-btn{
   background-attachment: scroll;
   padding-top: 0.5rem;
   overflow-x: hidden;
+
+  &::before {
+    content: "";
+    position:absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
 
   @include forScreenSizes(desktop) {
     background-attachment: fixed;

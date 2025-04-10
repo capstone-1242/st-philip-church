@@ -374,7 +374,7 @@ h4 {
   overflow: hidden;
 }
 .organization-card:hover {
-  box-shadow: 1px 0px 15px 7px rgba(41, 73, 30, 0.55);
+  box-shadow: 1px 0px 15px 7px rgba(145, 148, 168, 0.3);
 }
 
 .organization-image {
@@ -428,7 +428,7 @@ h4 {
   font-weight: 500;
   cursor: pointer;
   border-bottom: 2px solid rgba(41, 73, 30, 0.52);
-  transition: all 0.8s ease-in;
+  transition: all 0.3s ease-in;
   display: flex;
   justify-content: space-between;
 }
@@ -475,7 +475,7 @@ h4 {
 
 a.reset-btn {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: 2px solid #781100;
@@ -532,6 +532,7 @@ a.reset-btn:hover {
   Keep this in mind when adding customizations to WooCommerce-related pages!
 */
 .site {
+  position: relative;
   background-image: url("/wp-content/themes/st-philip-church/images/church-bg.avif");
   background-size: cover;
   background-position: center;
@@ -542,6 +543,17 @@ a.reset-btn:hover {
   background-attachment: scroll;
   padding-top: 0.5rem;
   overflow-x: hidden;
+}
+.site::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.site > * {
+  position: relative;
+  z-index: 2;
 }
 @media only screen and (min-width: 1000px) {
   .site {
@@ -558,7 +570,7 @@ a.reset-btn:hover {
 */
 .default-button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -576,7 +588,7 @@ a.reset-btn:hover {
 
 .secondary-button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -594,7 +606,7 @@ a.reset-btn:hover {
 
 .outlined-button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: 2px solid #781100;
@@ -612,7 +624,7 @@ a.reset-btn:hover {
 
 .read-more-button {
   display: inline-block;
-  padding: 2rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: 2px solid transparent;
@@ -717,7 +729,8 @@ This is where we style our footer
 .site-footer > div .footer-navigation #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 2rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
 }
 .site-footer > div .footer-navigation #footer-menu li.menu-item {
   padding: 8px;
@@ -785,7 +798,8 @@ This is where we style our footer
 .site-logo img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .show-nav {
@@ -1045,8 +1059,9 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
   section#about-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1073,8 +1088,9 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
   section#about-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1101,8 +1117,9 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
   section#about-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1145,7 +1162,8 @@ section.committee-archive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section.committee-archive {
@@ -1262,7 +1280,8 @@ section.organization-archive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section.organization-archive {
@@ -1367,7 +1386,7 @@ section#cart-page {
 }
 section#cart-page a.wc-block-cart__submit-button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -1412,7 +1431,7 @@ section#checkout-page div.wp-block-woocommerce-checkout-order-summary-block {
 }
 section#checkout-page button.wc-block-components-checkout-place-order-button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -1458,7 +1477,8 @@ section#contact-page {
 section#contact-page img {
   width: 100%;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 section#contact-page div.entry-content > *:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -1478,8 +1498,9 @@ section#contact-page div.entry-content section address dl dd {
   section#contact-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1489,8 +1510,9 @@ section#contact-page div.entry-content section address dl dd {
   section#contact-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1500,8 +1522,9 @@ section#contact-page div.entry-content section address dl dd {
   section#contact-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1541,8 +1564,9 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
   section#donation-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1564,8 +1588,9 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
   section#donation-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1587,8 +1612,9 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
   section#donation-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1678,15 +1704,13 @@ main.front-page .hero-banner {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr auto auto 1fr;
   row-gap: 24px;
-  column-gap: 16px;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
   color: #F5F5F5;
 }
 main.front-page .hero-banner {
   max-width: 1248px;
   margin: 0 auto;
-}
-main.front-page .hero-banner > *:not(:last-child) {
-  margin-bottom: 1.5rem;
 }
 main.front-page .hero-banner > * {
   grid-column: 1/-1;
@@ -1706,7 +1730,7 @@ main.front-page .hero-banner p:first-of-type {
   font-style: italic;
 }
 main.front-page .hero-banner p:nth-last-of-type(2) {
-  padding: 2rem 0;
+  text-align: right;
   font-size: clamp(0.875rem, 0.3456rem + 2.6471vw, 2rem);
   line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
   font-weight: 500;
@@ -1793,7 +1817,8 @@ main.front-page .welcome {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .welcome {
@@ -1836,7 +1861,6 @@ main.front-page .welcome > div:first-of-type section > div:first-of-type {
   border-radius: 4px;
   padding: 12px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
@@ -1847,8 +1871,9 @@ main.front-page .welcome > div:first-of-type section > div:first-of-type i {
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 1.5rem;
-  column-gap: 16px;
+  row-gap: 1rem;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
   text-align: center;
 }
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times li {
@@ -1880,8 +1905,9 @@ main.front-page .welcome > section > *:not(:last-child) {
   main.front-page .welcome > div ul.service-times {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -1890,6 +1916,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     grid-column: span 6;
   }
   main.front-page .welcome section a {
+    margin-top: 1rem;
     grid-column: span 3;
   }
 }
@@ -1900,8 +1927,9 @@ main.front-page .welcome > section > *:not(:last-child) {
   main.front-page .welcome > div ul.service-times {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -1910,6 +1938,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     grid-column: span 6;
   }
   main.front-page .welcome section a {
+    margin-top: 1rem;
     grid-column: span 3;
   }
 }
@@ -1920,8 +1949,9 @@ main.front-page .welcome > section > *:not(:last-child) {
   main.front-page .welcome > div ul.service-times {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -1930,6 +1960,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     grid-column: span 6;
   }
   main.front-page .welcome section a {
+    margin-top: 1rem;
     grid-column: span 3;
   }
 }
@@ -1964,9 +1995,6 @@ main.front-page .upcoming-events > div {
   background-color: white;
   padding: 1.5rem 1rem;
 }
-main.front-page .upcoming-events > div > *:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
 main.front-page .upcoming-events > div {
   max-width: 1248px;
   margin: 0 auto;
@@ -1975,7 +2003,8 @@ main.front-page .upcoming-events > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .upcoming-events > div {
@@ -2023,8 +2052,9 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
   main.front-page .upcoming-events > div .events-list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2040,8 +2070,9 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
   main.front-page .upcoming-events > div .events-list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2057,8 +2088,9 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
   main.front-page .upcoming-events > div .events-list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2079,7 +2111,8 @@ main.front-page .upcoming-events + section > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .upcoming-events + section > div {
@@ -2099,9 +2132,6 @@ main.front-page .upcoming-events + section > div {
     row-gap: 1.5rem;
   }
 }
-main.front-page .upcoming-events + section > div > *:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
 main.front-page .upcoming-events + section > div > * {
   grid-column: 1/-1;
 }
@@ -2120,7 +2150,7 @@ main.front-page .upcoming-events + section > div .organization-card {
   height: 233px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+  box-shadow: 4px 4px 11.3px 0 rgba(73, 11, 5, 0.12);
 }
 main.front-page .upcoming-events + section > div .organization-image {
   width: 100%;
@@ -2150,8 +2180,9 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     order: 3;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2171,8 +2202,9 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     order: 3;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2192,8 +2224,9 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     order: 3;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2217,7 +2250,8 @@ main.front-page .membership > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .membership > div {
@@ -2256,61 +2290,67 @@ main.front-page .membership > div .membership-options section {
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .membership > div {
-    padding: 1.5rem 2.25rem;
     grid-template-rows: 1fr auto;
   }
   main.front-page .membership > div > div:first-child {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
   main.front-page .membership > div .button-container {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
   main.front-page .membership > div .membership-options {
     grid-column: 5/span 4;
+    margin-right: 0.5rem;
     grid-row: 1/-1;
   }
 }
 @media only screen and (min-width: tablet) {
   main.front-page .membership > div {
-    padding: 1.5rem 2.25rem;
     grid-template-rows: 1fr auto;
   }
   main.front-page .membership > div > div:first-child {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
   main.front-page .membership > div .button-container {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
   main.front-page .membership > div .membership-options {
     grid-column: 5/span 4;
+    margin-right: 0.5rem;
     grid-row: 1/-1;
   }
 }
 @media only screen and (min-width: 1000px) {
   main.front-page .membership > div {
-    padding: 1.5rem 2.25rem;
     grid-template-rows: 1fr auto;
   }
   main.front-page .membership > div > div:first-child {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     order: -2;
     grid-row: 1/span 1;
   }
   main.front-page .membership > div .button-container {
+    margin-left: 1.5rem;
     grid-column: 1/span 4;
     grid-row: 2/-1;
     order: -1;
   }
   main.front-page .membership > div .membership-options {
     grid-column: 5/span 4;
+    margin-right: 0.5rem;
     grid-row: 1/-1;
   }
 }
@@ -2320,28 +2360,22 @@ main.front-page div.membership-overlay {
   top: 0;
   left: -1rem;
   right: -1rem;
-  bottom: 0;
+  bottom: 1.5rem;
   z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page div.membership-overlay {
     grid-column: 1/span 8;
-    left: -2.25rem;
-    right: -2.25rem;
   }
 }
 @media only screen and (min-width: tablet) {
   main.front-page div.membership-overlay {
     grid-column: 1/span 8;
-    left: -2.25rem;
-    right: -2.25rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   main.front-page div.membership-overlay {
     grid-column: 1/span 8;
-    left: -2.25rem;
-    right: -2.25rem;
   }
 }
 main.front-page .donation {
@@ -2359,7 +2393,8 @@ main.front-page .donation > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .donation > div {
@@ -2456,7 +2491,8 @@ section#livestream div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#livestream div.entry-content {
@@ -2483,7 +2519,8 @@ section#livestream div.entry-content section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#livestream div.entry-content section {
@@ -2506,9 +2543,6 @@ section#livestream div.entry-content section {
 section#livestream div.entry-content section > * {
   grid-column: 1/-1;
 }
-section#livestream div.entry-content section h2 {
-  margin-bottom: 1.5rem;
-}
 section#livestream div.entry-content section > div ul.service-times {
   text-align: center;
   background-color: rgba(71, 88, 65, 0.7);
@@ -2519,25 +2553,20 @@ section#livestream div.entry-content section > div ul.service-times {
 }
 section#livestream div.entry-content section > div ul.service-times li {
   flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
   color: #F5F5F5;
   border: none;
   background-color: #29491E;
   border-radius: 4px;
-  padding: 12px 24px;
-  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  padding: 0;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: normal !important;
+  padding: 8px 0;
 }
 section#livestream div.entry-content section > div ul.service-times li time {
-  display: block;
   font-weight: 700;
-  font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
-}
-section#livestream div.entry-content nav h2 {
-  margin-bottom: 1.5rem;
-}
-section#livestream div.entry-content nav ul > *:not(:last-child) {
-  margin-bottom: 1.5rem;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 section#livestream div.entry-content nav a {
   width: 100%;
@@ -2550,27 +2579,25 @@ section#livestream div.entry-content nav a {
     grid-column: span 8;
     grid-row: 1/span 1;
   }
-  section#livestream div.entry-content > section {
-    grid-column: span 8;
-    grid-row: 2/span -1;
-    grid-template-rows: auto 1fr;
+  section#livestream div.entry-content .service-socials {
+    grid-column: 9/span 4;
   }
-  section#livestream div.entry-content > section > div {
+  section#livestream div.entry-content .service-socials > section {
+    grid-template-rows: auto 1fr;
+    margin-bottom: 1.5rem;
+  }
+  section#livestream div.entry-content .service-socials > section > div {
     align-items: start;
   }
-  section#livestream div.entry-content > section > div > ul.service-times {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times {
     max-width: 100%;
     overflow: hidden;
   }
-  section#livestream div.entry-content > section > div > ul.service-times li {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times li {
     min-width: 40%;
     grid-column: span 6;
   }
-  section#livestream div.entry-content > nav {
-    grid-column: 9/span 4;
-    grid-row: 1/-1;
-  }
-  section#livestream div.entry-content > nav a i {
+  section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
   }
 }
@@ -2582,27 +2609,25 @@ section#livestream div.entry-content nav a {
     grid-column: span 8;
     grid-row: 1/span 1;
   }
-  section#livestream div.entry-content > section {
-    grid-column: span 8;
-    grid-row: 2/span -1;
-    grid-template-rows: auto 1fr;
+  section#livestream div.entry-content .service-socials {
+    grid-column: 9/span 4;
   }
-  section#livestream div.entry-content > section > div {
+  section#livestream div.entry-content .service-socials > section {
+    grid-template-rows: auto 1fr;
+    margin-bottom: 1.5rem;
+  }
+  section#livestream div.entry-content .service-socials > section > div {
     align-items: start;
   }
-  section#livestream div.entry-content > section > div > ul.service-times {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times {
     max-width: 100%;
     overflow: hidden;
   }
-  section#livestream div.entry-content > section > div > ul.service-times li {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times li {
     min-width: 40%;
     grid-column: span 6;
   }
-  section#livestream div.entry-content > nav {
-    grid-column: 9/span 4;
-    grid-row: 1/-1;
-  }
-  section#livestream div.entry-content > nav a i {
+  section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
   }
 }
@@ -2614,27 +2639,25 @@ section#livestream div.entry-content nav a {
     grid-column: span 8;
     grid-row: 1/span 1;
   }
-  section#livestream div.entry-content > section {
-    grid-column: span 8;
-    grid-row: 2/span -1;
-    grid-template-rows: auto 1fr;
+  section#livestream div.entry-content .service-socials {
+    grid-column: 9/span 4;
   }
-  section#livestream div.entry-content > section > div {
+  section#livestream div.entry-content .service-socials > section {
+    grid-template-rows: auto 1fr;
+    margin-bottom: 1.5rem;
+  }
+  section#livestream div.entry-content .service-socials > section > div {
     align-items: start;
   }
-  section#livestream div.entry-content > section > div > ul.service-times {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times {
     max-width: 100%;
     overflow: hidden;
   }
-  section#livestream div.entry-content > section > div > ul.service-times li {
+  section#livestream div.entry-content .service-socials > section > div > ul.service-times li {
     min-width: 40%;
     grid-column: span 6;
   }
-  section#livestream div.entry-content > nav {
-    grid-column: 9/span 4;
-    grid-row: 1/-1;
-  }
-  section#livestream div.entry-content > nav a i {
+  section#livestream div.entry-content .service-socials > nav a i {
     margin-left: 1.625rem;
   }
 }
@@ -2680,8 +2703,9 @@ section#member-page div.entry-content a {
   section#member-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2700,8 +2724,9 @@ section#member-page div.entry-content a {
   section#member-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2720,8 +2745,9 @@ section#member-page div.entry-content a {
   section#member-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 24px;
+    row-gap: 1rem;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2756,7 +2782,7 @@ section.page {
 }
 section.page a.button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -2776,8 +2802,9 @@ section.page a.button:hover {
   section.page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 32px;
+    row-gap: 1rem;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   section.page div.entry-content div#woocommerce-sidebars {
     grid-column: span 3;
@@ -2849,17 +2876,19 @@ section#committee-single img {
   width: 100%;
   height: auto;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 section#committee-single .com-single-header h1 {
-  font-size: clamp(1.5rem, 0.3235rem + 5.8824vw, 4rem);
-  line-height: clamp(1.5rem, 0.0882rem + 7.0588vw, 4.5rem);
+  font-size: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
 }
 section#committee-single div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#committee-single div.entry-content {
@@ -2910,7 +2939,8 @@ section#committee-single div.entry-content .committee-button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#committee-single div.entry-content .committee-button-container {
@@ -2969,8 +2999,9 @@ section#committee-single div.entry-content .committee-button-container p.button-
   section#committee-single div.entry-content .committee-recommendations .organization-cards {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 0;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#committee-single div.entry-content .committee-recommendations .organization-cards > * {
     grid-column: span 6;
@@ -2984,7 +3015,8 @@ section#committee-single div.entry-content .committee-button-container p.button-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3001,7 +3033,8 @@ section#committee-single div.entry-content .committee-button-container p.button-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3030,6 +3063,9 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
+    background-color: #F3DEBC;
+    padding: 1.5rem;
+    border-radius: 4px;
     grid-column: 1/span 8;
     grid-row: 3/span 1;
   }
@@ -3043,6 +3079,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
+    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3085,6 +3122,9 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
+    background-color: #F3DEBC;
+    padding: 1.5rem;
+    border-radius: 4px;
     grid-column: 1/span 8;
     grid-row: 3/span 1;
   }
@@ -3098,6 +3138,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
+    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3140,6 +3181,9 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-column: span 3;
   }
   section#committee-single div.entry-content .responsibility-container {
+    background-color: #F3DEBC;
+    padding: 1.5rem;
+    border-radius: 4px;
     grid-column: 1/span 8;
     grid-row: 3/span 1;
   }
@@ -3153,6 +3197,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
+    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3195,7 +3240,8 @@ section#organization-single {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#organization-single {
@@ -3223,14 +3269,15 @@ section#organization-single {
   margin-inline: 16px;
 }
 section#organization-single .org-single-header h1 {
-  font-size: clamp(1.5rem, -0.6176rem + 10.5882vw, 6rem);
-  line-height: clamp(1.5rem, -0.9706rem + 12.3529vw, 6.75rem);
+  font-size: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
 }
 section#organization-single div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#organization-single div.entry-content {
@@ -3260,12 +3307,14 @@ section#organization-single div.entry-content .acf-gallery img {
   width: 100%;
   height: auto;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 section#organization-single div.entry-content div.form-recommendation-container {
   padding: 1.5rem 1rem;
-  background-color: #EFC275;
+  background-color: #F3DEBC;
   overflow-x: hidden;
+  border-radius: 4px;
 }
 section#organization-single div.entry-content section.organization-recommendations h2 {
   margin-bottom: 1.5rem;
@@ -3278,7 +3327,8 @@ section#organization-single div.entry-content section.organization-recommendatio
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3442,7 +3492,7 @@ section#single-product-page form.cart div.quantity input.input-text {
 }
 section#single-product-page .single_add_to_cart_button, section#single-product-page a.add_to_cart_button, section#single-product-page .woocommerce-message a {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -3471,7 +3521,7 @@ section#single-product-page div.product_meta {
 }
 section#single-product-page li.description_tab {
   display: inline-block;
-  padding: 0.75rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -3526,14 +3576,15 @@ section#shop-page form.woocommerce-ordering select.orderby {
 }
 section#shop-page img {
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 section#shop-page ul.products li.product .price {
   margin-top: auto;
 }
 section#shop-page ul.products li.product a.button {
   display: inline-block;
-  padding: 1.5rem 1rem;
+  padding: 16px 31px;
   font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
   font-weight: 700;
   border: none;
@@ -3553,8 +3604,9 @@ section#shop-page ul.products li.product a.button:hover {
   section#shop-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 32px;
+    row-gap: 1rem;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   section#shop-page div.entry-content > div:first-of-type {
     grid-column: span 3;
@@ -3583,7 +3635,8 @@ section#spiritual-resources-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#spiritual-resources-page {
@@ -3636,8 +3689,9 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
   section#spiritual-resources-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3661,8 +3715,9 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
   section#spiritual-resources-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3686,8 +3741,9 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
   section#spiritual-resources-page div.entry-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3724,7 +3780,8 @@ section#worship-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 1.5rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#worship-page {
@@ -3760,28 +3817,27 @@ section#worship-page div.entry-content > section:first-of-type > *:not(:last-chi
 section#worship-page div.entry-content > section:first-of-type div ul.service-times {
   text-align: center;
   background-color: rgba(71, 88, 65, 0.7);
-  padding: 1rem;
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  row-gap: 1.5rem;
-  column-gap: 1rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
-  grid-column: span 6;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
   color: #F5F5F5;
   border: none;
   background-color: #29491E;
   border-radius: 4px;
-  padding: 12px 24px;
-  font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  padding: 0;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: normal !important;
+  padding: 8px 0;
 }
 section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
-  display: block;
   font-weight: 700;
-  font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -3797,8 +3853,9 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3811,54 +3868,45 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     grid-column: 9/-1;
     grid-row: 1/-1;
   }
-  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1rem;
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
-    grid-column: span 6;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
     color: #F5F5F5;
     border: none;
     background-color: #29491E;
     border-radius: 4px;
-    padding: 12px 24px;
-    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    padding: 0;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: normal !important;
+    padding: 8px 0;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
-    display: block;
     font-weight: 700;
-    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    font-size: clamp(14px, 1.5vw, 16px);
   }
   section#worship-page div.entry-content > section:last-of-type {
     grid-column: span 8;
     grid-row: 2/span 1;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
   }
-  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
     grid-column: span 5;
-  }
-  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
     width: 100%;
@@ -3872,8 +3920,9 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3886,54 +3935,45 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     grid-column: 9/-1;
     grid-row: 1/-1;
   }
-  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1rem;
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
-    grid-column: span 6;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
     color: #F5F5F5;
     border: none;
     background-color: #29491E;
     border-radius: 4px;
-    padding: 12px 24px;
-    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    padding: 0;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: normal !important;
+    padding: 8px 0;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
-    display: block;
     font-weight: 700;
-    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    font-size: clamp(14px, 1.5vw, 16px);
   }
   section#worship-page div.entry-content > section:last-of-type {
     grid-column: span 8;
     grid-row: 2/span 1;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
   }
-  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
     grid-column: span 5;
-  }
-  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
     width: 100%;
@@ -3947,8 +3987,9 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3961,54 +4002,45 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     grid-column: 9/-1;
     grid-row: 1/-1;
   }
-  section#worship-page div.entry-content > section:first-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times {
     text-align: center;
     background-color: rgba(71, 88, 65, 0.7);
-    padding: 1rem;
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li {
-    grid-column: span 6;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
     color: #F5F5F5;
     border: none;
     background-color: #29491E;
     border-radius: 4px;
-    padding: 12px 24px;
-    font-size: clamp(0.875rem, 0.5809rem + 1.4706vw, 1.5rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    padding: 0;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: normal !important;
+    padding: 8px 0;
   }
   section#worship-page div.entry-content > section:first-of-type div ul.service-times li time {
-    display: block;
     font-weight: 700;
-    font-size: clamp(1.25rem, 0.8971rem + 1.7647vw, 2rem);
-    line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
+    font-size: clamp(14px, 1.5vw, 16px);
   }
   section#worship-page div.entry-content > section:last-of-type {
     grid-column: span 8;
     grid-row: 2/span 1;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    row-gap: 1.5rem;
-    column-gap: 1rem;
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
   }
-  section#worship-page div.entry-content > section:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type {
     grid-column: span 5;
-  }
-  section#worship-page div.entry-content > section:last-of-type > div:last-of-type > *:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
   section#worship-page div.entry-content > section:last-of-type > div:last-of-type a {
     width: 100%;
@@ -4044,6 +4076,4 @@ the class .sr-only has been added here just in case, but the starter theme has a
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

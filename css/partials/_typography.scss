@@ -1,0 +1,39 @@
+// this will include all related font, the values is just for testing
+
+$font-family: 'Inter', sans-serif;
+
+// font-sizes
+$p-font-size: 24px;
+$p-tagline-font-size: 16px;
+$h1-font-size: 40px;
+$h2-font-size: 32px;
+$h3-font-size: 30px;
+
+
+
+// line-height:
+$line-height-base: 1.5;
+
+// font-weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-medium-bold: 600;
+$font-weight-semi-bold: 600; /* this i have to research on why it is stored and giving error */
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+// footer church info
+$footer-church-info-font-size: 20px;
+$footer-hour-small-text: 14px;
+
+// responsive typography
+$font20-to-font32: clamp(1.25rem, 0.9914rem + 1.2931vw, 2rem);
+$font20-to-font24: clamp(1.25rem, 1.1638rem + 0.431vw, 1.5rem);
+$font16-to-font24: clamp(1rem, 0.8276rem + 0.8621vw, 1.5rem);
+$font16-to-font20: clamp(1rem, 0.9138rem + 0.431vw, 1.25rem);
+$font14-to-font20: clamp(0.875rem, 0.7457rem + 0.6466vw, 1.25rem);
+$font14-to-font16: clamp(0.875rem, 0.8319rem + 0.2155vw, 1rem);

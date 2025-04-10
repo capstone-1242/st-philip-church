@@ -52,7 +52,6 @@ get_header();
 					<p><?php echo wp_kses_post(get_field('purpose')); ?></p>
 
 					<section>
-						<h2>Gallery</h2>
 						<div class="acf-gallery">
 							<!-- This code is generated through the help of Chat and GoogleSearch : I need to customized it to better fit it's intended functionality -->
 							<?php

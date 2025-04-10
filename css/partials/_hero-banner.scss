@@ -1,0 +1,67 @@
+/**
+This is where we styles hero banner for the homepage
+*/
+
+@use 'colors' as *;
+@use 'media-queries' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+
+
+// <!-- Hero Banner section -->
+// <div class="hero-banner" style="background-image: url('<?php
+//                                                         // Check if the post has a featured image, otherwise fallback to the theme default image
+//                                                         echo esc_url($featured_image_url ? $featured_image_url : $theme_banner_image_url);
+//                                                         ?>');">
+//   <h2>St. Philip Antiochian Church</h2>
+//   <p>Orthodoxy with Middle Eastern Flavour!</p>
+//   <p>Our store shop just opened, check it out!</p>
+//   <a href="<?php echo esc_url(get_permalink(77)); ?>" class="fake-button">View Shop</a>
+// </div>
+
+
+.hero-banner{
+  @include maxWidthCentered(1248px);
+  display: flex;
+
+  >div{
+    background-color: rgba(255,255,255, 0.8);
+    height: calc(100vh - 90px);
+    padding: 120px 16px 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    flex-grow: 1;
+
+    h2{
+      font-size: clamp(1.5rem, 0.9828rem + 2.5862vw, 3rem);
+      font-weight: $font-weight-medium-bold;
+    }
+
+    p:first-of-type{
+      font-size: clamp(1rem, 0.6552rem + 1.7241vw, 2rem);
+      font-weight: $font-weight-light;
+      font-style: italic;
+    }
+
+    p:last-of-type{
+      font-size: clamp(0.875rem, 0.6595rem + 1.0776vw, 1.5rem);
+      font-weight: $font-weight-medium;
+    }
+
+    a{
+      font-size: $font16-to-font24;
+    }
+
+    @include forScreenSizesMin(tablet, desktop){
+      height: calc(100vh - 90px);
+    }
+   
+  }
+
+ 
+  
+}

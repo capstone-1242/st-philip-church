@@ -36,12 +36,11 @@ main.front-page {
     row-gap: 24px;
     column-gap: 16px;
     color: $accent-white;
-    
-    @include maxWidthCentered($maxWidth); 
+
+    @include maxWidthCentered($maxWidth);
     // @include grid;
-    @include childMarginBottom;
     @include childGridSpan;
- 
+
 
     h2 {
       font-size: $font24-to-font64;
@@ -62,7 +61,7 @@ main.front-page {
 
     // our church just opened
     p:nth-last-of-type(2) {
-      padding: 2rem 0;
+      text-align: right;
       font-size: $font14-to-font32;
       line-height: $line-height-14-32;
       font-weight: $font-weight-medium;
@@ -76,8 +75,8 @@ main.front-page {
       width: 100%;
     }
 
-   
-  
+
+
     @include forScreenSizes(tablet, desktop) {
       & {
         grid-template-columns: repeat(12, 1fr);
@@ -93,7 +92,7 @@ main.front-page {
           grid-column: 10 / span 3;
         }
 
-     
+
       }
     }
   }
@@ -142,7 +141,6 @@ main.front-page {
         > div:first-of-type {
           @include card;
           display: flex;
-          justify-content: space-between;
           align-items: center;
           gap: 1rem;
 
@@ -197,6 +195,7 @@ main.front-page {
         section {
           grid-column: span 6;
           a {
+            margin-top: 1rem;
             grid-column: span 3;
           }
         }
@@ -225,12 +224,11 @@ main.front-page {
     >div{
       background-color: $white;
       padding:$mobileGridPadding;
-      @include childMarginBottom;
       @include maxWidthCentered($maxWidth);
       @include grid;
       @include childGridSpan;
-  
-    
+
+
     .events-list {
       .event-item {
         position: relative;
@@ -278,7 +276,6 @@ main.front-page {
     padding:$mobileGridPadding;
     @include maxWidthCentered($maxWidth);
     @include grid;
-    @include childMarginBottom;
     @include childGridSpan;
 
     hr {
@@ -298,7 +295,7 @@ main.front-page {
       height: 233px;
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 4px 11.3px 4px 0 rgba(73, 11, 5, 0.12);
+      box-shadow: 4px 4px 11.3px 0 rgba(73, 11, 5, 0.12);
     }
 
     .organization-image {
@@ -372,16 +369,17 @@ main.front-page {
 
     @include forScreenSizes(tablet, desktop) {
       & {
-        padding: $desktopGridPadding;
         grid-template-rows: 1fr auto;
 
         > div:first-child {
+          margin-left: 1.5rem;
           grid-column: 1 / span 4;
           order: -2;
           grid-row: 1 / span 1;
         }
 
         .button-container {
+          margin-left: 1.5rem;
           grid-column: 1 / span 4;
           grid-row: 2 / -1;
           order: -1;
@@ -389,12 +387,13 @@ main.front-page {
 
         .membership-options {
           grid-column: 5 / span 4;
+          margin-right: 0.5rem;
           grid-row: 1 / -1;
         }
       }
     }
   }
-  
+
 }
 
   div.membership-overlay{
@@ -403,17 +402,15 @@ main.front-page {
     top: 0;
     left: -1rem;
     right: -1rem;
-    bottom: 0;
+    bottom: 1.5rem;
     z-index: 1;
 
     @include forScreenSizes(tablet, desktop){
       grid-column: 1 / span 8;
-      left: -2.25rem;
-      right:  -2.25rem;
     }
   }
 
-  
+
   /*---------------------------Donation Section------------------------------*/
   .donation {
     margin-bottom: $base-line-height;

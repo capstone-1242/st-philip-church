@@ -43,8 +43,8 @@ $font20-to-font36: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
 $line-height-20-36: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem); /* 24 to 48 */
 
 // h3
-$font18-to-font32: clamp(1.125rem, 0.7132rem + 2.0588vw, 2rem);
-$line-height-18-32: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
+$font18-to-font28: clamp(1.125rem, 0.7132rem + 2.0588vw, 1.5rem);
+$line-height-18-28: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem); /* 24 to 36 */
 
 // h4
 $font16-to-font28: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem);

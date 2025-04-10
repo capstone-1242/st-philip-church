@@ -4,12 +4,12 @@
  * The template for displaying the About Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @link https://www.advancedcustomfields.com/resources/ 
+ * @link https://www.advancedcustomfields.com/resources/
  * @link https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html
  * @link https://www.aditus.io/aria/aria-label/
  *
  * @package st_philip
- * 
+ *
  **/
 
 /* Get the header template part*/
@@ -29,7 +29,7 @@ get_header();
 		<h2 class="hero-title">St. Philip Antiochian<span>Church</span></h2>
 		<p>Orthodoxy with Middle Eastern Flavour!</p>
 		<p>Our store shop just opened, check it out!</p>
-		<p><a href="/shop/" class="default-button" aria-label="Visit St.Philip's online shop">View Shop</a></p>
+		<p><a href="/shop/" class="default-button" aria-label="Visit St.Philip's online shop">Start Shopping</a></p>
 
 	</section>
 
@@ -49,7 +49,6 @@ get_header();
 	</section>
 
 	<!-- Welcome to our Church -->
-	
 
 		<section class="welcome">
 
@@ -104,16 +103,16 @@ get_header();
 					'posts_per_page' => 3,
 					'order' => 'ASC',
 				);
-	
+
 				$organization_query = new WP_Query($args);
-	
-	
+
+
 				if ($organization_query->have_posts()) :
-	
-	
+
+
 					while ($organization_query->have_posts()) : $organization_query->the_post();
-	
-						
+
+
 				?>
 						<a href="<?php esc_url(the_permalink()); ?>" class="organization-card-link">
 							<div class="organization-card">
@@ -140,7 +139,7 @@ get_header();
 	</section>
 
 	<!-- Become a Member -->
-	
+
 		<section class="membership">
 			<div>
 				<div>
@@ -172,25 +171,23 @@ get_header();
 			</div>
 		</section>
 
-	
-
-	<!-- Donation -->
-	<section class="donation">
-	<div>
-			<hr>
+		<!-- Donation -->
+		<section class="donation">
 			<div>
-				<h2>Support the Church</h2>
-				<p>Your contributions help the church continue its mission and serve the community. Every donation plays a vital role in extending our outreach and impact.</p>
-				<a href="/donate/" class="default-button full-width-button">Make a Donation</a>
+				<hr>
+				<div>
+					<h2>Support the Church</h2>
+					<p>Your contributions help the church continue its mission and serve the community. Every donation plays a vital role in extending our outreach and impact.</p>
+					<a href="/donate/" class="default-button full-width-button">Make a Donation</a>
+				</div>
+				<?php
+				$donation_page_id = 83;
+				$donation_image = get_the_post_thumbnail_url($donation_page_id, 'full');
+				if ($donation_image) : ?>
+					<img src="<?php echo esc_url($donation_image); ?>" alt="Donation Image">
+				<?php endif; ?>
 			</div>
-			<?php
-			$donation_page_id = 83;
-			$donation_image = get_the_post_thumbnail_url($donation_page_id, 'full');
-			if ($donation_image) : ?>
-				<img src="<?php echo esc_url($donation_image); ?>" alt="Donation Image">
-			<?php endif; ?>
-	</div>
-	</section>
+		</section>
 
 
 </main><!-- #main -->

@@ -34,8 +34,8 @@ section#committee-single {
   }
 
   .com-single-header h1 {
-    font-size: $font24-to-font64;
-    line-height: $line-height-24-64;
+    font-size: $font24-to-font48;
+    line-height: $line-height-24-48;
   }
 
   div.entry-content {
@@ -124,7 +124,7 @@ section#committee-single {
       .committee-recommendations{
         @include childMarginBottom;
         .organization-cards{
-        @include gridContainer;
+        @include gridContainer ($row-gap: 0);
         >*{
           grid-column: span 6;
         }
@@ -193,6 +193,9 @@ section#committee-single {
     }
 
       .responsibility-container {
+        background-color: $light-yellow;
+        padding: 1.5rem;
+        border-radius: $borderRadius;
         grid-column: 1 / span 8;
         grid-row: 3 / span 1;
       }
