@@ -23,10 +23,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php if (is_front_page() || is_page('livestream')) : ?>
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
-<?php endif; ?>
+	<?php if (is_front_page() || is_page('livestream')) : ?>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
+	<?php endif; ?>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 
@@ -34,7 +34,7 @@
 
 		<div class="header-nav-container">
 			<header id="masthead" class="site-header">
-				<div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+				<button class="menu-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="site-navigation"><i class="fa-solid fa-bars"></i></button>
 				<div class="site-branding">
 					<div class="site-logo"><?php the_custom_logo(); ?></div>
 					<?php
@@ -51,7 +51,7 @@
 					if ($st_philip_description || is_customize_preview()) :
 					?>
 						<p class="site-description screen-reader-text"><?php echo $st_philip_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-																				?></p>
+																														?></p>
 					<?php endif; ?>
 				</div><!-- .site-branding -->
 

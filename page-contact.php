@@ -62,8 +62,6 @@ get_header();
 				<?php echo do_shortcode('[forminator_form id="303"]'); ?>
 			</div>
 
-			<!-- I created a forminator form for the contact page so the goole form is useless?  -->
-			<!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSehKFZPYS0WBOsEMSX575h7i79CC-2OrRBLavNCGcGayMEj-g/viewform" class="default-button" target="_blank">Contact Us</a> -->
 		</div>
 		<!-- end of .entry-content -->
 

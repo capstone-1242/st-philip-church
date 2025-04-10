@@ -1,8 +1,8 @@
 <?php
 
 /**
- * The template for displaying all pages not specified by a specific customized template
- *
+ * The template for displaying shop page
+ * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package st_philip

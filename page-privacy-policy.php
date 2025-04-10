@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying all pages not specified by a specific customized template
+ * The template for displaying privacy policy page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

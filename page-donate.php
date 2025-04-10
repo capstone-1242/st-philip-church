@@ -26,6 +26,7 @@ get_header();
 		<div class="entry-content">
 
 			<!-- featured image -->
+			<!-- The default is the spirtual resources image but they can change it through featured image -->
 			<div class="page-featured-image">
 				<?php if (has_post_thumbnail()) :
 					st_philip_post_thumbnail();
