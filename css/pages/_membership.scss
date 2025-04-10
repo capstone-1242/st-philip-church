@@ -32,7 +32,13 @@ section#member-page{
   div.entry-content{
     @include childMarginBottom;
     section{
-      @include card($background-color: $main-yellow, $color: $primary-blue, $padding: 1.5rem);
+
+      h2 {
+        font-size: $font18-to-font28;
+        line-height: $line-height-18-28;
+      }
+
+      @include card($background-color: $light-yellow, $color: $primary-blue, $padding: 1.5rem, $border: none);
       @include childMarginBottom;
     }
 

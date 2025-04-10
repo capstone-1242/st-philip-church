@@ -113,7 +113,7 @@
     a{
       width: 100%;
     }
-    
+
      li.menu-item {
       padding: 6px 9px;
       border-left: 3px solid transparent;
@@ -131,8 +131,8 @@
       }
 
       &:hover{
-        border-color: $main-red;
-        background-color: rgba($accent-red, 0.3);
+        border-color: $accent-yellow;
+        background-color: $light-yellow;
 
      }
     }
@@ -161,15 +161,15 @@
         >*:not(:last-of-type){
           margin-bottom: 0;
         }
-    
+
 
         li.menu-item {
           border-left: 0;
           border-bottom: 3px solid transparent;
           padding-left: 0;
-       
+
           &:hover, &:focus-within:hover{
-            border-color:  $accent-red;
+            border-color:  $accent-yellow;
             background-color: transparent;
           }
 
@@ -223,8 +223,8 @@
                 margin-bottom: 0;
 
                 &:hover{
-                  border-color: $accent-red;
-                  background-color: rgba($accent-red, 0.3);
+                  border-color: $accent-yellow;
+                  background-color: $light-yellow;
                 }
               }
             }

@@ -40,7 +40,7 @@ get_header();
 
 			<section>
 				<h2>Voting Member - Family
-					($400/yr)</h2>
+					($500/yr)</h2>
 				<p>Strengthen your family’s involvement in our parish with voting privileges for your household and deeper engagement in our church’s future.</p>
 			</section>
 

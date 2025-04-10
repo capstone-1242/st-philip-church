@@ -732,8 +732,7 @@ This is where we style our footer
 .site-footer > div .footer-navigation #footer-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  column-gap: 2rem;
 }
 .site-footer > div .footer-navigation #footer-menu li.menu-item {
   padding: 8px;
@@ -801,8 +800,7 @@ This is where we style our footer
 .site-logo img {
   width: 100%;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .show-nav {
@@ -905,8 +903,8 @@ This is where we style our footer
   padding-right: 24px;
 }
 .main-navigation ul#primary-menu li.menu-item:hover {
-  border-color: #5D1207;
-  background-color: rgba(120, 17, 0, 0.3);
+  border-color: #D79A32;
+  background-color: #F3DEBC;
 }
 @media only screen and (min-width: 1216px) {
   .main-navigation {
@@ -936,7 +934,7 @@ This is where we style our footer
     padding-left: 0;
   }
   .main-navigation ul#primary-menu li.menu-item:hover, .main-navigation ul#primary-menu li.menu-item:focus-within:hover {
-    border-color: #781100;
+    border-color: #D79A32;
     background-color: transparent;
   }
   .main-navigation ul#primary-menu li.menu-item:nth-last-of-type(2) {
@@ -986,8 +984,8 @@ This is where we style our footer
     margin-bottom: 0;
   }
   .main-navigation ul#primary-menu li.menu-item .dropdown-wrapper ul.sub-menu li:hover {
-    border-color: #781100;
-    background-color: rgba(120, 17, 0, 0.3);
+    border-color: #D79A32;
+    background-color: #F3DEBC;
   }
   .main-navigation ul#primary-menu li.menu-item:hover > .dropdown-wrapper, .main-navigation ul#primary-menu li.menu-item:focus-within > .dropdown-wrapper {
     opacity: 1;
@@ -1063,8 +1061,7 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1092,8 +1089,7 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1121,8 +1117,7 @@ section#about-page div.entry-content #full-parish-message p, section#about-page 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#about-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1165,8 +1160,7 @@ section.committee-archive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section.committee-archive {
@@ -1283,8 +1277,7 @@ section.organization-archive {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section.organization-archive {
@@ -1480,8 +1473,7 @@ section#contact-page {
 section#contact-page img {
   width: 100%;
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 section#contact-page div.entry-content > *:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -1502,8 +1494,7 @@ section#contact-page div.entry-content section address dl dd {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1514,8 +1505,7 @@ section#contact-page div.entry-content section address dl dd {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1526,8 +1516,7 @@ section#contact-page div.entry-content section address dl dd {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#contact-page div.entry-content > * {
     grid-column: span 4;
@@ -1568,8 +1557,7 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1592,8 +1580,7 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1616,8 +1603,7 @@ section#donation-page div.entry-content .donation-info > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#donation-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -1707,8 +1693,7 @@ main.front-page .hero-banner {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr auto auto 1fr;
   row-gap: 24px;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
+  column-gap: 16px;
   color: #F5F5F5;
 }
 main.front-page .hero-banner {
@@ -1820,8 +1805,7 @@ main.front-page .welcome {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .welcome {
@@ -1875,8 +1859,7 @@ main.front-page .welcome > div:first-of-type section > div:last-of-type ul.servi
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
+  column-gap: 16px;
   text-align: center;
 }
 main.front-page .welcome > div:first-of-type section > div:last-of-type ul.service-times li {
@@ -1909,8 +1892,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -1931,8 +1913,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -1953,8 +1934,7 @@ main.front-page .welcome > section > *:not(:last-child) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .welcome > div ul.service-times li {
     grid-column: span 3;
@@ -2006,8 +1986,7 @@ main.front-page .upcoming-events > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .upcoming-events > div {
@@ -2056,8 +2035,7 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2074,8 +2052,7 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2092,8 +2069,7 @@ main.front-page .upcoming-events > div .events-list .event-item .date .event-day
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events > div .events-list .event-item {
     grid-column: span 3;
@@ -2114,8 +2090,7 @@ main.front-page .upcoming-events + section > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .upcoming-events + section > div {
@@ -2184,8 +2159,7 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2206,8 +2180,7 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2228,8 +2201,7 @@ main.front-page .upcoming-events + section > div .organization-card-title {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   main.front-page .upcoming-events + section > div div.parish-organization-list > * {
     grid-column: span 4;
@@ -2253,8 +2225,7 @@ main.front-page .membership > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .membership > div {
@@ -2396,8 +2367,7 @@ main.front-page .donation > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   main.front-page .donation > div {
@@ -2494,8 +2464,7 @@ section#livestream div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#livestream div.entry-content {
@@ -2522,8 +2491,7 @@ section#livestream div.entry-content section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#livestream div.entry-content section {
@@ -2700,10 +2668,14 @@ section#member-page div.entry-content > *:not(:last-child) {
 }
 section#member-page div.entry-content section {
   color: #111933;
-  border: 1px solid #EFC275;
-  background-color: #EFC275;
+  border: none;
+  background-color: #F3DEBC;
   border-radius: 4px;
   padding: 1.5rem;
+}
+section#member-page div.entry-content section h2 {
+  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 1.5rem);
+  line-height: clamp(1.5rem, 1.1471rem + 1.7647vw, 2.25rem);
 }
 section#member-page div.entry-content section > *:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -2716,8 +2688,7 @@ section#member-page div.entry-content a {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2737,8 +2708,7 @@ section#member-page div.entry-content a {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2758,8 +2728,7 @@ section#member-page div.entry-content a {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
   section#member-page div.entry-content p {
     grid-column: 1/-1;
@@ -2815,8 +2784,7 @@ section.page a.button:hover {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 32px;
-         column-gap: 32px;
+    column-gap: 32px;
   }
   section.page div.entry-content div#woocommerce-sidebars {
     grid-column: span 3;
@@ -2888,8 +2856,7 @@ section#committee-single img {
   width: 100%;
   height: auto;
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 section#committee-single .com-single-header h1 {
   font-size: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
@@ -2899,8 +2866,7 @@ section#committee-single div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#committee-single div.entry-content {
@@ -2951,8 +2917,7 @@ section#committee-single div.entry-content .committee-button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#committee-single div.entry-content .committee-button-container {
@@ -3012,8 +2977,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#committee-single div.entry-content .committee-recommendations .organization-cards > * {
     grid-column: span 6;
@@ -3027,8 +2991,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3045,8 +3008,7 @@ section#committee-single div.entry-content .committee-button-container p.button-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#committee-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3091,7 +3053,6 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
-    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3150,7 +3111,6 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
-    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3209,7 +3169,6 @@ section#committee-single div.entry-content .committee-button-container p.button-
     grid-template-rows: auto auto 1fr;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container h2 {
-    height: -moz-fit-content;
     height: fit-content;
   }
   section#committee-single div.entry-content > div:last-of-type .committee-button-container div.committee-list {
@@ -3252,8 +3211,7 @@ section#organization-single {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#organization-single {
@@ -3288,8 +3246,7 @@ section#organization-single div.entry-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#organization-single div.entry-content {
@@ -3319,8 +3276,7 @@ section#organization-single div.entry-content .acf-gallery img {
   width: 100%;
   height: auto;
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 section#organization-single div.entry-content div.form-recommendation-container {
   padding: 1.5rem 1rem;
@@ -3339,8 +3295,7 @@ section#organization-single div.entry-content section.organization-recommendatio
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 0;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#organization-single div.entry-content .acf-gallery a:first-of-type {
     grid-column: 1/-1;
@@ -3588,8 +3543,7 @@ section#shop-page form.woocommerce-ordering select.orderby {
 }
 section#shop-page img {
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 section#shop-page ul.products li.product .price {
   margin-top: auto;
@@ -3617,8 +3571,7 @@ section#shop-page ul.products li.product a.button:hover {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 32px;
-         column-gap: 32px;
+    column-gap: 32px;
   }
   section#shop-page div.entry-content > div:first-of-type {
     grid-column: span 3;
@@ -3647,8 +3600,7 @@ section#spiritual-resources-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#spiritual-resources-page {
@@ -3702,8 +3654,7 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3728,8 +3679,7 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3754,8 +3704,7 @@ section#spiritual-resources-page div.entry-content nav ul li:hover {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#spiritual-resources-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3792,8 +3741,7 @@ section#worship-page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#worship-page {
@@ -3866,8 +3814,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3911,8 +3858,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
@@ -3933,8 +3879,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -3978,8 +3923,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
@@ -4000,8 +3944,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
   section#worship-page div.entry-content {
     grid-template-rows: auto 1fr;
@@ -4045,8 +3988,7 @@ section#worship-page div.entry-content > section:last-of-type > div:last-of-type
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
+    column-gap: 1rem;
   }
   section#worship-page div.entry-content > section:last-of-type > * {
     grid-column: 1/-1;
@@ -4088,4 +4030,6 @@ the class .sr-only has been added here just in case, but the starter theme has a
   width: 1px;
   height: 1px;
   overflow: hidden;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
