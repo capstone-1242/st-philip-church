@@ -1741,7 +1741,7 @@ main.front-page .hero-banner h2 span {
   display: block;
 }
 main.front-page .hero-banner h2, main.front-page .hero-banner p {
-  color: white;
+  color: white !important;
 }
 main.front-page .hero-banner p:first-of-type {
   font-size: clamp(1rem, 0.2941rem + 3.5294vw, 2.5rem);
@@ -1858,6 +1858,9 @@ main.front-page .welcome {
 }
 main.front-page .welcome > * {
   grid-column: 1/-1;
+}
+main.front-page .welcome h2, main.front-page .welcome h3, main.front-page .welcome p {
+  color: white;
 }
 main.front-page .welcome > div:first-of-type {
   z-index: 12;

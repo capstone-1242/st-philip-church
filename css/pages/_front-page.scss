@@ -53,7 +53,7 @@ main.front-page {
     }
 
     h2, p {
-      color: white;
+      color: white !important;
     }
 
     p:first-of-type {
@@ -131,6 +131,10 @@ main.front-page {
     @include maxWidthCentered($maxWidth);
     @include grid;
     @include childGridSpan;
+
+    h2, h3, p {
+      color: white;
+    }
 
     // welcome to our church
     > div:first-of-type {
