@@ -6,7 +6,7 @@
 @use '../base/typography' as *;
 @use '../base/variables' as *;
 
-
+// this is the universal styling for section with page class
 section.page{
   background-color: $accent-white;
   padding: $responsiveSectionPadding;
@@ -25,22 +25,27 @@ section.page{
  }
 
 
- @include forScreenSizes(750px){
-  div.entry-content{
-    @include gridContainer($column-gap: 32px);
-    // filter section
-    div#woocommerce-sidebars{
-      grid-column: span 3;
-    }
-
-    div.woocommerce{ 
-      grid-column: 4 / span 9;
-    }
-  }
-}
-
   @include forScreenSizes($marginWidthBreakpoint){
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+}
+
+//this is so that it only pertains to the dynamically generated woocommerce
+section.misc{
+  div.entry-content{
+    @include forScreenSizes(750px){
+      &{
+        @include gridContainer($column-gap: 32px);
+        // filter section
+        div#woocommerce-sidebars{
+          grid-column: span 3;
+        }
+    
+        div.woocommerce{ 
+          grid-column: 4 / span 9;
+        }
+      }
+    }
   }
 }
