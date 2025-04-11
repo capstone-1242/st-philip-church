@@ -28,10 +28,35 @@ section#cart-page {
     margin: $sectionMargin;
   }
 
+  h2:last-of-type:not(.is-large.wc-block-cart .wc-block-cart__totals-title) {
+    margin-top: 2rem;
+    text-align: left;
+  }
 
   a.wc-block-cart__submit-button{
     @include button;
   }
 
+  .wp-block-button__link {
+    @include button;
+
+    padding: 8px 31px;
+  }
+
+  @include forScreenSizes (tablet, desktop){
+
+    .wc-block-grid__products {
+      margin-top: 1rem;
+    }
+
+    .wc-block-grid__product {
+      display: flex;
+      flex-direction: column;
+
+      div:last-of-type {
+        margin-top: auto;
+      }
+  }
+  }
 
 }

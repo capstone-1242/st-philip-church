@@ -17,6 +17,7 @@ delete any unused styles after
 // this is the single parish committee wrapper
 section#committee-single {
   background-color: $accent-white;
+  border-radius: 10px;
   // margin: 2rem auto !important;
   padding: $responsiveSectionPadding;
   @include maxWidthCentered($maxWidth);

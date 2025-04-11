@@ -66,13 +66,14 @@ li {
 .entry-header h1,
 .page-header h1 {
   font-size: $font24-to-font48;
-  line-height: $line-height-24-48;
+  line-height: normal;
   font-weight: $font-weight-medium-bold;
 }
 
 
 h2 {
   font-size: $font20-to-font36;
+  line-height: normal;
   font-weight: $font-weight-medium-bold;
 }
 
@@ -173,7 +174,7 @@ h4{
   background-color: $accent-white;
 
   h3 {
-      font-size: $font16-to-font28 !important;
+      font-size: $font18-to-font28 !important;
     }
   // Individual accordion item styling
   .accordion {

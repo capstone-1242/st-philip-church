@@ -27,7 +27,7 @@ section#spiritual-resources-page{
     margin: $sectionMargin;
     margin-inline: 16px;
   }
- 
+
   div.entry-content{
     @include childMarginBottom;
 
@@ -38,15 +38,23 @@ section#spiritual-resources-page{
     img{
       width: 100%;
     }
-  
+
     nav{
       @include childMarginBottom;
       ul{
         @include childMarginBottom;
+
+        background-color: $light-yellow;
+        border-radius: 8px;
+        padding: 1rem;
+
         li{
+          text-decoration: underline;
+
           &:hover{
             color: $accent-red;
-            text-decoration: underline;
+            font-weight: $font-weight-bold;
+            transition: all 0.2s ease-in-out;
           }
         }
       }
@@ -54,7 +62,7 @@ section#spiritual-resources-page{
 
     @include forScreenSizes(tablet, desktop){
       margin-inline: auto;
-      
+
       &{
         @include gridContainer($column-gap: 1.5rem);
         &{
@@ -77,7 +85,7 @@ section#spiritual-resources-page{
     }
   }
 
- 
+
 
 
 

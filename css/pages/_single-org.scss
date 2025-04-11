@@ -19,7 +19,7 @@ section#organization-single{
   background-color: $accent-white;
   // margin: 2rem auto !important;
   padding: $responsiveSectionPadding;
-  border-radius: $mainSectionBorderRadius;
+  border-radius: 10px;
   @include maxWidthCentered($maxWidth);
   @include grid;
   @include childGridSpan;
@@ -64,7 +64,7 @@ section#organization-single{
       h2{
         margin-bottom: $base-line-height;
       }
-      
+
     }
 
   }
@@ -73,7 +73,7 @@ section#organization-single{
     &{
     div.entry-content {
       grid-template-columns: repeat(12, 1fr);
-      
+
       .acf-gallery {
         @include gridContainer($columns: 12, $row-gap: 0);
 
@@ -92,7 +92,7 @@ section#organization-single{
     margin-inline: auto;
     div.entry-content{
       grid-template-rows: repeat(3, auto) 1fr ;
-  
+
       p:first-of-type{
         grid-row: 1 / span 1;
       }
@@ -101,12 +101,12 @@ section#organization-single{
         grid-column: 1 / span 4;
         grid-row: 2 / span 1;
       }
-  
+
       // gallery section
       .acf-gallery{
-        grid-column: 1 / span 8;  
+        grid-column: 1 / span 8;
         grid-template-rows: auto;
-        
+
         a:first-of-type{
           grid-column: 1 / -1;
           grid-row: 1 / span 1;
@@ -117,19 +117,19 @@ section#organization-single{
           grid-row: 2 / -1;
         }
       }
-  
+
       // description
       div.org-description{
         grid-column: 1 / span 8;
         grid-row: 4 / -1;
         @include childMarginBottom;
       }
-  
+
       div.form-recommendation-container{
         grid-column: 9 / span 4;
         grid-row: 3 / -1;
       }
-  
+
     }
   }
 

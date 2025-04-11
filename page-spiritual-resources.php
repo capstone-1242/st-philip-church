@@ -144,7 +144,7 @@ get_header();
 
 			<nav aria-labelledby="extra-resources">
 				<h2 id="extra-resources">Extra Resources</h2>
-				<p>These extra links provide more information about the Orthodox Church.</p>
+				<p>These extra links provide more information about the Orthodox Church:</p>
 				<ul>
 					<li><a href="https://www.antiochian.org/home" rel="noreferrer" target="_blank">The Antiochian Orthodox Archdiocese of North America</a></li>
 					<li><a href="https://www.antiochpatriarchate.org/en/home/" rel="noreferrer" target="_blank">Greek Orthodox Patriarch of Antioch and All the East</a></li>

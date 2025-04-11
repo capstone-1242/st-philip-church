@@ -326,12 +326,13 @@ li {
 .entry-header h1,
 .page-header h1 {
   font-size: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
-  line-height: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem);
+  line-height: normal;
   font-weight: 600;
 }
 
 h2 {
   font-size: clamp(1.25rem, 0.7794rem + 2.3529vw, 2.25rem);
+  line-height: normal;
   font-weight: 600;
 }
 
@@ -422,7 +423,7 @@ h4 {
   background-color: #F5F5F5;
 }
 .accordion-container h3 {
-  font-size: clamp(1.5rem, 1.3824rem + 0.5882vw, 1.75rem) !important;
+  font-size: clamp(1.125rem, 0.7132rem + 2.0588vw, 1.5rem) !important;
 }
 .accordion-container .accordion {
   background: transparent;
@@ -1387,6 +1388,10 @@ section#cart-page {
 section#cart-page {
   margin: clamp(2rem, 1.5294rem + 2.3529vw, 3rem) auto clamp(2rem, 0.4706rem + 7.6471vw, 5.25rem);
 }
+section#cart-page h2:last-of-type:not(.is-large.wc-block-cart .wc-block-cart__totals-title) {
+  margin-top: 2rem;
+  text-align: left;
+}
 section#cart-page a.wc-block-cart__submit-button {
   display: inline-block;
   padding: 16px 31px;
@@ -1403,6 +1408,60 @@ section#cart-page a.wc-block-cart__submit-button {
 section#cart-page a.wc-block-cart__submit-button:hover {
   background-color: #EFC275;
   color: #111933;
+}
+section#cart-page .wp-block-button__link {
+  display: inline-block;
+  padding: 16px 31px;
+  font-size: clamp(1rem, 0.8824rem + 0.5882vw, 1.25rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: #781100;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  padding: 8px 31px;
+}
+section#cart-page .wp-block-button__link:hover {
+  background-color: #EFC275;
+  color: #111933;
+}
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+  section#cart-page .wc-block-grid__products {
+    margin-top: 1rem;
+  }
+  section#cart-page .wc-block-grid__product {
+    display: flex;
+    flex-direction: column;
+  }
+  section#cart-page .wc-block-grid__product div:last-of-type {
+    margin-top: auto;
+  }
+}
+@media only screen and (min-width: tablet) {
+  section#cart-page .wc-block-grid__products {
+    margin-top: 1rem;
+  }
+  section#cart-page .wc-block-grid__product {
+    display: flex;
+    flex-direction: column;
+  }
+  section#cart-page .wc-block-grid__product div:last-of-type {
+    margin-top: auto;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  section#cart-page .wc-block-grid__products {
+    margin-top: 1rem;
+  }
+  section#cart-page .wc-block-grid__product {
+    display: flex;
+    flex-direction: column;
+  }
+  section#cart-page .wc-block-grid__product div:last-of-type {
+    margin-top: auto;
+  }
 }
 
 /* those reusable component like stuff that accept variables */
@@ -2817,6 +2876,7 @@ delete any unused styles after
 */
 section#committee-single {
   background-color: #F5F5F5;
+  border-radius: 10px;
   padding: clamp(1.5rem, 0.7941rem + 3.5294vw, 3rem) clamp(1.5rem, 1.2647rem + 1.1765vw, 2rem);
 }
 section#committee-single {
@@ -3665,12 +3725,21 @@ section#spiritual-resources-page div.entry-content img {
 section#spiritual-resources-page div.entry-content nav > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
+section#spiritual-resources-page div.entry-content nav ul {
+  background-color: #F3DEBC;
+  border-radius: 8px;
+  padding: 1rem;
+}
 section#spiritual-resources-page div.entry-content nav ul > *:not(:last-child) {
   margin-bottom: 1.5rem;
 }
+section#spiritual-resources-page div.entry-content nav ul li {
+  text-decoration: underline;
+}
 section#spiritual-resources-page div.entry-content nav ul li:hover {
   color: #781100;
-  text-decoration: underline;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   section#spiritual-resources-page div.entry-content {
