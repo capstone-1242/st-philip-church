@@ -280,6 +280,15 @@ a.reset-btn{
   grid-column: 1 / -1;
 }
 
+// sorting selection for woocommerce
+form.woocommerce-ordering {
+  select.orderby {
+    padding: 0.75rem 1rem;
+  }
+}
+
+
+
 /*
   TIP for future developers:
 
@@ -299,6 +308,8 @@ a.reset-btn{
   Keep this in mind when adding customizations to WooCommerce-related pages!
 */
 
+
+// this is the background image for all the pages, yes you can totally set it up in the wordpress ui but we did it this way for more control
 .site {
   position: relative;
   background-image: url('/wp-content/themes/st-philip-church/images/church-bg.avif');
@@ -329,3 +340,5 @@ a.reset-btn{
     background-attachment: fixed;
   }
 }
+
+

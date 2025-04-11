@@ -41,7 +41,7 @@ get_header();
 			<div class="donation-info">
 				<div class="main-info">
 					<p>Donations may be given via eTransfer using your online bank account directly to:</p>
-					<p class="email">saintphilipedmonton@gmail.com</p>
+					<p class="email">saintphilipedmonton&#8203;@gmail.com</p>
 				</div>
 	
 				<p>Note: If you are giving extra for candles, bookstore items, church document registration, or hall rentals, please make a note to the Treasurer.</p>
